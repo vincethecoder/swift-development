@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
-class RestaurantTableViewController: UITableViewController {
+class RestaurantTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     var restaurants:[Restaurant] = []
+    var fetchResultController:NSFetchedResultsController!
     
     // MARK: - Lifecyle
     
@@ -19,6 +21,22 @@ class RestaurantTableViewController: UITableViewController {
         
         // Remove the title of the back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        
+        let fetchRequest = NSFetchRequest(entityName: "Restaurant")
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext {
+            
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultController.delegate = self
+            do {
+                try fetchResultController.performFetch()
+                restaurants = fetchResultController.fetchedObjects as! [Restaurant]
+            } catch {
+                print(error)
+            }
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -93,10 +111,25 @@ class RestaurantTableViewController: UITableViewController {
         })
         
         // Delete button
-        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: {
-            (Action, indexPath) -> Void in
-            // Delete the row from the data source
-            self.restaurants.removeAtIndex(indexPath.row)
+//        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: {
+//            (Action, indexPath) -> Void in
+//            // Delete the row from the data source
+//            self.restaurants.removeAtIndex(indexPath.row)
+//        })
+        
+        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action, indexPath) -> Void in
+            
+            // Delete the row from the database
+            if let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext {
+                let restaurantToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as! Restaurant
+                managedObjectContext.deleteObject(restaurantToDelete)
+                
+                do {
+                    try managedObjectContext.save()
+                } catch {
+                    print(error)
+                }
+            }
         })
         
         
@@ -164,5 +197,33 @@ class RestaurantTableViewController: UITableViewController {
         return false
     }
     
+    // MARK: - NSFetchedResultsControllerDelegate Delegate
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch type {
+        case .Insert:
+                if let _newIndexPath = newIndexPath {
+                    tableView.insertRowsAtIndexPaths([_newIndexPath], withRowAnimation: .Fade)
+            }
+        case .Delete:
+            if let _indexPath = indexPath {
+                tableView.deleteRowsAtIndexPaths([_indexPath], withRowAnimation: .Fade)
+            }
+        case .Update:
+            if let _indexPath = indexPath {
+                tableView.reloadRowsAtIndexPaths([_indexPath], withRowAnimation: .Fade)
+            }
+        default:
+            tableView.reloadData()
+        }
+        restaurants = controller.fetchedObjects as! [Restaurant]
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        tableView.endUpdates()
+    }
     
 }

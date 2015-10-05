@@ -74,7 +74,6 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
     @IBAction func saveButtonTapped(sender: AnyObject) {
         
         if let name = nameTextField?.text {
@@ -97,9 +96,9 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
 
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext {
             restaurant = NSEntityDescription.insertNewObjectForEntityForName("Restaurant", inManagedObjectContext: managedObjectContext) as! Restaurant
-            restaurant.name = (self.nameTextField?.text)!
-            restaurant.type = (typeTextField?.text)!
-            restaurant.location = (typeTextField?.text)!
+            restaurant.name = self.nameTextField!.text!
+            restaurant.type = typeTextField!.text!
+            restaurant.location = locationTextField!.text!
             if let restaurantImage = imageView.image {
                 restaurant.image = UIImagePNGRepresentation(restaurantImage)
             }
