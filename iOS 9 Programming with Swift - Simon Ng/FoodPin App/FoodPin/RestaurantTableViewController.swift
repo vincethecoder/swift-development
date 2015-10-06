@@ -50,8 +50,7 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
-        
-        
+
         // Customize the appearance of the search bar
         searchController.searchBar.placeholder = "Search restaurants..."
         searchController.searchBar.tintColor = .whiteColor()
@@ -66,6 +65,21 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
 
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let hasViewedWalkthrough = defaults.boolForKey("hasViewedWalkthrough")
+        
+        if hasViewedWalkthrough {
+            return
+        }
+        
+        if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("WalkthroughController") as? WalkthroughPageViewController {
+            presentViewController(pageViewController, animated: true, completion: nil)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
