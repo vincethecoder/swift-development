@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import CloudKit
 
 class AddRestaurantController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet var imageView:UIImageView!
@@ -110,6 +111,9 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
             }
         }
         
+        // Save the record to iCloud
+        saveRecordToCloud(restaurant)
+
         // Dismiss the view controller
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -126,4 +130,43 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
             noButton.backgroundColor = UIColor(red: 235.0/255.0, green: 73.0/255.0, blue: 27.0/255.0, alpha: 1.0)
         }
     }
+    
+    // MARK: - CloudKit Methods
+    
+    func saveRecordToCloud(restaurant:Restaurant!) -> Void {
+        // Prepare the record to save
+        let record = CKRecord(recordType: "Restaurant")
+        record.setValue(restaurant.name, forKey: "name")
+        record.setValue(restaurant.type, forKey: "type")
+        record.setValue(restaurant.location, forKey: "location")
+        record.setValue(restaurant.phoneNumber, forKey: "phone")
+        
+        // Resize the image
+        let originalImage = UIImage(data: restaurant.image!)!
+        let scalingFactor = (originalImage.size.width > 1024) ? 1024 / originalImage.size.width : 1.0
+        let scaledImage = UIImage(data: restaurant.image!, scale:scalingFactor)!
+        
+        // Write the image to local file for temporary use
+        let imageFilePath = NSTemporaryDirectory() + restaurant.name
+        UIImageJPEGRepresentation(scaledImage, 0.8)?.writeToFile(imageFilePath, atomically: true)
+        
+        // Create image asset for upload
+        let imageFileURL = NSURL(fileURLWithPath: imageFilePath)
+        let imageAsset = CKAsset(fileURL: imageFileURL)
+        record.setValue(imageAsset, forKey: "image")
+        
+        // Get the Public iCloud Database
+        let publicDatabase = CKContainer.defaultContainer().publicCloudDatabase
+        
+        // Save the record to iCloud
+        publicDatabase.saveRecord(record, completionHandler:{ (record:CKRecord?, error:NSError?) -> Void in
+            // Remove temp file
+            do {
+                try NSFileManager.defaultManager().removeItemAtPath(imageFilePath)
+            } catch {
+                print("Failed to save record to the cloud: \(error)")
+            }
+        })
+    }
+    
 }
