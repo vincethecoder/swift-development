@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ToZ-oy-dLh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Uk6-60-Cne">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -356,7 +356,41 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HwA-zD-SVW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1094" y="341"/>
+            <point key="canvasLocation" x="1906" y="341"/>
+        </scene>
+        <!--Discover-->
+        <scene sceneID="6kz-Ld-CEL">
+            <objects>
+                <navigationController id="iCv-l7-CSF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Discover" image="discover" id="Mhb-2z-PWb"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7YI-QH-KS6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="UIu-uh-pvD" kind="relationship" relationship="rootViewController" id="eAt-kx-NRE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="19y-aw-Utd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-284" y="1090"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="WkM-UK-FPY">
+            <objects>
+                <navigationController id="khv-CV-aok" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="About" image="about" id="HeT-QL-50R"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eM9-7x-mdt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hLJ-H3-OrO" kind="relationship" relationship="rootViewController" id="voI-Im-vba"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fq4-zE-uev" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="446" y="1090"/>
         </scene>
         <!--Walkthrough Content View Controller-->
         <scene sceneID="RPN-9f-xQx">
@@ -437,7 +471,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9dw-I3-bbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1091" y="1026"/>
+            <point key="canvasLocation" x="1205" y="1069"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="88z-qd-vcw">
@@ -451,7 +485,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dDp-eF-WX8">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dDp-eF-WX8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
                         </subviews>
@@ -474,7 +508,7 @@
         <!--Restaurant Detail View Controller-->
         <scene sceneID="3c3-qc-tv0">
             <objects>
-                <viewController id="X1C-Cr-2Ja" customClass="RestaurantDetailViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="X1C-Cr-2Ja" customClass="RestaurantDetailViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SNY-6j-gUm"/>
                         <viewControllerLayoutGuide type="bottom" id="b0W-2l-ceo"/>
@@ -483,7 +517,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="36" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d5j-mq-d4E">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="36" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d5j-mq-d4E">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="sIi-c7-ZzH">
@@ -595,7 +629,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2X-aF-CZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1784" y="341"/>
+            <point key="canvasLocation" x="2596" y="341"/>
         </scene>
         <!--Walkthrough Page View Controller-->
         <scene sceneID="Mzb-Dm-sac">
@@ -603,7 +637,7 @@
                 <pageViewController storyboardIdentifier="WalkthroughController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="5Pj-6U-yUE" customClass="WalkthroughPageViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mbF-oC-OR8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="1022"/>
+            <point key="canvasLocation" x="1205" y="1780"/>
         </scene>
         <!--Review View Controller-->
         <scene sceneID="yd4-Ss-iUj">
@@ -726,12 +760,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0km-vb-fBH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="yBz-hs-5gM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2451" y="341"/>
+            <point key="canvasLocation" x="3263" y="341"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Favorites-->
         <scene sceneID="i2W-0O-x50">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ToZ-oy-dLh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="favorite" id="II7-JY-D7M"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OWa-av-VEu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -744,7 +779,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ji-xH-yxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="341"/>
+            <point key="canvasLocation" x="1205" y="341"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7N4-F1-rTo">
@@ -764,11 +799,53 @@
             </objects>
             <point key="canvasLocation" x="1094" y="-337"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="TLe-yH-aP3">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Uk6-60-Cne" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Jn1-vA-o2c">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ToZ-oy-dLh" kind="relationship" relationship="viewControllers" id="ab9-nR-KvC"/>
+                        <segue destination="iCv-l7-CSF" kind="relationship" relationship="viewControllers" id="hHl-S0-R6Q"/>
+                        <segue destination="khv-CV-aok" kind="relationship" relationship="viewControllers" id="PLZ-hm-7aK"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LME-2d-wgj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-26" y="341"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="GZM-N7-yLQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="About" id="hLJ-H3-OrO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8yp-aA-u3S"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ly-q5-VwS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="446.5" y="1534"/>
+        </scene>
+        <!--Discover-->
+        <scene sceneID="Gmq-ut-FO6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Discover" id="UIu-uh-pvD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wso-PW-yQz"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iua-ce-Csz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-284" y="1834"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="about" width="25" height="25"/>
         <image name="barrafina" width="640" height="640"/>
         <image name="close" width="84" height="84"/>
+        <image name="discover" width="25" height="25"/>
         <image name="dislike" width="84" height="84"/>
+        <image name="favorite" width="25" height="25"/>
         <image name="good" width="256" height="256"/>
         <image name="great" width="256" height="256"/>
         <image name="map" width="48" height="48"/>

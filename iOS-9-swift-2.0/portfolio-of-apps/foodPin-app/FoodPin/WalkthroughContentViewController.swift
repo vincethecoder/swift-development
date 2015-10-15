@@ -57,6 +57,8 @@ class WalkthroughContentViewController: UIViewController {
         case 2:
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setBool(true, forKey: "hasViewedWalkthrough")
+            
+            dismissViewControllerAnimated(true, completion: nil)
         default:
             break
         }
