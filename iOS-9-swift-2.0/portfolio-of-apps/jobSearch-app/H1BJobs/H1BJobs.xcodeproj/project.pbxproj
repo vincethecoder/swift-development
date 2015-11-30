@@ -1,0 +1,384 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18AB2EC91C040701002C3484 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EC81C040701002C3484 /* AppDelegate.swift */; };
+		18AB2ECB1C040701002C3484 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2ECA1C040701002C3484 /* FirstViewController.swift */; };
+		18AB2ECD1C040701002C3484 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2ECC1C040701002C3484 /* SecondViewController.swift */; };
+		18AB2ED01C040701002C3484 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AB2ECE1C040701002C3484 /* Main.storyboard */; };
+		18AB2ED21C040701002C3484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18AB2ED11C040701002C3484 /* Assets.xcassets */; };
+		18AB2ED51C040701002C3484 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AB2ED31C040701002C3484 /* LaunchScreen.storyboard */; };
+		18AB2EDD1C04072A002C3484 /* DiceJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EDC1C04072A002C3484 /* DiceJob.swift */; settings = {ASSET_TAGS = (); }; };
+		18AB2EDF1C040746002C3484 /* JobSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EDE1C040746002C3484 /* JobSearchViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		18AB2EE31C061FD5002C3484 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EE21C061FD5002C3484 /* String+Utils.swift */; settings = {ASSET_TAGS = (); }; };
+		18AB2EE71C063F4D002C3484 /* JobUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EE61C063F4D002C3484 /* JobUtils.swift */; settings = {ASSET_TAGS = (); }; };
+		18AB2EE91C06651C002C3484 /* DiceJobDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EE81C06651C002C3484 /* DiceJobDetail.swift */; settings = {ASSET_TAGS = (); }; };
+		18AB2EEB1C0799BD002C3484 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EEA1C0799BD002C3484 /* Job.swift */; settings = {ASSET_TAGS = (); }; };
+		18AB2EED1C07B5AA002C3484 /* CBJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EEC1C07B5AA002C3484 /* CBJob.swift */; settings = {ASSET_TAGS = (); }; };
+		18AB2EEF1C07C529002C3484 /* CBJobResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EEE1C07C529002C3484 /* CBJobResponse.swift */; settings = {ASSET_TAGS = (); }; };
+		18AB2EF11C07F764002C3484 /* CBJobDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EF01C07F764002C3484 /* CBJobDetail.swift */; settings = {ASSET_TAGS = (); }; };
+		18AB2EF71C093100002C3484 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EF61C093100002C3484 /* UIColor+Utils.swift */; settings = {ASSET_TAGS = (); }; };
+		18AB2EF91C09B05C002C3484 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EF81C09B05C002C3484 /* SearchResultsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		18AB2EFB1C09CF9B002C3484 /* H1BJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EFA1C09CF9B002C3484 /* H1BJob.swift */; settings = {ASSET_TAGS = (); }; };
+		18AB2EFD1C0A31C9002C3484 /* NSDate+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EFC1C0A31C9002C3484 /* NSDate+Formatter.swift */; settings = {ASSET_TAGS = (); }; };
+		18AB2F021C0A5C82002C3484 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2F011C0A5C82002C3484 /* ResultsTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		18AB2EC51C040701002C3484 /* H1BJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = H1BJobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18AB2EC81C040701002C3484 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		18AB2ECA1C040701002C3484 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		18AB2ECC1C040701002C3484 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		18AB2ECF1C040701002C3484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		18AB2ED11C040701002C3484 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		18AB2ED41C040701002C3484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		18AB2ED61C040701002C3484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18AB2EDC1C04072A002C3484 /* DiceJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceJob.swift; sourceTree = "<group>"; };
+		18AB2EDE1C040746002C3484 /* JobSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobSearchViewController.swift; sourceTree = "<group>"; };
+		18AB2EE21C061FD5002C3484 /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Utils.swift"; path = "Utilities/String+Utils.swift"; sourceTree = "<group>"; };
+		18AB2EE61C063F4D002C3484 /* JobUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JobUtils.swift; path = Utilities/JobUtils.swift; sourceTree = "<group>"; };
+		18AB2EE81C06651C002C3484 /* DiceJobDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceJobDetail.swift; sourceTree = "<group>"; };
+		18AB2EEA1C0799BD002C3484 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		18AB2EEC1C07B5AA002C3484 /* CBJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBJob.swift; sourceTree = "<group>"; };
+		18AB2EEE1C07C529002C3484 /* CBJobResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBJobResponse.swift; sourceTree = "<group>"; };
+		18AB2EF01C07F764002C3484 /* CBJobDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBJobDetail.swift; sourceTree = "<group>"; };
+		18AB2EF61C093100002C3484 /* UIColor+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
+		18AB2EF81C09B05C002C3484 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		18AB2EFA1C09CF9B002C3484 /* H1BJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H1BJob.swift; sourceTree = "<group>"; };
+		18AB2EFC1C0A31C9002C3484 /* NSDate+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Formatter.swift"; sourceTree = "<group>"; };
+		18AB2F011C0A5C82002C3484 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18AB2EC21C040701002C3484 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18AB2EBC1C040701002C3484 = {
+			isa = PBXGroup;
+			children = (
+				18AB2EC71C040701002C3484 /* H1BJobs */,
+				18AB2EC61C040701002C3484 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		18AB2EC61C040701002C3484 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18AB2EC51C040701002C3484 /* H1BJobs.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18AB2EC71C040701002C3484 /* H1BJobs */ = {
+			isa = PBXGroup;
+			children = (
+				18AB2EC81C040701002C3484 /* AppDelegate.swift */,
+				18AB2F011C0A5C82002C3484 /* ResultsTableViewCell.swift */,
+				18AB2EDE1C040746002C3484 /* JobSearchViewController.swift */,
+				18AB2EF81C09B05C002C3484 /* SearchResultsViewController.swift */,
+				18AB2ECE1C040701002C3484 /* Main.storyboard */,
+				18AB2EE11C060C75002C3484 /* Job Search Engines */,
+				18AB2EE01C060C69002C3484 /* Utilities */,
+				18AB2ED11C040701002C3484 /* Assets.xcassets */,
+				18AB2ED31C040701002C3484 /* LaunchScreen.storyboard */,
+				18AB2ED61C040701002C3484 /* Info.plist */,
+				18AB2ECA1C040701002C3484 /* FirstViewController.swift */,
+				18AB2ECC1C040701002C3484 /* SecondViewController.swift */,
+			);
+			path = H1BJobs;
+			sourceTree = "<group>";
+		};
+		18AB2EE01C060C69002C3484 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				18AB2EE61C063F4D002C3484 /* JobUtils.swift */,
+				18AB2EE21C061FD5002C3484 /* String+Utils.swift */,
+				18AB2EF61C093100002C3484 /* UIColor+Utils.swift */,
+				18AB2EFC1C0A31C9002C3484 /* NSDate+Formatter.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		18AB2EE11C060C75002C3484 /* Job Search Engines */ = {
+			isa = PBXGroup;
+			children = (
+				18AB2EEA1C0799BD002C3484 /* Job.swift */,
+				18AB2EFA1C09CF9B002C3484 /* H1BJob.swift */,
+				18AB2EF41C083324002C3484 /* Dice */,
+				18AB2EF51C083332002C3484 /* CareerBuilder */,
+			);
+			name = "Job Search Engines";
+			sourceTree = "<group>";
+		};
+		18AB2EF41C083324002C3484 /* Dice */ = {
+			isa = PBXGroup;
+			children = (
+				18AB2EDC1C04072A002C3484 /* DiceJob.swift */,
+				18AB2EE81C06651C002C3484 /* DiceJobDetail.swift */,
+			);
+			name = Dice;
+			sourceTree = "<group>";
+		};
+		18AB2EF51C083332002C3484 /* CareerBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				18AB2EEC1C07B5AA002C3484 /* CBJob.swift */,
+				18AB2EF01C07F764002C3484 /* CBJobDetail.swift */,
+				18AB2EEE1C07C529002C3484 /* CBJobResponse.swift */,
+			);
+			name = CareerBuilder;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18AB2EC41C040701002C3484 /* H1BJobs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18AB2ED91C040701002C3484 /* Build configuration list for PBXNativeTarget "H1BJobs" */;
+			buildPhases = (
+				18AB2EC11C040701002C3484 /* Sources */,
+				18AB2EC21C040701002C3484 /* Frameworks */,
+				18AB2EC31C040701002C3484 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = H1BJobs;
+			productName = H1BJobs;
+			productReference = 18AB2EC51C040701002C3484 /* H1BJobs.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18AB2EBD1C040701002C3484 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = vincethecoder;
+				TargetAttributes = {
+					18AB2EC41C040701002C3484 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = 18AB2EC01C040701002C3484 /* Build configuration list for PBXProject "H1BJobs" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 18AB2EBC1C040701002C3484;
+			productRefGroup = 18AB2EC61C040701002C3484 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18AB2EC41C040701002C3484 /* H1BJobs */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18AB2EC31C040701002C3484 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18AB2ED51C040701002C3484 /* LaunchScreen.storyboard in Resources */,
+				18AB2ED21C040701002C3484 /* Assets.xcassets in Resources */,
+				18AB2ED01C040701002C3484 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18AB2EC11C040701002C3484 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18AB2EEF1C07C529002C3484 /* CBJobResponse.swift in Sources */,
+				18AB2ECD1C040701002C3484 /* SecondViewController.swift in Sources */,
+				18AB2F021C0A5C82002C3484 /* ResultsTableViewCell.swift in Sources */,
+				18AB2EE91C06651C002C3484 /* DiceJobDetail.swift in Sources */,
+				18AB2EC91C040701002C3484 /* AppDelegate.swift in Sources */,
+				18AB2EDD1C04072A002C3484 /* DiceJob.swift in Sources */,
+				18AB2EFB1C09CF9B002C3484 /* H1BJob.swift in Sources */,
+				18AB2EEB1C0799BD002C3484 /* Job.swift in Sources */,
+				18AB2EED1C07B5AA002C3484 /* CBJob.swift in Sources */,
+				18AB2ECB1C040701002C3484 /* FirstViewController.swift in Sources */,
+				18AB2EE71C063F4D002C3484 /* JobUtils.swift in Sources */,
+				18AB2EDF1C040746002C3484 /* JobSearchViewController.swift in Sources */,
+				18AB2EE31C061FD5002C3484 /* String+Utils.swift in Sources */,
+				18AB2EFD1C0A31C9002C3484 /* NSDate+Formatter.swift in Sources */,
+				18AB2EF71C093100002C3484 /* UIColor+Utils.swift in Sources */,
+				18AB2EF91C09B05C002C3484 /* SearchResultsViewController.swift in Sources */,
+				18AB2EF11C07F764002C3484 /* CBJobDetail.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		18AB2ECE1C040701002C3484 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18AB2ECF1C040701002C3484 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		18AB2ED31C040701002C3484 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18AB2ED41C040701002C3484 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		18AB2ED71C040701002C3484 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		18AB2ED81C040701002C3484 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18AB2EDA1C040701002C3484 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = H1BJobs/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vincethecoder.H1BJobs;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		18AB2EDB1C040701002C3484 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = H1BJobs/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vincethecoder.H1BJobs;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18AB2EC01C040701002C3484 /* Build configuration list for PBXProject "H1BJobs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18AB2ED71C040701002C3484 /* Debug */,
+				18AB2ED81C040701002C3484 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18AB2ED91C040701002C3484 /* Build configuration list for PBXNativeTarget "H1BJobs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18AB2EDA1C040701002C3484 /* Debug */,
+				18AB2EDB1C040701002C3484 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18AB2EBD1C040701002C3484 /* Project object */;
+}
