@@ -82,8 +82,7 @@ class JobSearchViewController: UIViewController {
     @IBAction func searchButtonTapped(sender: UIButton) {
         print("keywords \(keywordsTextField.text)")
     }
-    
-    
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == resultsSegueIdentifier {
             let searchResults = segue.destinationViewController as? SearchResultsViewController

@@ -15,7 +15,8 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     var searchResults: [H1BJob] = []
     var searchController: UISearchController!
     let cellIdentifier = "jobCell"
-
+    
+    @IBOutlet weak var spinner:UIActivityIndicatorView!
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var company: UILabel!
     @IBOutlet weak var jobLocation: UILabel!
@@ -25,17 +26,28 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let job: Job = Job()
-        job.keywords = keywords
-        
-        title = "H1B Jobs Results"
-        
+        // Add Search Bar
         addSearchBar()
         
+        // Set Search Results Page Title
+        title = "H1B Jobs Results"
+        
         // Start Activity Indicator Animation
+        spinner.center = view.center
+        spinner.hidesWhenStopped = true
+        view.addSubview(spinner)
+        spinner.startAnimating()
+        
+        // Initiate Job Search Request
+        let job: Job = Job()
+        job.keywords = keywords
         job.getJobs { (success, result, joblistings, error) -> () in
             
             // Stop Activity Indicator Animation
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.spinner.stopAnimating()
+            })
+            
             if success {
                 self.jobListings = joblistings!
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
