@@ -13,7 +13,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     var keywords: String?
     var jobListings: [H1BJob] = []
     var searchResults: [H1BJob] = []
-    var searchController:UISearchController!
+    var searchController: UISearchController!
     let cellIdentifier = "jobCell"
 
     @IBOutlet weak var jobTitle: UILabel!
@@ -67,6 +67,9 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         searchController.searchBar.placeholder = "Filter Listings..."
         searchController.searchBar.tintColor = .whiteColor()
         searchController.searchBar.barTintColor = UIColor.H1BBorderColor()
+        
+        // Prevents undefined behavior in app lifecyle
+        searchController.loadViewIfNeeded()
     }
     
     // MARK: - Table view data source
