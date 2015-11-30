@@ -53,6 +53,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnSwipe = true
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func addSearchBar() {

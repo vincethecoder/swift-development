@@ -35,6 +35,11 @@ class JobSearchViewController: UIViewController {
             }, completion: nil)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     func formatLogoImageView() {
         logoImageView.layer.borderWidth = 1.0
         logoImageView.layer.masksToBounds = false
@@ -76,17 +81,12 @@ class JobSearchViewController: UIViewController {
     
     @IBAction func searchButtonTapped(sender: UIButton) {
         print("keywords \(keywordsTextField.text)")
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("searchVCId") as! SearchResultsViewController
-        vc.keywords = keywordsTextField.text
-        let navigationController = UINavigationController(rootViewController: vc)
-        presentViewController(navigationController, animated: true, completion: nil)
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == resultsSegueIdentifier {
-            let nav = segue.destinationViewController as! UINavigationController
-            let searchResults = nav.topViewController as? SearchResultsViewController
+            let searchResults = segue.destinationViewController as? SearchResultsViewController
             searchResults?.keywords = keywordsTextField.text
         }
     }

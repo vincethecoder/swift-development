@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="city_skyline_ny" translatesAutoresizingMaskIntoConstraints="NO" id="V6g-BQ-5vA">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="10" width="600" height="541"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_h1bjobs_HQ" translatesAutoresizingMaskIntoConstraints="NO" id="q9q-8x-OkE">
-                                <rect key="frame" x="503" y="28" width="77" height="71"/>
+                                <rect key="frame" x="503" y="92" width="77" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="77" id="4zq-if-qVx"/>
                                     <constraint firstAttribute="height" constant="71" id="OOM-5r-Xsa"/>
@@ -51,6 +51,7 @@
                                         </state>
                                         <connections>
                                             <action selector="searchButtonTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="5AD-hJ-Lv5"/>
+                                            <segue destination="JTo-c2-1h4" kind="show" identifier="showResults" id="lkJ-8a-hUQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -61,12 +62,12 @@
                             <constraint firstItem="7hb-4C-m6L" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="57P-K2-yGT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="V6g-BQ-5vA" secondAttribute="trailing" constant="-20" id="Ffa-e8-EKo"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="V6g-BQ-5vA" secondAttribute="bottom" id="MCM-FB-GfI"/>
-                            <constraint firstItem="V6g-BQ-5vA" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="-20" id="MdL-cd-PB8"/>
+                            <constraint firstItem="V6g-BQ-5vA" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="-54" id="MdL-cd-PB8"/>
                             <constraint firstItem="V6g-BQ-5vA" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="QIF-BL-CLr"/>
                             <constraint firstItem="7hb-4C-m6L" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="UaJ-TR-LBh"/>
                             <constraint firstItem="V6g-BQ-5vA" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="d7j-cN-8vw"/>
-                            <constraint firstItem="V6g-BQ-5vA" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" constant="-24.5" id="u7x-YE-JGr"/>
-                            <constraint firstItem="V6g-BQ-5vA" firstAttribute="top" secondItem="q9q-8x-OkE" secondAttribute="bottom" constant="-99" id="uT8-H1-pfJ"/>
+                            <constraint firstItem="V6g-BQ-5vA" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" constant="-20" id="u7x-YE-JGr"/>
+                            <constraint firstItem="V6g-BQ-5vA" firstAttribute="top" secondItem="q9q-8x-OkE" secondAttribute="bottom" constant="-153" id="uT8-H1-pfJ"/>
                             <constraint firstItem="q9q-8x-OkE" firstAttribute="leading" secondItem="V6g-BQ-5vA" secondAttribute="trailing" constant="-97" id="ub4-n3-lke"/>
                         </constraints>
                         <variation key="default">
@@ -75,7 +76,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="acW-dT-cKf"/>
+                    <navigationItem key="navigationItem" id="oGB-Nj-BbV"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="V6g-BQ-5vA" id="kiJ-Rl-tsu"/>
                         <outlet property="keywordsTextField" destination="ABh-eo-CQG" id="Pdf-bY-I33"/>
@@ -85,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="1562" y="-320"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="eg0-ux-xic">
@@ -109,7 +110,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Application Developer" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PrU-v4-T2S">
                                                     <rect key="frame" x="0.0" y="0.0" width="252" height="25.5"/>
                                                     <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="18"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1l9-0L-S0g">
@@ -118,25 +119,25 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verizon Co." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHo-iH-I8u">
                                                             <rect key="frame" x="0.0" y="0.0" width="79.5" height="21"/>
                                                             <fontDescription key="fontDescription" name="PingFangHK-Light" family="PingFang HK" pointSize="15"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tysons, VA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nj-qk-9fP">
                                                             <rect key="frame" x="0.0" y="21" width="60" height="17"/>
                                                             <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="12"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted: 2 weeks ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8W-2l-ZMN">
                                                             <rect key="frame" x="0.0" y="38" width="112.5" height="17"/>
                                                             <fontDescription key="fontDescription" name="PingFangHK-Ultralight" family="PingFang HK" pointSize="12"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source: Careerbuilder.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gto-VR-TDe">
                                                             <rect key="frame" x="0.0" y="55" width="146" height="17"/>
                                                             <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="12"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -176,12 +177,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wlv-Pp-vaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2312" y="-310"/>
+            <point key="canvasLocation" x="2360" y="-320"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="H1BJobs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
@@ -195,13 +195,13 @@
                                 <rect key="frame" x="195" y="279" width="209.5" height="41.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
                                 <rect key="frame" x="192" y="329" width="215.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -215,6 +215,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="cPa-gy-q4n"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
@@ -229,7 +230,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="lM2-gu-dSY" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                     </connections>
                 </tabBarController>
@@ -238,22 +239,23 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="uhb-cG-tqN">
+        <scene sceneID="6NF-yf-vm6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Arf-ii-YZM" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lM2-gu-dSY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wRi-hU-ZdW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RVs-wh-BIt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="JTo-c2-1h4" kind="relationship" relationship="rootViewController" id="4XY-Fz-VSU"/>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="1ta-yA-maA"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rh3-Pb-Q7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7IP-1N-JjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1500" y="-310"/>
+            <point key="canvasLocation" x="750" y="-320"/>
         </scene>
     </scenes>
     <resources>
