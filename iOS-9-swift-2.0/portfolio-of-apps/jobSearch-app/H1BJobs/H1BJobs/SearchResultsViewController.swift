@@ -15,6 +15,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     var searchResults: [H1BJob] = []
     var searchController: UISearchController!
     let cellIdentifier = "jobCell"
+    var errorMessage: String?
     
     @IBOutlet weak var spinner:UIActivityIndicatorView!
     @IBOutlet weak var jobTitle: UILabel!
@@ -25,7 +26,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Add Search Bar
         addSearchBar()
         
@@ -38,6 +39,11 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         view.addSubview(spinner)
         spinner.startAnimating()
         
+        self.tableView.separatorStyle = .None
+        
+        // This will remove extra separators from tableview
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        
         // Initiate Job Search Request
         let job: Job = Job()
         job.keywords = keywords
@@ -46,8 +52,11 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             // Stop Activity Indicator Animation
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.spinner.stopAnimating()
+                self.tableView.separatorStyle = .SingleLine
             })
             
+            self.errorMessage = "Connection Failure. Switch your Wi-fi connection"
+            self.jobListings = [H1BJob()]
             if success {
                 self.jobListings = joblistings!
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -56,7 +65,16 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
                     self.tableView.reloadData()
                 })
             } else {
-                
+                if error!.code == 3840 {
+                    self.errorMessage = "Connection Failure. Switch your Wi-fi connection"
+                } else {
+                    self.errorMessage = "No Job Match"
+                }
+
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.title = "H1B Jobs"
+                    self.tableView.reloadData()
+                })
             }
         }
 
@@ -96,24 +114,49 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ResultsTableViewCell
-
-        let row = indexPath.row
-        let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
-        var source = ""
-        
-        if h1bjob.jobdetail.isKindOfClass(DiceJobDetail) {
-            source = "Dice.com"
-        } else if h1bjob.jobdetail.isKindOfClass(CBJobDetail) {
-            source = "CareerBuilder.com"
+        if let _ = errorMessage where errorMessage?.characters.count > 0 {
+            let cell = noListingsCellForTableView(tableView)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ResultsTableViewCell
+            
+            let row = indexPath.row
+            let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
+            var source = ""
+            
+            if h1bjob.jobdetail.isKindOfClass(DiceJobDetail) {
+                source = "Dice.com"
+            } else if h1bjob.jobdetail.isKindOfClass(CBJobDetail) {
+                source = "CareerBuilder.com"
+            }
+            cell.jobTitle.text = h1bjob.title.capitalizedString
+            cell.jobCompany.text = h1bjob.company
+            cell.jobLocation.text = h1bjob.location
+            cell.jobPostDate.text = h1bjob.postdate.wordFullMonthDayYearString()
+            cell.jobSource.text = "Source: \(source)"
+            
+            return cell
         }
-        cell.jobTitle.text = h1bjob.title.capitalizedString
-        cell.jobCompany.text = h1bjob.company
-        cell.jobLocation.text = h1bjob.location
-        cell.jobPostDate.text = h1bjob.postdate.wordFullMonthDayYearString()
-        cell.jobSource.text = "Source: \(source)"
-
-        return cell
+    }
+    
+    func noListingsCellForTableView(tableView: UITableView) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
+        cell?.textLabel?.attributedText = NSMutableAttributedString(
+        string: NSLocalizedString(errorMessage!, comment: ""),
+        attributes:[NSFontAttributeName: UIFont.systemFontOfSize(12),
+        NSForegroundColorAttributeName: UIColor.H1BTextColor()])
+        cell?.textLabel?.numberOfLines = 0
+        cell?.selectionStyle = .None
+        cell?.accessoryType = .None
+        return cell!
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if let _ = errorMessage where errorMessage?.characters.count > 0 {
+            return 50
+        } else {
+            return 130
+        }
     }
 
 
@@ -137,7 +180,6 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         searchResults = jobListings.filter({ (job:H1BJob) -> Bool in
             let titleMatch = job.title.rangeOfString(searchText, options:.CaseInsensitiveSearch)
             let locationMatch = job.location.rangeOfString(searchText, options:.CaseInsensitiveSearch)
-            
             return titleMatch != nil || locationMatch != nil
         })
     }
