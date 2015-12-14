@@ -54,8 +54,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
                 self.spinner.stopAnimating()
                 self.tableView.separatorStyle = .SingleLine
             })
-            
-            self.errorMessage = "Connection Failure. Switch your Wi-fi connection"
+
             self.jobListings = [H1BJob()]
             if success {
                 self.jobListings = joblistings!
