@@ -232,6 +232,7 @@
                                     <outlet property="jobPostDate" destination="x8W-2l-ZMN" id="sHh-kU-kM5"/>
                                     <outlet property="jobSource" destination="gto-VR-TDe" id="xf3-FV-9O5"/>
                                     <outlet property="jobTitle" destination="PrU-v4-T2S" id="sM4-ee-EIA"/>
+                                    <segue destination="RQZ-Bu-MW6" kind="show" id="LNE-RV-iGe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -251,7 +252,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </objects>
-            <point key="canvasLocation" x="2448" y="-502"/>
+            <point key="canvasLocation" x="2430" y="-598"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -432,6 +433,7 @@
                                     <outlet property="jobPostDate" destination="Hfm-56-COA" id="fm1-gd-uow"/>
                                     <outlet property="jobSource" destination="21d-Sf-KNM" id="dhb-ll-GZt"/>
                                     <outlet property="jobTitle" destination="Fym-G4-Py8" id="C8k-1v-AHC"/>
+                                    <segue destination="RQZ-Bu-MW6" kind="show" id="g15-ju-R4p"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -445,6 +447,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8h-8J-KYk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1600" y="506"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="Ng8-dK-DIm">
+            <objects>
+                <viewController id="RQZ-Bu-MW6" customClass="SecondViewController" customModule="H1BJobs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pJf-QF-g8Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="VHh-gV-pav"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cry-Ym-abm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dhW-oy-V1T">
+                                <rect key="frame" x="190" y="271" width="219" height="59"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Coming Soon" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="21w-9B-jQE">
+                                        <rect key="frame" x="0.0" y="0.0" width="219" height="42"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Under Construction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8g-GW-KhC">
+                                        <rect key="frame" x="46" y="42" width="128" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dhW-oy-V1T" firstAttribute="centerY" secondItem="cry-Ym-abm" secondAttribute="centerY" id="31q-zO-S0Z"/>
+                            <constraint firstItem="dhW-oy-V1T" firstAttribute="centerX" secondItem="cry-Ym-abm" secondAttribute="centerX" id="RIR-0Y-dPz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aru-XT-bKf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2422" y="500"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="94j-Nk-hps">
@@ -472,5 +516,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lkJ-8a-hUQ"/>
+        <segue reference="LNE-RV-iGe"/>
     </inferredMetricsTieBreakers>
 </document>

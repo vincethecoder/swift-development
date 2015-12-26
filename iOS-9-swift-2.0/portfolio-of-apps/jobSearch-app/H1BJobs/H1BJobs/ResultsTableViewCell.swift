@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResultsTableViewCell: UITableViewCell {
+class ResultsTableViewCell: BaseTableViewCell {
 
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var jobCompany: UILabel!
@@ -23,5 +23,4 @@ class ResultsTableViewCell: UITableViewCell {
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
 }

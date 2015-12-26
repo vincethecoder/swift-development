@@ -11,9 +11,9 @@ import UIKit
 class HistoryTableViewController: UITableViewController {
     
     var historyList: [History] = []
-    let cellIdentifer = "historyCell"
+    let cellIdentifier = "historyCell"
     let resultsSegueIdentifier = "historyResults"
-    
+    var inlineMessage: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,8 @@ class HistoryTableViewController: UITableViewController {
         
         // This will remove extra separators from tableview
         tableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        inlineMessage = "No Search History... Let's Being Search!"
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -36,8 +38,15 @@ class HistoryTableViewController: UITableViewController {
             for history in historyList {
                 self.historyList.append(history)
             }
-            tableView.reloadData()
         }
+        
+        if self.historyList.count > 0 {
+            inlineMessage = ""
+        } else {
+            self.historyList = [History()]
+        }
+
+        tableView.reloadData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -57,15 +66,20 @@ class HistoryTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifer, forIndexPath: indexPath) as! HistoryTableViewCell
-        
-        let row = indexPath.row
-        let historyData = historyList[row]
-        let keyword = historyData.keyword?.characters.count > 0 ? historyData.keyword?.capitalizedString : "Any H1B Job"
-        cell.jobKeyword.text = "\(keyword!)"
-        cell.jobSearchDate.text = "Searched: \(historyData.timestamp!)"
 
-        return cell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! HistoryTableViewCell
+
+        if let _ = inlineMessage where inlineMessage?.characters.count > 0 {
+            return cell.noListingsCell(inlineMessage!)
+        } else {
+            let row = indexPath.row
+            let historyData = historyList[row]
+            let keyword = historyData.keyword?.characters.count > 0 ? historyData.keyword?.capitalizedString : "Any H1B Job"
+            cell.jobKeyword.text = "\(keyword!)"
+            cell.jobSearchDate.text = "Searched: \(historyData.timestamp!)"
+            
+            return cell
+        }
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

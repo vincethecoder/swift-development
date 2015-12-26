@@ -12,6 +12,7 @@
 		18428C151C2E082100C4CAF1 /* FavoriteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C141C2E082100C4CAF1 /* FavoriteHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		18428C171C2E206A00C4CAF1 /* FavoriteDetailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C161C2E206A00C4CAF1 /* FavoriteDetailHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		18428C191C2ED27C00C4CAF1 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C181C2ED27C00C4CAF1 /* FavoriteTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		18428C1B1C2F2C9200C4CAF1 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C1A1C2F2C9200C4CAF1 /* BaseTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		1886EB601C25F92A00134016 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886EB5F1C25F92A00134016 /* Database.swift */; settings = {ASSET_TAGS = (); }; };
 		1886EB621C25FB3000134016 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1886EB611C25FB3000134016 /* SQLite.framework */; };
 		1886EB641C25FB4100134016 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1886EB631C25FB4100134016 /* libsqlite3.tbd */; };
@@ -51,6 +52,7 @@
 		18428C141C2E082100C4CAF1 /* FavoriteHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteHelper.swift; sourceTree = "<group>"; };
 		18428C161C2E206A00C4CAF1 /* FavoriteDetailHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteDetailHelper.swift; path = Utilities/Database/FavoriteDetailHelper.swift; sourceTree = "<group>"; };
 		18428C181C2ED27C00C4CAF1 /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
+		18428C1A1C2F2C9200C4CAF1 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		1886EB5F1C25F92A00134016 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Database.swift; path = Utilities/Database.swift; sourceTree = "<group>"; };
 		1886EB611C25FB3000134016 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = "Pods/../build/Debug-iphoneos/SQLite.framework"; sourceTree = "<group>"; };
 		1886EB631C25FB4100134016 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				18AB2EC81C040701002C3484 /* AppDelegate.swift */,
+				18428C1A1C2F2C9200C4CAF1 /* BaseTableViewCell.swift */,
 				18AB2F011C0A5C82002C3484 /* ResultsTableViewCell.swift */,
 				1894FFB71C1FD628000EBE18 /* HistoryTableViewCell.swift */,
 				18AB2EDE1C040746002C3484 /* JobSearchViewController.swift */,
@@ -366,6 +369,7 @@
 				1894FFB81C1FD628000EBE18 /* HistoryTableViewCell.swift in Sources */,
 				18AB2EF71C093100002C3484 /* UIColor+Utils.swift in Sources */,
 				18AB2EF91C09B05C002C3484 /* SearchResultsViewController.swift in Sources */,
+				18428C1B1C2F2C9200C4CAF1 /* BaseTableViewCell.swift in Sources */,
 				18AB2EF11C07F764002C3484 /* CBJobDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

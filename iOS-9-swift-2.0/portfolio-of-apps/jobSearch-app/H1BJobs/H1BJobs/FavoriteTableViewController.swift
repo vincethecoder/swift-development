@@ -71,9 +71,10 @@ class FavoriteTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ResultsTableViewCell
+
         if let _ = inlineMessage where inlineMessage?.characters.count > 0 {
-            let cell = noListingsCell(tableView)
-            return cell
+            return cell.noListingsCell(inlineMessage!)
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ResultsTableViewCell
             
@@ -86,18 +87,6 @@ class FavoriteTableViewController: UITableViewController {
             
             return cell
         }
-    }
-    
-    func noListingsCell(tableView: UITableView) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
-        cell?.textLabel?.attributedText = NSMutableAttributedString(
-            string: NSLocalizedString(inlineMessage!, comment: ""),
-            attributes:[NSFontAttributeName: UIFont.systemFontOfSize(12),
-                NSForegroundColorAttributeName: UIColor.H1BTextColor()])
-        cell?.textLabel?.numberOfLines = 0
-        cell?.selectionStyle = .None
-        cell?.accessoryType = .None
-        return cell!
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -129,8 +118,9 @@ class FavoriteTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
     }
 
 }

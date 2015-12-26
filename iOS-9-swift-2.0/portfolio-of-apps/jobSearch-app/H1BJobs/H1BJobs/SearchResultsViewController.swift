@@ -120,12 +120,11 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ResultsTableViewCell
+        
         if let _ = errorMessage where errorMessage?.characters.count > 0 {
-            let cell = noListingsCell(tableView)
-            return cell
+            return cell.noListingsCell(errorMessage!)
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ResultsTableViewCell
-            
             let row = indexPath.row
             let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
             var source = ""
@@ -145,18 +144,6 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         }
     }
     
-    func noListingsCell(tableView: UITableView) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
-        cell?.textLabel?.attributedText = NSMutableAttributedString(
-        string: NSLocalizedString(errorMessage!, comment: ""),
-        attributes:[NSFontAttributeName: UIFont.systemFontOfSize(12),
-        NSForegroundColorAttributeName: UIColor.H1BTextColor()])
-        cell?.textLabel?.numberOfLines = 0
-        cell?.selectionStyle = .None
-        cell?.accessoryType = .None
-        return cell!
-    }
-    
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if let _ = errorMessage where errorMessage?.characters.count > 0 {
             return tableHeightErrorCell
@@ -171,12 +158,12 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         }
     }
 
-
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
     }
 
     // MARK: - Search

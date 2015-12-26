@@ -8,8 +8,7 @@
 
 import UIKit
 
-class HistoryTableViewCell: UITableViewCell {
-    
+class HistoryTableViewCell: BaseTableViewCell {
     
     @IBOutlet weak var jobKeyword: UILabel!
     @IBOutlet weak var jobSearchDate: UILabel!

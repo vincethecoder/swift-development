@@ -24,4 +24,12 @@ class History: NSObject {
         self.state = state
         self.timestamp = timestamp
     }
+    
+    override init() {
+        self.searchId = Int64()
+        self.keyword = String()
+        self.location = String()
+        self.state = String()
+        self.timestamp = String()
+    }
 }
