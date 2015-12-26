@@ -41,6 +41,9 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         
         self.tableView.separatorStyle = .None
         
+        // Preserves selection between presentations
+        self.clearsSelectionOnViewWillAppear = false
+        
         // This will remove extra separators from tableview
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
@@ -142,7 +145,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
         cell?.textLabel?.attributedText = NSMutableAttributedString(
         string: NSLocalizedString(errorMessage!, comment: ""),
-        attributes:[NSFontAttributeName: UIFont.systemFontOfSize(12),
+        attributes:[NSFontAttributeName: UIFont.systemFontOfSize(8),
         NSForegroundColorAttributeName: UIColor.H1BTextColor()])
         cell?.textLabel?.numberOfLines = 0
         cell?.selectionStyle = .None
@@ -152,9 +155,15 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if let _ = errorMessage where errorMessage?.characters.count > 0 {
-            return 50
+            return 20
         } else {
-            return 130
+            let row = indexPath.row
+            let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
+            if UIApplication.sharedApplication().statusBarOrientation.isPortrait {
+                return h1bjob.title.characters.count < 60 ? 81 : 97
+            } else {
+                return 81
+            }
         }
     }
 
