@@ -16,6 +16,10 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     var searchController: UISearchController!
     let cellIdentifier = "jobCell"
     var errorMessage: String?
+
+    let tableHeightSingleLine: CGFloat = 81
+    let tableHeightMultiLine: CGFloat = 97
+    let tableHeightErrorCell: CGFloat = 45
     
     @IBOutlet weak var spinner:UIActivityIndicatorView!
     @IBOutlet weak var jobTitle: UILabel!
@@ -117,7 +121,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if let _ = errorMessage where errorMessage?.characters.count > 0 {
-            let cell = noListingsCellForTableView(tableView)
+            let cell = noListingsCell(tableView)
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ResultsTableViewCell
@@ -141,11 +145,11 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         }
     }
     
-    func noListingsCellForTableView(tableView: UITableView) -> UITableViewCell {
+    func noListingsCell(tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
         cell?.textLabel?.attributedText = NSMutableAttributedString(
         string: NSLocalizedString(errorMessage!, comment: ""),
-        attributes:[NSFontAttributeName: UIFont.systemFontOfSize(8),
+        attributes:[NSFontAttributeName: UIFont.systemFontOfSize(12),
         NSForegroundColorAttributeName: UIColor.H1BTextColor()])
         cell?.textLabel?.numberOfLines = 0
         cell?.selectionStyle = .None
@@ -155,14 +159,14 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if let _ = errorMessage where errorMessage?.characters.count > 0 {
-            return 20
+            return tableHeightErrorCell
         } else {
             let row = indexPath.row
             let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
             if UIApplication.sharedApplication().statusBarOrientation.isPortrait {
-                return h1bjob.title.characters.count < 60 ? 81 : 97
+                return h1bjob.title.characters.count < 60 ? tableHeightSingleLine : tableHeightMultiLine
             } else {
-                return 81
+                return tableHeightSingleLine
             }
         }
     }
