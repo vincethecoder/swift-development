@@ -13,6 +13,11 @@
 		18428C171C2E206A00C4CAF1 /* FavoriteDetailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C161C2E206A00C4CAF1 /* FavoriteDetailHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		18428C191C2ED27C00C4CAF1 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C181C2ED27C00C4CAF1 /* FavoriteTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		18428C1B1C2F2C9200C4CAF1 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C1A1C2F2C9200C4CAF1 /* BaseTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		18428C1D1C35CE7100C4CAF1 /* H1BCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C1C1C35CE7100C4CAF1 /* H1BCompany.swift */; settings = {ASSET_TAGS = (); }; };
+		18428C1F1C35DC0800C4CAF1 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C1E1C35DC0800C4CAF1 /* UIImage+Utils.swift */; settings = {ASSET_TAGS = (); }; };
+		18428C211C37B3E500C4CAF1 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C201C37B3E500C4CAF1 /* UIImageView+Utils.swift */; settings = {ASSET_TAGS = (); }; };
+		18428C231C38C24400C4CAF1 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C221C38C24400C4CAF1 /* ImageLoader.swift */; settings = {ASSET_TAGS = (); }; };
+		18428C251C39569500C4CAF1 /* JobWebViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C241C39569500C4CAF1 /* JobWebViewControler.swift */; settings = {ASSET_TAGS = (); }; };
 		1886EB601C25F92A00134016 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886EB5F1C25F92A00134016 /* Database.swift */; settings = {ASSET_TAGS = (); }; };
 		1886EB621C25FB3000134016 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1886EB611C25FB3000134016 /* SQLite.framework */; };
 		1886EB641C25FB4100134016 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1886EB631C25FB4100134016 /* libsqlite3.tbd */; };
@@ -53,6 +58,11 @@
 		18428C161C2E206A00C4CAF1 /* FavoriteDetailHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteDetailHelper.swift; path = Utilities/Database/FavoriteDetailHelper.swift; sourceTree = "<group>"; };
 		18428C181C2ED27C00C4CAF1 /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
 		18428C1A1C2F2C9200C4CAF1 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		18428C1C1C35CE7100C4CAF1 /* H1BCompany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H1BCompany.swift; sourceTree = "<group>"; };
+		18428C1E1C35DC0800C4CAF1 /* UIImage+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Utils.swift"; path = "Utilities/UIImage+Utils.swift"; sourceTree = "<group>"; };
+		18428C201C37B3E500C4CAF1 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+Utils.swift"; path = "Utilities/UIImageView+Utils.swift"; sourceTree = "<group>"; };
+		18428C221C38C24400C4CAF1 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageLoader.swift; path = Utilities/ImageLoader.swift; sourceTree = "<group>"; };
+		18428C241C39569500C4CAF1 /* JobWebViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobWebViewControler.swift; sourceTree = "<group>"; };
 		1886EB5F1C25F92A00134016 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Database.swift; path = Utilities/Database.swift; sourceTree = "<group>"; };
 		1886EB611C25FB3000134016 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = "Pods/../build/Debug-iphoneos/SQLite.framework"; sourceTree = "<group>"; };
 		1886EB631C25FB4100134016 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -145,6 +155,7 @@
 				1894FFB71C1FD628000EBE18 /* HistoryTableViewCell.swift */,
 				18AB2EDE1C040746002C3484 /* JobSearchViewController.swift */,
 				18AB2EF81C09B05C002C3484 /* SearchResultsViewController.swift */,
+				18428C241C39569500C4CAF1 /* JobWebViewControler.swift */,
 				18428C181C2ED27C00C4CAF1 /* FavoriteTableViewController.swift */,
 				1894FFB51C1FD4AF000EBE18 /* HistoryTableViewController.swift */,
 				18AB2ECE1C040701002C3484 /* Main.storyboard */,
@@ -163,8 +174,11 @@
 			isa = PBXGroup;
 			children = (
 				18AB2EE61C063F4D002C3484 /* JobUtils.swift */,
+				18428C221C38C24400C4CAF1 /* ImageLoader.swift */,
 				1886EB651C2704F200134016 /* Database */,
 				18AB2EE21C061FD5002C3484 /* String+Utils.swift */,
+				18428C201C37B3E500C4CAF1 /* UIImageView+Utils.swift */,
+				18428C1E1C35DC0800C4CAF1 /* UIImage+Utils.swift */,
 				18AB2EF61C093100002C3484 /* UIColor+Utils.swift */,
 				18AB2EFC1C0A31C9002C3484 /* NSDate+Formatter.swift */,
 			);
@@ -176,6 +190,7 @@
 			children = (
 				18AB2EEA1C0799BD002C3484 /* Job.swift */,
 				18AB2EFA1C09CF9B002C3484 /* H1BJob.swift */,
+				18428C1C1C35CE7100C4CAF1 /* H1BCompany.swift */,
 				18AB2EF41C083324002C3484 /* Dice */,
 				18AB2EF51C083332002C3484 /* CareerBuilder */,
 			);
@@ -352,12 +367,16 @@
 				18AB2EDD1C04072A002C3484 /* DiceJob.swift in Sources */,
 				18428C171C2E206A00C4CAF1 /* FavoriteDetailHelper.swift in Sources */,
 				1886EB691C27075C00134016 /* HistoryHelper.swift in Sources */,
+				18428C251C39569500C4CAF1 /* JobWebViewControler.swift in Sources */,
+				18428C1F1C35DC0800C4CAF1 /* UIImage+Utils.swift in Sources */,
 				18AB2EFB1C09CF9B002C3484 /* H1BJob.swift in Sources */,
+				18428C211C37B3E500C4CAF1 /* UIImageView+Utils.swift in Sources */,
 				18AB2EEB1C0799BD002C3484 /* Job.swift in Sources */,
 				18AB2EED1C07B5AA002C3484 /* CBJob.swift in Sources */,
 				18428C151C2E082100C4CAF1 /* FavoriteHelper.swift in Sources */,
 				18AB2ECB1C040701002C3484 /* FirstViewController.swift in Sources */,
 				1886EB6D1C27096700134016 /* History.swift in Sources */,
+				18428C1D1C35CE7100C4CAF1 /* H1BCompany.swift in Sources */,
 				18428C131C2E073A00C4CAF1 /* FavoriteDetail.swift in Sources */,
 				18AB2EE71C063F4D002C3484 /* JobUtils.swift in Sources */,
 				18AB2EDF1C040746002C3484 /* JobSearchViewController.swift in Sources */,
@@ -366,6 +385,7 @@
 				18AB2EFD1C0A31C9002C3484 /* NSDate+Formatter.swift in Sources */,
 				1894FFB61C1FD4AF000EBE18 /* HistoryTableViewController.swift in Sources */,
 				18428C111C2DFFDB00C4CAF1 /* Favorite.swift in Sources */,
+				18428C231C38C24400C4CAF1 /* ImageLoader.swift in Sources */,
 				1894FFB81C1FD628000EBE18 /* HistoryTableViewCell.swift in Sources */,
 				18AB2EF71C093100002C3484 /* UIColor+Utils.swift in Sources */,
 				18AB2EF91C09B05C002C3484 /* SearchResultsViewController.swift in Sources */,

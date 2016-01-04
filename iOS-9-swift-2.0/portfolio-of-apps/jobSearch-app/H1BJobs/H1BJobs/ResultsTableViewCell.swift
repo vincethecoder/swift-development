@@ -15,7 +15,8 @@ class ResultsTableViewCell: BaseTableViewCell {
     @IBOutlet weak var jobLocation: UILabel!
     @IBOutlet weak var jobPostDate: UILabel!
     @IBOutlet weak var jobSource: UILabel!
-    
+    @IBOutlet weak var jobCompanyLogo: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }

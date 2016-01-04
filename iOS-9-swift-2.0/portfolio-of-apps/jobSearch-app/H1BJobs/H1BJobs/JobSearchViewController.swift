@@ -61,7 +61,7 @@ class JobSearchViewController: UIViewController {
             attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
         
         textField.borderStyle = .RoundedRect
-        textField.backgroundColor = .whiteColor()
+        textField.backgroundColor = UIColor.whiteColor()
 
         textField.leftViewMode = .Always
         textField.leftView = UIImageView(image: UIImage(named: "action_search"))

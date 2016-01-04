@@ -15,10 +15,11 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     var searchResults: [H1BJob] = []
     var searchController: UISearchController!
     let cellIdentifier = "jobCell"
+    let webViewSegueIdentifier = "jobHyperLink"
     var errorMessage: String?
 
-    let tableHeightSingleLine: CGFloat = 81
-    let tableHeightMultiLine: CGFloat = 97
+    let tableHeightSingleLine: CGFloat = 69
+    let tableHeightMultiLine: CGFloat = 83
     let tableHeightErrorCell: CGFloat = 45
     
     @IBOutlet weak var spinner:UIActivityIndicatorView!
@@ -127,21 +128,39 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         } else {
             let row = indexPath.row
             let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
-            var source = ""
+            var imageUrl = ""
             
             if h1bjob.jobdetail.isKindOfClass(DiceJobDetail) {
-                source = "Dice.com"
+                imageUrl = "http://www.godel.com/assets/images/autogen/a_logo_dice_inc.gif"
             } else if h1bjob.jobdetail.isKindOfClass(CBJobDetail) {
-                source = "CareerBuilder.com"
+                if let cbJobDetail = h1bjob.jobdetail as? CBJobDetail {
+                    if let _ = cbJobDetail.companyImageURL {
+                        imageUrl = cbJobDetail.companyImageURL!
+                    }
+                }
             }
             cell.jobTitle.text = h1bjob.title.capitalizedString
             cell.jobCompany.text = h1bjob.company
             cell.jobLocation.text = h1bjob.location
-            cell.jobPostDate.text = h1bjob.postdate.wordFullMonthDayYearString()
-            cell.jobSource.text = "Source: \(source)"
+            cell.jobPostDate.text = "Posted: \(h1bjob.postdate.wordFullMonthDayYearString())"
+            cell.jobSource.text = ""
+            
+            if imageUrl.characters.count > 0 {
+                ImageLoader.sharedLoader.imageForUrl(imageUrl, completionHandler:{(image: UIImage?, url: String) in
+                    if image != nil {
+                        cell.jobCompanyLogo.image = image
+                    }
+                })
+            } else {
+                cell.jobCompanyLogo.image = UIImage(named: "cbLogo")
+            }
             
             return cell
         }
+    }
+    
+    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation:      UIInterfaceOrientation, duration: NSTimeInterval) {
+        tableView.reloadData()
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -150,8 +169,22 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         } else {
             let row = indexPath.row
             let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
+            
             if UIApplication.sharedApplication().statusBarOrientation.isPortrait {
-                return h1bjob.title.characters.count < 60 ? tableHeightSingleLine : tableHeightMultiLine
+                var unknownCompanyHeightOffset: CGFloat = 0
+                var tableHeight: CGFloat = 0
+
+                if h1bjob.company.characters.count == 0 {
+                    unknownCompanyHeightOffset = 11
+                }
+
+                if h1bjob.title.characters.count < 40 {
+                    tableHeight = tableHeightSingleLine - unknownCompanyHeightOffset
+                } else {
+                    tableHeight = tableHeightMultiLine - unknownCompanyHeightOffset
+                }
+                
+                return tableHeight
             } else {
                 return tableHeightSingleLine
             }
@@ -164,6 +197,19 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
+        
+        if segue.identifier == webViewSegueIdentifier, let indexPath = tableView.indexPathForSelectedRow {
+            let webView = segue.destinationViewController as? JobWebViewControler
+            let row = indexPath.row
+            let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
+            if h1bjob.jobdetail.isKindOfClass(DiceJobDetail) {
+                let dicejob = h1bjob.jobdetail as? DiceJobDetail
+                webView?.jobUrl = dicejob?.detailUrl
+            } else if h1bjob.jobdetail.isKindOfClass(CBJobDetail) {
+                let cbJobDetail = h1bjob.jobdetail as? CBJobDetail
+                webView?.jobUrl = cbJobDetail?.detailUrl
+            }
+        }
     }
 
     // MARK: - Search
@@ -182,4 +228,5 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             return titleMatch != nil || locationMatch != nil
         })
     }
+
 }

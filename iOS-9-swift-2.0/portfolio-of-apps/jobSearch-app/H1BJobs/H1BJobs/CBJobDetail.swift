@@ -50,6 +50,11 @@ class CBJobDetail: NSObject {
     var applyRequirements: String?
     var skills: [String : AnyObject]?
     var jobLevel: String?
+    var detailUrl: String? {
+        get {
+            return "http://mobile.careerbuilder.com/seeker/job/\(DID!)"
+        }
+    }
     
     init(dict: [String: AnyObject]) {
         super.init()
