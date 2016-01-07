@@ -14,9 +14,8 @@ class FavoriteHelper: DataHelperProtocol {
     static let favoriteId = Expression<Int64>("id")
     static let jobTitle = Expression<String?>("jobtitle")
     static let company = Expression<String?>("company")
-    static let jobId = Expression<String?>("jobid")
     static let savedTimestamp = Expression<String?>("timestamp")
-    static let source = Expression<String?>("source")
+    static let image = Expression<NSData?>("image")
     
     typealias T = Favorite
     static let table = Table("favorite")
@@ -43,11 +42,10 @@ class FavoriteHelper: DataHelperProtocol {
             let sql = table.create(temporary: false, ifNotExists: true, block: {
                 t in
                 t.column(favoriteId, primaryKey: true)
-                t.column(jobId, unique: true)
                 t.column(jobTitle)
                 t.column(company)
                 t.column(savedTimestamp)
-                t.column(source)
+                t.column(image)
             })
             try db.run(sql)
         } catch let error as NSError {
@@ -59,7 +57,7 @@ class FavoriteHelper: DataHelperProtocol {
     
     static func insert(item: T) -> Int64 {
         if tableCreated {
-            let insert = table.insert(jobId <- item.jobId, jobTitle <- item.jobTitle, company <- item.company, savedTimestamp <- item.savedTimestamp, source <- item.source)
+            let insert = table.insert(jobTitle <- item.jobTitle, company <- item.company, savedTimestamp <- item.savedTimestamp, image <- item.image)
             do {
                 let rowId = try db.run(insert)
                 return rowId
@@ -73,8 +71,8 @@ class FavoriteHelper: DataHelperProtocol {
 
     static func delete(item: T) -> Bool {
         do {
-            if let id = item.favoriteId {
-                let record = table.filter(favoriteId == id)
+            if tableCreated, let title = item.jobTitle {
+                let record = table.filter(jobTitle == title)
                 try db.run(record.delete())
                 return true
             }
@@ -88,18 +86,20 @@ class FavoriteHelper: DataHelperProtocol {
         var records: [T] = []
         if tableCreated {
             for f in db.prepare(table) {
-                let favoriteRecord = Favorite(favoriteId: f.get(favoriteId), jobTitle: f.get(jobTitle)!, company: f.get(company)!, jobId: f.get(jobId)!, savedTimestamp: f.get(savedTimestamp)!, source: f.get(source)!)
+                let favoriteRecord = Favorite(favoriteId: f.get(favoriteId), jobTitle: f.get(jobTitle)!, company: f.get(company)!, savedTimestamp: f.get(savedTimestamp)!, image: f.get(image)!)
                 records.append(favoriteRecord)
             }
         }
         return records
     }
     
-    static func find(id: Int64) -> T? {
-        let query = table.filter(favoriteId == id)
+    static func find(item: T) -> T? {
+        let query = table.filter(jobTitle == item.jobTitle && company == item.company)
         var result: T?
-        if let item = db.pluck(query) {
-            result = Favorite(favoriteId: item[favoriteId], jobTitle: item[jobId]!, company: item[company]!, jobId: item[jobId]!, savedTimestamp: item[savedTimestamp]!, source: item[source]!)
+        if tableCreated {
+            if let item = db.pluck(query) {
+                result = Favorite(favoriteId: item[favoriteId], jobTitle: item[jobTitle]!, company: item[company]!, savedTimestamp: item[savedTimestamp]!, image: item[image]!)
+            }
         }
         return result
     }

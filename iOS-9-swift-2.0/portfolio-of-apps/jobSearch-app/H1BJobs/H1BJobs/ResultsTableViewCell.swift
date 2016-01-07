@@ -8,20 +8,39 @@
 
 import UIKit
 
+protocol ResultsTableViewCellDelegate {
+    func saveButtonTapped(cell: ResultsTableViewCell)
+}
+
 class ResultsTableViewCell: BaseTableViewCell {
 
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var jobCompany: UILabel!
     @IBOutlet weak var jobLocation: UILabel!
     @IBOutlet weak var jobPostDate: UILabel!
-    @IBOutlet weak var jobSource: UILabel!
     @IBOutlet weak var jobCompanyLogo: UIImageView!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var saveButtonView: UIView!
+    
+    var delegate: ResultsTableViewCellDelegate?
+
+    let likeImage = UIImage(named: "like")?.imageWithRenderingMode(.AlwaysTemplate)
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        if let _ = saveButton {
+            let tap = UITapGestureRecognizer(target: self, action: Selector("saveButtonTapped:"))
+            saveButtonView.addGestureRecognizer(tap)
+            saveButton.setImage(likeImage, forState: .Normal)
+        }
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    @IBAction func saveButtonTapped(sender: AnyObject) {
+        delegate?.saveButtonTapped(self)
     }
 }

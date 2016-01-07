@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchResultsViewController: UITableViewController, UISearchResultsUpdating {
+class SearchResultsViewController: UITableViewController, UISearchResultsUpdating, ResultsTableViewCellDelegate {
     
     var keywords: String?
     var jobListings: [H1BJob] = []
@@ -16,12 +16,29 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     var searchController: UISearchController!
     let cellIdentifier = "jobCell"
     let webViewSegueIdentifier = "jobHyperLink"
-    var errorMessage: String?
+    var errorMessage: String!
+    var dbFavJobs: [String]!
+    var favoriteJobs: [String] {
+        get {
+            if let favoriteJobs = FavoriteHelper.findAll() {
+                if dbFavJobs != nil && dbFavJobs.count > 0 {
+                    dbFavJobs.removeAll()
+                } else {
+                    dbFavJobs = []
+                }
+                for job in favoriteJobs {
+                    if let title = job.jobTitle {
+                        dbFavJobs.append(title)
+                    }
+                }
+            }
+            return dbFavJobs
+        }
+    }
 
     let tableHeightSingleLine: CGFloat = 69
-    let tableHeightMultiLine: CGFloat = 83
     let tableHeightErrorCell: CGFloat = 45
-    
+
     @IBOutlet weak var spinner:UIActivityIndicatorView!
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var company: UILabel!
@@ -61,6 +78,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.spinner.stopAnimating()
                 self.tableView.separatorStyle = .SingleLine
+                self.tableView.layer.shadowRadius = 10
             })
 
             self.jobListings = [H1BJob()]
@@ -93,6 +111,10 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
     func addSearchBar() {
         // Add a Search bar
         searchController = UISearchController(searchResultsController: nil)
@@ -129,7 +151,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             let row = indexPath.row
             let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
             var imageUrl = ""
-            
+
             if h1bjob.jobdetail.isKindOfClass(DiceJobDetail) {
                 imageUrl = "http://www.godel.com/assets/images/autogen/a_logo_dice_inc.gif"
             } else if h1bjob.jobdetail.isKindOfClass(CBJobDetail) {
@@ -143,7 +165,6 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             cell.jobCompany.text = h1bjob.company
             cell.jobLocation.text = h1bjob.location
             cell.jobPostDate.text = "Posted: \(h1bjob.postdate.wordFullMonthDayYearString())"
-            cell.jobSource.text = ""
             
             if imageUrl.characters.count > 0 {
                 ImageLoader.sharedLoader.imageForUrl(imageUrl, completionHandler:{(image: UIImage?, url: String) in
@@ -154,36 +175,51 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             } else {
                 cell.jobCompanyLogo.image = UIImage(named: "cbLogo")
             }
+            cell.delegate = self
+            
+            cell.saveButton.tintColor = favoriteJobs.contains(h1bjob.title) ? UIColor.redColor() : UIColor.lightGrayColor()
             
             return cell
         }
     }
     
-    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation:      UIInterfaceOrientation, duration: NSTimeInterval) {
-        tableView.reloadData()
+    func saveButtonTapped(cell: ResultsTableViewCell) {
+        
+        let companyLogo = UIImagePNGRepresentation((cell.jobCompanyLogo?.image)!)
+        let jobRecord = Favorite(favoriteId: 0, jobTitle: cell.jobTitle.text!, company: cell.jobCompany.text!, savedTimestamp: NSDate.init().wordMonthDayYearString(), image: companyLogo!)
+
+        
+        if let record = FavoriteHelper.find(jobRecord) {
+            let success: Bool = FavoriteHelper.delete(record)
+            
+            if success == true {
+                cell.saveButton.tintColor = UIColor.lightGrayColor()
+            }
+        } else {
+            let tintColor = cell.saveButton.tintColor == UIColor.redColor() ? UIColor.lightGrayColor() : UIColor.redColor()
+            cell.saveButton.tintColor = tintColor
+        }
+
+        if cell.saveButton.tintColor == UIColor.redColor() {
+            let favoriteId = FavoriteHelper.insert(jobRecord)
+            print("favorite id \(favoriteId)")
+        }
+
     }
     
+    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        tableView.reloadData()
+    }
+
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if let _ = errorMessage where errorMessage?.characters.count > 0 {
             return tableHeightErrorCell
         } else {
             let row = indexPath.row
             let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
-            
             if UIApplication.sharedApplication().statusBarOrientation.isPortrait {
-                var unknownCompanyHeightOffset: CGFloat = 0
-                var tableHeight: CGFloat = 0
-
-                if h1bjob.company.characters.count == 0 {
-                    unknownCompanyHeightOffset = 11
-                }
-
-                if h1bjob.title.characters.count < 40 {
-                    tableHeight = tableHeightSingleLine - unknownCompanyHeightOffset
-                } else {
-                    tableHeight = tableHeightMultiLine - unknownCompanyHeightOffset
-                }
-                
+                let unknownCompanyHeightOffset: CGFloat = h1bjob.company.characters.count == 0  ? 11 : 0
+                let tableHeight: CGFloat = tableHeightSingleLine - unknownCompanyHeightOffset
                 return tableHeight
             } else {
                 return tableHeightSingleLine

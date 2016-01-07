@@ -68,25 +68,41 @@ class HistoryHelper: DataHelperProtocol {
     }
     
     static func delete(item: T) -> Bool {
-        do {
-            if let id = item.searchId {
-                let record = table.filter(searchId == id)
-                try db.run(record.delete())
-                return true
+        if tableCreated {
+            do {
+                if let searchKeyword = item.keyword {
+                    let record = table.filter(keyword == searchKeyword)
+                    try db.run(record.delete())
+                    return true
+                }
+            } catch let error as NSError {
+                print("\(error.localizedDescription)")
             }
-        } catch let error as NSError {
-            print("\(error.localizedDescription)")
         }
         return false
     }
     
     static func findAll() -> [T]? {
         var records: [T] = []
-        for h in db.prepare(table.order(searchId.desc)) {
-            let historyRecord = History(searchId: h.get(searchId), keyword: h.get(keyword)!, location: h.get(location)!, state: h.get(state)!, timestamp: h.get(timestamp)!)
-            records.append(historyRecord)
+        if tableCreated {
+            for h in db.prepare(table.order(searchId.desc)) {
+                let historyRecord = History(searchId: h.get(searchId), keyword: h.get(keyword)!, location: h.get(location)!, state: h.get(state)!, timestamp: h.get(timestamp)!)
+                records.append(historyRecord)
+            }
         }
+        
         return records
+    }
+    
+    static func find(item: T) -> T? {
+        let query = table.filter(keyword == item.keyword)
+        var result: T?
+        if tableCreated {
+            if let item = db.pluck(query) {
+                result = History(searchId: item[searchId], keyword: item[keyword]!, location: item[location]!, state: item[state]!, timestamp: item[timestamp]!)
+            }
+        }
+        return result
     }
 
 }

@@ -14,8 +14,7 @@ class FavoriteTableViewController: UITableViewController {
     let cellIdentifier = "favoriteCell"
     var inlineMessage: String?
     
-    let tableHeightSingleLine: CGFloat = 81
-    let tableHeightMultiLine: CGFloat = 97
+    let tableHeightSingleLine: CGFloat = 69
     let tableHeightErrorCell: CGFloat = 45
 
     override func viewDidLoad() {
@@ -76,14 +75,15 @@ class FavoriteTableViewController: UITableViewController {
         if let _ = inlineMessage where inlineMessage?.characters.count > 0 {
             return cell.noListingsCell(inlineMessage!)
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ResultsTableViewCell
-            
             let row = indexPath.row
             let favoriteData = favoriteList[row]
-            cell.jobTitle.text = favoriteData.jobTitle
+            
+            cell.jobTitle.text = favoriteData.jobTitle?.capitalizedString
             cell.jobCompany.text = favoriteData.company
             cell.jobPostDate.text = "Saved: \(favoriteData.savedTimestamp!)"
-            cell.jobSource.text = favoriteData.source
+            cell.jobCompanyLogo.image = UIImage(data: favoriteData.image)
+            cell.textLabel?.text = ""
+            cell.saveButton.tintColor = .redColor()
             
             return cell
         }
@@ -96,7 +96,9 @@ class FavoriteTableViewController: UITableViewController {
             let row = indexPath.row
             let h1bjob = favoriteList[row]
             if UIApplication.sharedApplication().statusBarOrientation.isPortrait {
-                return h1bjob.jobTitle?.characters.count < 60 ? tableHeightSingleLine : tableHeightMultiLine
+                let unknownCompanyHeightOffset: CGFloat = h1bjob.company.characters.count == 0  ? 11 : 0
+                let tableHeight: CGFloat = tableHeightSingleLine - unknownCompanyHeightOffset
+                return tableHeight
             } else {
                 return tableHeightSingleLine
             }

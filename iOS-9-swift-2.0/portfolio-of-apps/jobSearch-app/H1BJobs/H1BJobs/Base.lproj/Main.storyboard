@@ -30,7 +30,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7hb-4C-m6L">
                                 <rect key="frame" x="161" y="255" width="280" height="90"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex. Engineer or Software Developer" minimumFontSize="17" background="F84205CB-D4A9-48F5-B117-8BF30F6EDA79" translatesAutoresizingMaskIntoConstraints="NO" id="ABh-eo-CQG">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex. Engineer or Software Developer" minimumFontSize="17" background="5F449B8E-7FB7-47F7-B06B-8393674F77D1" translatesAutoresizingMaskIntoConstraints="NO" id="ABh-eo-CQG">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="eCD-Gh-C6s"/>
@@ -164,84 +164,113 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="jobCell" rowHeight="90" id="kBl-nY-J6a" customClass="ResultsTableViewCell" customModule="H1BJobs" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="jobCell" rowHeight="90" id="kBl-nY-J6a" customClass="ResultsTableViewCell" customModule="H1BJobs" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kBl-nY-J6a" id="Ee1-P5-4rW">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QTC-gc-VuB">
-                                            <rect key="frame" x="20" y="32.5" width="92" height="25"/>
+                                            <rect key="frame" x="20" y="32" width="92" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="92" id="Ec3-HL-liL"/>
                                                 <constraint firstAttribute="height" constant="25" id="GLr-O4-QuC"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Application Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PrU-v4-T2S">
+                                            <rect key="frame" x="120" y="8" width="447" height="17"/>
+                                            <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="12"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="psz-rV-6ah">
-                                            <rect key="frame" x="120" y="8" width="429" height="71"/>
+                                            <rect key="frame" x="120" y="25" width="415" height="40"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Application Developer" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PrU-v4-T2S">
-                                                    <rect key="frame" x="0.0" y="0.0" width="168" height="17"/>
-                                                    <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verizon Co." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHo-iH-I8u">
+                                                    <rect key="frame" x="0.0" y="0.0" width="53" height="14"/>
+                                                    <fontDescription key="fontDescription" name="PingFangHK-Light" family="PingFang HK" pointSize="10"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1l9-0L-S0g">
-                                                    <rect key="frame" x="0.0" y="17" width="122" height="54"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verizon Co." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHo-iH-I8u">
-                                                            <rect key="frame" x="0.0" y="0.0" width="53" height="14"/>
-                                                            <fontDescription key="fontDescription" name="PingFangHK-Light" family="PingFang HK" pointSize="10"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tysons, VA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nj-qk-9fP">
-                                                            <rect key="frame" x="0.0" y="14" width="45" height="13"/>
-                                                            <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="9"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted: 2 weeks ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8W-2l-ZMN">
-                                                            <rect key="frame" x="0.0" y="27" width="85.5" height="13"/>
-                                                            <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="9"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source: Careerbuilder.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gto-VR-TDe">
-                                                            <rect key="frame" x="0.0" y="40" width="122" height="14"/>
-                                                            <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="10"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tysons, VA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nj-qk-9fP">
+                                                    <rect key="frame" x="0.0" y="14" width="45" height="13"/>
+                                                    <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="9"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted: 2 weeks ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8W-2l-ZMN">
+                                                    <rect key="frame" x="0.0" y="27" width="85.5" height="13"/>
+                                                    <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="9"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                        </stackView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agM-pp-bwm">
+                                            <rect key="frame" x="535" y="25" width="37" height="40"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5D7-SR-6aQ">
+                                                    <rect key="frame" x="27" y="14" width="10" height="12"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="10" id="7zw-Ls-Owm"/>
+                                                        <constraint firstAttribute="height" constant="12" id="o7j-Ib-EgQ"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="saveButtonTapped:" destination="kBl-nY-J6a" eventType="touchUpInside" id="XH1-yJ-2Ok"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="PrU-v4-T2S" secondAttribute="trailing" id="0Bb-HZ-qvc"/>
+                                                <constraint firstItem="5D7-SR-6aQ" firstAttribute="centerY" secondItem="agM-pp-bwm" secondAttribute="centerY" id="2iS-rb-SAu"/>
+                                                <constraint firstAttribute="trailing" secondItem="5D7-SR-6aQ" secondAttribute="trailing" id="JAy-ui-g8y"/>
+                                                <constraint firstAttribute="height" constant="40" id="OQ1-qv-HhF"/>
+                                                <constraint firstAttribute="width" constant="37" id="Tbl-x2-nXs"/>
+                                                <constraint firstAttribute="bottom" secondItem="5D7-SR-6aQ" secondAttribute="bottom" id="ZZ5-im-gbt"/>
+                                                <constraint firstAttribute="bottom" secondItem="5D7-SR-6aQ" secondAttribute="bottom" constant="10" id="dJ2-TV-U0L"/>
+                                                <constraint firstItem="5D7-SR-6aQ" firstAttribute="centerY" secondItem="agM-pp-bwm" secondAttribute="centerY" id="foJ-Zg-Owu"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="0Bb-HZ-qvc"/>
+                                                    <exclude reference="OQ1-qv-HhF"/>
+                                                    <exclude reference="ZZ5-im-gbt"/>
+                                                    <exclude reference="dJ2-TV-U0L"/>
+                                                    <exclude reference="foJ-Zg-Owu"/>
                                                 </mask>
                                             </variation>
-                                        </stackView>
+                                        </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="PrU-v4-T2S" secondAttribute="trailing" constant="25" id="6rS-fa-BKn"/>
+                                        <constraint firstItem="PrU-v4-T2S" firstAttribute="leading" secondItem="QTC-gc-VuB" secondAttribute="trailing" constant="8" id="7Gr-vy-OhU"/>
                                         <constraint firstItem="QTC-gc-VuB" firstAttribute="leading" secondItem="Ee1-P5-4rW" secondAttribute="leadingMargin" constant="12" id="8nc-ws-bqX"/>
                                         <constraint firstAttribute="topMargin" secondItem="psz-rV-6ah" secondAttribute="top" id="A5Q-jp-pEI"/>
+                                        <constraint firstItem="PrU-v4-T2S" firstAttribute="top" secondItem="Ee1-P5-4rW" secondAttribute="topMargin" id="Dwb-QV-lmy"/>
+                                        <constraint firstItem="agM-pp-bwm" firstAttribute="height" secondItem="psz-rV-6ah" secondAttribute="height" id="TPC-y5-b14"/>
+                                        <constraint firstItem="agM-pp-bwm" firstAttribute="centerY" secondItem="Ee1-P5-4rW" secondAttribute="centerY" constant="8.25" id="gLP-Yf-7zA"/>
+                                        <constraint firstItem="psz-rV-6ah" firstAttribute="top" secondItem="PrU-v4-T2S" secondAttribute="bottom" id="hGE-Fv-WdA"/>
                                         <constraint firstItem="QTC-gc-VuB" firstAttribute="centerY" secondItem="Ee1-P5-4rW" secondAttribute="centerY" id="nYo-e7-2rF"/>
                                         <constraint firstItem="psz-rV-6ah" firstAttribute="leading" secondItem="QTC-gc-VuB" secondAttribute="trailing" constant="8" id="nbl-O1-w6M"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="psz-rV-6ah" secondAttribute="trailing" constant="10" id="pYU-Nc-kIP"/>
+                                        <constraint firstItem="agM-pp-bwm" firstAttribute="top" secondItem="PrU-v4-T2S" secondAttribute="bottom" id="rFO-Kx-GHz"/>
+                                        <constraint firstItem="agM-pp-bwm" firstAttribute="leading" secondItem="psz-rV-6ah" secondAttribute="trailing" id="vdH-Ju-TMJ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="agM-pp-bwm" secondAttribute="trailing" constant="20" id="wR5-Nc-YgZ"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="A5Q-jp-pEI"/>
+                                            <exclude reference="gLP-Yf-7zA"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="jobCompany" destination="sHo-iH-I8u" id="Vtv-RG-QLb"/>
                                     <outlet property="jobCompanyLogo" destination="QTC-gc-VuB" id="aas-lF-3Zd"/>
                                     <outlet property="jobLocation" destination="4nj-qk-9fP" id="Gfl-ga-7Co"/>
                                     <outlet property="jobPostDate" destination="x8W-2l-ZMN" id="sHh-kU-kM5"/>
-                                    <outlet property="jobSource" destination="gto-VR-TDe" id="xf3-FV-9O5"/>
                                     <outlet property="jobTitle" destination="PrU-v4-T2S" id="sM4-ee-EIA"/>
+                                    <outlet property="saveButton" destination="5D7-SR-6aQ" id="EkI-1t-Zkz"/>
+                                    <outlet property="saveButtonView" destination="agM-pp-bwm" id="uB1-Yr-NFW"/>
                                     <segue destination="bIg-Bn-MqV" kind="show" identifier="jobHyperLink" id="QiG-a1-g82"/>
                                 </connections>
                             </tableViewCell>
@@ -262,7 +291,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </objects>
-            <point key="canvasLocation" x="2430" y="-406"/>
+            <point key="canvasLocation" x="2438" y="-402"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -377,14 +406,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" rowHeight="90" id="fpV-Zy-jPe" customClass="ResultsTableViewCell" customModule="H1BJobs" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fpV-Zy-jPe" id="0BL-aZ-ocX">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="05Q-bK-rOR">
-                                            <rect key="frame" x="20" y="32.5" width="92" height="25"/>
+                                            <rect key="frame" x="20" y="33" width="92" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="92" id="Jgd-xY-Pdx"/>
                                                 <constraint firstAttribute="height" constant="25" id="gyT-9i-a1X"/>
@@ -393,7 +422,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="c8e-3S-dnw">
                                             <rect key="frame" x="120" y="8" width="168" height="71"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Application Developer" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fym-G4-Py8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Application Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fym-G4-Py8">
                                                     <rect key="frame" x="0.0" y="0.0" width="168" height="17"/>
                                                     <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -415,7 +444,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted: 2 weeks ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfm-56-COA">
-                                                            <rect key="frame" x="0.0" y="27" width="84.5" height="13"/>
+                                                            <rect key="frame" x="0.0" y="27" width="85" height="13"/>
                                                             <fontDescription key="fontDescription" name="PingFangHK-Ultralight" family="PingFang HK" pointSize="9"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -453,7 +482,6 @@
                                     <outlet property="jobPostDate" destination="Hfm-56-COA" id="fm1-gd-uow"/>
                                     <outlet property="jobSource" destination="21d-Sf-KNM" id="dhb-ll-GZt"/>
                                     <outlet property="jobTitle" destination="Fym-G4-Py8" id="C8k-1v-AHC"/>
-                                    <segue destination="bIg-Bn-MqV" kind="show" identifier="favJobHyperLink" id="8kG-Az-O6N"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -466,7 +494,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8h-8J-KYk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1600" y="506"/>
+            <point key="canvasLocation" x="1554" y="1704"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="Nu7-PD-FEI">
@@ -587,7 +615,7 @@ ASP. Net Software Developer</string>
                                                     <rect key="frame" x="14" y="8" width="572" height="45"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B01-Hc-bHW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="102.5" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="103" height="20"/>
                                                             <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="14"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -675,16 +703,154 @@ ASP. Net Software Developer</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="qPU-Qe-JZz" kind="relationship" relationship="rootViewController" id="nqh-3z-OAR"/>
+                        <segue destination="jtH-Cf-75a" kind="relationship" relationship="rootViewController" id="m6y-mj-R55"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fm-Yw-U1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="785" y="514"/>
         </scene>
+        <!--Root View Controller-->
+        <scene sceneID="ZPR-TW-qd1">
+            <objects>
+                <tableViewController storyboardIdentifier="favoriteVCId" id="jtH-Cf-75a" customClass="FavoriteTableViewController" customModule="H1BJobs" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="yfw-EI-iJv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" rowHeight="90" id="GBN-ua-vDc" customClass="ResultsTableViewCell" customModule="H1BJobs" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GBN-ua-vDc" id="Fyc-y4-mlc">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3c8-S9-THI">
+                                            <rect key="frame" x="20" y="32" width="92" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="92" id="cAX-Ir-X86"/>
+                                                <constraint firstAttribute="height" constant="25" id="rfw-RQ-t1r"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Application Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5l-Zh-0UW">
+                                            <rect key="frame" x="120" y="8" width="447" height="17"/>
+                                            <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="12"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="b8a-66-TUy">
+                                            <rect key="frame" x="120" y="25" width="415" height="40"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verizon Co." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oF-ES-E36">
+                                                    <rect key="frame" x="0.0" y="0.0" width="53" height="14"/>
+                                                    <fontDescription key="fontDescription" name="PingFangHK-Light" family="PingFang HK" pointSize="10"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tysons, VA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEh-P0-lsa">
+                                                    <rect key="frame" x="0.0" y="14" width="45" height="13"/>
+                                                    <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="9"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted: 2 weeks ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcR-sm-oXy">
+                                                    <rect key="frame" x="0.0" y="27" width="85.5" height="13"/>
+                                                    <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="9"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1i-Tk-KHp">
+                                            <rect key="frame" x="535" y="25" width="37" height="40"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3S-kl-w1F">
+                                                    <rect key="frame" x="27" y="14" width="10" height="12"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="10" id="EDa-sv-kq9"/>
+                                                        <constraint firstAttribute="height" constant="12" id="t9N-lQ-IMc"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="saveButtonTapped:" destination="GBN-ua-vDc" eventType="touchUpInside" id="SMJ-fN-VQY"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="B3S-kl-w1F" secondAttribute="bottom" constant="10" id="Gld-nO-Mbx"/>
+                                                <constraint firstItem="B3S-kl-w1F" firstAttribute="centerY" secondItem="m1i-Tk-KHp" secondAttribute="centerY" id="JTY-1L-wAt"/>
+                                                <constraint firstAttribute="height" constant="40" id="MlS-eT-hoV"/>
+                                                <constraint firstItem="B3S-kl-w1F" firstAttribute="centerY" secondItem="m1i-Tk-KHp" secondAttribute="centerY" id="Ul1-K0-JFp"/>
+                                                <constraint firstAttribute="bottom" secondItem="B3S-kl-w1F" secondAttribute="bottom" id="fHX-Kz-oig"/>
+                                                <constraint firstAttribute="trailing" secondItem="B3S-kl-w1F" secondAttribute="trailing" id="iP8-jr-aCr"/>
+                                                <constraint firstAttribute="width" constant="37" id="z4b-1q-ftw"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="MlS-eT-hoV"/>
+                                                    <exclude reference="fHX-Kz-oig"/>
+                                                    <exclude reference="Gld-nO-Mbx"/>
+                                                    <exclude reference="JTY-1L-wAt"/>
+                                                </mask>
+                                            </variation>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="topMargin" secondItem="b8a-66-TUy" secondAttribute="top" id="HV1-Of-RyR"/>
+                                        <constraint firstItem="b8a-66-TUy" firstAttribute="top" secondItem="S5l-Zh-0UW" secondAttribute="bottom" id="LuW-bt-d5c"/>
+                                        <constraint firstItem="m1i-Tk-KHp" firstAttribute="leading" secondItem="b8a-66-TUy" secondAttribute="trailing" id="Q7C-rM-nvT"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="m1i-Tk-KHp" secondAttribute="trailing" constant="20" id="V44-6E-shd"/>
+                                        <constraint firstItem="b8a-66-TUy" firstAttribute="leading" secondItem="3c8-S9-THI" secondAttribute="trailing" constant="8" id="VNv-k4-qjN"/>
+                                        <constraint firstItem="S5l-Zh-0UW" firstAttribute="top" secondItem="Fyc-y4-mlc" secondAttribute="topMargin" id="VPe-Jv-ag6"/>
+                                        <constraint firstItem="m1i-Tk-KHp" firstAttribute="top" secondItem="S5l-Zh-0UW" secondAttribute="bottom" id="hdg-sq-KHd"/>
+                                        <constraint firstItem="m1i-Tk-KHp" firstAttribute="height" secondItem="b8a-66-TUy" secondAttribute="height" id="kr0-es-X0x"/>
+                                        <constraint firstItem="S5l-Zh-0UW" firstAttribute="leading" secondItem="3c8-S9-THI" secondAttribute="trailing" constant="8" id="m5D-qj-Qol"/>
+                                        <constraint firstItem="m1i-Tk-KHp" firstAttribute="centerY" secondItem="Fyc-y4-mlc" secondAttribute="centerY" constant="8.25" id="nPA-o7-Tdu"/>
+                                        <constraint firstItem="3c8-S9-THI" firstAttribute="centerY" secondItem="Fyc-y4-mlc" secondAttribute="centerY" id="qOm-Cv-IRX"/>
+                                        <constraint firstItem="3c8-S9-THI" firstAttribute="leading" secondItem="Fyc-y4-mlc" secondAttribute="leadingMargin" constant="12" id="sMU-jd-zYD"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="S5l-Zh-0UW" secondAttribute="trailing" constant="25" id="uNY-Ws-DEo"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="HV1-Of-RyR"/>
+                                            <exclude reference="nPA-o7-Tdu"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="jobCompany" destination="0oF-ES-E36" id="YWB-fY-fw8"/>
+                                    <outlet property="jobCompanyLogo" destination="3c8-S9-THI" id="g3h-j5-TKB"/>
+                                    <outlet property="jobLocation" destination="nEh-P0-lsa" id="9y0-KO-RBx"/>
+                                    <outlet property="jobPostDate" destination="QcR-sm-oXy" id="eos-ga-BcN"/>
+                                    <outlet property="jobTitle" destination="S5l-Zh-0UW" id="ajg-PI-WSk"/>
+                                    <outlet property="saveButton" destination="B3S-kl-w1F" id="H15-PP-qSl"/>
+                                    <outlet property="saveButtonView" destination="m1i-Tk-KHp" id="SDm-Ee-vtq"/>
+                                    <segue destination="bIg-Bn-MqV" kind="show" identifier="favJobHyperLink" id="9LZ-8x-NU7"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jtH-Cf-75a" id="bzS-Ic-dPm"/>
+                            <outlet property="delegate" destination="jtH-Cf-75a" id="CAj-Ve-oXW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="jGo-3Q-xt9"/>
+                    <connections>
+                        <outlet property="spinner" destination="QlR-pN-z52" id="n4s-Ut-2BR"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cqe-XT-FQ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="b9B-uF-5fj">
+                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
+            </objects>
+            <point key="canvasLocation" x="1600" y="514"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="F84205CB-D4A9-48F5-B117-8BF30F6EDA79" width="250" height="44">
+        <image name="5F449B8E-7FB7-47F7-B06B-8393674F77D1" width="250" height="44">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGSUpYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEAcI
 ERYbHCUmJysyNzo9Q0ZVJG51bGzUCQoLDA0ODxBWJGNsYXNzXE5TSW1hZ2VGbGFnc1ZOU1JlcHNXTlND
@@ -778,7 +944,7 @@ AAAAAAAAAAAAAAATPw
         <image name="icon_h1bjobs_HQ" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8kG-Az-O6N"/>
         <segue reference="lkJ-8a-hUQ"/>
+        <segue reference="9LZ-8x-NU7"/>
     </inferredMetricsTieBreakers>
 </document>

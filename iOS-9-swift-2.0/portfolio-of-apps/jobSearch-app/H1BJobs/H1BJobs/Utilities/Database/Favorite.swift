@@ -6,33 +6,30 @@
 //  Copyright © 2015 vincethecoder. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Favorite: NSObject {
     
     // Job Favorite Fields
-    let favoriteId: Int64?
-    let jobTitle: String?
-    let company: String?
-    let jobId: String?
-    let savedTimestamp: String?
-    let source: String?
+    let favoriteId: Int64!
+    let jobTitle: String!
+    let company: String!
+    let savedTimestamp: String!
+    let image: NSData!
     
-    init (favoriteId: Int64, jobTitle: String, company: String, jobId: String, savedTimestamp: String, source: String) {
+    init (favoriteId: Int64, jobTitle: String, company: String, savedTimestamp: String, image: NSData) {
         self.favoriteId = favoriteId
         self.jobTitle = jobTitle
         self.company = company
-        self.jobId = jobId
         self.savedTimestamp = savedTimestamp
-        self.source = source
+        self.image = image
     }
     
     override init() {
         self.favoriteId = Int64()
         self.jobTitle = String()
         self.company = String()
-        self.jobId = String()
         self.savedTimestamp = String()
-        self.source = String()
+        self.image = NSData()
     }
 }

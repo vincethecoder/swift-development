@@ -10,7 +10,7 @@ import UIKit
 
 class Job: NSObject {
     
-    var keywords: String?
+    var keywords: String!
     var jobListings: [H1BJob] = []
     var results: [AnyObject] = [] {
         didSet {
@@ -47,12 +47,16 @@ class Job: NSObject {
     func getJobs(completion: (success: Bool, result: NSArray?, joblistings: [H1BJob]?, error: NSError?) -> ()) {
         
         // Dice Job Search
-        let dice = JobUtils.init(category: .Dice, search: self.keywords!)
+        var searchKeywords = ""
+        if let _ = keywords {
+            searchKeywords = keywords
+        }
+        let dice = JobUtils.init(category: .Dice, search: searchKeywords)
         let diceURL = NSURL(string: dice.requestURL)
         getJobsForUrl(diceURL!, jobCategory: .Dice) { (status, result, joblistings, error) -> () in
             
             // CareerBuilder Job Search
-            let cb = JobUtils.init(category: .CareerBuilder, search: self.keywords!)
+            let cb = JobUtils.init(category: .CareerBuilder, search: searchKeywords)
             let cbURL = NSURL(string: cb.requestURL)
             self.getJobsForUrl(cbURL!, jobCategory: .CareerBuilder) { (status, result, joblistings, error) -> () in
                 completion(success: status, result: result, joblistings: joblistings, error: error)
