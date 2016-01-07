@@ -30,7 +30,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7hb-4C-m6L">
                                 <rect key="frame" x="161" y="255" width="280" height="90"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex. Engineer or Software Developer" minimumFontSize="17" background="5F449B8E-7FB7-47F7-B06B-8393674F77D1" translatesAutoresizingMaskIntoConstraints="NO" id="ABh-eo-CQG">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex. Engineer or Software Developer" minimumFontSize="17" background="953CA879-C575-4378-84C4-D82FA6CCEA77" translatesAutoresizingMaskIntoConstraints="NO" id="ABh-eo-CQG">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="eCD-Gh-C6s"/>
@@ -396,259 +396,6 @@
             </objects>
             <point key="canvasLocation" x="785" y="-210"/>
         </scene>
-        <!--Favorite Table View Controller-->
-        <scene sceneID="ggI-OK-mfg">
-            <objects>
-                <tableViewController id="qPU-Qe-JZz" customClass="FavoriteTableViewController" customModule="H1BJobs" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="5mB-Oi-W5y">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" rowHeight="90" id="fpV-Zy-jPe" customClass="ResultsTableViewCell" customModule="H1BJobs" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="90"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fpV-Zy-jPe" id="0BL-aZ-ocX">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="05Q-bK-rOR">
-                                            <rect key="frame" x="20" y="33" width="92" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="92" id="Jgd-xY-Pdx"/>
-                                                <constraint firstAttribute="height" constant="25" id="gyT-9i-a1X"/>
-                                            </constraints>
-                                        </imageView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="c8e-3S-dnw">
-                                            <rect key="frame" x="120" y="8" width="168" height="71"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Application Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fym-G4-Py8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="168" height="17"/>
-                                                    <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="WAu-dj-bfQ">
-                                                    <rect key="frame" x="0.0" y="17" width="122" height="54"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verizon Co." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aod-yb-jjo">
-                                                            <rect key="frame" x="0.0" y="0.0" width="53" height="14"/>
-                                                            <fontDescription key="fontDescription" name="PingFangHK-Light" family="PingFang HK" pointSize="10"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tysons, VA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bw9-P1-rUd">
-                                                            <rect key="frame" x="0.0" y="14" width="45" height="13"/>
-                                                            <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="9"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted: 2 weeks ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfm-56-COA">
-                                                            <rect key="frame" x="0.0" y="27" width="85" height="13"/>
-                                                            <fontDescription key="fontDescription" name="PingFangHK-Ultralight" family="PingFang HK" pointSize="9"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source: Careerbuilder.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21d-Sf-KNM">
-                                                            <rect key="frame" x="0.0" y="40" width="122" height="14"/>
-                                                            <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="10"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Fym-G4-Py8" secondAttribute="trailing" id="T57-c6-DUp"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="T57-c6-DUp"/>
-                                                </mask>
-                                            </variation>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="05Q-bK-rOR" firstAttribute="centerY" secondItem="0BL-aZ-ocX" secondAttribute="centerY" id="RWy-Ew-acT"/>
-                                        <constraint firstItem="c8e-3S-dnw" firstAttribute="leading" secondItem="05Q-bK-rOR" secondAttribute="trailing" constant="8" id="g9a-WO-nc2"/>
-                                        <constraint firstItem="05Q-bK-rOR" firstAttribute="leading" secondItem="0BL-aZ-ocX" secondAttribute="leadingMargin" constant="12" id="gxz-MU-fDC"/>
-                                        <constraint firstAttribute="topMargin" secondItem="c8e-3S-dnw" secondAttribute="top" id="zAA-J8-jbl"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="jobCompany" destination="aod-yb-jjo" id="tG3-tL-F2c"/>
-                                    <outlet property="jobCompanyLogo" destination="05Q-bK-rOR" id="Lgr-9y-HWa"/>
-                                    <outlet property="jobLocation" destination="bw9-P1-rUd" id="y01-v7-piF"/>
-                                    <outlet property="jobPostDate" destination="Hfm-56-COA" id="fm1-gd-uow"/>
-                                    <outlet property="jobSource" destination="21d-Sf-KNM" id="dhb-ll-GZt"/>
-                                    <outlet property="jobTitle" destination="Fym-G4-Py8" id="C8k-1v-AHC"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="qPU-Qe-JZz" id="DPh-mk-Uvl"/>
-                            <outlet property="delegate" destination="qPU-Qe-JZz" id="Rrc-EX-Slr"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="6Eb-K7-2CT"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N8h-8J-KYk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1554" y="1704"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="Nu7-PD-FEI">
-            <objects>
-                <tableViewController id="39x-KK-rJA" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="bOb-M7-F2L">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection id="jqj-JS-TmH">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="324" id="ucq-7d-hal">
-                                        <rect key="frame" x="0.0" y="35" width="600" height="324"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ucq-7d-hal" id="ekV-aY-VkQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="323.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6A7-6J-A9u">
-                                                    <rect key="frame" x="251" y="18" width="98" height="68"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="68" id="DGE-Yb-ixc"/>
-                                                        <constraint firstAttribute="width" constant="98" id="pPk-i9-TA3"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="AAB-QS-ADf">
-                                                    <rect key="frame" x="199" y="94" width="202" height="91"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGN-kq-FZN">
-                                                            <rect key="frame" x="0.0" y="0.0" width="202" height="42"/>
-                                                            <string key="text">Female Candiate Only 
-ASP. Net Software Developer</string>
-                                                            <fontDescription key="fontDescription" name="PingFangHK-Light" family="PingFang HK" pointSize="15"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mYK-Hh-0Ey">
-                                                            <rect key="frame" x="28" y="57" width="146" height="34"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confidential via Shine.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfr-8U-AX8">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="146" height="17"/>
-                                                                    <fontDescription key="fontDescription" name="PingFangHK-Light" family="PingFang HK" pointSize="12"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bigonpur, Banglore" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0X-cd-gnz">
-                                                                    <rect key="frame" x="0.0" y="17" width="146" height="17"/>
-                                                                    <fontDescription key="fontDescription" name="PingFangHK-Light" family="PingFang HK" pointSize="12"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
-                                                    </subviews>
-                                                </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cjf-UD-QKY">
-                                                    <rect key="frame" x="269" y="194" width="64" height="64"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sponsored by" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iII-Kk-f01">
-                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="14"/>
-                                                            <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="10"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8oF-aT-ogp">
-                                                            <rect key="frame" x="0.0" y="14" width="64" height="50"/>
-                                                        </imageView>
-                                                    </subviews>
-                                                </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HxJ-Ux-kZ3">
-                                                    <rect key="frame" x="180" y="268" width="241" height="40"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="8Xx-6d-Una"/>
-                                                        <constraint firstAttribute="width" constant="241" id="LUZ-rz-8nc"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                                    <state key="normal" title="APPLY NOW">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="cjf-UD-QKY" firstAttribute="centerX" secondItem="HxJ-Ux-kZ3" secondAttribute="centerX" id="1M6-0b-DNM"/>
-                                                <constraint firstAttribute="bottom" secondItem="cjf-UD-QKY" secondAttribute="bottom" constant="65.5" id="3d1-9N-YtH"/>
-                                                <constraint firstItem="6A7-6J-A9u" firstAttribute="centerX" secondItem="ekV-aY-VkQ" secondAttribute="centerX" id="7nE-9J-SCX"/>
-                                                <constraint firstItem="cjf-UD-QKY" firstAttribute="centerX" secondItem="ekV-aY-VkQ" secondAttribute="centerX" id="90Z-xC-9IK"/>
-                                                <constraint firstItem="HxJ-Ux-kZ3" firstAttribute="centerX" secondItem="ekV-aY-VkQ" secondAttribute="centerX" id="ISt-Y5-noq"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="HxJ-Ux-kZ3" secondAttribute="bottom" constant="8" id="K2q-0H-NUH"/>
-                                                <constraint firstItem="6A7-6J-A9u" firstAttribute="top" secondItem="ekV-aY-VkQ" secondAttribute="topMargin" constant="10" id="Vwg-Tj-pAZ"/>
-                                                <constraint firstItem="cjf-UD-QKY" firstAttribute="top" secondItem="AAB-QS-ADf" secondAttribute="bottom" constant="9" id="Yag-dz-JUO"/>
-                                                <constraint firstItem="AAB-QS-ADf" firstAttribute="centerX" secondItem="ekV-aY-VkQ" secondAttribute="centerX" id="dId-r2-Cih"/>
-                                                <constraint firstItem="HxJ-Ux-kZ3" firstAttribute="top" secondItem="cjf-UD-QKY" secondAttribute="bottom" constant="10" id="dar-eJ-ZnA"/>
-                                                <constraint firstItem="EGN-kq-FZN" firstAttribute="top" secondItem="6A7-6J-A9u" secondAttribute="bottom" constant="8" id="ixw-KB-PL7"/>
-                                                <constraint firstItem="HxJ-Ux-kZ3" firstAttribute="top" secondItem="8oF-aT-ogp" secondAttribute="bottom" constant="10" id="nke-46-DmF"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="3d1-9N-YtH"/>
-                                                    <exclude reference="90Z-xC-9IK"/>
-                                                </mask>
-                                            </variation>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="grU-BP-dm9">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="167" id="EGg-49-HBb">
-                                        <rect key="frame" x="0.0" y="395" width="600" height="167"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EGg-49-HBb" id="xQa-E8-bgp">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="166.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VAZ-gf-UYA">
-                                                    <rect key="frame" x="14" y="8" width="572" height="45"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B01-Hc-bHW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="103" height="20"/>
-                                                            <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="14"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is an amazing good offer!!! Yayy!!!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isf-sK-hWp">
-                                                            <rect key="frame" x="0.0" y="28" width="219" height="17"/>
-                                                            <fontDescription key="fontDescription" name="PingFangHK-Light" family="PingFang HK" pointSize="12"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="topMargin" secondItem="VAZ-gf-UYA" secondAttribute="top" id="KDs-jU-zg1"/>
-                                                <constraint firstItem="VAZ-gf-UYA" firstAttribute="centerX" secondItem="xQa-E8-bgp" secondAttribute="centerX" id="beV-O9-duQ"/>
-                                                <constraint firstItem="VAZ-gf-UYA" firstAttribute="leading" secondItem="xQa-E8-bgp" secondAttribute="leadingMargin" constant="6" id="j0l-0R-6DT"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="39x-KK-rJA" id="3Tm-Km-5Ga"/>
-                            <outlet property="delegate" destination="39x-KK-rJA" id="xxM-Xm-gcZ"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="39Z-zZ-yHP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2420" y="1238"/>
-        </scene>
         <!--Job Web View Controler-->
         <scene sceneID="Ooi-BZ-hzr">
             <objects>
@@ -850,7 +597,7 @@ ASP. Net Software Developer</string>
         </scene>
     </scenes>
     <resources>
-        <image name="5F449B8E-7FB7-47F7-B06B-8393674F77D1" width="250" height="44">
+        <image name="953CA879-C575-4378-84C4-D82FA6CCEA77" width="250" height="44">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGSUpYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEAcI
 ERYbHCUmJysyNzo9Q0ZVJG51bGzUCQoLDA0ODxBWJGNsYXNzXE5TSW1hZ2VGbGFnc1ZOU1JlcHNXTlND
@@ -945,6 +692,6 @@ AAAAAAAAAAAAAAATPw
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lkJ-8a-hUQ"/>
-        <segue reference="9LZ-8x-NU7"/>
+        <segue reference="QiG-a1-g82"/>
     </inferredMetricsTieBreakers>
 </document>
