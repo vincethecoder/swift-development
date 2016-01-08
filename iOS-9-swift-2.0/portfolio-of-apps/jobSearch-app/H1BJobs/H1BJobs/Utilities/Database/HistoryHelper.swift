@@ -15,7 +15,7 @@ class HistoryHelper: DataHelperProtocol {
     static let keyword = Expression<String?>("keyword")
     static let location = Expression<String?>("location")
     static let state = Expression<String?>("state")
-    static let timestamp = Expression<String?>("timestamp")
+    static let timestamp = Expression<NSDate?>("timestamp")
 
     typealias T = History
     static let table = Table("history")

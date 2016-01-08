@@ -15,9 +15,9 @@ class History: NSObject {
     let keyword: String?
     let location: String?
     let state: String?
-    let timestamp: String?
+    let timestamp: NSDate?
     
-    init (searchId: Int64, keyword: String, location: String, state: String, timestamp: String) {
+    init (searchId: Int64, keyword: String, location: String, state: String, timestamp: NSDate) {
         self.searchId = searchId
         self.keyword = keyword
         self.location = location
@@ -30,6 +30,6 @@ class History: NSObject {
         self.keyword = String()
         self.location = String()
         self.state = String()
-        self.timestamp = String()
+        self.timestamp = NSDate()
     }
 }

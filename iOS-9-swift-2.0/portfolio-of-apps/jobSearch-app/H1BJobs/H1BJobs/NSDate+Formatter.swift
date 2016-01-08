@@ -17,6 +17,22 @@ extension NSDate {
         return formatter
     }
 
+    /*
+    Date string formatted as "Jan" or "Nov"
+    */
+    func wordMonthString() -> String {
+        let formatter = baseDateFormatter("MMM")
+        return formatter.stringFromDate(self)
+    }
+    
+    /*
+    Date string formatted as "6" or "16"
+    */
+    func wordDayString() -> String {
+        let formatter = baseDateFormatter("d")
+        return formatter.stringFromDate(self)
+    }
+    
     /* 
     Date string formatted as "Jan 6" or "Nov 16" 
     */

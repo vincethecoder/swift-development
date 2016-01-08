@@ -12,7 +12,9 @@ class HistoryTableViewCell: BaseTableViewCell {
     
     @IBOutlet weak var jobKeyword: UILabel!
     @IBOutlet weak var jobSearchDate: UILabel!
-
+    @IBOutlet weak var jobSearchDateMonth: UILabel!
+    @IBOutlet weak var jobSearchDateDay: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

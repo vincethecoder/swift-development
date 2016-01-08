@@ -72,7 +72,7 @@ class FavoriteHelper: DataHelperProtocol {
     static func delete(item: T) -> Bool {
         do {
             if tableCreated, let title = item.jobTitle {
-                let record = table.filter(jobTitle == title)
+                let record = table.filter(jobTitle == title && company == item.company)
                 try db.run(record.delete())
                 return true
             }

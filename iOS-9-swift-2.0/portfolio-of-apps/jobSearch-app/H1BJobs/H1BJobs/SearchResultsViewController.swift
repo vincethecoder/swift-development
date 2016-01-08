@@ -17,8 +17,8 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     let cellIdentifier = "jobCell"
     let webViewSegueIdentifier = "jobHyperLink"
     var errorMessage: String!
-    var dbFavJobs: [String]!
-    var favoriteJobs: [String] {
+    var dbFavJobs: [Favorite]!
+    var favoriteJobs: [Favorite] {
         get {
             if let favoriteJobs = FavoriteHelper.findAll() {
                 if dbFavJobs != nil && dbFavJobs.count > 0 {
@@ -27,9 +27,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
                     dbFavJobs = []
                 }
                 for job in favoriteJobs {
-                    if let title = job.jobTitle {
-                        dbFavJobs.append(title)
-                    }
+                    dbFavJobs.append(job)
                 }
             }
             return dbFavJobs
@@ -176,8 +174,9 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
                 cell.jobCompanyLogo.image = UIImage(named: "cbLogo")
             }
             cell.delegate = self
-            
-            cell.saveButton.tintColor = favoriteJobs.contains(h1bjob.title) ? UIColor.redColor() : UIColor.lightGrayColor()
+
+            let record = favoriteJobs.filter { $0.jobTitle == h1bjob.title && $0.company == h1bjob.company }
+            cell.saveButton.tintColor = record.isEmpty == false ? UIColor.redColor() : UIColor.lightGrayColor()
             
             return cell
         }

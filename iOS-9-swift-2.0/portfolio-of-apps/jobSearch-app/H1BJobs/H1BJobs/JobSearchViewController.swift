@@ -81,7 +81,7 @@ class JobSearchViewController: UIViewController {
     
     @IBAction func searchButtonTapped(sender: UIButton) {
         print("keywords \(keywordsTextField.text)")
-        let historyRecord = History(searchId: 0, keyword: keywordsTextField.text!, location: "", state: "", timestamp: NSDate.init().wordMonthDayYearString())
+        let historyRecord = History(searchId: 0, keyword: keywordsTextField.text!, location: "", state: "", timestamp: NSDate.init())
         let historyId = HistoryHelper.insert(historyRecord)
         print("history id \(historyId)")
     }
