@@ -78,7 +78,6 @@ class HistoryTableViewController: UITableViewController {
             let keyword = historyData.keyword?.characters.count > 0 ? historyData.keyword?.capitalizedString : "Any H1B Job"
 
             cell.jobKeyword.text = "\(keyword!)"
-            cell.jobSearchDate.text = "Searched: \(historyDate.wordFullMonthDayYearString())"
             cell.jobSearchDateDay.text = historyDate.wordDayString()
             cell.jobSearchDateMonth.text = historyDate.wordMonthString().uppercaseString
             cell.textLabel?.text = ""
