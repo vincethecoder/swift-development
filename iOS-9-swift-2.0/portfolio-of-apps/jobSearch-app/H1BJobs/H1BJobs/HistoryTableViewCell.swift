@@ -13,9 +13,12 @@ class HistoryTableViewCell: BaseTableViewCell {
     @IBOutlet weak var jobKeyword: UILabel!
     @IBOutlet weak var jobSearchDateMonth: UILabel!
     @IBOutlet weak var jobSearchDateDay: UILabel!
+    @IBOutlet weak var calendarContainer: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        calendarContainer.layer.borderColor = UIColor.lightGrayColor().CGColor
+        calendarContainer.layer.borderWidth = 2.0
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
