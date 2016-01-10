@@ -15,6 +15,18 @@ class H1BJob: NSObject {
     var location: String
     var postdate: NSDate
     var jobdetail: NSObject
+    var jobUrl: String {
+        get {
+            if jobdetail.isKindOfClass(DiceJobDetail) {
+                let dicejob = jobdetail as? DiceJobDetail
+                return (dicejob?.detailUrl)!
+            } else if jobdetail.isKindOfClass(CBJobDetail) {
+                let cbJobDetail = jobdetail as? CBJobDetail
+                return (cbJobDetail?.detailUrl)!
+            }
+            return "" // default url
+        }
+    }
 
     init(title: String, company: String, location: String, date: NSDate, detail: NSObject) {
         self.title = title

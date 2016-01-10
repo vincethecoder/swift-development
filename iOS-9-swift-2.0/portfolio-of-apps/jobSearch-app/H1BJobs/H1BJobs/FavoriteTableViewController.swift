@@ -13,6 +13,7 @@ class FavoriteTableViewController: UITableViewController {
     var favoriteList: [Favorite] = []
     let cellIdentifier = "favoriteCell"
     var inlineMessage: String?
+    let webViewSegueIdentifier = "favJobHyperLink"
     
     let tableHeightSingleLine: CGFloat = 69
     let tableHeightErrorCell: CGFloat = 45
@@ -56,7 +57,6 @@ class FavoriteTableViewController: UITableViewController {
         navigationController?.hidesBarsOnSwipe = true
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
-    
 
     // MARK: - Table view data source
 
@@ -84,6 +84,7 @@ class FavoriteTableViewController: UITableViewController {
             cell.jobCompanyLogo.image = UIImage(data: favoriteData.image)
             cell.textLabel?.text = ""
             cell.saveButton.tintColor = .redColor()
+            cell.jobWebUrl = favoriteData.jobUrl
             
             return cell
         }
@@ -123,6 +124,17 @@ class FavoriteTableViewController: UITableViewController {
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
+        
+        let center = (sender?.center)!
+        let rootViewPoint = sender?.superview!!.convertPoint(center, toView: tableView)
+        
+        if let indexPath = tableView.indexPathForRowAtPoint(rootViewPoint!){
+            let webView = segue.destinationViewController as? JobWebViewControler
+            let row = indexPath.row
+            let h1bjob = favoriteList[row]
+            webView?.jobUrl = h1bjob.jobUrl
+        }
+        
     }
 
 }

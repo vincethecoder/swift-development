@@ -14,6 +14,7 @@ class FavoriteHelper: DataHelperProtocol {
     static let favoriteId = Expression<Int64>("id")
     static let jobTitle = Expression<String?>("jobtitle")
     static let company = Expression<String?>("company")
+    static let jobUrl = Expression<String?>("joburl")
     static let savedTimestamp = Expression<String?>("timestamp")
     static let image = Expression<NSData?>("image")
     
@@ -44,6 +45,7 @@ class FavoriteHelper: DataHelperProtocol {
                 t.column(favoriteId, primaryKey: true)
                 t.column(jobTitle)
                 t.column(company)
+                t.column(jobUrl)
                 t.column(savedTimestamp)
                 t.column(image)
             })
@@ -57,7 +59,7 @@ class FavoriteHelper: DataHelperProtocol {
     
     static func insert(item: T) -> Int64 {
         if tableCreated {
-            let insert = table.insert(jobTitle <- item.jobTitle, company <- item.company, savedTimestamp <- item.savedTimestamp, image <- item.image)
+            let insert = table.insert(jobTitle <- item.jobTitle, company <- item.company, jobUrl <- item.jobUrl,  savedTimestamp <- item.savedTimestamp, image <- item.image)
             do {
                 let rowId = try db.run(insert)
                 return rowId
@@ -86,7 +88,7 @@ class FavoriteHelper: DataHelperProtocol {
         var records: [T] = []
         if tableCreated {
             for f in db.prepare(table) {
-                let favoriteRecord = Favorite(favoriteId: f.get(favoriteId), jobTitle: f.get(jobTitle)!, company: f.get(company)!, savedTimestamp: f.get(savedTimestamp)!, image: f.get(image)!)
+                let favoriteRecord = Favorite(favoriteId: f.get(favoriteId), jobTitle: f.get(jobTitle)!, company: f.get(company)!, jobUrl: f.get(jobUrl)!, savedTimestamp: f.get(savedTimestamp)!, image: f.get(image)!)
                 records.append(favoriteRecord)
             }
         }
@@ -98,7 +100,7 @@ class FavoriteHelper: DataHelperProtocol {
         var result: T?
         if tableCreated {
             if let item = db.pluck(query) {
-                result = Favorite(favoriteId: item[favoriteId], jobTitle: item[jobTitle]!, company: item[company]!, savedTimestamp: item[savedTimestamp]!, image: item[image]!)
+                result = Favorite(favoriteId: item[favoriteId], jobTitle: item[jobTitle]!, company: item[company]!, jobUrl: item[jobUrl]!, savedTimestamp: item[savedTimestamp]!, image: item[image]!)
             }
         }
         return result

@@ -22,6 +22,7 @@ class ResultsTableViewCell: BaseTableViewCell {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var saveButtonView: UIView!
     
+    var jobWebUrl: String!
     var delegate: ResultsTableViewCellDelegate?
 
     let likeImage = UIImage(named: "like")?.imageWithRenderingMode(.AlwaysTemplate)
@@ -30,8 +31,9 @@ class ResultsTableViewCell: BaseTableViewCell {
         super.awakeFromNib()
         if let _ = saveButton {
             let tap = UITapGestureRecognizer(target: self, action: Selector("saveButtonTapped:"))
-            saveButtonView.addGestureRecognizer(tap)
+            tap.cancelsTouchesInView = false
             saveButton.setImage(likeImage, forState: .Normal)
+            saveButtonView.addGestureRecognizer(tap)
         }
         
     }
@@ -43,4 +45,9 @@ class ResultsTableViewCell: BaseTableViewCell {
     @IBAction func saveButtonTapped(sender: AnyObject) {
         delegate?.saveButtonTapped(self)
     }
+    
+    @IBAction func tableRowButtonTapped(sender: AnyObject) {
+
+    }
+    
 }

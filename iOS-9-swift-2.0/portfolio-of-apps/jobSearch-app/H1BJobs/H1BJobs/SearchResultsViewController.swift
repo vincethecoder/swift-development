@@ -173,6 +173,8 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             } else {
                 cell.jobCompanyLogo.image = UIImage(named: "cbLogo")
             }
+            
+            cell.jobWebUrl = h1bjob.jobUrl
             cell.delegate = self
 
             let record = favoriteJobs.filter { $0.jobTitle == h1bjob.title && $0.company == h1bjob.company }
@@ -185,7 +187,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     func saveButtonTapped(cell: ResultsTableViewCell) {
         
         let companyLogo = UIImagePNGRepresentation((cell.jobCompanyLogo?.image)!)
-        let jobRecord = Favorite(favoriteId: 0, jobTitle: cell.jobTitle.text!, company: cell.jobCompany.text!, savedTimestamp: NSDate.init().wordMonthDayYearString(), image: companyLogo!)
+        let jobRecord = Favorite(favoriteId: 0, jobTitle: cell.jobTitle.text!, company: cell.jobCompany.text!, jobUrl: cell.jobWebUrl, savedTimestamp: NSDate.init().wordMonthDayYearString(), image: companyLogo!)
 
         
         if let record = FavoriteHelper.find(jobRecord) {
@@ -232,18 +234,15 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
-        
-        if segue.identifier == webViewSegueIdentifier, let indexPath = tableView.indexPathForSelectedRow {
+
+        let center = (sender?.center)!
+        let rootViewPoint = sender?.superview!!.convertPoint(center, toView: tableView)
+
+        if let indexPath = tableView.indexPathForRowAtPoint(rootViewPoint!){
             let webView = segue.destinationViewController as? JobWebViewControler
             let row = indexPath.row
             let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
-            if h1bjob.jobdetail.isKindOfClass(DiceJobDetail) {
-                let dicejob = h1bjob.jobdetail as? DiceJobDetail
-                webView?.jobUrl = dicejob?.detailUrl
-            } else if h1bjob.jobdetail.isKindOfClass(CBJobDetail) {
-                let cbJobDetail = h1bjob.jobdetail as? CBJobDetail
-                webView?.jobUrl = cbJobDetail?.detailUrl
-            }
+            webView?.jobUrl = h1bjob.jobUrl
         }
     }
 
