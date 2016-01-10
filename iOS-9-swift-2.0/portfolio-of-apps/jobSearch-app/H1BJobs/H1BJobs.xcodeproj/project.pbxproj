@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18428C111C2DFFDB00C4CAF1 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C101C2DFFDB00C4CAF1 /* Favorite.swift */; settings = {ASSET_TAGS = (); }; };
-		18428C131C2E073A00C4CAF1 /* FavoriteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C121C2E073A00C4CAF1 /* FavoriteDetail.swift */; settings = {ASSET_TAGS = (); }; };
-		18428C151C2E082100C4CAF1 /* FavoriteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C141C2E082100C4CAF1 /* FavoriteHelper.swift */; settings = {ASSET_TAGS = (); }; };
-		18428C171C2E206A00C4CAF1 /* FavoriteDetailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C161C2E206A00C4CAF1 /* FavoriteDetailHelper.swift */; settings = {ASSET_TAGS = (); }; };
-		18428C191C2ED27C00C4CAF1 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C181C2ED27C00C4CAF1 /* FavoriteTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		18428C1B1C2F2C9200C4CAF1 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C1A1C2F2C9200C4CAF1 /* BaseTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		18428C1D1C35CE7100C4CAF1 /* H1BCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C1C1C35CE7100C4CAF1 /* H1BCompany.swift */; settings = {ASSET_TAGS = (); }; };
-		18428C1F1C35DC0800C4CAF1 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C1E1C35DC0800C4CAF1 /* UIImage+Utils.swift */; settings = {ASSET_TAGS = (); }; };
-		18428C211C37B3E500C4CAF1 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C201C37B3E500C4CAF1 /* UIImageView+Utils.swift */; settings = {ASSET_TAGS = (); }; };
-		18428C231C38C24400C4CAF1 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C221C38C24400C4CAF1 /* ImageLoader.swift */; settings = {ASSET_TAGS = (); }; };
-		18428C251C39569500C4CAF1 /* JobWebViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C241C39569500C4CAF1 /* JobWebViewControler.swift */; settings = {ASSET_TAGS = (); }; };
-		1886EB601C25F92A00134016 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886EB5F1C25F92A00134016 /* Database.swift */; settings = {ASSET_TAGS = (); }; };
+		18428C111C2DFFDB00C4CAF1 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C101C2DFFDB00C4CAF1 /* Favorite.swift */; };
+		18428C131C2E073A00C4CAF1 /* FavoriteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C121C2E073A00C4CAF1 /* FavoriteDetail.swift */; };
+		18428C151C2E082100C4CAF1 /* FavoriteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C141C2E082100C4CAF1 /* FavoriteHelper.swift */; };
+		18428C171C2E206A00C4CAF1 /* FavoriteDetailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C161C2E206A00C4CAF1 /* FavoriteDetailHelper.swift */; };
+		18428C191C2ED27C00C4CAF1 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C181C2ED27C00C4CAF1 /* FavoriteTableViewController.swift */; };
+		18428C1B1C2F2C9200C4CAF1 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C1A1C2F2C9200C4CAF1 /* BaseTableViewCell.swift */; };
+		18428C1D1C35CE7100C4CAF1 /* H1BCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C1C1C35CE7100C4CAF1 /* H1BCompany.swift */; };
+		18428C1F1C35DC0800C4CAF1 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C1E1C35DC0800C4CAF1 /* UIImage+Utils.swift */; };
+		18428C211C37B3E500C4CAF1 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C201C37B3E500C4CAF1 /* UIImageView+Utils.swift */; };
+		18428C231C38C24400C4CAF1 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C221C38C24400C4CAF1 /* ImageLoader.swift */; };
+		18428C251C39569500C4CAF1 /* JobWebViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C241C39569500C4CAF1 /* JobWebViewControler.swift */; };
+		1886EB601C25F92A00134016 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886EB5F1C25F92A00134016 /* Database.swift */; };
 		1886EB621C25FB3000134016 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1886EB611C25FB3000134016 /* SQLite.framework */; };
 		1886EB641C25FB4100134016 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1886EB631C25FB4100134016 /* libsqlite3.tbd */; };
-		1886EB671C27051F00134016 /* SQLiteDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886EB661C27051F00134016 /* SQLiteDataStore.swift */; settings = {ASSET_TAGS = (); }; };
-		1886EB691C27075C00134016 /* HistoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886EB681C27075C00134016 /* HistoryHelper.swift */; settings = {ASSET_TAGS = (); }; };
-		1886EB6B1C27089100134016 /* DataHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886EB6A1C27089100134016 /* DataHelperProtocol.swift */; settings = {ASSET_TAGS = (); }; };
-		1886EB6D1C27096700134016 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886EB6C1C27096700134016 /* History.swift */; settings = {ASSET_TAGS = (); }; };
+		1886EB671C27051F00134016 /* SQLiteDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886EB661C27051F00134016 /* SQLiteDataStore.swift */; };
+		1886EB691C27075C00134016 /* HistoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886EB681C27075C00134016 /* HistoryHelper.swift */; };
+		1886EB6B1C27089100134016 /* DataHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886EB6A1C27089100134016 /* DataHelperProtocol.swift */; };
+		1886EB6D1C27096700134016 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886EB6C1C27096700134016 /* History.swift */; };
 		1894FFB61C1FD4AF000EBE18 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1894FFB51C1FD4AF000EBE18 /* HistoryTableViewController.swift */; };
 		1894FFB81C1FD628000EBE18 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1894FFB71C1FD628000EBE18 /* HistoryTableViewCell.swift */; };
 		18AB2EC91C040701002C3484 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EC81C040701002C3484 /* AppDelegate.swift */; };
@@ -504,10 +504,7 @@
 			baseConfigurationReference = 02B0BA33CFC6A136B3B97865 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = H1BJobs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vincethecoder.H1BJobs;
@@ -520,10 +517,7 @@
 			baseConfigurationReference = 1FF70E88760F2F5F91381D20 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = H1BJobs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vincethecoder.H1BJobs;
