@@ -20,10 +20,15 @@ class JobSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        formatTextField(keywordsTextField, text: "Job title or keywords")
+        let keywordPlaceholder = "Job title or keywords"
+        formatTextField(keywordsTextField, text: keywordPlaceholder)
         formatButton(searchButton, text: "Search")
         formatLogoImageView()
 
+        let font = UIFont(name: "Avenir", size: 12)!
+        let attributes = [NSForegroundColorAttributeName: UIColor.lightGrayColor(), NSFontAttributeName: font]
+        keywordsTextField.attributedPlaceholder = NSAttributedString(string: keywordPlaceholder, attributes:attributes)
+        
         let scale = CGAffineTransformMakeScale(0.0, 0.0)
         let translate = CGAffineTransformMakeTranslation(0, 500)
         logoImageView.transform = CGAffineTransformConcat(scale, translate)

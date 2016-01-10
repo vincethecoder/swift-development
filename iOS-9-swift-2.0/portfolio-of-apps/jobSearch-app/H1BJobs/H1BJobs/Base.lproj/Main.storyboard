@@ -28,24 +28,25 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7hb-4C-m6L">
-                                <rect key="frame" x="161" y="255" width="280" height="90"/>
+                                <rect key="frame" x="161" y="256.5" width="280" height="87"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex. Engineer or Software Developer" minimumFontSize="17" background="A3404698-BE0D-479D-A5DD-E13711ADCD87" translatesAutoresizingMaskIntoConstraints="NO" id="ABh-eo-CQG">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="35"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex. Engineer or Software Developer" minimumFontSize="17" background="3D8A03B0-DB2E-4E6C-9AB1-05D9B59215E9" translatesAutoresizingMaskIntoConstraints="NO" id="ABh-eo-CQG">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="eCD-Gh-C6s"/>
-                                            <constraint firstAttribute="height" constant="35" id="v5u-s2-sew"/>
+                                            <constraint firstAttribute="height" constant="32" id="v5u-s2-sew"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCr-Pj-gG4">
-                                        <rect key="frame" x="0.0" y="55" width="280" height="35"/>
+                                        <rect key="frame" x="0.0" y="52" width="280" height="35"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="KEC-2V-sFL"/>
                                             <constraint firstAttribute="height" constant="35" id="gWe-Po-ghN"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                         <state key="normal" title="Search">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -198,7 +199,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iWL-Np-vOF">
-                                            <rect key="frame" x="75" y="8" width="136" height="40"/>
+                                            <rect key="frame" x="72" y="8" width="136" height="40"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y5j-AV-xmm">
                                                     <rect key="frame" x="0.0" y="0.0" width="136" height="20"/>
@@ -240,7 +241,7 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="iWL-Np-vOF" firstAttribute="leading" secondItem="cgC-GM-yOU" secondAttribute="trailing" constant="15" id="M94-Tf-Uk0"/>
+                                        <constraint firstItem="iWL-Np-vOF" firstAttribute="leading" secondItem="cgC-GM-yOU" secondAttribute="trailing" constant="12" id="M94-Tf-Uk0"/>
                                         <constraint firstAttribute="topMargin" secondItem="iWL-Np-vOF" secondAttribute="top" id="SE1-hG-bms"/>
                                         <constraint firstItem="cgC-GM-yOU" firstAttribute="centerY" secondItem="iWL-Np-vOF" secondAttribute="centerY" id="TZj-Ai-NRE"/>
                                         <constraint firstItem="cgC-GM-yOU" firstAttribute="leading" secondItem="FD3-Z4-maa" secondAttribute="leadingMargin" constant="12" id="pPl-ce-k6p"/>
@@ -715,7 +716,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="A3404698-BE0D-479D-A5DD-E13711ADCD87" width="250" height="44">
+        <image name="3D8A03B0-DB2E-4E6C-9AB1-05D9B59215E9" width="250" height="44">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGSUpYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEAcI
 ERYbHCUmJysyNzo9Q0ZVJG51bGzUCQoLDA0ODxBWJGNsYXNzXE5TSW1hZ2VGbGFnc1ZOU1JlcHNXTlND
@@ -815,7 +816,7 @@ AAAAAAAAAAAAAAATPw
         <image name="tab_icon_search_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DrK-C6-4Dg"/>
+        <segue reference="lkJ-8a-hUQ"/>
         <segue reference="QiG-a1-g82"/>
     </inferredMetricsTieBreakers>
 </document>
