@@ -11,7 +11,7 @@ import UIKit
 class AboutTableViewController: UITableViewController {
 
     @IBOutlet weak var bannerContainer: UIView!
-   
+    @IBOutlet weak var logoImageView: UIImageView!
     var sectionContent = [ ["Rate App on iTunes", "Contact Developer"],
                            ["LinkedIn", "Github", "Twitter", "Google+"] ]
 
@@ -48,7 +48,34 @@ class AboutTableViewController: UITableViewController {
         
         // This will remove extra separators from tableview
         tableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        tableView.backgroundView = UIImageView(image: UIImage(named: "city_skyline_ny"))
+        
+        // Apply a blurring effect to the background image view
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = CGRectMake(0, 0, view.bounds.width * 2, view.bounds.height * 2)
+        tableView.backgroundView!.addSubview(blurEffectView)
+        
+        formatLogoImageView()
+        
+        let translate = CGAffineTransformMakeTranslation(250, 0)
+        logoImageView.transform = translate
+    }
+    
+    func formatLogoImageView() {
+        logoImageView.layer.borderWidth = 1.0
+        logoImageView.layer.masksToBounds = false
+        logoImageView.layer.borderColor = UIColor.H1BBorderColor().CGColor
+        logoImageView.layer.cornerRadius = logoImageView.frame.width / 2
+        logoImageView.clipsToBounds = true
+    }
 
+    override func viewDidAppear(animated: Bool) {
+        // Normal animation
+        UIView.animateWithDuration(0.5, delay: 0.0, options: [], animations: {
+            self.logoImageView.transform = CGAffineTransformIdentity
+            }, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,11 +108,13 @@ class AboutTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
+        cell.backgroundColor = .clearColor()
+        
         if indexPath.section == AboutTableSection.OtherSection.rawValue {
             let record = socialMedia[indexPath.row]
             cell.textLabel?.text = record.name
             cell.imageView?.image = record.image
-            cell.accessoryType = .DisclosureIndicator
+            cell.accessoryType = .DisclosureIndicator    
         } else {
             cell.textLabel?.text = sectionContent[indexPath.section][indexPath.row]
             cell.accessoryType = .None

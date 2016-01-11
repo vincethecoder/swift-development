@@ -47,6 +47,7 @@
 		18AB2EFB1C09CF9B002C3484 /* H1BJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EFA1C09CF9B002C3484 /* H1BJob.swift */; };
 		18AB2EFD1C0A31C9002C3484 /* NSDate+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EFC1C0A31C9002C3484 /* NSDate+Formatter.swift */; };
 		18AB2F021C0A5C82002C3484 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2F011C0A5C82002C3484 /* ResultsTableViewCell.swift */; };
+		18BFBA141C4372A700EBB2F9 /* ImageViewWithGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFBA131C4372A700EBB2F9 /* ImageViewWithGradient.swift */; };
 		7E0828DAE2CDF0ED3CD0A816 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B48F45D284830D6B91B1A87 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		18AB2EFA1C09CF9B002C3484 /* H1BJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H1BJob.swift; sourceTree = "<group>"; };
 		18AB2EFC1C0A31C9002C3484 /* NSDate+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Formatter.swift"; sourceTree = "<group>"; };
 		18AB2F011C0A5C82002C3484 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
+		18BFBA131C4372A700EBB2F9 /* ImageViewWithGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewWithGradient.swift; path = Utilities/ImageViewWithGradient.swift; sourceTree = "<group>"; };
 		1FF70E88760F2F5F91381D20 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6B48F45D284830D6B91B1A87 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -174,6 +176,7 @@
 			children = (
 				18AB2EE61C063F4D002C3484 /* JobUtils.swift */,
 				18428C221C38C24400C4CAF1 /* ImageLoader.swift */,
+				18BFBA131C4372A700EBB2F9 /* ImageViewWithGradient.swift */,
 				1886EB651C2704F200134016 /* Database */,
 				18AB2EE21C061FD5002C3484 /* String+Utils.swift */,
 				18428C201C37B3E500C4CAF1 /* UIImageView+Utils.swift */,
@@ -358,6 +361,7 @@
 			files = (
 				18AB2EEF1C07C529002C3484 /* CBJobResponse.swift in Sources */,
 				18AB2F021C0A5C82002C3484 /* ResultsTableViewCell.swift in Sources */,
+				18BFBA141C4372A700EBB2F9 /* ImageViewWithGradient.swift in Sources */,
 				1886EB601C25F92A00134016 /* Database.swift in Sources */,
 				1886EB671C27051F00134016 /* SQLiteDataStore.swift in Sources */,
 				18428C191C2ED27C00C4CAF1 /* FavoriteTableViewController.swift in Sources */,

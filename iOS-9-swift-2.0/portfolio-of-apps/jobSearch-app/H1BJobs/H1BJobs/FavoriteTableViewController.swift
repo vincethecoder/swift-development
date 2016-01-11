@@ -31,6 +31,9 @@ class FavoriteTableViewController: UITableViewController {
         tableView.tableFooterView = UIView(frame: CGRectZero)
         
         inlineMessage = "No Saved Jobs... Let's Begin Search!"
+        
+        let inset = UIEdgeInsetsMake(5, 0, 0, 0)
+        tableView.contentInset = inset
     }
 
     override func viewDidAppear(animated: Bool) {
