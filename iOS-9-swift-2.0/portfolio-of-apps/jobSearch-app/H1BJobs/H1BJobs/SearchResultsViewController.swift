@@ -238,7 +238,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         let center = (sender?.center)!
         let rootViewPoint = sender?.superview!!.convertPoint(center, toView: tableView)
 
-        if let indexPath = tableView.indexPathForRowAtPoint(rootViewPoint!){
+        if let indexPath = tableView.indexPathForRowAtPoint(rootViewPoint!) {
             let webView = segue.destinationViewController as? JobWebViewControler
             let row = indexPath.row
             let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]

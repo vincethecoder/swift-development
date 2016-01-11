@@ -16,7 +16,9 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         
-        self.title = "H1B Job - Apply"
+        if title == nil {
+            self.title = "H1B Job - Apply"
+        }
         
         if let url = jobUrl {
             let requestUrl = NSURLRequest(URL: NSURL(string: url)!)
