@@ -34,7 +34,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         }
     }
 
-    let tableHeightSingleLine: CGFloat = 69
+    let tableHeightSingleLine: CGFloat = 90
     let tableHeightErrorCell: CGFloat = 45
 
     @IBOutlet weak var spinner:UIActivityIndicatorView!

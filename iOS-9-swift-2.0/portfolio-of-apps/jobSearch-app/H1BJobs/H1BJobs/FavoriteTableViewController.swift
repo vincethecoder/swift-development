@@ -15,7 +15,7 @@ class FavoriteTableViewController: UITableViewController {
     var inlineMessage: String?
     let webViewSegueIdentifier = "favJobHyperLink"
     
-    let tableHeightSingleLine: CGFloat = 69
+    let tableHeightSingleLine: CGFloat = 90
     let tableHeightErrorCell: CGFloat = 45
 
     override func viewDidLoad() {
