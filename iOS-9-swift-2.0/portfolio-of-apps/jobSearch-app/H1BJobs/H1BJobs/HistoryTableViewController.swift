@@ -28,6 +28,16 @@ class HistoryTableViewController: UITableViewController {
         tableView.tableFooterView = UIView(frame: CGRectZero)
         
         inlineMessage = "No Search History... Let's Being Search!"
+        
+        let inset = UIEdgeInsetsMake(5, 0, 0, 0)
+        tableView.contentInset = inset
+        
+        // Apply a blurring effect to the background image view
+        tableView.backgroundView = UIImageView(image: UIImage(named: "city_skyline_ny"))
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = CGRectMake(0, 0, view.bounds.width * 2, view.bounds.height * 2)
+        tableView.backgroundView!.addSubview(blurEffectView)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -69,6 +79,8 @@ class HistoryTableViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! HistoryTableViewCell
 
+        cell.backgroundColor = .clearColor()
+        
         if let _ = inlineMessage where inlineMessage?.characters.count > 0 {
             return cell.noListingsCell(inlineMessage!)
         } else {

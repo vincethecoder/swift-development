@@ -101,6 +101,8 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             }
         }
 
+        let inset = UIEdgeInsetsMake(5, 0, 0, 0)
+        tableView.contentInset = inset
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -151,7 +153,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             var imageUrl = ""
 
             if h1bjob.jobdetail.isKindOfClass(DiceJobDetail) {
-                imageUrl = "http://www.godel.com/assets/images/autogen/a_logo_dice_inc.gif"
+                imageUrl = "http://seeker.dice.com/assets/images/DiceLogo_V.gif"
             } else if h1bjob.jobdetail.isKindOfClass(CBJobDetail) {
                 if let cbJobDetail = h1bjob.jobdetail as? CBJobDetail {
                     if let _ = cbJobDetail.companyImageURL {

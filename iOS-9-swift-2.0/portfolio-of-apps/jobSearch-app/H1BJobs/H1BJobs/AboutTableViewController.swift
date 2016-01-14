@@ -12,7 +12,7 @@ class AboutTableViewController: UITableViewController {
 
     @IBOutlet weak var bannerContainer: UIView!
     @IBOutlet weak var logoImageView: UIImageView!
-    var sectionContent = [ ["Rate App on iTunes", "Contact Developer"],
+    var sectionContent = [ ["Rate the App on iTunes", "Contact Developer"],
                            ["LinkedIn", "Github", "Twitter", "Google+"] ]
 
     let webViewSegueIdentifier = "showWebView"

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.H1BHeaderColor()
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
-        if let barFont = UIFont(name: "Avenir-Light", size: 15.0) {
+        if let barFont = UIFont(name: "Avenir-Heavy", size: 20.0) {
             UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(), NSFontAttributeName:barFont]
         }
         

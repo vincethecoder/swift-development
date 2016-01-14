@@ -34,6 +34,13 @@ class FavoriteTableViewController: UITableViewController {
         
         let inset = UIEdgeInsetsMake(5, 0, 0, 0)
         tableView.contentInset = inset
+        
+        // Apply a blurring effect to the background image view
+        tableView.backgroundView = UIImageView(image: UIImage(named: "city_skyline_ny"))
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = CGRectMake(0, 0, view.bounds.width * 2, view.bounds.height * 2)
+        tableView.backgroundView!.addSubview(blurEffectView)
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -75,6 +82,8 @@ class FavoriteTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ResultsTableViewCell
 
+        cell.backgroundColor = .clearColor()
+        
         if let _ = inlineMessage where inlineMessage?.characters.count > 0 {
             return cell.noListingsCell(inlineMessage!)
         } else {
@@ -84,7 +93,9 @@ class FavoriteTableViewController: UITableViewController {
             cell.jobTitle.text = favoriteData.jobTitle?.capitalizedString
             cell.jobCompany.text = favoriteData.company
             cell.jobPostDate.text = "Saved: \(favoriteData.savedTimestamp!)"
-            cell.jobCompanyLogo.image = UIImage(data: favoriteData.image)
+            //cell.imageView?.frame = CGRectMake(0, 0, 72, 25)
+            let image = UIImage.imageScaledToSize(UIImage(data: favoriteData.image)!, size: CGSizeMake(72, 25))
+            cell.imageView?.image = image
             cell.textLabel?.text = ""
             cell.saveButton.tintColor = .redColor()
             cell.jobWebUrl = favoriteData.jobUrl

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JobSearchViewController: UIViewController {
+class JobSearchViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var backgroundImageView:UIImageView!
     @IBOutlet weak var keywordsTextField: UITextField!
@@ -25,13 +25,19 @@ class JobSearchViewController: UIViewController {
         formatButton(searchButton, text: "Search")
         formatLogoImageView()
 
-        let font = UIFont(name: "Avenir", size: 12)!
+        let font = UIFont(name: "Avenir", size: 18)!
         let attributes = [NSForegroundColorAttributeName: UIColor.lightGrayColor(), NSFontAttributeName: font]
         keywordsTextField.attributedPlaceholder = NSAttributedString(string: keywordPlaceholder, attributes:attributes)
         
         let scale = CGAffineTransformMakeScale(0.0, 0.0)
         let translate = CGAffineTransformMakeTranslation(0, 500)
         logoImageView.transform = CGAffineTransformConcat(scale, translate)
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
+        keywordsTextField.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -82,6 +88,15 @@ class JobSearchViewController: UIViewController {
         button.layer.borderWidth = 1.0
 
         button.layer.backgroundColor = UIColor.H1BHeaderColor().CGColor
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return false
+    }
+
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func searchButtonTapped(sender: UIButton) {
