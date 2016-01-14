@@ -15,6 +15,10 @@ class HistoryTableViewCell: BaseTableViewCell {
     @IBOutlet weak var jobSearchDateDay: UILabel!
     @IBOutlet weak var calendarContainer: UIView!
     
+    @IBOutlet weak var historySearchIcon: UIImageView!
+    @IBOutlet weak var historyLocationIcon: UIImageView!
+    @IBOutlet weak var historyLocation: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         calendarContainer.layer.borderColor = UIColor.lightGrayColor().CGColor

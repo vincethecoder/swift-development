@@ -16,7 +16,7 @@ class FavoriteTableViewController: UITableViewController {
     let webViewSegueIdentifier = "favJobHyperLink"
     
     let tableHeightSingleLine: CGFloat = 90
-    let tableHeightErrorCell: CGFloat = 45
+    let tableHeightErrorCell: CGFloat = 60
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +85,12 @@ class FavoriteTableViewController: UITableViewController {
         cell.backgroundColor = .clearColor()
         
         if let _ = inlineMessage where inlineMessage?.characters.count > 0 {
+            cell.jobTitle.text = String()
+            cell.jobPostDate.text = String()
+            cell.jobCompany.text = String()
+            cell.jobLocation.text = String()
+            cell.saveButton.hidden = true
+            cell.imageView?.hidden = true
             return cell.noListingsCell(inlineMessage!)
         } else {
             let row = indexPath.row
@@ -93,12 +99,13 @@ class FavoriteTableViewController: UITableViewController {
             cell.jobTitle.text = favoriteData.jobTitle?.capitalizedString
             cell.jobCompany.text = favoriteData.company
             cell.jobPostDate.text = "Saved: \(favoriteData.savedTimestamp!)"
-            //cell.imageView?.frame = CGRectMake(0, 0, 72, 25)
             let image = UIImage.imageScaledToSize(UIImage(data: favoriteData.image)!, size: CGSizeMake(72, 25))
+            cell.imageView?.hidden = false
             cell.imageView?.image = image
             cell.textLabel?.text = ""
             cell.saveButton.tintColor = .redColor()
             cell.jobWebUrl = favoriteData.jobUrl
+            cell.saveButton.hidden = false
             
             return cell
         }
@@ -125,9 +132,15 @@ class FavoriteTableViewController: UITableViewController {
             // Delete the row from the data source
             let row = indexPath.row
             FavoriteHelper.delete(favoriteList[row])
-            guard favoriteList.count != row else { return }
+            guard favoriteList.count > row else { return }
             favoriteList.removeAtIndex(row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            if favoriteList.count == 0 {
+                inlineMessage = "No Saved Jobs... Let's Begin Search!"
+                favoriteList = [Favorite()]
+                tableView.reloadData()
+            }
         }
     }
 

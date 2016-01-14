@@ -82,6 +82,13 @@ class HistoryTableViewController: UITableViewController {
         cell.backgroundColor = .clearColor()
         
         if let _ = inlineMessage where inlineMessage?.characters.count > 0 {
+            cell.jobKeyword.text = String()
+            cell.jobSearchDateDay.text = String()
+            cell.jobSearchDateMonth.text = String()
+            cell.calendarContainer.hidden = true
+            cell.historyLocation.hidden = true
+            cell.historyLocationIcon.hidden = true
+            cell.historySearchIcon.hidden = true
             return cell.noListingsCell(inlineMessage!)
         } else {
             let row = indexPath.row
@@ -89,6 +96,10 @@ class HistoryTableViewController: UITableViewController {
             let historyDate = historyData.timestamp!
             let keyword = historyData.keyword?.characters.count > 0 ? historyData.keyword?.capitalizedString : "All H1B Jobs"
 
+            cell.calendarContainer.hidden = false
+            cell.historyLocationIcon.hidden = false
+            cell.historySearchIcon.hidden = false
+            cell.historyLocation.hidden = false
             cell.jobKeyword.text = "\(keyword!)"
             cell.jobSearchDateDay.text = historyDate.wordDayString()
             cell.jobSearchDateMonth.text = historyDate.wordMonthString().uppercaseString
@@ -103,9 +114,15 @@ class HistoryTableViewController: UITableViewController {
             // Delete the row from the data source
             let row = indexPath.row
             HistoryHelper.delete(historyList[row])
-            guard historyList.count != row else { return }
+            guard historyList.count > row else { return }
             historyList.removeAtIndex(row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            if historyList.count == 0 {
+                inlineMessage = "No Search History... Let's Being Search!"
+                historyList = [History()]
+                tableView.reloadData()
+            }
         }
     }
 

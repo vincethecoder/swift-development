@@ -21,7 +21,7 @@ class BaseTableViewCell: UITableViewCell {
     func noListingsCell(inlineMessage: String) -> UITableViewCell {
         self.textLabel?.attributedText = NSMutableAttributedString(
             string: NSLocalizedString(inlineMessage, comment: ""),
-            attributes:[NSFontAttributeName: UIFont.systemFontOfSize(12),
+            attributes:[NSFontAttributeName: UIFont.systemFontOfSize(17),
                 NSForegroundColorAttributeName: UIColor.H1BTextColor()])
         self.textLabel?.numberOfLines = 0
         self.selectionStyle = .None
