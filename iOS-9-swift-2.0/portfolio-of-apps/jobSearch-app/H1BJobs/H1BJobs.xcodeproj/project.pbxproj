@@ -96,6 +96,7 @@
 		18AB2EFC1C0A31C9002C3484 /* NSDate+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Formatter.swift"; sourceTree = "<group>"; };
 		18AB2F011C0A5C82002C3484 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
 		18BFBA131C4372A700EBB2F9 /* ImageViewWithGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewWithGradient.swift; path = Utilities/ImageViewWithGradient.swift; sourceTree = "<group>"; };
+		18DD3F2D1C48A15600FBC68B /* H1BJobs-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "H1BJobs-Bridging-Header.h"; sourceTree = "<group>"; };
 		1FF70E88760F2F5F91381D20 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6B48F45D284830D6B91B1A87 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -167,6 +168,7 @@
 				18AB2ED11C040701002C3484 /* Assets.xcassets */,
 				18AB2ED31C040701002C3484 /* LaunchScreen.storyboard */,
 				18AB2ED61C040701002C3484 /* Info.plist */,
+				18DD3F2D1C48A15600FBC68B /* H1BJobs-Bridging-Header.h */,
 			);
 			path = H1BJobs;
 			sourceTree = "<group>";
@@ -272,6 +274,7 @@
 				TargetAttributes = {
 					18AB2EC41C040701002C3484 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = ZA9VLG9627;
 					};
 				};
 			};
@@ -508,11 +511,14 @@
 			baseConfigurationReference = 02B0BA33CFC6A136B3B97865 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = H1BJobs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vincethecoder.H1BJobs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "H1BJobs/H1BJobs-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -521,11 +527,14 @@
 			baseConfigurationReference = 1FF70E88760F2F5F91381D20 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = H1BJobs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vincethecoder.H1BJobs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "H1BJobs/H1BJobs-Bridging-Header.h";
 			};
 			name = Release;
 		};
