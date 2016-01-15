@@ -16,6 +16,11 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var logoImageView: UIImageView!
     
     let resultsSegueIdentifier = "showResults"
+    var tracker: GAITracker {
+        return GAI.sharedInstance().defaultTracker
+    }
+    
+    var build: [NSObject: AnyObject]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +54,12 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        // Google Analytics
+        tracker.set(kGAIScreenName, value: "/searchview")
+        let builder = GAIDictionaryBuilder.createScreenView()
+        build = builder.build() as [NSObject: AnyObject]
+        tracker.send(build)
     }
     
     func formatLogoImageView() {
@@ -100,10 +111,26 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func searchButtonTapped(sender: UIButton) {
-        print("keywords \(keywordsTextField.text)")
-        let historyRecord = History(searchId: 0, keyword: keywordsTextField.text!, location: "", state: "", timestamp: NSDate.init())
+        let keywords = keywordsTextField.text!
+        print("keywords \(keywords)")
+        let historyRecord = History(searchId: 0, keyword: keywords, location: "", state: "", timestamp: NSDate())
         let historyId = HistoryHelper.insert(historyRecord)
         print("history id \(historyId)")
+        
+
+        var keywordProcessed = String()
+        var keywordCategory = String()
+
+        if keywords.characters.count > 0 {
+            keywordProcessed = "\(keywords)"
+            keywordCategory = "custom search"
+        } else {
+            keywordProcessed = "Any H1B Job"
+            keywordCategory = "default search"
+        }
+        
+        // Google Analytics
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Keyword: \(keywordProcessed)", action: "Search Pressed", label: keywordCategory, value: nil).build() as [NSObject : AnyObject])
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

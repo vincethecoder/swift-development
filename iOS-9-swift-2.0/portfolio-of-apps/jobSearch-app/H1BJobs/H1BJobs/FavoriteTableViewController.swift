@@ -66,6 +66,12 @@ class FavoriteTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnSwipe = true
         navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        // Google Analytics
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "/savedview")
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
     }
 
     // MARK: - Table view data source

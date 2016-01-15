@@ -63,6 +63,16 @@ class AboutTableViewController: UITableViewController {
         logoImageView.transform = translate
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Google Analytics
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "/appinfoview")
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+    }
+    
     func formatLogoImageView() {
         logoImageView.layer.borderWidth = 1.0
         logoImageView.layer.masksToBounds = false

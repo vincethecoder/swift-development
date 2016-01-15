@@ -100,15 +100,18 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
                 })
             }
         }
-
-        let inset = UIEdgeInsetsMake(5, 0, 0, 0)
-        tableView.contentInset = inset
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnSwipe = true
         navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        // Google Analytics
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "/searchresutlsview")
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
     override func viewDidAppear(animated: Bool) {
