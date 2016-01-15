@@ -31,7 +31,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7hb-4C-m6L">
                                 <rect key="frame" x="161" y="247" width="280" height="107"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex. Engineer or Software Developer" minimumFontSize="17" background="EE8DAA02-E193-4056-A477-D6340F94BC10" translatesAutoresizingMaskIntoConstraints="NO" id="ABh-eo-CQG">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex. Engineer or Software Developer" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ABh-eo-CQG">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="eCD-Gh-C6s"/>
@@ -297,7 +297,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QTC-gc-VuB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cbLogo" translatesAutoresizingMaskIntoConstraints="NO" id="QTC-gc-VuB">
                                             <rect key="frame" x="20" y="32" width="92" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="92" id="Ec3-HL-liL"/>
@@ -805,106 +805,18 @@
         </scene>
     </scenes>
     <resources>
-        <image name="EE8DAA02-E193-4056-A477-D6340F94BC10" width="250" height="44">
-            <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGQkNYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QDwcI
-ERYbHCUmJygwMzY8P1UkbnVsbNQJCgsMDQ4PEFYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVwc1dOU0Nv
-bG9ygA4SAMAAAIACgAzSEgkTFVpOUy5vYmplY3RzoRSAA4AL0hIJFxqiGBmABIAFgAoQANUdHh8gCSEb
-IiMkVk5TU2l6ZV8QD05TQml0c1BlclNhbXBsZV8QEE5TQ29sb3JTcGFjZU5hbWVZTlNQREZEYXRhgAaA
-B4AIgAlZezI1MCwgNDR9XxAZTlNDYWxpYnJhdGVkUkdCQ29sb3JTcGFjZU8RERwlUERGLTEuMwolxOXy
-5eun86DQxMYKNCAwIG9iago8PCAvTGVuZ3RoIDUgMCBSIC9GaWx0ZXIgL0ZsYXRlRGVjb2RlID4+CnN0
-cmVhbQp4AZ1Tu24jMQzs9ytYB7BCUZRE1S6uDlzcByyQB7AOYLjI799QXmudBAfE6TgSOSJHwxM90Yl2
-KZO0QkcSu0RLj3ZShZZ+vYavN7l/H+idUmBO1tqkivIYkqo1ISAmlVByiz2MyIul0IxzCa1ZSgZq7iWi
-LD3IXGziQYrrmUQL8ksEQFdq4MwOJF+K2XLtYNCiBne6PjmhyqE3U8vKoM1bHNSI5+1VoIVeP+Ej+bQT
-h0Jv9Lg/R5rPxCEWK1IxYJBmnDA4B42xFq10nunxDxJfzl+YriK5ZL8VCYVX5RHO05jklyK5tJtIoHOZ
-7xfp+eG7nyZ31t1+8u/5n5/gkOvn/sBPX6TaPh1SrYPe5afPUg0/+W+OX0D8Ez+R0gccMzy1P2yegte+
-e+qwd0+Je+qE1IzZmHaXwN88UsGe1doazrHNoVirliCYb12xWKPXZF+oUmtXz8RXOPmiM1kOKWbx5MYx
-FTLbKBHPk7aEahG/WUhbRQG2FyjzWm/SLuDKPHc4Xl069H7UWMEIDu4tD3Jf/JtRfB1v4JEO8NnTPzcP
-8XgKZW5kc3RyZWFtCmVuZG9iago1IDAgb2JqCjQxNwplbmRvYmoKMiAwIG9iago8PCAvVHlwZSAvUGFn
-ZSAvUGFyZW50IDMgMCBSIC9SZXNvdXJjZXMgNiAwIFIgL0NvbnRlbnRzIDQgMCBSIC9NZWRpYUJveCBb
-MCAwIDI1MCA0NF0KPj4KZW5kb2JqCjYgMCBvYmoKPDwgL1Byb2NTZXQgWyAvUERGIF0gL0NvbG9yU3Bh
-Y2UgPDwgL0NzMSA3IDAgUiA+PiAvRXh0R1N0YXRlIDw8IC9HczEgOCAwIFIKL0dzMiA5IDAgUiA+PiA+
-PgplbmRvYmoKOCAwIG9iago8PCAvVHlwZSAvRXh0R1N0YXRlIC9jYSAwID4+CmVuZG9iago5IDAgb2Jq
-Cjw8IC9UeXBlIC9FeHRHU3RhdGUgL0NBIDAuNDkyOCA+PgplbmRvYmoKMTAgMCBvYmoKPDwgL0xlbmd0
-aCAxMSAwIFIgL04gMyAvQWx0ZXJuYXRlIC9EZXZpY2VSR0IgL0ZpbHRlciAvRmxhdGVEZWNvZGUgPj4K
-c3RyZWFtCngBnZZ3VFPZFofPvTe90BIiICX0GnoJINI7SBUEUYlJgFAChoQmdkQFRhQRKVZkVMABR4ci
-Y0UUC4OCYtcJ8hBQxsFRREXl3YxrCe+tNfPemv3HWd/Z57fX2Wfvfde6AFD8ggTCdFgBgDShWBTu68Fc
-EhPLxPcCGBABDlgBwOFmZgRH+EQC1Py9PZmZqEjGs/buLoBku9ssv1Amc9b/f5EiN0MkBgAKRdU2PH4m
-F+UClFOzxRky/wTK9JUpMoYxMhahCaKsIuPEr2z2p+Yru8mYlybkoRpZzhm8NJ6Mu1DemiXho4wEoVyY
-JeBno3wHZb1USZoA5fco09P4nEwAMBSZX8znJqFsiTJFFBnuifICAAiUxDm8cg6L+TlongB4pmfkigSJ
-SWKmEdeYaeXoyGb68bNT+WIxK5TDTeGIeEzP9LQMjjAXgK9vlkUBJVltmWiR7a0c7e1Z1uZo+b/Z3x5+
-U/09yHr7VfEm7M+eQYyeWd9s7KwvvRYA9iRamx2zvpVVALRtBkDl4axP7yAA8gUAtN6c8x6GbF6SxOIM
-JwuL7OxscwGfay4r6Df7n4Jvyr+GOfeZy+77VjumFz+BI0kVM2VF5aanpktEzMwMDpfPZP33EP/jwDlp
-zcnDLJyfwBfxhehVUeiUCYSJaLuFPIFYkC5kCoR/1eF/GDYnBxl+nWsUaHVfAH2FOVC4SQfIbz0AQyMD
-JG4/egJ961sQMQrIvrxorZGvc48yev7n+h8LXIpu4UxBIlPm9gyPZHIloiwZo9+EbMECEpAHdKAKNIEu
-MAIsYA0cgDNwA94gAISASBADlgMuSAJpQASyQT7YAApBMdgBdoNqcADUgXrQBE6CNnAGXARXwA1wCwyA
-R0AKhsFLMAHegWkIgvAQFaJBqpAWpA+ZQtYQG1oIeUNBUDgUA8VDiZAQkkD50CaoGCqDqqFDUD30I3Qa
-ughdg/qgB9AgNAb9AX2EEZgC02EN2AC2gNmwOxwIR8LL4ER4FZwHF8Db4Uq4Fj4Ot8IX4RvwACyFX8KT
-CEDICAPRRlgIG/FEQpBYJAERIWuRIqQCqUWakA6kG7mNSJFx5AMGh6FhmBgWxhnjh1mM4WJWYdZiSjDV
-mGOYVkwX5jZmEDOB+YKlYtWxplgnrD92CTYRm40txFZgj2BbsJexA9hh7DscDsfAGeIccH64GFwybjWu
-BLcP14y7gOvDDeEm8Xi8Kt4U74IPwXPwYnwhvgp/HH8e348fxr8nkAlaBGuCDyGWICRsJFQQGgjnCP2E
-EcI0UYGoT3QihhB5xFxiKbGO2EG8SRwmTpMUSYYkF1IkKZm0gVRJaiJdJj0mvSGTyTpkR3IYWUBeT64k
-nyBfJQ+SP1CUKCYUT0ocRULZTjlKuUB5QHlDpVINqG7UWKqYup1aT71EfUp9L0eTM5fzl+PJrZOrkWuV
-65d7JU+U15d3l18unydfIX9K/qb8uAJRwUDBU4GjsFahRuG0wj2FSUWaopViiGKaYolig+I1xVElvJKB
-krcST6lA6bDSJaUhGkLTpXnSuLRNtDraZdowHUc3pPvTk+nF9B/ovfQJZSVlW+Uo5RzlGuWzylIGwjBg
-+DNSGaWMk4y7jI/zNOa5z+PP2zavaV7/vCmV+SpuKnyVIpVmlQGVj6pMVW/VFNWdqm2qT9QwaiZqYWrZ
-avvVLquNz6fPd57PnV80/+T8h+qwuol6uPpq9cPqPeqTGpoavhoZGlUalzTGNRmabprJmuWa5zTHtGha
-C7UEWuVa57VeMJWZ7sxUZiWzizmhra7tpy3RPqTdqz2tY6izWGejTrPOE12SLls3Qbdct1N3Qk9LL1gv
-X69R76E+UZ+tn6S/R79bf8rA0CDaYItBm8GooYqhv2GeYaPhYyOqkavRKqNaozvGOGO2cYrxPuNbJrCJ
-nUmSSY3JTVPY1N5UYLrPtM8Ma+ZoJjSrNbvHorDcWVmsRtagOcM8yHyjeZv5Kws9i1iLnRbdFl8s7SxT
-LessH1kpWQVYbbTqsPrD2sSaa11jfceGauNjs86m3ea1rakt33a/7X07ml2w3Ra7TrvP9g72Ivsm+zEH
-PYd4h70O99h0dii7hH3VEevo4bjO8YzjByd7J7HTSaffnVnOKc4NzqMLDBfwF9QtGHLRceG4HHKRLmQu
-jF94cKHUVduV41rr+sxN143ndsRtxN3YPdn9uPsrD0sPkUeLx5Snk+cazwteiJevV5FXr7eS92Lvau+n
-Pjo+iT6NPhO+dr6rfS/4Yf0C/Xb63fPX8Of61/tPBDgErAnoCqQERgRWBz4LMgkSBXUEw8EBwbuCHy/S
-XyRc1BYCQvxDdoU8CTUMXRX6cxguLDSsJux5uFV4fnh3BC1iRURDxLtIj8jSyEeLjRZLFndGyUfFRdVH
-TUV7RZdFS5dYLFmz5EaMWowgpj0WHxsVeyR2cqn30t1Lh+Ps4grj7i4zXJaz7NpyteWpy8+ukF/BWXEq
-HhsfHd8Q/4kTwqnlTK70X7l35QTXk7uH+5LnxivnjfFd+GX8kQSXhLKE0USXxF2JY0muSRVJ4wJPQbXg
-dbJf8oHkqZSQlKMpM6nRqc1phLT4tNNCJWGKsCtdMz0nvS/DNKMwQ7rKadXuVROiQNGRTChzWWa7mI7+
-TPVIjCSbJYNZC7Nqst5nR2WfylHMEeb05JrkbssdyfPJ+341ZjV3dWe+dv6G/ME17msOrYXWrlzbuU53
-XcG64fW+649tIG1I2fDLRsuNZRvfbore1FGgUbC+YGiz7+bGQrlCUeG9Lc5bDmzFbBVs7d1ms61q25ci
-XtH1YsviiuJPJdyS699ZfVf53cz2hO29pfal+3fgdgh33N3puvNYmWJZXtnQruBdreXM8qLyt7tX7L5W
-YVtxYA9pj2SPtDKosr1Kr2pH1afqpOqBGo+a5r3qe7ftndrH29e/321/0wGNA8UHPh4UHLx/yPdQa61B
-bcVh3OGsw8/rouq6v2d/X39E7Ujxkc9HhUelx8KPddU71Nc3qDeUNsKNksax43HHb/3g9UN7E6vpUDOj
-ufgEOCE58eLH+B/vngw82XmKfarpJ/2f9rbQWopaodbc1om2pDZpe0x73+mA050dzh0tP5v/fPSM9pma
-s8pnS8+RzhWcmzmfd37yQsaF8YuJF4c6V3Q+urTk0p2usK7ey4GXr17xuXKp2737/FWXq2euOV07fZ19
-ve2G/Y3WHruell/sfmnpte9tvelws/2W462OvgV95/pd+y/e9rp95Y7/nRsDiwb67i6+e/9e3D3pfd79
-0QepD14/zHo4/Wj9Y+zjoicKTyqeqj+t/dX412apvfTsoNdgz7OIZ4+GuEMv/5X5r0/DBc+pzytGtEbq
-R61Hz4z5jN16sfTF8MuMl9Pjhb8p/rb3ldGrn353+71nYsnE8GvR65k/St6ovjn61vZt52To5NN3ae+m
-p4req74/9oH9oftj9MeR6exP+E+Vn40/d3wJ/PJ4Jm1m5t/3hPP7CmVuZHN0cmVhbQplbmRvYmoKMTEg
-MCBvYmoKMjYxMgplbmRvYmoKNyAwIG9iagpbIC9JQ0NCYXNlZCAxMCAwIFIgXQplbmRvYmoKMyAwIG9i
-ago8PCAvVHlwZSAvUGFnZXMgL01lZGlhQm94IFswIDAgMjUwIDQ0XSAvQ291bnQgMSAvS2lkcyBbIDIg
-MCBSIF0gPj4KZW5kb2JqCjEyIDAgb2JqCjw8IC9UeXBlIC9DYXRhbG9nIC9QYWdlcyAzIDAgUiAvVmVy
-c2lvbiAvMS40ID4+CmVuZG9iagoxMyAwIG9iagooTWFjIE9TIFggMTAuMTAuMiBRdWFydHogUERGQ29u
-dGV4dCkKZW5kb2JqCjE0IDAgb2JqCihEOjIwMTUwMTI0MDkxNDIxWjAwJzAwJykKZW5kb2JqCjEgMCBv
-YmoKPDwgL1Byb2R1Y2VyIDEzIDAgUiAvQ3JlYXRpb25EYXRlIDE0IDAgUiAvTW9kRGF0ZSAxNCAwIFIg
-Pj4KZW5kb2JqCnhyZWYKMCAxNQowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDM4NDggMDAwMDAgbiAK
-MDAwMDAwMDUzMiAwMDAwMCBuIAowMDAwMDAzNjA3IDAwMDAwIG4gCjAwMDAwMDAwMjIgMDAwMDAgbiAK
-MDAwMDAwMDUxMyAwMDAwMCBuIAowMDAwMDAwNjM1IDAwMDAwIG4gCjAwMDAwMDM1NzEgMDAwMDAgbiAK
-MDAwMDAwMDc0MiAwMDAwMCBuIAowMDAwMDAwNzg2IDAwMDAwIG4gCjAwMDAwMDA4MzUgMDAwMDAgbiAK
-MDAwMDAwMzU1MCAwMDAwMCBuIAowMDAwMDAzNjg5IDAwMDAwIG4gCjAwMDAwMDM3NTMgMDAwMDAgbiAK
-MDAwMDAwMzgwNiAwMDAwMCBuIAp0cmFpbGVyCjw8IC9TaXplIDE1IC9Sb290IDEyIDAgUiAvSW5mbyAx
-IDAgUiAvSUQgWyA8MWExZTQ1ZWZiZjM4MGM4NjMyMjk3YWI5ZTdmYTM0MmQ+CjwxYTFlNDVlZmJmMzgw
-Yzg2MzIyOTdhYjllN2ZhMzQyZD4gXSA+PgpzdGFydHhyZWYKMzkyMwolJUVPRgrSKSorLFokY2xhc3Nu
-YW1lWCRjbGFzc2VzXU5TUERGSW1hZ2VSZXCjLS4vXU5TUERGSW1hZ2VSZXBaTlNJbWFnZVJlcFhOU09i
-amVjdNIpKjEyV05TQXJyYXmiMS/SKSo0NV5OU011dGFibGVBcnJheaM0MS/TNzgJOTo7V05TV2hpdGVc
-TlNDb2xvclNwYWNlRDAgMAAQA4AN0ikqPT5XTlNDb2xvcqI9L9IpKkBBV05TSW1hZ2WiQC9fEA9OU0tl
-eWVkQXJjaGl2ZXLRREVUcm9vdIABAAgAEQAaACMALQAyADcASQBPAFgAXwBsAHMAewB9AIIAhACGAIsA
-lgCYAJoAnAChAKQApgCoAKoArAC3AL4A0ADjAO0A7wDxAPMA9QD/ARsSOxJAEksSVBJiEmYSdBJ/EogS
-jRKVEpgSnRKsErAStxK/EswS0RLTEtUS2hLiEuUS6hLyEvUTBxMKEw8AAAAAAAACAQAAAAAAAABGAAAA
-AAAAAAAAAAAAAAATEQ
-</mutableData>
-        </image>
-        <image name="city_skyline_ny" width="2560" height="1600"/>
+        <image name="cbLogo" width="92" height="10"/>
+        <image name="city_skyline_ny" width="853" height="533"/>
         <image name="ic_location_on" width="160" height="160"/>
         <image name="ic_search" width="160" height="160"/>
-        <image name="icon_h1bjobs_HQ" width="1024" height="1024"/>
+        <image name="icon_h1bjobs_HQ" width="72" height="72"/>
         <image name="tab_icon_clock_filled" width="25" height="25"/>
         <image name="tab_icon_info_filled" width="25" height="25"/>
         <image name="tab_icon_like_filled" width="25" height="25"/>
         <image name="tab_icon_search_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fL0-st-1jL"/>
-        <segue reference="DrK-C6-4Dg"/>
+        <segue reference="mNs-kM-191"/>
+        <segue reference="lkJ-8a-hUQ"/>
     </inferredMetricsTieBreakers>
 </document>

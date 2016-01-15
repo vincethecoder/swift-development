@@ -7,10 +7,12 @@
     },
     {
       "idiom" : "universal",
+      "filename" : "city_skyline_ny@2x.jpg",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "city_skyline_ny@3x.jpg",
       "scale" : "3x"
     }
   ],
