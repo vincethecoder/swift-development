@@ -1,4 +1,20 @@
 PODS:
+  - Google/Analytics (1.2.1):
+    - Google/Core
+    - GoogleAnalytics (~> 3.12)
+  - Google/Core (1.2.1):
+    - GoogleInterchangeUtilities (~> 1.0)
+    - GoogleNetworkingUtilities (~> 1.0)
+    - GoogleSymbolUtilities (~> 1.0)
+    - GoogleUtilities (~> 1.1)
+  - GoogleAnalytics (3.14.0)
+  - GoogleInterchangeUtilities (1.1.0):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleNetworkingUtilities (1.0.0):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleSymbolUtilities (1.0.3)
+  - GoogleUtilities (1.1.0):
+    - GoogleSymbolUtilities (~> 1.0.0)
   - SQLCipher (3.1.0):
     - SQLCipher/standard (= 3.1.0)
   - SQLCipher/common (3.1.0)
@@ -9,6 +25,7 @@ PODS:
     - SQLCipher
 
 DEPENDENCIES:
+  - Google/Analytics
   - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
   - SQLiteCipher.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
 
@@ -27,6 +44,12 @@ CHECKOUT OPTIONS:
     :git: https://github.com/stephencelis/SQLite.swift.git
 
 SPEC CHECKSUMS:
+  Google: fd33b5fa40fa3aaee5176de49c873a74e3d11dce
+  GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
+  GoogleInterchangeUtilities: d7f7174176fbcf9710f696f1acebad4dbd98ac03
+  GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
+  GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
+  GoogleUtilities: 8ed9134debe11719097881711464752900668f10
   SQLCipher: c44fcca49c31483c2489cfb79aa7a69407f3794a
   SQLite.swift: 3bb75f5a650f08673276bc6d3fb1de1b542b8f4d
   SQLiteCipher.swift: 6405d3937f6afc94614949336fd1fdefa37428b5
