@@ -13,7 +13,7 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
     var pages: [WalkthroughPage] = [
         WalkthroughPage(heading: "Revamping \nH1B Job Search", content: "Discover all US Jobs Capable & Willing to Sponsor your Work Visa."),
         WalkthroughPage(heading: "Real-Time \nSearch Results", content: "Review & Select from a variety of jobs results from Dice, CareerBuilder, Indeed & LinkUp."),
-        WalkthroughPage(heading: "Filtered Results", content: "H1B Jobs acknowledges your interest in Visa Sponsored Jobs and fine-tunes listings to meet your search keywords."),
+        WalkthroughPage(heading: "Re-Filtered \nSearch Results", content: "H1B Jobs acknowledges your interest in Visa Sponsored Jobs and fine-tunes listings to meet your search keywords."),
         WalkthroughPage(heading: "Begin Search", content: "Several H1B, Green Card, OPT and CPT Jobs are just a tap away!")
     ]
     
