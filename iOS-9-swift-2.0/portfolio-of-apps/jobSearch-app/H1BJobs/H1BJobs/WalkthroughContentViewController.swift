@@ -39,14 +39,6 @@ class WalkthroughContentViewController: UIViewController {
         
     }
 
-    override func shouldAutorotate() -> Bool {
-        return false
-    }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [UIInterfaceOrientationMask.Portrait]
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,9 +47,9 @@ class WalkthroughContentViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         var imageName = String()
         switch(index) {
-        case 0: imageName = "revamp-job-search"
+        case 0: imageName = "revamp-search"
         case 1: imageName = "realtime-job-search"
-        case 2: imageName = "filtered-results-search-2"
+        case 2: imageName = "filtered-job-search"
         case 3: imageName = "begin-job-search"
         default:
             break
