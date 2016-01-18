@@ -80,7 +80,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             })
 
             self.jobListings = [H1BJob()]
-            if success {
+            if success, let _ = joblistings {
                 self.jobListings = joblistings!
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     let jobcount = self.jobListings.count > 0 ? "\(self.jobListings.count)" : "No"
@@ -163,7 +163,12 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
                         imageUrl = cbJobDetail.companyImageURL!
                     }
                 }
+            } else if h1bjob.jobdetail.isKindOfClass(LinkupJobDetail) {
+                imageUrl = "http://www.linkup.com/images/opengraph/LinkUpLogo180x110.png"
+            } else if h1bjob.jobdetail.isKindOfClass(IndeedJobDetail) {
+                imageUrl = "http://p2.zdassets.com/hc/settings_assets/499832/200031240/Cw6ZzmMTxxN4ArRyhXrdqQ-indeed.png"
             }
+
             cell.jobTitle.text = h1bjob.title.capitalizedString
             cell.jobCompany.text = h1bjob.company
             cell.jobLocation.text = h1bjob.location
@@ -214,6 +219,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     }
     
     override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        // @TODO: Orientation Change - Google Analytics
         tableView.reloadData()
     }
 

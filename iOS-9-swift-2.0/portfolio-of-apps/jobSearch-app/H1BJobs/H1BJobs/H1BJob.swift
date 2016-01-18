@@ -23,6 +23,12 @@ class H1BJob: NSObject {
             } else if jobdetail.isKindOfClass(CBJobDetail) {
                 let cbJobDetail = jobdetail as? CBJobDetail
                 return (cbJobDetail?.detailUrl)!
+            } else if jobdetail.isKindOfClass(LinkupJobDetail) {
+                let linkupJob = jobdetail as? LinkupJobDetail
+                return (linkupJob?.job_title_link)!
+            } else if jobdetail.isKindOfClass(IndeedJobDetail) {
+                let indeedJob = jobdetail as? IndeedJobDetail
+                return (indeedJob?.url)!
             }
             return "" // default url
         }

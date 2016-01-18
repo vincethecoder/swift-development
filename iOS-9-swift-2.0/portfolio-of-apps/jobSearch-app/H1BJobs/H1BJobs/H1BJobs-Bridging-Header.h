@@ -10,5 +10,6 @@
 #define H1BJobs_Bridging_Header_h
 
 #import <Google/Analytics.h>
+#import "UIImage+animatedGIF.h"
 
 #endif /* H1BJobs_Bridging_Header_h */

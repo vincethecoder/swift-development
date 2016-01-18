@@ -20,6 +20,8 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
             self.title = "H1B Job - Apply"
         }
         
+        webView.scalesPageToFit = true
+        
         if let url = jobUrl {
             let requestUrl = NSURLRequest(URL: NSURL(string: url)!)
             activityIndicator.center = view.center

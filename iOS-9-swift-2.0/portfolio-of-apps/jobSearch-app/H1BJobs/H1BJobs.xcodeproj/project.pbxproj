@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180F32AD1C4CD42B00929F53 /* IndeedJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F32AC1C4CD42B00929F53 /* IndeedJob.swift */; };
+		180F32B01C4CD65C00929F53 /* IndeedJobDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F32AF1C4CD65C00929F53 /* IndeedJobDetail.swift */; };
 		18428C111C2DFFDB00C4CAF1 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C101C2DFFDB00C4CAF1 /* Favorite.swift */; };
 		18428C131C2E073A00C4CAF1 /* FavoriteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C121C2E073A00C4CAF1 /* FavoriteDetail.swift */; };
 		18428C151C2E082100C4CAF1 /* FavoriteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C141C2E082100C4CAF1 /* FavoriteHelper.swift */; };
@@ -49,11 +51,19 @@
 		18AB2F021C0A5C82002C3484 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2F011C0A5C82002C3484 /* ResultsTableViewCell.swift */; };
 		18BFBA141C4372A700EBB2F9 /* ImageViewWithGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFBA131C4372A700EBB2F9 /* ImageViewWithGradient.swift */; };
 		18E100B51C48A67D00C2D582 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18E100B41C48A67D00C2D582 /* GoogleService-Info.plist */; };
+		18F6B9C41C4988980033E2FB /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6B9C31C4988980033E2FB /* WalkthroughContentViewController.swift */; };
+		18F6B9C61C498BFC0033E2FB /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6B9C51C498BFC0033E2FB /* WalkthroughPageViewController.swift */; };
+		18F6B9C81C498E330033E2FB /* WalkthroughPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6B9C71C498E330033E2FB /* WalkthroughPage.swift */; };
+		18F6B9D91C4AADBA0033E2FB /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6B9D81C4AADBA0033E2FB /* UIImage+animatedGIF.m */; };
+		18F6B9DC1C4C84E70033E2FB /* LinkupJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6B9DB1C4C84E70033E2FB /* LinkupJob.swift */; };
+		18F6B9DF1C4C86EF0033E2FB /* LinkupJobDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6B9DE1C4C86EF0033E2FB /* LinkupJobDetail.swift */; };
 		7E0828DAE2CDF0ED3CD0A816 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B48F45D284830D6B91B1A87 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		02B0BA33CFC6A136B3B97865 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		180F32AC1C4CD42B00929F53 /* IndeedJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndeedJob.swift; sourceTree = "<group>"; };
+		180F32AF1C4CD65C00929F53 /* IndeedJobDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndeedJobDetail.swift; sourceTree = "<group>"; };
 		18428C101C2DFFDB00C4CAF1 /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Favorite.swift; path = Utilities/Database/Favorite.swift; sourceTree = "<group>"; };
 		18428C121C2E073A00C4CAF1 /* FavoriteDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteDetail.swift; path = Utilities/Database/FavoriteDetail.swift; sourceTree = "<group>"; };
 		18428C141C2E082100C4CAF1 /* FavoriteHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteHelper.swift; sourceTree = "<group>"; };
@@ -99,6 +109,13 @@
 		18BFBA131C4372A700EBB2F9 /* ImageViewWithGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewWithGradient.swift; path = Utilities/ImageViewWithGradient.swift; sourceTree = "<group>"; };
 		18DD3F2D1C48A15600FBC68B /* H1BJobs-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "H1BJobs-Bridging-Header.h"; sourceTree = "<group>"; };
 		18E100B41C48A67D00C2D582 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		18F6B9C31C4988980033E2FB /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
+		18F6B9C51C498BFC0033E2FB /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
+		18F6B9C71C498E330033E2FB /* WalkthroughPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WalkthroughPage.swift; path = Utilities/WalkthroughPage.swift; sourceTree = "<group>"; };
+		18F6B9D71C4AADBA0033E2FB /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		18F6B9D81C4AADBA0033E2FB /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
+		18F6B9DB1C4C84E70033E2FB /* LinkupJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkupJob.swift; sourceTree = "<group>"; };
+		18F6B9DE1C4C86EF0033E2FB /* LinkupJobDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkupJobDetail.swift; sourceTree = "<group>"; };
 		1FF70E88760F2F5F91381D20 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6B48F45D284830D6B91B1A87 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -117,6 +134,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180F32AE1C4CD43C00929F53 /* Indeed */ = {
+			isa = PBXGroup;
+			children = (
+				180F32AC1C4CD42B00929F53 /* IndeedJob.swift */,
+				180F32AF1C4CD65C00929F53 /* IndeedJobDetail.swift */,
+			);
+			name = Indeed;
+			sourceTree = "<group>";
+		};
 		1886EB651C2704F200134016 /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +190,8 @@
 				18428C181C2ED27C00C4CAF1 /* FavoriteTableViewController.swift */,
 				1894FFB51C1FD4AF000EBE18 /* HistoryTableViewController.swift */,
 				187E6B331C42FEFB00241486 /* AboutTableViewController.swift */,
+				18F6B9C31C4988980033E2FB /* WalkthroughContentViewController.swift */,
+				18F6B9C51C498BFC0033E2FB /* WalkthroughPageViewController.swift */,
 				18AB2ECE1C040701002C3484 /* Main.storyboard */,
 				18AB2EE11C060C75002C3484 /* Job Search Engines */,
 				18AB2EE01C060C69002C3484 /* Utilities */,
@@ -182,12 +210,15 @@
 				18AB2EE61C063F4D002C3484 /* JobUtils.swift */,
 				18428C221C38C24400C4CAF1 /* ImageLoader.swift */,
 				18BFBA131C4372A700EBB2F9 /* ImageViewWithGradient.swift */,
+				18F6B9C71C498E330033E2FB /* WalkthroughPage.swift */,
 				1886EB651C2704F200134016 /* Database */,
 				18AB2EE21C061FD5002C3484 /* String+Utils.swift */,
 				18428C201C37B3E500C4CAF1 /* UIImageView+Utils.swift */,
 				18428C1E1C35DC0800C4CAF1 /* UIImage+Utils.swift */,
 				18AB2EF61C093100002C3484 /* UIColor+Utils.swift */,
 				18AB2EFC1C0A31C9002C3484 /* NSDate+Formatter.swift */,
+				18F6B9D71C4AADBA0033E2FB /* UIImage+animatedGIF.h */,
+				18F6B9D81C4AADBA0033E2FB /* UIImage+animatedGIF.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -199,6 +230,8 @@
 				18AB2EFA1C09CF9B002C3484 /* H1BJob.swift */,
 				18428C1C1C35CE7100C4CAF1 /* H1BCompany.swift */,
 				187E72171C430DE700D458AB /* JobSocialMedia.swift */,
+				180F32AE1C4CD43C00929F53 /* Indeed */,
+				18F6B9DD1C4C84EE0033E2FB /* Linkup */,
 				18AB2EF41C083324002C3484 /* Dice */,
 				18AB2EF51C083332002C3484 /* CareerBuilder */,
 			);
@@ -222,6 +255,15 @@
 				18AB2EEE1C07C529002C3484 /* CBJobResponse.swift */,
 			);
 			name = CareerBuilder;
+			sourceTree = "<group>";
+		};
+		18F6B9DD1C4C84EE0033E2FB /* Linkup */ = {
+			isa = PBXGroup;
+			children = (
+				18F6B9DB1C4C84E70033E2FB /* LinkupJob.swift */,
+				18F6B9DE1C4C86EF0033E2FB /* LinkupJobDetail.swift */,
+			);
+			name = Linkup;
 			sourceTree = "<group>";
 		};
 		45F1338896A846EA22FB623E /* Pods */ = {
@@ -367,7 +409,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				18AB2EEF1C07C529002C3484 /* CBJobResponse.swift in Sources */,
+				18F6B9C41C4988980033E2FB /* WalkthroughContentViewController.swift in Sources */,
 				18AB2F021C0A5C82002C3484 /* ResultsTableViewCell.swift in Sources */,
+				18F6B9C81C498E330033E2FB /* WalkthroughPage.swift in Sources */,
 				18BFBA141C4372A700EBB2F9 /* ImageViewWithGradient.swift in Sources */,
 				1886EB601C25F92A00134016 /* Database.swift in Sources */,
 				1886EB671C27051F00134016 /* SQLiteDataStore.swift in Sources */,
@@ -377,12 +421,16 @@
 				18AB2EDD1C04072A002C3484 /* DiceJob.swift in Sources */,
 				18428C171C2E206A00C4CAF1 /* FavoriteDetailHelper.swift in Sources */,
 				1886EB691C27075C00134016 /* HistoryHelper.swift in Sources */,
+				18F6B9D91C4AADBA0033E2FB /* UIImage+animatedGIF.m in Sources */,
 				18428C251C39569500C4CAF1 /* JobWebViewControler.swift in Sources */,
 				18428C1F1C35DC0800C4CAF1 /* UIImage+Utils.swift in Sources */,
+				18F6B9DF1C4C86EF0033E2FB /* LinkupJobDetail.swift in Sources */,
 				18AB2EFB1C09CF9B002C3484 /* H1BJob.swift in Sources */,
 				18428C211C37B3E500C4CAF1 /* UIImageView+Utils.swift in Sources */,
+				180F32B01C4CD65C00929F53 /* IndeedJobDetail.swift in Sources */,
 				18AB2EEB1C0799BD002C3484 /* Job.swift in Sources */,
 				18AB2EED1C07B5AA002C3484 /* CBJob.swift in Sources */,
+				18F6B9C61C498BFC0033E2FB /* WalkthroughPageViewController.swift in Sources */,
 				187E72181C430DE700D458AB /* JobSocialMedia.swift in Sources */,
 				18428C151C2E082100C4CAF1 /* FavoriteHelper.swift in Sources */,
 				1886EB6D1C27096700134016 /* History.swift in Sources */,
@@ -390,6 +438,7 @@
 				18428C131C2E073A00C4CAF1 /* FavoriteDetail.swift in Sources */,
 				18AB2EE71C063F4D002C3484 /* JobUtils.swift in Sources */,
 				18AB2EDF1C040746002C3484 /* JobSearchViewController.swift in Sources */,
+				180F32AD1C4CD42B00929F53 /* IndeedJob.swift in Sources */,
 				1886EB6B1C27089100134016 /* DataHelperProtocol.swift in Sources */,
 				18AB2EE31C061FD5002C3484 /* String+Utils.swift in Sources */,
 				18AB2EFD1C0A31C9002C3484 /* NSDate+Formatter.swift in Sources */,
@@ -400,6 +449,7 @@
 				18AB2EF71C093100002C3484 /* UIColor+Utils.swift in Sources */,
 				18AB2EF91C09B05C002C3484 /* SearchResultsViewController.swift in Sources */,
 				18428C1B1C2F2C9200C4CAF1 /* BaseTableViewCell.swift in Sources */,
+				18F6B9DC1C4C84E70033E2FB /* LinkupJob.swift in Sources */,
 				18AB2EF11C07F764002C3484 /* CBJobDetail.swift in Sources */,
 				187E6B341C42FEFB00241486 /* AboutTableViewController.swift in Sources */,
 			);

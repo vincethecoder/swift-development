@@ -46,9 +46,18 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
+        
         UIView.animateWithDuration(0.5, delay: 0.2, options: [], animations: {
             self.logoImageView.transform = CGAffineTransformIdentity
             }, completion: nil)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let hasViewedWalkthrough = defaults.boolForKey("hasViewedWalkthrough")
+        guard hasViewedWalkthrough == false else { return }
+        
+        if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("WalkthroughController") as? WalkthroughPageViewController {
+            presentViewController(pageViewController, animated: true, completion: nil)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {

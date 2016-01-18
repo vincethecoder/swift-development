@@ -47,5 +47,17 @@ extension String {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.dateFromString(postDate)!
     }
+    
+    func isValidSponsoredJob() -> Bool {
+        if  self.lowercaseString.rangeOfString("unable") == nil &&
+            self.lowercaseString.rangeOfString("not") == nil &&
+            self.lowercaseString.rangeOfString("no") == nil &&
+            self.lowercaseString.rangeOfString("won't") == nil &&
+            self.lowercaseString.rangeOfString("unwilling") == nil &&
+            self.lowercaseString.rangeOfString("cannot") == nil {
+                return true
+        }
+        return false
+    }
 }
 

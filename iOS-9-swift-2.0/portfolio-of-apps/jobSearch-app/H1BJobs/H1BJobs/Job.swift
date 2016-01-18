@@ -32,9 +32,24 @@ class Job: NSObject {
                             // Jobs in CareerBuilder Listings
                             let company = nil != cbJob.company ? cbJob.company! : ""
                             let h1bjob = H1BJob(title: cbJob.jobTitle!, company: company, location: cbJob.location!, date: cbJob.postedDate!, detail: cbJob)
-                            self.jobListings.append(h1bjob)
+                            if let _ = cbJob.descriptionTeaser where cbJob.descriptionTeaser?.isValidSponsoredJob() == true {
+                                self.jobListings.append(h1bjob)
+                            }
+                        } else if job.isKindOfClass(LinkupJobDetail), let linkupJob = job as? LinkupJobDetail {
+                            
+                            // Jobs in Linkup Listings
+                            let h1bjob = H1BJob(title: linkupJob.job_title!, company: linkupJob.job_company!, location: linkupJob.job_location!, date: linkupJob.job_date_posted, detail: linkupJob)
+                            if linkupJob.description.isValidSponsoredJob() {
+                                self.jobListings.append(h1bjob)
+                            }
+                        } else if job.isKindOfClass(IndeedJobDetail), let indeedJob = job as? IndeedJobDetail {
+                            
+                            // Jobs in Indeed Listings
+                            let h1bjob = H1BJob(title: indeedJob.jobtitle!, company: indeedJob.company!, location: indeedJob.formattedLocation!, date: indeedJob.datePosted, detail: indeedJob)
+                            if indeedJob.expired?.boolValue == false && indeedJob.snippet?.isValidSponsoredJob() == true {
+                                self.jobListings.append(h1bjob)
+                            }
                         }
-                        
                     }
                 }
             }
@@ -46,26 +61,42 @@ class Job: NSObject {
 
     func getJobs(completion: (success: Bool, result: NSArray?, joblistings: [H1BJob]?, error: NSError?) -> ()) {
         
-        // Dice Job Search
+        // Job Search: Dice, CareerBuilder, Linkup, Indeed Search Boards
         var searchKeywords = ""
         if let _ = keywords {
             searchKeywords = keywords
         }
-        let dice = JobUtils.init(category: .Dice, search: searchKeywords)
+        let dice = JobUtils(category: .Dice, search: searchKeywords)
         let diceURL = NSURL(string: dice.requestURL)
         getJobsForUrl(diceURL!, jobCategory: .Dice) { (status, result, joblistings, error) -> () in
             
             // CareerBuilder Job Search
-            let cb = JobUtils.init(category: .CareerBuilder, search: searchKeywords)
+            let cb = JobUtils(category: .CareerBuilder, search: searchKeywords)
             let cbURL = NSURL(string: cb.requestURL)
             self.getJobsForUrl(cbURL!, jobCategory: .CareerBuilder) { (status, result, joblistings, error) -> () in
-                completion(success: status, result: result, joblistings: joblistings, error: error)
+                
+                // Linkup Job Search
+                let linkup = JobUtils(category: .LinkUp, search: searchKeywords)
+                let linkupURL = NSURL(string: linkup.requestURL)
+                self.getJobsForUrl(linkupURL!, jobCategory: .LinkUp, completion: { (success, result, joblistings, error) -> () in
+                    
+                    // Indeed Job Search
+                    let indeed = JobUtils(category: .Indeed, search: searchKeywords)
+                    let indeedURL = NSURL(string: indeed.requestURL)
+                    self.getJobsForUrl(indeedURL!, jobCategory: .Indeed, completion: { (success, result, joblistings, error) -> () in
+                       
+                        // Indeed Completion Block
+                        completion(success: status, result: result, joblistings: joblistings, error: error)
+                    })
+                    // Linkup Completion Block
+                    // completion(success: status, result: result, joblistings: joblistings, error: error)
+                })
+                // CareerBuilder Completion Block
+                // completion(success: status, result: result, joblistings: joblistings, error: error)
             }
-            
             // Dice Completion Block
-            //completion(success: status, result: result, error: error)
+            // completion(success: status, result: result, joblistings: joblistings, error: error)
         }
-        
     }
     
     func getJobsForUrl(url: NSURL, jobCategory: JobCategory,
@@ -82,17 +113,27 @@ class Job: NSObject {
                         let diceJobs = DiceJob()
                         diceJobs.jobData = jsonResult as! [String : AnyObject]
                         self.results.append(diceJobs.jobListings)
-                    } else {
+                    } else if jobCategory == .CareerBuilder {
                         // CareerBuilder Job Search
                         let cbJobs = CBJob()
                         cbJobs.jobData = jsonResult as! [String : AnyObject]
                         self.results.append(cbJobs.jobListings)
+                    } else if jobCategory == JobCategory.LinkUp {
+                        // Linkup Job Search
+                        let linkupJobs = LinkupJob()
+                        linkupJobs.jobData = jsonResult as! [String : AnyObject]
+                        self.results.append(linkupJobs.jobListings)
+                    } else if jobCategory == JobCategory.Indeed {
+                        // Indeed Job Search
+                        let indeedJobs = IndeedJob()
+                        indeedJobs.jobData = jsonResult as! [String : AnyObject]
+                        self.results.append(indeedJobs.jobListings)
                     }
                     completion(success: true, result: self.results, joblistings: self.jobListings, error: nil)
                 }
             } catch let error as NSError {
                 print(error.localizedDescription)
-                completion(success: false, result: nil, joblistings: nil, error: error)
+                // completion(success: false, result: nil, joblistings: nil, error: error)
             }
         }
         task.resume()
