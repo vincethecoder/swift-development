@@ -12,7 +12,6 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
 
     var jobUrl: String?
     @IBOutlet weak var webView: UIWebView!
-    @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
     
     override func viewDidLoad() {
         
@@ -24,10 +23,8 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         
         if let url = jobUrl {
             let requestUrl = NSURLRequest(URL: NSURL(string: url)!)
-            activityIndicator.center = view.center
-            activityIndicator.hidesWhenStopped = true
-            view.addSubview(activityIndicator)
-            activityIndicator.startAnimating()
+            // Start Activity Indicator Animation
+            GMDCircleLoader.setOnView(self.view, withTitle: "Loading...", animated: true)
 
             webView.loadRequest(requestUrl)
             webView.delegate = self
@@ -47,10 +44,10 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        activityIndicator.stopAnimating()
+        GMDCircleLoader.hideFromView(self.view, animated: true)
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        activityIndicator.stopAnimating()
+        GMDCircleLoader.hideFromView(self.view, animated: true)
     }
 }

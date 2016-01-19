@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1800A6E01C4DF33100D6BCE2 /* GMDCircleLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1800A6DF1C4DF33100D6BCE2 /* GMDCircleLoader.m */; };
+		1800A6E31C4DF37F00D6BCE2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1800A6E21C4DF37F00D6BCE2 /* CoreGraphics.framework */; };
+		1800A6E51C4DF38C00D6BCE2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1800A6E41C4DF38C00D6BCE2 /* QuartzCore.framework */; };
+		1800A6E71C4DF39B00D6BCE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1800A6E61C4DF39B00D6BCE2 /* UIKit.framework */; };
+		1800A6E91C4DF3A200D6BCE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1800A6E81C4DF3A200D6BCE2 /* Foundation.framework */; };
 		180F32AD1C4CD42B00929F53 /* IndeedJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F32AC1C4CD42B00929F53 /* IndeedJob.swift */; };
 		180F32B01C4CD65C00929F53 /* IndeedJobDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F32AF1C4CD65C00929F53 /* IndeedJobDetail.swift */; };
 		18428C111C2DFFDB00C4CAF1 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C101C2DFFDB00C4CAF1 /* Favorite.swift */; };
@@ -62,6 +67,12 @@
 
 /* Begin PBXFileReference section */
 		02B0BA33CFC6A136B3B97865 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		1800A6DE1C4DF33100D6BCE2 /* GMDCircleLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMDCircleLoader.h; sourceTree = "<group>"; };
+		1800A6DF1C4DF33100D6BCE2 /* GMDCircleLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMDCircleLoader.m; sourceTree = "<group>"; };
+		1800A6E21C4DF37F00D6BCE2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1800A6E41C4DF38C00D6BCE2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1800A6E61C4DF39B00D6BCE2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1800A6E81C4DF3A200D6BCE2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		180F32AC1C4CD42B00929F53 /* IndeedJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndeedJob.swift; sourceTree = "<group>"; };
 		180F32AF1C4CD65C00929F53 /* IndeedJobDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndeedJobDetail.swift; sourceTree = "<group>"; };
 		18428C101C2DFFDB00C4CAF1 /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Favorite.swift; path = Utilities/Database/Favorite.swift; sourceTree = "<group>"; };
@@ -125,6 +136,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1800A6E91C4DF3A200D6BCE2 /* Foundation.framework in Frameworks */,
+				1800A6E71C4DF39B00D6BCE2 /* UIKit.framework in Frameworks */,
+				1800A6E51C4DF38C00D6BCE2 /* QuartzCore.framework in Frameworks */,
+				1800A6E31C4DF37F00D6BCE2 /* CoreGraphics.framework in Frameworks */,
 				1886EB641C25FB4100134016 /* libsqlite3.tbd in Frameworks */,
 				1886EB621C25FB3000134016 /* SQLite.framework in Frameworks */,
 				7E0828DAE2CDF0ED3CD0A816 /* Pods.framework in Frameworks */,
@@ -134,6 +149,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1800A6E11C4DF33900D6BCE2 /* GMDCircleLoader */ = {
+			isa = PBXGroup;
+			children = (
+				1800A6DE1C4DF33100D6BCE2 /* GMDCircleLoader.h */,
+				1800A6DF1C4DF33100D6BCE2 /* GMDCircleLoader.m */,
+			);
+			name = GMDCircleLoader;
+			sourceTree = "<group>";
+		};
 		180F32AE1C4CD43C00929F53 /* Indeed */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +224,7 @@
 				18AB2ED61C040701002C3484 /* Info.plist */,
 				18DD3F2D1C48A15600FBC68B /* H1BJobs-Bridging-Header.h */,
 				18E100B41C48A67D00C2D582 /* GoogleService-Info.plist */,
+				1800A6E11C4DF33900D6BCE2 /* GMDCircleLoader */,
 			);
 			path = H1BJobs;
 			sourceTree = "<group>";
@@ -278,6 +303,10 @@
 		510EBF51A6AD3E38FEB12EBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1800A6E81C4DF3A200D6BCE2 /* Foundation.framework */,
+				1800A6E61C4DF39B00D6BCE2 /* UIKit.framework */,
+				1800A6E41C4DF38C00D6BCE2 /* QuartzCore.framework */,
+				1800A6E21C4DF37F00D6BCE2 /* CoreGraphics.framework */,
 				1886EB631C25FB4100134016 /* libsqlite3.tbd */,
 				1886EB611C25FB3000134016 /* SQLite.framework */,
 				6B48F45D284830D6B91B1A87 /* Pods.framework */,
@@ -428,6 +457,7 @@
 				18AB2EFB1C09CF9B002C3484 /* H1BJob.swift in Sources */,
 				18428C211C37B3E500C4CAF1 /* UIImageView+Utils.swift in Sources */,
 				180F32B01C4CD65C00929F53 /* IndeedJobDetail.swift in Sources */,
+				1800A6E01C4DF33100D6BCE2 /* GMDCircleLoader.m in Sources */,
 				18AB2EEB1C0799BD002C3484 /* Job.swift in Sources */,
 				18AB2EED1C07B5AA002C3484 /* CBJob.swift in Sources */,
 				18F6B9C61C498BFC0033E2FB /* WalkthroughPageViewController.swift in Sources */,

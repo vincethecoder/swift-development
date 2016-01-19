@@ -102,7 +102,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="61" id="6S8-dV-w0Q" customClass="HistoryTableViewCell" customModule="H1BJobs" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="61" id="6S8-dV-w0Q" customClass="HistoryTableViewCell" customModule="H1BJobs" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6S8-dV-w0Q" id="FD3-Z4-maa">
@@ -430,9 +430,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="8ja-ON-1iO"/>
-                    <connections>
-                        <outlet property="spinner" destination="QlR-pN-z52" id="9f9-GB-Z8h"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wlv-Pp-vaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="QlR-pN-z52">
@@ -750,7 +747,6 @@ following Job Boards:</string>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="ndY-Gg-Oer" id="IV4-b2-ejF"/>
                         <outlet property="webView" destination="y05-Bm-spa" id="FX7-Y5-DgR"/>
                     </connections>
                 </viewController>
@@ -1118,7 +1114,7 @@ following Job Boards:</string>
         <image name="tab_icon_search_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mNs-kM-191"/>
-        <segue reference="lkJ-8a-hUQ"/>
+        <segue reference="DrK-C6-4Dg"/>
+        <segue reference="fqV-z6-C4Z"/>
     </inferredMetricsTieBreakers>
 </document>

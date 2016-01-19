@@ -37,12 +37,17 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     let tableHeightSingleLine: CGFloat = 90
     let tableHeightErrorCell: CGFloat = 45
 
-    @IBOutlet weak var spinner:UIActivityIndicatorView!
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var company: UILabel!
     @IBOutlet weak var jobLocation: UILabel!
     @IBOutlet weak var postDate: UILabel!
     @IBOutlet weak var searchSource: UILabel!
+    
+    var tracker: GAITracker {
+        return GAI.sharedInstance().defaultTracker
+    }
+    
+    var build: [NSObject: AnyObject]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +59,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         title = "H1B Jobs Results"
         
         // Start Activity Indicator Animation
-        spinner.center = view.center
-        spinner.hidesWhenStopped = true
-        view.addSubview(spinner)
-        spinner.startAnimating()
+        GMDCircleLoader.setOnView(self.view, withTitle: "Searching...", animated: true)
         
         self.tableView.separatorStyle = .None
         
@@ -74,7 +76,8 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             
             // Stop Activity Indicator Animation
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.spinner.stopAnimating()
+                
+                GMDCircleLoader.hideFromView(self.view, animated: true)
                 self.tableView.separatorStyle = .SingleLine
                 self.tableView.layer.shadowRadius = 10
             })
@@ -220,6 +223,10 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     
     override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         // @TODO: Orientation Change - Google Analytics
+        if toInterfaceOrientation == .LandscapeLeft || toInterfaceOrientation == .LandscapeRight {
+            tracker.send(GAIDictionaryBuilder.createEventWithCategory("Orientation Change", action: "Device in Landscape", label: "Landscape Orientation", value: nil).build() as [NSObject : AnyObject])
+        }
+        
         tableView.reloadData()
     }
 
