@@ -451,37 +451,178 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="xyx-sK-qTg">
-                            <rect key="frame" x="0.0" y="64" width="600" height="122.5"/>
+                            <rect key="frame" x="0.0" y="64" width="600" height="382"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ws-C1-2pu">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="122.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="356"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_h1bjobs_HQ" translatesAutoresizingMaskIntoConstraints="NO" id="21o-Vg-19w">
-                                            <rect key="frame" x="251" y="16" width="97" height="91"/>
+                                            <rect key="frame" x="251" y="44" width="97" height="91"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="97" id="54M-f0-cd4"/>
                                                 <constraint firstAttribute="height" constant="91" id="HJn-Ak-ObA"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Gateway to Sponsored Jobs." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hq1-3v-Fn3">
+                                            <rect key="frame" x="136" y="147" width="326.5" height="30.5"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vf6-1x-Sqf" userLabel="Summary Container">
+                                            <rect key="frame" x="0.0" y="202" width="600" height="153.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcb-vu-DSM">
+                                                    <rect key="frame" x="155" y="0.0" width="291.5" height="46.5"/>
+                                                    <string key="text">H1B Jobs retrieves openings from the 
+following Job Boards:</string>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgY-FE-cKa">
+                                                    <rect key="frame" x="0.0" y="46.5" width="600" height="97.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="vmJ-97-6B5">
+                                                            <rect key="frame" x="135" y="24" width="330" height="50"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dicelogo-new" translatesAutoresizingMaskIntoConstraints="NO" id="JOw-he-M58" userLabel="dice image">
+                                                                    <rect key="frame" x="0.0" y="7.5" width="60" height="35"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="96" id="2aL-u9-ZjJ"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="BnP-a5-uFw"/>
+                                                                        <constraint firstAttribute="width" constant="86" id="XLI-kV-kbM"/>
+                                                                        <constraint firstAttribute="height" constant="35" id="b60-MY-XiO"/>
+                                                                        <constraint firstAttribute="height" constant="50" id="hgI-d7-jrg"/>
+                                                                    </constraints>
+                                                                    <variation key="default">
+                                                                        <mask key="constraints">
+                                                                            <exclude reference="2aL-u9-ZjJ"/>
+                                                                            <exclude reference="XLI-kV-kbM"/>
+                                                                            <exclude reference="hgI-d7-jrg"/>
+                                                                        </mask>
+                                                                    </variation>
+                                                                </imageView>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="careerbuilderlogo-new" translatesAutoresizingMaskIntoConstraints="NO" id="V0a-R1-fdc" userLabel="careerbuilder image">
+                                                                    <rect key="frame" x="90" y="0.0" width="60" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="86" id="Ehw-q0-oFB"/>
+                                                                        <constraint firstAttribute="width" constant="125" id="niU-Ej-4be"/>
+                                                                        <constraint firstAttribute="height" constant="50" id="rap-hJ-ySQ"/>
+                                                                    </constraints>
+                                                                    <variation key="default">
+                                                                        <mask key="constraints">
+                                                                            <exclude reference="Ehw-q0-oFB"/>
+                                                                            <exclude reference="niU-Ej-4be"/>
+                                                                            <exclude reference="rap-hJ-ySQ"/>
+                                                                        </mask>
+                                                                    </variation>
+                                                                </imageView>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indeedcompanylogo" translatesAutoresizingMaskIntoConstraints="NO" id="1ux-Kq-K0v" userLabel="indeed image">
+                                                                    <rect key="frame" x="180" y="16" width="60" height="18"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="35" id="JBf-Fd-fay"/>
+                                                                        <constraint firstAttribute="width" constant="90" id="gIm-Wm-JAF"/>
+                                                                        <constraint firstAttribute="width" constant="140" id="mLe-Hf-sJd"/>
+                                                                        <constraint firstAttribute="height" constant="18" id="moH-an-nYj"/>
+                                                                    </constraints>
+                                                                    <variation key="default">
+                                                                        <mask key="constraints">
+                                                                            <exclude reference="JBf-Fd-fay"/>
+                                                                            <exclude reference="gIm-Wm-JAF"/>
+                                                                            <exclude reference="mLe-Hf-sJd"/>
+                                                                        </mask>
+                                                                    </variation>
+                                                                </imageView>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkuplogo" translatesAutoresizingMaskIntoConstraints="NO" id="aBy-i1-Ttd" userLabel="linkup image">
+                                                                    <rect key="frame" x="270" y="7.5" width="60" height="35"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="90" id="RAD-Xp-Gp2"/>
+                                                                        <constraint firstAttribute="height" constant="35" id="vT2-Ed-2uK"/>
+                                                                    </constraints>
+                                                                    <variation key="default">
+                                                                        <mask key="constraints">
+                                                                            <exclude reference="RAD-Xp-Gp2"/>
+                                                                        </mask>
+                                                                    </variation>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="AqI-cg-zLo"/>
+                                                                <constraint firstItem="JOw-he-M58" firstAttribute="width" secondItem="V0a-R1-fdc" secondAttribute="width" id="KdQ-T0-KM5"/>
+                                                                <constraint firstItem="JOw-he-M58" firstAttribute="width" secondItem="aBy-i1-Ttd" secondAttribute="width" id="b2j-Ud-QUl"/>
+                                                                <constraint firstItem="JOw-he-M58" firstAttribute="width" secondItem="1ux-Kq-K0v" secondAttribute="width" id="fhh-DW-UUP"/>
+                                                            </constraints>
+                                                            <variation key="heightClass=regular-widthClass=compact" spacing="15"/>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="vmJ-97-6B5" firstAttribute="centerX" secondItem="zgY-FE-cKa" secondAttribute="centerX" id="B9a-YC-Wir"/>
+                                                        <constraint firstItem="vmJ-97-6B5" firstAttribute="centerY" secondItem="zgY-FE-cKa" secondAttribute="centerY" id="ThJ-Ma-aex"/>
+                                                        <constraint firstAttribute="height" constant="97.5" id="W9O-rh-8ae"/>
+                                                        <constraint firstAttribute="trailing" secondItem="vmJ-97-6B5" secondAttribute="trailing" constant="15" id="Zia-C2-kdO"/>
+                                                        <constraint firstItem="vmJ-97-6B5" firstAttribute="leading" secondItem="zgY-FE-cKa" secondAttribute="leading" constant="15" id="ttE-c1-PBb"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Zia-C2-kdO"/>
+                                                            <exclude reference="ttE-c1-PBb"/>
+                                                        </mask>
+                                                    </variation>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zgY-FE-cKa" firstAttribute="centerX" secondItem="Vf6-1x-Sqf" secondAttribute="centerX" id="LrD-ho-3nQ"/>
+                                                <constraint firstItem="zgY-FE-cKa" firstAttribute="width" secondItem="Vf6-1x-Sqf" secondAttribute="width" id="MPf-48-J7b"/>
+                                                <constraint firstItem="xcb-vu-DSM" firstAttribute="centerX" secondItem="Vf6-1x-Sqf" secondAttribute="centerX" id="NIt-wI-DZ0"/>
+                                                <constraint firstItem="xcb-vu-DSM" firstAttribute="top" secondItem="Vf6-1x-Sqf" secondAttribute="top" id="lQg-aC-FHO"/>
+                                                <constraint firstItem="zgY-FE-cKa" firstAttribute="top" secondItem="xcb-vu-DSM" secondAttribute="bottom" id="mHi-Le-7Ig"/>
+                                                <constraint firstItem="xcb-vu-DSM" firstAttribute="centerY" secondItem="Vf6-1x-Sqf" secondAttribute="centerY" id="sHi-Zw-xeP"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="sHi-Zw-xeP"/>
+                                                </mask>
+                                            </variation>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="21o-Vg-19w" firstAttribute="centerY" secondItem="4ws-C1-2pu" secondAttribute="centerY" id="b46-gx-14T"/>
+                                        <constraint firstItem="Vf6-1x-Sqf" firstAttribute="centerX" secondItem="4ws-C1-2pu" secondAttribute="centerX" id="0LQ-Sz-vte"/>
+                                        <constraint firstItem="hq1-3v-Fn3" firstAttribute="centerX" secondItem="21o-Vg-19w" secondAttribute="centerX" id="5Xe-Gr-OHF"/>
+                                        <constraint firstAttribute="bottom" secondItem="Vf6-1x-Sqf" secondAttribute="bottom" id="7LF-fb-51W"/>
+                                        <constraint firstItem="hq1-3v-Fn3" firstAttribute="top" secondItem="21o-Vg-19w" secondAttribute="bottom" constant="12" id="L3G-9L-pTQ"/>
+                                        <constraint firstItem="Vf6-1x-Sqf" firstAttribute="top" secondItem="hq1-3v-Fn3" secondAttribute="bottom" constant="25" id="Yug-96-OSR"/>
+                                        <constraint firstItem="hq1-3v-Fn3" firstAttribute="centerX" secondItem="21o-Vg-19w" secondAttribute="centerX" id="ZKn-iP-mDa"/>
+                                        <constraint firstItem="21o-Vg-19w" firstAttribute="centerY" secondItem="4ws-C1-2pu" secondAttribute="centerY" constant="-88.5" id="b46-gx-14T"/>
                                         <constraint firstItem="21o-Vg-19w" firstAttribute="centerX" secondItem="4ws-C1-2pu" secondAttribute="centerX" id="hth-ik-elq"/>
+                                        <constraint firstAttribute="trailing" secondItem="Vf6-1x-Sqf" secondAttribute="trailing" id="lrX-JF-gbq"/>
+                                        <constraint firstItem="Vf6-1x-Sqf" firstAttribute="leading" secondItem="4ws-C1-2pu" secondAttribute="leading" id="t6i-1N-8bZ"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="ZKn-iP-mDa"/>
+                                        </mask>
+                                    </variation>
                                 </view>
                             </subviews>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="4ws-C1-2pu" secondAttribute="trailing" id="6pr-sd-cMa"/>
-                                <constraint firstItem="4ws-C1-2pu" firstAttribute="height" secondItem="xyx-sK-qTg" secondAttribute="height" id="Afz-Eh-mwD"/>
+                                <constraint firstItem="4ws-C1-2pu" firstAttribute="height" secondItem="xyx-sK-qTg" secondAttribute="height" constant="-26" id="Afz-Eh-mwD"/>
                                 <constraint firstItem="4ws-C1-2pu" firstAttribute="centerX" secondItem="xyx-sK-qTg" secondAttribute="centerX" id="HDH-5D-B0G"/>
                                 <constraint firstItem="4ws-C1-2pu" firstAttribute="leading" secondItem="xyx-sK-qTg" secondAttribute="leading" id="mEz-FF-Gju"/>
-                                <constraint firstItem="4ws-C1-2pu" firstAttribute="centerY" secondItem="xyx-sK-qTg" secondAttribute="centerY" id="nyh-U1-95I"/>
+                                <constraint firstItem="4ws-C1-2pu" firstAttribute="centerY" secondItem="xyx-sK-qTg" secondAttribute="centerY" constant="-13" id="nyh-U1-95I"/>
+                                <constraint firstItem="hq1-3v-Fn3" firstAttribute="centerX" secondItem="xyx-sK-qTg" secondAttribute="centerX" id="otg-8g-D5E"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="otg-8g-D5E"/>
+                                </mask>
+                            </variation>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="LUA-f0-Y8S" rowHeight="47" style="IBUITableViewCellStyleDefault" id="DT8-Fg-xQg">
-                                <rect key="frame" x="0.0" y="214.5" width="600" height="47"/>
+                                <rect key="frame" x="0.0" y="474" width="600" height="47"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DT8-Fg-xQg" id="n0R-qb-Tnd">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="46.5"/>
@@ -490,7 +631,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LUA-f0-Y8S">
                                             <rect key="frame" x="15" y="0.0" width="570" height="46.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -962,18 +1103,22 @@
         </scene>
     </scenes>
     <resources>
+        <image name="careerbuilderlogo-new" width="512" height="512"/>
         <image name="cbLogo" width="92" height="10"/>
         <image name="city_skyline_ny" width="853" height="533"/>
+        <image name="dicelogo-new" width="300" height="300"/>
         <image name="ic_location_on" width="160" height="160"/>
         <image name="ic_search" width="160" height="160"/>
         <image name="icon_h1bjobs_HQ" width="72" height="72"/>
+        <image name="indeedcompanylogo" width="385" height="101"/>
+        <image name="linkuplogo" width="180" height="110"/>
         <image name="tab_icon_clock_filled" width="25" height="25"/>
         <image name="tab_icon_info_filled" width="25" height="25"/>
         <image name="tab_icon_like_filled" width="25" height="25"/>
         <image name="tab_icon_search_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fL0-st-1jL"/>
+        <segue reference="mNs-kM-191"/>
         <segue reference="lkJ-8a-hUQ"/>
     </inferredMetricsTieBreakers>
 </document>

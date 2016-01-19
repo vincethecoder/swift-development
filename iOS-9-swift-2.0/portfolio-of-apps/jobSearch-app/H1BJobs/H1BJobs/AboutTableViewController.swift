@@ -7,35 +7,29 @@
 //
 
 import UIKit
+import MessageUI
 
-class AboutTableViewController: UITableViewController {
+class AboutTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var bannerContainer: UIView!
     @IBOutlet weak var logoImageView: UIImageView!
-    var sectionContent = [ ["Rate the App on iTunes", "Contact Developer"],
+    var sectionContent = [ ["Write a Review", "Give a feedback"],
                            ["LinkedIn", "Github", "Twitter", "Google+"] ]
 
     let webViewSegueIdentifier = "showWebView"
     
-    var socialMedia = [
-        JobSocialMedia.init(name: "LinkedIn",
-                            url: "https://www.linkedin.com/in/vincentsam",
-                            image: UIImage(named: "linkedIn_icon_small")!),
-        JobSocialMedia.init(name: "Github",
-                            url: "https://github.com/vincethecoder",
-                            image: UIImage(named: "github_icon_small")!),
-        JobSocialMedia.init(name: "Twitter",
-                            url: "https://twitter.com/vincethecoder",
-                            image: UIImage(named: "twitter_icon_small")!),
-        JobSocialMedia.init(name: "Google+",
-                            url: "https://plus.google.com/u/0/107574104106439596127/about",
-                            image: UIImage(named: "google_icon_small")!)
-    ]
+    var socialMedia = []
     
     enum AboutTableSection : Int {
         case ImageSection = 0
         case OtherSection
     }
+    
+    var tracker: GAITracker {
+        return GAI.sharedInstance().defaultTracker
+    }
+    
+    var build: [NSObject: AnyObject]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +55,23 @@ class AboutTableViewController: UITableViewController {
         
         let translate = CGAffineTransformMakeTranslation(250, 0)
         logoImageView.transform = translate
+        
+        // Google Analytics
+        tracker.set(kGAIScreenName, value: "/aboutview")
+        let builder = GAIDictionaryBuilder.createScreenView()
+        build = builder.build() as [NSObject: AnyObject]
+        tracker.send(build)
+        
+        
+        let btnName = UIButton()
+        btnName.setImage(UIImage(named: "share-25"), forState: .Normal)
+        btnName.frame = CGRectMake(0, 0, 30, 30)
+        btnName.addTarget(self, action: Selector("userDidTapShare"), forControlEvents: .TouchUpInside)
+        
+        // Set Right Bar Button item
+        let rightBarButton = UIBarButtonItem()
+        rightBarButton.customView = btnName
+        navigationItem.rightBarButtonItem = rightBarButton
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -121,16 +132,30 @@ class AboutTableViewController: UITableViewController {
         cell.backgroundColor = .clearColor()
         
         if indexPath.section == AboutTableSection.OtherSection.rawValue {
-            let record = socialMedia[indexPath.row]
-            cell.textLabel?.text = record.name
-            cell.imageView?.image = record.image
-            cell.accessoryType = .DisclosureIndicator    
+            // TODO:
         } else {
             cell.textLabel?.text = sectionContent[indexPath.section][indexPath.row]
+            if indexPath.row == 0 {
+                cell.imageView?.image = UIImage(named: "star-25")
+            } else if indexPath.row == 1 {
+                cell.imageView?.image = UIImage(named: "message-25")
+            }
             cell.accessoryType = .None
         }
         
         return cell
+    }
+
+    func userDidTapShare() {
+        //Implementation goes here ...
+        let message = "I just found tons of visa-sponsored jobs on the FREE \"H1B Jobs\" mobile app. Hurry, download your copy now!!"
+        let screencapture = UIImage(named: "Default")
+        let dataToShare: [AnyObject] = [message, screencapture!]
+        let activityViewController = UIActivityViewController(activityItems: dataToShare, applicationActivities: nil)
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+        
+        // Google Analytics
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Category: Share App", action: "Share App Pressed", label: "Share App", value: nil).build() as [NSObject : AnyObject])
     }
     
     // MARK: - Navigation
@@ -140,14 +165,6 @@ class AboutTableViewController: UITableViewController {
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
-        
-        if segue.identifier == webViewSegueIdentifier, let indexPath = tableView.indexPathForSelectedRow {
-            let webView = segue.destinationViewController as? JobWebViewControler
-            let record = socialMedia[indexPath.row]
-            webView?.title = "Contact via - \(record.name)"
-            webView?.jobUrl = record.url
-        }
-        
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
@@ -156,15 +173,54 @@ class AboutTableViewController: UITableViewController {
         let rootViewPoint = sender?.superview!!.convertPoint(center, toView: tableView)
         
         if let indexPath = tableView.indexPathForRowAtPoint(rootViewPoint!) where indexPath.section == AboutTableSection.ImageSection.rawValue {
+            
+            var category = String()
             if indexPath.row == 0 { // Rate App
                 let url = NSURL(string: "http://www.apple.com/itunes/charts/paid-apps/")
                 UIApplication.sharedApplication().openURL(url!)
+                category = "Rate App"
             } else { // Contact Developer
-                //  TODO: Email me ...
+                category = "Contact Developer"
+                let mailComposeViewController = configuredMailComposeViewController()
+                if MFMailComposeViewController.canSendMail() {
+                    self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+                } else {
+                    self.showSendMailErrorAlert()
+                }
             }
+            
+            // Google Analytics
+            tracker.send(GAIDictionaryBuilder.createEventWithCategory("Category: \(category)", action: "\(category) cell tapped", label: category, value: nil).build() as [NSObject : AnyObject])
             return false
         }
         return true
+    }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setToRecipients(["vincent.k.sam@gmail.com"])
+        mailComposerVC.setSubject("H1B Jobs Feedback")
+        mailComposerVC.setMessageBody("Hi Sam, \n", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let alert = UIAlertController(title: "Could Not Send Email", message:"Your device could not send e-mail.  Please check e-mail configuration and try again.", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default) { _ in
+            // Put here any code that you would like to execute when
+            // the user taps that OK button (may be empty in your case if that's just
+            // an informative alert)
+        }
+        alert.addAction(action)
+        presentViewController(alert, animated: true){}
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
