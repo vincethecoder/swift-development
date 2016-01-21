@@ -19,6 +19,7 @@ class CBJobResponse: NSObject {
     var LastItemIndex: String?
     var SearchMetaData: [String: AnyObject]?
     var jobListings:[CBJobDetail] = []
+    var RequestEvidenceID: String?
     
     var Results: [String : AnyObject] = [String : AnyObject]() {
         didSet {

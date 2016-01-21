@@ -11,7 +11,29 @@ import UIKit
 class JobWebViewControler: UIViewController, UIWebViewDelegate {
 
     var jobUrl: String?
+    var tracker: GAITracker {
+        return GAI.sharedInstance().defaultTracker
+    }
+    var build: [NSObject: AnyObject]!
+    
     @IBOutlet weak var webView: UIWebView!
+    
+    var defaultSaveButton: UIButton {
+        let button = UIButton()
+        button.setImage(UIImage(named: ""), forState: .Normal)
+        button.frame = CGRectMake(0, 0, 20, 20)
+        button.addTarget(self, action: Selector("userDidTapSave"), forControlEvents: .TouchUpInside)
+        return button
+    }
+
+    var saveButton: UIButton {
+        let button = UIButton()
+        button.setImage(UIImage(named: "red_like_filled"), forState: .Normal)
+        button.frame = CGRectMake(0, 0, 20, 20)
+        button.addTarget(self, action: Selector("userDidTapSave"), forControlEvents: .TouchUpInside)
+        return button
+    }
+    
     
     override func viewDidLoad() {
         
@@ -28,7 +50,27 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
 
             webView.loadRequest(requestUrl)
             webView.delegate = self
+            
+            // Set Right Bar Button item
+            let rightBarButton = UIBarButtonItem()
+            rightBarButton.customView = saveButton
+            navigationItem.rightBarButtonItem = rightBarButton
+            
         }
+    }
+    
+    
+    func userDidTapSave() {
+        //Implementation goes here ...
+        
+        if navigationItem.rightBarButtonItem == defaultSaveButton {
+            let rightBarButton = UIBarButtonItem()
+            rightBarButton.customView = saveButton
+            navigationItem.rightBarButtonItem = rightBarButton
+        }
+        
+        // Google Analytics
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Category: Job WebView", action: "Save Job Pressed", label: "Save Job", value: nil).build() as [NSObject : AnyObject])
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -37,7 +79,6 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         navigationController?.setNavigationBarHidden(false, animated: true)
         
         // Google Analytics
-        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "/jobwebview")
         let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
