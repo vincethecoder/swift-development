@@ -64,7 +64,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         
         
         let btnName = UIButton()
-        btnName.setImage(UIImage(named: "share-25"), forState: .Normal)
+        btnName.setImage(UIImage(named: "upload-50"), forState: .Normal)
         btnName.frame = CGRectMake(0, 0, 30, 30)
         btnName.addTarget(self, action: Selector("userDidTapShare"), forControlEvents: .TouchUpInside)
         

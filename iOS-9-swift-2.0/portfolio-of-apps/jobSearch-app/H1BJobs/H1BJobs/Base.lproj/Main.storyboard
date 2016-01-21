@@ -471,15 +471,15 @@
                                             <rect key="frame" x="0.0" y="202" width="600" height="153.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcb-vu-DSM">
-                                                    <rect key="frame" x="155" y="0.0" width="291.5" height="46.5"/>
+                                                    <rect key="frame" x="180" y="0.0" width="240" height="38.5"/>
                                                     <string key="text">H1B Jobs retrieves openings from the 
 following Job Boards:</string>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgY-FE-cKa">
-                                                    <rect key="frame" x="0.0" y="46.5" width="600" height="97.5"/>
+                                                    <rect key="frame" x="0.0" y="38.5" width="600" height="97.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="vmJ-97-6B5">
                                                             <rect key="frame" x="135" y="24" width="330" height="50"/>
@@ -1081,6 +1081,7 @@ following Job Boards:</string>
                         <outlet property="contentLabel" destination="4s4-1T-OtE" id="F3C-iV-0r9"/>
                         <outlet property="filterView" destination="3Yc-s9-Bwv" id="wMc-NA-jDu"/>
                         <outlet property="forwardButton" destination="q6i-hG-9Df" id="Kn8-3J-EGJ"/>
+                        <outlet property="getStartedLabel" destination="xaq-aA-izA" id="t2N-Og-c7E"/>
                         <outlet property="headingLabel" destination="IG7-rB-arH" id="moE-mP-28m"/>
                         <outlet property="pageControl" destination="baH-X2-eDs" id="1bu-Mb-1S9"/>
                     </connections>
@@ -1115,6 +1116,6 @@ following Job Boards:</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="DrK-C6-4Dg"/>
-        <segue reference="fqV-z6-C4Z"/>
+        <segue reference="mNs-kM-191"/>
     </inferredMetricsTieBreakers>
 </document>

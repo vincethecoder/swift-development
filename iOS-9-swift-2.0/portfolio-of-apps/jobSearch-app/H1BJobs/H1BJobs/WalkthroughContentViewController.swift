@@ -18,6 +18,7 @@ class WalkthroughContentViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var bgImageView: UIImageView!
+    @IBOutlet weak var getStartedLabel: UILabel!
     
     var index = 0
     var heading: String!
@@ -47,10 +48,15 @@ class WalkthroughContentViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         var imageName = String()
         switch(index) {
-        case 0: imageName = "revamp-search"
-        case 1: imageName = "realtime-job-search"
-        case 2: imageName = "filtered-job-search"
-        case 3: imageName = "begin-job-search"
+        case 0:
+            imageName = "revamp-search"
+        case 1:
+            imageName = "realtime-job-search"
+        case 2:
+            imageName = "filtered-job-search"
+        case 3:
+            imageName = "begin-job-search"
+            getStartedLabel.text = "I'm Done"
         default:
             break
         }
