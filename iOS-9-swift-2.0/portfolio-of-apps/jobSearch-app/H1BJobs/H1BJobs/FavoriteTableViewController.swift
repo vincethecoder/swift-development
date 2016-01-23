@@ -12,11 +12,8 @@ class FavoriteTableViewController: UITableViewController {
     
     var favoriteList: [Favorite] = []
     let cellIdentifier = "favoriteCell"
-    var inlineMessage: String?
     let webViewSegueIdentifier = "favJobHyperLink"
-    
-    let tableHeightSingleLine: CGFloat = 90
-    let tableHeightErrorCell: CGFloat = 60
+    var favoriteDefaultView: ErrorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +27,6 @@ class FavoriteTableViewController: UITableViewController {
         // This will remove extra separators from tableview
         tableView.tableFooterView = UIView(frame: CGRectZero)
         
-        inlineMessage = "No Saved Jobs... Let's Begin Search!"
-        
         let inset = UIEdgeInsetsMake(5, 0, 0, 0)
         tableView.contentInset = inset
         
@@ -41,6 +36,38 @@ class FavoriteTableViewController: UITableViewController {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = CGRectMake(0, 0, view.bounds.width * 2, view.bounds.height * 2)
         tableView.backgroundView!.addSubview(blurEffectView)
+        
+        // Add "No Favorite Transcript Available" View
+        addDefaultView()
+    }
+    
+    func addDefaultView() {
+        let viewHeight: CGFloat = 175
+        let viewWidth: CGFloat = 350
+        let frame = CGRectMake(0, 0, viewWidth, viewHeight)
+        
+        favoriteDefaultView = ErrorView(frame: frame, title: "It's pretty quiet around here",
+            text: "You'll see a list of favorite jobs \nwhen you start a search and save the jobs",
+            image: UIImage(named: "like_filled_gray")!)
+        favoriteDefaultView.translatesAutoresizingMaskIntoConstraints = false
+        
+        tableView.addSubview(favoriteDefaultView)
+        tableView.bringSubviewToFront(favoriteDefaultView)
+        let widthConstraint = NSLayoutConstraint(item: favoriteDefaultView, attribute: .Width, relatedBy: .Equal,
+            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: viewWidth)
+        favoriteDefaultView.addConstraint(widthConstraint)
+        
+        let heightConstraint = NSLayoutConstraint(item: favoriteDefaultView, attribute: .Height, relatedBy: .Equal,
+            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: viewHeight)
+        favoriteDefaultView.addConstraint(heightConstraint)
+        
+        let xCenterConstraint = NSLayoutConstraint(item: favoriteDefaultView, attribute: .CenterX, relatedBy: .Equal, toItem: tableView, attribute: .CenterX, multiplier: 1, constant: 0)
+        tableView.addConstraint(xCenterConstraint)
+        
+        let yCenterConstraint = NSLayoutConstraint(item: favoriteDefaultView, attribute: .CenterY, relatedBy: .Equal, toItem: tableView, attribute: .CenterY, multiplier: 1, constant: -35)
+        tableView.addConstraint(yCenterConstraint)
+        
+        favoriteDefaultView.hidden = true
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -54,12 +81,11 @@ class FavoriteTableViewController: UITableViewController {
         }
         
         if self.favoriteList.count > 0 {
-            inlineMessage = ""
+            favoriteDefaultView.hidden = true
+            tableView.reloadData()
         } else {
-            self.favoriteList = [Favorite()]
+            favoriteDefaultView.hidden = false
         }
-        
-        tableView.reloadData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -90,47 +116,21 @@ class FavoriteTableViewController: UITableViewController {
 
         cell.backgroundColor = .clearColor()
         
-        if let _ = inlineMessage where inlineMessage?.characters.count > 0 {
-            cell.jobTitle.text = String()
-            cell.jobPostDate.text = String()
-            cell.jobCompany.text = String()
-            cell.jobLocation.text = String()
-            cell.saveButton.hidden = true
-            cell.imageView?.hidden = true
-            return cell.noListingsCell(inlineMessage!)
-        } else {
-            let row = indexPath.row
-            let favoriteData = favoriteList[row]
-            
-            cell.jobTitle.text = favoriteData.jobTitle?.capitalizedString
-            cell.jobCompany.text = favoriteData.company
-            cell.jobPostDate.text = "Saved: \(favoriteData.savedTimestamp!)"
-            
-            cell.imageView?.image = UIImage(data: favoriteData.image)!
-            cell.imageView?.hidden = false
-            cell.textLabel?.text = ""
-            cell.saveButton.tintColor = .redColor()
-            cell.jobWebUrl = favoriteData.jobUrl
-            cell.saveButton.hidden = false
-            
-            return cell
-        }
-    }
-
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if let _ = inlineMessage where inlineMessage?.characters.count > 0 {
-            return tableHeightErrorCell
-        } else {
-            let row = indexPath.row
-            let h1bjob = favoriteList[row]
-            if UIApplication.sharedApplication().statusBarOrientation.isPortrait {
-                let unknownCompanyHeightOffset: CGFloat = h1bjob.company.characters.count == 0  ? 11 : 0
-                let tableHeight: CGFloat = tableHeightSingleLine - unknownCompanyHeightOffset
-                return tableHeight
-            } else {
-                return tableHeightSingleLine
-            }
-        }
+        let row = indexPath.row
+        let favoriteData = favoriteList[row]
+        
+        cell.jobTitle.text = favoriteData.jobTitle?.capitalizedString
+        cell.jobCompany.text = favoriteData.company
+        cell.jobPostDate.text = "Saved: \(favoriteData.savedTimestamp!)"
+        
+        cell.imageView?.image = UIImage(data: favoriteData.image)!
+        cell.imageView?.hidden = false
+        cell.textLabel?.text = ""
+        cell.saveButton.tintColor = .redColor()
+        cell.jobWebUrl = favoriteData.jobUrl
+        cell.saveButton.hidden = false
+        
+        return cell
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -143,9 +143,9 @@ class FavoriteTableViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
             if favoriteList.count == 0 {
-                inlineMessage = "No Saved Jobs... Let's Begin Search!"
-                favoriteList = [Favorite()]
-                tableView.reloadData()
+                favoriteDefaultView.hidden = false
+            } else {
+                favoriteDefaultView.hidden = true
             }
         }
     }

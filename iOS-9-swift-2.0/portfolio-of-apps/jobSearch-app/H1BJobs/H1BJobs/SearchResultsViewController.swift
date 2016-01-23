@@ -16,26 +16,24 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     var searchController: UISearchController!
     let cellIdentifier = "jobCell"
     let webViewSegueIdentifier = "jobHyperLink"
-    var errorMessage: String!
-    var dbFavJobs: [Favorite]!
+    var dbFavJobs: [Favorite] = []
+    var searchDefaultView: ErrorView!
+    var searchDefaultViewTitle: String!
+    var searchDefaultViewText: String!
+    var searchDefaultViewImage: UIImage!
     var favoriteJobs: [Favorite] {
         get {
             if let favoriteJobs = FavoriteHelper.findAll() {
-                if dbFavJobs != nil && dbFavJobs.count > 0 {
+                if dbFavJobs.count > 0 {
                     dbFavJobs.removeAll()
-                } else {
-                    dbFavJobs = []
-                }
-                for job in favoriteJobs {
-                    dbFavJobs.append(job)
+                    for job in favoriteJobs {
+                        dbFavJobs.append(job)
+                    }
                 }
             }
             return dbFavJobs
         }
     }
-
-    let tableHeightSingleLine: CGFloat = 90
-    let tableHeightErrorCell: CGFloat = 45
 
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var company: UILabel!
@@ -69,6 +67,8 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         // This will remove extra separators from tableview
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
+//        self.tableView.tableHeaderView = searchController.searchBar
+        
         // Initiate Job Search Request
         let job: Job = Job()
         job.keywords = keywords
@@ -77,32 +77,80 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             // Stop Activity Indicator Animation
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 
-                GMDCircleLoader.hideFromView(self.view, animated: true)
+                GMDCircleLoader.hideFromView(self.tableView, animated: true)
                 self.tableView.separatorStyle = .SingleLine
                 self.tableView.layer.shadowRadius = 10
             })
 
-            self.jobListings = [H1BJob()]
             if success, let _ = joblistings {
                 self.jobListings = joblistings!
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     let jobcount = self.jobListings.count > 0 ? "\(self.jobListings.count)" : "No"
                     self.title = "\(jobcount) Jobs Found"
-                    self.tableView.reloadData()
+                    
+                    if self.jobListings.count > 0 {
+                        self.addDefaultView(String(), viewText: String(), viewImage: UIImage())
+                        self.tableView.reloadData()
+                    } else {
+                        self.searchDefaultViewTitle = "No Job Match"
+                        self.searchDefaultViewText = "Sorry! There are no H1B Jobs that \nmatch those search keywords."
+                        self.searchDefaultViewImage = UIImage(named: "search_filled_gray")
+                        self.addDefaultView(self.searchDefaultViewTitle, viewText: self.searchDefaultViewText, viewImage: self.searchDefaultViewImage)
+                        self.searchDefaultView.hidden = false
+                    }
                 })
             } else {
-                if error!.code == 3840 {
-                    self.errorMessage = "Connection Failure. Switch your Wi-fi connection"
-                } else {
-                    self.errorMessage = "No Job Match"
-                }
-
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.title = "H1B Jobs"
-                    self.tableView.reloadData()
+                    
+                    if error?.code == 3840 {
+                        self.searchDefaultViewText = "Ooops. Looks like you're on a restricted \nnetwork. Switch your wi-fi connection."
+                    } else {
+                        self.searchDefaultViewText = "\(error!.localizedDescription)"
+                    }
+                    
+                    self.searchDefaultViewTitle = "Wi-Fi Connection Error"
+                    self.searchDefaultViewImage = UIImage(named: "offline_filled_gray")
+
+                    self.addDefaultView(self.searchDefaultViewTitle, viewText: self.searchDefaultViewText, viewImage: self.searchDefaultViewImage)
+                    self.searchDefaultView.hidden = false
                 })
             }
         }
+    }
+    
+    func addDefaultView(viewTitle: String, viewText: String, viewImage: UIImage) {
+        let viewHeight: CGFloat = 175
+        let viewWidth: CGFloat = 350
+        let frame = CGRectMake(0, 0, viewWidth, viewHeight)
+        
+        searchDefaultView = ErrorView(frame: frame, title: viewTitle,text: viewText, image: viewImage)
+        searchDefaultView.translatesAutoresizingMaskIntoConstraints = false
+        
+        tableView.addSubview(searchDefaultView)
+        tableView.bringSubviewToFront(searchDefaultView)
+        let widthConstraint = NSLayoutConstraint(item: searchDefaultView, attribute: .Width, relatedBy: .Equal,
+            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: viewWidth)
+        searchDefaultView.addConstraint(widthConstraint)
+        
+        let heightConstraint = NSLayoutConstraint(item: searchDefaultView, attribute: .Height, relatedBy: .Equal,
+            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: viewHeight)
+        searchDefaultView.addConstraint(heightConstraint)
+        
+        let xCenterConstraint = NSLayoutConstraint(item: searchDefaultView, attribute: .CenterX, relatedBy: .Equal, toItem: tableView, attribute: .CenterX, multiplier: 1, constant: 0)
+        tableView.addConstraint(xCenterConstraint)
+        
+        let yCenterConstraint = NSLayoutConstraint(item: searchDefaultView, attribute: .CenterY, relatedBy: .Equal, toItem: tableView, attribute: .CenterY, multiplier: 1, constant: 0)
+        tableView.addConstraint(yCenterConstraint)
+        
+        searchDefaultView.hidden = true
+        
+        // Apply a blurring effect to the background image view
+        tableView.backgroundView = UIImageView(image: UIImage(named: "city_skyline_ny"))
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = CGRectMake(0, 0, view.bounds.width * 2, view.bounds.height * 2)
+        tableView.backgroundView!.addSubview(blurEffectView)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -151,38 +199,34 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ResultsTableViewCell
         
-        if let _ = errorMessage where errorMessage?.characters.count > 0 {
-            return cell.noListingsCell(errorMessage!)
-        } else {
-            let row = indexPath.row
-            let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
-            var companyLogo = UIImage()
-
-            if h1bjob.jobdetail.isKindOfClass(DiceJobDetail) {
-                companyLogo = UIImage(named: "dice_logo")!
-            } else if h1bjob.jobdetail.isKindOfClass(CBJobDetail) {
-                companyLogo =  UIImage(named: "cb_logo")!
-            } else if h1bjob.jobdetail.isKindOfClass(LinkupJobDetail) {
-                companyLogo =  UIImage(named: "linkup_logo")!
-            } else if h1bjob.jobdetail.isKindOfClass(IndeedJobDetail) {
-                companyLogo = UIImage(named: "indeed_logo")!
-            }
-            cell.jobTitle.text = h1bjob.title.capitalizedString
-            cell.jobCompany.text = h1bjob.company
-            cell.jobLocation.text = h1bjob.location
-            cell.jobPostDate.text = "Posted: \(h1bjob.postdate.wordFullMonthDayYearString())"
-            cell.imageView?.image = companyLogo
-            
-            cell.jobCompanyLogo.image = UIImage()
-            
-            cell.jobWebUrl = h1bjob.jobUrl
-            cell.delegate = self
-
-            let record = favoriteJobs.filter { $0.jobTitle == h1bjob.title && $0.company == h1bjob.company }
-            cell.saveButton.tintColor = record.isEmpty == false ? UIColor.redColor() : UIColor.lightGrayColor()
-            
-            return cell
+        let row = indexPath.row
+        let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
+        var companyLogo = UIImage()
+        
+        if h1bjob.jobdetail.isKindOfClass(DiceJobDetail) {
+            companyLogo = UIImage(named: "dice_logo")!
+        } else if h1bjob.jobdetail.isKindOfClass(CBJobDetail) {
+            companyLogo =  UIImage(named: "cb_logo")!
+        } else if h1bjob.jobdetail.isKindOfClass(LinkupJobDetail) {
+            companyLogo =  UIImage(named: "linkup_logo")!
+        } else if h1bjob.jobdetail.isKindOfClass(IndeedJobDetail) {
+            companyLogo = UIImage(named: "indeed_logo")!
         }
+        cell.jobTitle.text = h1bjob.title.capitalizedString
+        cell.jobCompany.text = h1bjob.company
+        cell.jobLocation.text = h1bjob.location
+        cell.jobPostDate.text = "Posted: \(h1bjob.postdate.wordFullMonthDayYearString())"
+        cell.imageView?.image = companyLogo
+        
+        cell.jobCompanyLogo.image = UIImage()
+        
+        cell.jobWebUrl = h1bjob.jobUrl
+        cell.delegate = self
+        
+        let record = favoriteJobs.filter { $0.jobTitle == h1bjob.title && $0.company == h1bjob.company }
+        cell.saveButton.tintColor = record.isEmpty == false ? UIColor.redColor() : UIColor.lightGrayColor()
+        
+        return cell
     }
     
     func saveButtonTapped(cell: ResultsTableViewCell) {
@@ -210,28 +254,12 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     }
     
     override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        // @TODO: Orientation Change - Google Analytics
+        // Orientation Change - Google Analytics
         if toInterfaceOrientation == .LandscapeLeft || toInterfaceOrientation == .LandscapeRight {
             tracker.send(GAIDictionaryBuilder.createEventWithCategory("Orientation Change", action: "Device in Landscape", label: "Landscape Orientation", value: nil).build() as [NSObject : AnyObject])
         }
         
         tableView.reloadData()
-    }
-
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if let _ = errorMessage where errorMessage?.characters.count > 0 {
-            return tableHeightErrorCell
-        } else {
-            let row = indexPath.row
-            let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
-            if UIApplication.sharedApplication().statusBarOrientation.isPortrait {
-                let unknownCompanyHeightOffset: CGFloat = h1bjob.company.characters.count == 0  ? 11 : 0
-                let tableHeight: CGFloat = tableHeightSingleLine - unknownCompanyHeightOffset
-                return tableHeight
-            } else {
-                return tableHeightSingleLine
-            }
-        }
     }
 
     // MARK: - Navigation

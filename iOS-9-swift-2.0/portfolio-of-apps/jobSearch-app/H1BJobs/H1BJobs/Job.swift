@@ -105,35 +105,41 @@ class Job: NSObject {
         let task = session.dataTaskWithURL(url) {
             (data, response, error) -> Void in
 
-            do {
-                if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
-                    
-                    if jobCategory == .Dice {
-                        // Dice Job Search
-                        let diceJobs = DiceJob()
-                        diceJobs.jobData = jsonResult as! [String : AnyObject]
-                        self.results.append(diceJobs.jobListings)
-                    } else if jobCategory == .CareerBuilder {
-                        // CareerBuilder Job Search
-                        let cbJobs = CBJob()
-                        cbJobs.jobData = jsonResult as! [String : AnyObject]
-                        self.results.append(cbJobs.jobListings)
-                    } else if jobCategory == JobCategory.LinkUp {
-                        // Linkup Job Search
-                        let linkupJobs = LinkupJob()
-                        linkupJobs.jobData = jsonResult as! [String : AnyObject]
-                        self.results.append(linkupJobs.jobListings)
-                    } else if jobCategory == JobCategory.Indeed {
-                        // Indeed Job Search
-                        let indeedJobs = IndeedJob()
-                        indeedJobs.jobData = jsonResult as! [String : AnyObject]
-                        self.results.append(indeedJobs.jobListings)
+            if let _ = data {
+                do {
+                    if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                        
+                        if jobCategory == .Dice {
+                            // Dice Job Search
+                            let diceJobs = DiceJob()
+                            diceJobs.jobData = jsonResult as! [String : AnyObject]
+                            self.results.append(diceJobs.jobListings)
+                        } else if jobCategory == .CareerBuilder {
+                            // CareerBuilder Job Search
+                            let cbJobs = CBJob()
+                            cbJobs.jobData = jsonResult as! [String : AnyObject]
+                            self.results.append(cbJobs.jobListings)
+                        } else if jobCategory == JobCategory.LinkUp {
+                            // Linkup Job Search
+                            let linkupJobs = LinkupJob()
+                            linkupJobs.jobData = jsonResult as! [String : AnyObject]
+                            self.results.append(linkupJobs.jobListings)
+                        } else if jobCategory == JobCategory.Indeed {
+                            // Indeed Job Search
+                            let indeedJobs = IndeedJob()
+                            indeedJobs.jobData = jsonResult as! [String : AnyObject]
+                            self.results.append(indeedJobs.jobListings)
+                        }
+                        completion(success: true, result: self.results, joblistings: self.jobListings, error: nil)
                     }
-                    completion(success: true, result: self.results, joblistings: self.jobListings, error: nil)
+                } catch let error as NSError {
+                    print("\(jobCategory.rawValue): \(error.localizedDescription)")
+                    if error.code == 3840 { // Restricted Network - Need to change wi-fi connection
+                        completion(success: false, result: nil, joblistings: nil, error: error)
+                    }
                 }
-            } catch let error as NSError {
-                print("\(jobCategory.rawValue): \(error.localizedDescription)")
-                // completion(success: false, result: nil, joblistings: nil, error: error)
+            } else {
+                completion(success: false, result: nil, joblistings: nil, error: error)
             }
         }
         task.resume()

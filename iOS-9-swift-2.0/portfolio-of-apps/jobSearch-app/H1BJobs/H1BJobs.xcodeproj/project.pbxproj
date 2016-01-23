@@ -25,6 +25,8 @@
 		18428C211C37B3E500C4CAF1 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C201C37B3E500C4CAF1 /* UIImageView+Utils.swift */; };
 		18428C231C38C24400C4CAF1 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C221C38C24400C4CAF1 /* ImageLoader.swift */; };
 		18428C251C39569500C4CAF1 /* JobWebViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C241C39569500C4CAF1 /* JobWebViewControler.swift */; };
+		186A60051C537B5E005A2E07 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A60031C537B5E005A2E07 /* ErrorView.swift */; };
+		186A60061C537B5E005A2E07 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186A60041C537B5E005A2E07 /* ErrorView.xib */; };
 		187E6B341C42FEFB00241486 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E6B331C42FEFB00241486 /* AboutTableViewController.swift */; };
 		187E72181C430DE700D458AB /* JobSocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E72171C430DE700D458AB /* JobSocialMedia.swift */; };
 		1886EB601C25F92A00134016 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886EB5F1C25F92A00134016 /* Database.swift */; };
@@ -86,6 +88,8 @@
 		18428C201C37B3E500C4CAF1 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+Utils.swift"; path = "Utilities/UIImageView+Utils.swift"; sourceTree = "<group>"; };
 		18428C221C38C24400C4CAF1 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageLoader.swift; path = Utilities/ImageLoader.swift; sourceTree = "<group>"; };
 		18428C241C39569500C4CAF1 /* JobWebViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobWebViewControler.swift; sourceTree = "<group>"; };
+		186A60031C537B5E005A2E07 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		186A60041C537B5E005A2E07 /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		187E6B331C42FEFB00241486 /* AboutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
 		187E72171C430DE700D458AB /* JobSocialMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobSocialMedia.swift; sourceTree = "<group>"; };
 		1886EB5F1C25F92A00134016 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Database.swift; path = Utilities/Database.swift; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 				18428C1A1C2F2C9200C4CAF1 /* BaseTableViewCell.swift */,
 				18AB2F011C0A5C82002C3484 /* ResultsTableViewCell.swift */,
 				1894FFB71C1FD628000EBE18 /* HistoryTableViewCell.swift */,
+				186A60031C537B5E005A2E07 /* ErrorView.swift */,
+				186A60041C537B5E005A2E07 /* ErrorView.xib */,
 				18AB2EDE1C040746002C3484 /* JobSearchViewController.swift */,
 				18AB2EF81C09B05C002C3484 /* SearchResultsViewController.swift */,
 				18428C241C39569500C4CAF1 /* JobWebViewControler.swift */,
@@ -379,6 +385,7 @@
 				18E100B51C48A67D00C2D582 /* GoogleService-Info.plist in Resources */,
 				18AB2ED21C040701002C3484 /* Assets.xcassets in Resources */,
 				18AB2ED01C040701002C3484 /* Main.storyboard in Resources */,
+				186A60061C537B5E005A2E07 /* ErrorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +475,7 @@
 				18428C131C2E073A00C4CAF1 /* FavoriteDetail.swift in Sources */,
 				18AB2EE71C063F4D002C3484 /* JobUtils.swift in Sources */,
 				18AB2EDF1C040746002C3484 /* JobSearchViewController.swift in Sources */,
+				186A60051C537B5E005A2E07 /* ErrorView.swift in Sources */,
 				180F32AD1C4CD42B00929F53 /* IndeedJob.swift in Sources */,
 				1886EB6B1C27089100134016 /* DataHelperProtocol.swift in Sources */,
 				18AB2EE31C061FD5002C3484 /* String+Utils.swift in Sources */,

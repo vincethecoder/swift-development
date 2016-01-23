@@ -54,10 +54,21 @@
     
     [hud start];
     [view addSubview:hud];
-    float height = [[UIScreen mainScreen] bounds].size.height;
-    float width = [[UIScreen mainScreen] bounds].size.width;
-    CGPoint center = CGPointMake(width/2, height/2);
-    hud.center = center;
+    
+    /**
+      * Customization Start
+      * Contributor: vincethecoder
+      * Notes: Center the loading spinner to parent view using autolayouts
+      */
+    
+    hud.translatesAutoresizingMaskIntoConstraints = NO;
+    [hud addConstraint:[NSLayoutConstraint constraintWithItem:hud attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:hud.frame.size.height]];
+    [hud addConstraint:[NSLayoutConstraint constraintWithItem:hud attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:hud.frame.size.width]];
+    [view addConstraint:[NSLayoutConstraint constraintWithItem:hud attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterY multiplier:1 constant:-17]];
+    [view addConstraint:[NSLayoutConstraint constraintWithItem:hud attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    [view addSubview:hud];
+
+
     return hud;
 }
 

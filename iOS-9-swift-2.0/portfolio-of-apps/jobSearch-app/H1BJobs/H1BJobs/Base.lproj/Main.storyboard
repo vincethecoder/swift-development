@@ -227,7 +227,7 @@
         <!--Root View Controller-->
         <scene sceneID="eg0-ux-xic">
             <objects>
-                <tableViewController storyboardIdentifier="searchVCId" id="JTo-c2-1h4" customClass="SearchResultsViewController" customModule="H1BJobs" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="searchVCId" extendedLayoutIncludesOpaqueBars="YES" id="JTo-c2-1h4" customClass="SearchResultsViewController" customModule="H1BJobs" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="WOu-if-ip3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1066,7 +1066,7 @@ following Job Boards:</string>
         <image name="tab_icon_search_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mNs-kM-191"/>
         <segue reference="DrK-C6-4Dg"/>
+        <segue reference="fqV-z6-C4Z"/>
     </inferredMetricsTieBreakers>
 </document>

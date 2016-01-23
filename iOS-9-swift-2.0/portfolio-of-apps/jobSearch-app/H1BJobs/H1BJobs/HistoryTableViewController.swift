@@ -13,7 +13,7 @@ class HistoryTableViewController: UITableViewController {
     var historyList: [History] = []
     let cellIdentifier = "historyCell"
     let resultsSegueIdentifier = "historyResults"
-    var inlineMessage: String?
+    var historyDefaultView: ErrorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +27,6 @@ class HistoryTableViewController: UITableViewController {
         // This will remove extra separators from tableview
         tableView.tableFooterView = UIView(frame: CGRectZero)
         
-        inlineMessage = "No Search History... Let's Being Search!"
-        
         let inset = UIEdgeInsetsMake(5, 0, 0, 0)
         tableView.contentInset = inset
         
@@ -38,6 +36,39 @@ class HistoryTableViewController: UITableViewController {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = CGRectMake(0, 0, view.bounds.width * 2, view.bounds.height * 2)
         tableView.backgroundView!.addSubview(blurEffectView)
+        
+        // Add "No History Transcript Available" View
+        addDefaultView()
+        
+    }
+    
+    func addDefaultView() {
+        let viewHeight: CGFloat = 175
+        let viewWidth: CGFloat = 350
+        let frame = CGRectMake(0, 0, viewWidth, viewHeight)
+
+        historyDefaultView = ErrorView(frame: frame, title: "It's pretty quiet around here",
+                                        text: "You'll begin to see a search history transcript \nwhen you search for jobs",
+                                       image: UIImage(named: "clock_filled_gray")!)
+        historyDefaultView.translatesAutoresizingMaskIntoConstraints = false
+        
+        tableView.addSubview(historyDefaultView)
+        tableView.bringSubviewToFront(historyDefaultView)
+        let widthConstraint = NSLayoutConstraint(item: historyDefaultView, attribute: .Width, relatedBy: .Equal,
+            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: viewWidth)
+        historyDefaultView.addConstraint(widthConstraint)
+        
+        let heightConstraint = NSLayoutConstraint(item: historyDefaultView, attribute: .Height, relatedBy: .Equal,
+            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: viewHeight)
+        historyDefaultView.addConstraint(heightConstraint)
+        
+        let xCenterConstraint = NSLayoutConstraint(item: historyDefaultView, attribute: .CenterX, relatedBy: .Equal, toItem: tableView, attribute: .CenterX, multiplier: 1, constant: 0)
+        tableView.addConstraint(xCenterConstraint)
+        
+        let yCenterConstraint = NSLayoutConstraint(item: historyDefaultView, attribute: .CenterY, relatedBy: .Equal, toItem: tableView, attribute: .CenterY, multiplier: 1, constant: -35)
+        tableView.addConstraint(yCenterConstraint)
+        
+        historyDefaultView.hidden = true
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -51,12 +82,12 @@ class HistoryTableViewController: UITableViewController {
         }
         
         if self.historyList.count > 0 {
-            inlineMessage = ""
+            historyDefaultView.hidden = true
+            tableView.reloadData()
         } else {
-            self.historyList = [History()]
+            historyDefaultView.hidden = false
         }
-
-        tableView.reloadData()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -87,29 +118,20 @@ class HistoryTableViewController: UITableViewController {
 
         cell.backgroundColor = .clearColor()
         
-        if let _ = inlineMessage where inlineMessage?.characters.count > 0 {
-            cell.historyLocation.hidden = true
-            cell.historyLocationIcon.hidden = true
-            cell.historySearchIcon.hidden = true
-            cell.imageView?.hidden = true
-            cell.jobKeyword.text = ""
-            return cell.noListingsCell(inlineMessage!)
-        } else {
-            let row = indexPath.row
-            let historyData = historyList[row]
-            let keyword = historyData.keyword?.characters.count > 0 ? historyData.keyword?.capitalizedString : "All H1B Jobs"
-
-            cell.historyLocationIcon.hidden = false
-            cell.historySearchIcon.hidden = false
-            cell.historyLocation.hidden = false
-            cell.imageView?.hidden = false
-            cell.jobKeyword.text = "\(keyword!)"
-            cell.textLabel?.text = ""
-            cell.imageView?.image = UIImage(named: "calendar_full")
-            cell.accessoryType = .DisclosureIndicator
-            
-            return cell
-        }
+        let row = indexPath.row
+        let historyData = historyList[row]
+        let keyword = historyData.keyword?.characters.count > 0 ? historyData.keyword?.capitalizedString : "All H1B Jobs"
+        
+        cell.historyLocationIcon.hidden = false
+        cell.historySearchIcon.hidden = false
+        cell.historyLocation.hidden = false
+        cell.imageView?.hidden = false
+        cell.jobKeyword.text = "\(keyword!)"
+        cell.textLabel?.text = ""
+        cell.imageView?.image = UIImage(named: "calendar_full")
+        cell.accessoryType = .DisclosureIndicator
+        
+        return cell
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -119,12 +141,12 @@ class HistoryTableViewController: UITableViewController {
             HistoryHelper.delete(historyList[row])
             guard historyList.count > row else { return }
             historyList.removeAtIndex(row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .None)
             
             if historyList.count == 0 {
-                inlineMessage = "No Search History... Let's Being Search!"
-                historyList = [History()]
-                tableView.reloadData()
+                historyDefaultView.hidden = false
+            } else {
+                historyDefaultView.hidden = true
             }
         }
     }
