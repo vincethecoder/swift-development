@@ -17,19 +17,11 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
     var build: [NSObject: AnyObject]!
     
     @IBOutlet weak var webView: UIWebView!
-    
-    var defaultSaveButton: UIButton {
-        let button = UIButton()
-        button.setImage(UIImage(named: ""), forState: .Normal)
-        button.frame = CGRectMake(0, 0, 20, 20)
-        button.addTarget(self, action: Selector("userDidTapSave"), forControlEvents: .TouchUpInside)
-        return button
-    }
 
     var saveButton: UIButton {
         let button = UIButton()
         button.setImage(UIImage(named: "red_like_filled"), forState: .Normal)
-        button.frame = CGRectMake(0, 0, 20, 20)
+        button.frame = CGRectMake(0, 0, 25, 25)
         button.addTarget(self, action: Selector("userDidTapSave"), forControlEvents: .TouchUpInside)
         return button
     }
@@ -62,12 +54,6 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
     
     func userDidTapSave() {
         //Implementation goes here ...
-        
-        if navigationItem.rightBarButtonItem == defaultSaveButton {
-            let rightBarButton = UIBarButtonItem()
-            rightBarButton.customView = saveButton
-            navigationItem.rightBarButtonItem = rightBarButton
-        }
         
         // Google Analytics
         tracker.send(GAIDictionaryBuilder.createEventWithCategory("Category: Job WebView", action: "Save Job Pressed", label: "Save Job", value: nil).build() as [NSObject : AnyObject])

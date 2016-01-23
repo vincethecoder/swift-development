@@ -21,7 +21,7 @@ class HistoryTableViewCell: BaseTableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.imageView?.frame = CGRectMake(20, 3, 50, 50)
+        self.imageView?.frame = CGRectMake(20, 3, 60, 60)
         let cellImageLayer = self.imageView?.layer
         cellImageLayer?.borderWidth = 2
         cellImageLayer?.masksToBounds = true

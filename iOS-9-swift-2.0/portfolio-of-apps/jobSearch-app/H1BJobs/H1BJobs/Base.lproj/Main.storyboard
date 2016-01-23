@@ -97,29 +97,29 @@
         <scene sceneID="T7E-Gr-OLm">
             <objects>
                 <tableViewController id="z4B-Nw-7Yn" customClass="HistoryTableViewController" customModule="H1BJobs" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fvy-9U-Xr7">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fvy-9U-Xr7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="59" id="6S8-dV-w0Q" customClass="HistoryTableViewCell" customModule="H1BJobs" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="59"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="70" id="6S8-dV-w0Q" customClass="HistoryTableViewCell" customModule="H1BJobs" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6S8-dV-w0Q" id="FD3-Z4-maa">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="58.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iWL-Np-vOF">
-                                            <rect key="frame" x="88" y="8" width="187" height="40"/>
+                                            <rect key="frame" x="93" y="8" width="192" height="50"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="y5j-AV-xmm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="187" height="20"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="25"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="zfD-1D-AiP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="20" id="DHJ-E9-Jqd"/>
-                                                                <constraint firstAttribute="height" constant="20" id="V6y-pL-Ahp"/>
+                                                                <constraint firstAttribute="width" constant="25" id="DHJ-E9-Jqd"/>
+                                                                <constraint firstAttribute="height" constant="25" id="V6y-pL-Ahp"/>
                                                                 <constraint firstAttribute="height" constant="20" id="lkR-xs-SEk"/>
                                                             </constraints>
                                                             <variation key="default">
@@ -129,11 +129,11 @@
                                                             </variation>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keyword: Enginner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOI-ln-r8s">
-                                                            <rect key="frame" x="25" y="0.0" width="162" height="20"/>
+                                                            <rect key="frame" x="30" y="0.0" width="162" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="V9t-X7-fSx"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                             <variation key="default">
@@ -153,14 +153,14 @@
                                                     </variation>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BjN-a5-T5G">
-                                                    <rect key="frame" x="0.0" y="20" width="187" height="20"/>
+                                                    <rect key="frame" x="0.0" y="25" width="192" height="25"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_location_on" translatesAutoresizingMaskIntoConstraints="NO" id="9yp-eV-qEi">
-                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="YRq-7W-LzL"/>
-                                                                <constraint firstAttribute="width" constant="20" id="blE-xs-96k"/>
-                                                                <constraint firstAttribute="height" constant="20" id="pkT-fT-Ahe"/>
+                                                                <constraint firstAttribute="width" constant="25" id="blE-xs-96k"/>
+                                                                <constraint firstAttribute="height" constant="25" id="pkT-fT-Ahe"/>
                                                             </constraints>
                                                             <variation key="default">
                                                                 <mask key="constraints">
@@ -169,7 +169,10 @@
                                                             </variation>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="United States of America" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVv-iV-BDT">
-                                                            <rect key="frame" x="25" y="0.0" width="162" height="20"/>
+                                                            <rect key="frame" x="30" y="0.0" width="162" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="Aaj-va-jOT"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="PingFangHK-Light" family="PingFang HK" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -192,7 +195,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="topMargin" secondItem="iWL-Np-vOF" secondAttribute="top" id="SE1-hG-bms"/>
-                                        <constraint firstItem="iWL-Np-vOF" firstAttribute="leading" secondItem="FD3-Z4-maa" secondAttribute="leadingMargin" constant="80" id="Szo-6n-ybY"/>
+                                        <constraint firstItem="iWL-Np-vOF" firstAttribute="leading" secondItem="FD3-Z4-maa" secondAttribute="leadingMargin" constant="85" id="Szo-6n-ybY"/>
                                         <constraint firstItem="iWL-Np-vOF" firstAttribute="height" secondItem="FD3-Z4-maa" secondAttribute="height" id="TsG-rh-ogo"/>
                                     </constraints>
                                     <variation key="default">
