@@ -18,7 +18,6 @@ class ResultsTableViewCell: BaseTableViewCell {
     @IBOutlet weak var jobCompany: UILabel!
     @IBOutlet weak var jobLocation: UILabel!
     @IBOutlet weak var jobPostDate: UILabel!
-    @IBOutlet weak var jobCompanyLogo: UIImageView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var saveButtonView: UIView!
     

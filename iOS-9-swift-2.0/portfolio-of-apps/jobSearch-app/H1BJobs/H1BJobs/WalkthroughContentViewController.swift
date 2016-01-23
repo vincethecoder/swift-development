@@ -19,6 +19,7 @@ class WalkthroughContentViewController: UIViewController {
     @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var getStartedLabel: UILabel!
+    @IBOutlet weak var iconImageView: UIImageView!
     
     var index = 0
     var heading: String!
@@ -35,9 +36,8 @@ class WalkthroughContentViewController: UIViewController {
         // Set the current page index
         pageControl.currentPage = index
 
-        filterView.backgroundColor = .blackColor()
-        filterView.alpha = 0.75
-        
+        filterView.backgroundColor = UIColor.H1BHeaderColor()
+        filterView.alpha = 0.65
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,22 +47,32 @@ class WalkthroughContentViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         var imageName = String()
+        var iconName = String()
+
         switch(index) {
-        case 0:
-            imageName = "revamp-search"
-        case 1:
-            imageName = "realtime-job-search"
-        case 2:
-            imageName = "filtered-job-search"
-        case 3:
-            imageName = "begin-job-search"
-            getStartedLabel.text = "I'm Done"
-        default:
-            break
+            case 0:
+                imageName = "revamp-search"
+                iconName = "microscope_image"
+            case 1:
+                imageName = "realtime-job-search"
+                iconName = "real_time_image"
+            case 2:
+                imageName = "filtered-job-search"
+                iconName = "filter_filled_image"
+            case 3:
+                imageName = "begin-job-search"
+                iconName = "begin_search_image"
+                getStartedLabel.text = "I'M DONE"
+            default:
+                break
         }
         
         if imageName.characters.count > 0 {
             bgImageView.image = UIImage(named: imageName)
+        }
+        
+        if iconName.characters.count > 0 {
+            iconImageView.image = UIImage(named: iconName)
         }
         
     }

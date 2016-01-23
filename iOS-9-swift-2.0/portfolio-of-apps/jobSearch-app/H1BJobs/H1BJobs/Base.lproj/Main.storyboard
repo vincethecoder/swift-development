@@ -110,10 +110,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iWL-Np-vOF">
-                                            <rect key="frame" x="93" y="8" width="192" height="50"/>
+                                            <rect key="frame" x="98" y="8" width="185.5" height="50"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="y5j-AV-xmm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="25"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="185.5" height="25"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="zfD-1D-AiP">
                                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
@@ -129,11 +129,11 @@
                                                             </variation>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keyword: Enginner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOI-ln-r8s">
-                                                            <rect key="frame" x="30" y="0.0" width="162" height="25"/>
+                                                            <rect key="frame" x="30" y="0.0" width="155.5" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="V9t-X7-fSx"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                             <variation key="default">
@@ -153,7 +153,7 @@
                                                     </variation>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BjN-a5-T5G">
-                                                    <rect key="frame" x="0.0" y="25" width="192" height="25"/>
+                                                    <rect key="frame" x="0.0" y="25" width="185.5" height="25"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_location_on" translatesAutoresizingMaskIntoConstraints="NO" id="9yp-eV-qEi">
                                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
@@ -169,11 +169,11 @@
                                                             </variation>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="United States of America" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVv-iV-BDT">
-                                                            <rect key="frame" x="30" y="0.0" width="162" height="25"/>
+                                                            <rect key="frame" x="30" y="0.0" width="155.5" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="Aaj-va-jOT"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="PingFangHK-Light" family="PingFang HK" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -195,7 +195,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="topMargin" secondItem="iWL-Np-vOF" secondAttribute="top" id="SE1-hG-bms"/>
-                                        <constraint firstItem="iWL-Np-vOF" firstAttribute="leading" secondItem="FD3-Z4-maa" secondAttribute="leadingMargin" constant="85" id="Szo-6n-ybY"/>
+                                        <constraint firstItem="iWL-Np-vOF" firstAttribute="leading" secondItem="FD3-Z4-maa" secondAttribute="leadingMargin" constant="90" id="Szo-6n-ybY"/>
                                         <constraint firstItem="iWL-Np-vOF" firstAttribute="height" secondItem="FD3-Z4-maa" secondAttribute="height" id="TsG-rh-ogo"/>
                                     </constraints>
                                     <variation key="default">
@@ -240,50 +240,43 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cbLogo" translatesAutoresizingMaskIntoConstraints="NO" id="QTC-gc-VuB">
-                                            <rect key="frame" x="20" y="32" width="92" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="92" id="Ec3-HL-liL"/>
-                                                <constraint firstAttribute="height" constant="25" id="GLr-O4-QuC"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Application Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PrU-v4-T2S">
-                                            <rect key="frame" x="120" y="8" width="447" height="20"/>
-                                            <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="14"/>
+                                            <rect key="frame" x="128" y="8" width="439" height="20.5"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="psz-rV-6ah">
-                                            <rect key="frame" x="120" y="28" width="372" height="52.5"/>
+                                            <rect key="frame" x="128" y="28" width="364" height="54"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verizon Co." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHo-iH-I8u">
-                                                    <rect key="frame" x="0.0" y="0.0" width="69" height="18.5"/>
-                                                    <fontDescription key="fontDescription" name="PingFangHK-Light" family="PingFang HK" pointSize="13"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="66.5" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tysons, VA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nj-qk-9fP">
-                                                    <rect key="frame" x="0.0" y="18.5" width="65" height="18.5"/>
-                                                    <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="13"/>
+                                                    <rect key="frame" x="0.0" y="18" width="62" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted: 2 weeks ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8W-2l-ZMN">
-                                                    <rect key="frame" x="0.0" y="37" width="104.5" height="15.5"/>
-                                                    <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="11"/>
+                                                    <rect key="frame" x="0.0" y="36" width="120" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agM-pp-bwm">
-                                            <rect key="frame" x="492" y="27.5" width="80" height="52.5"/>
+                                            <rect key="frame" x="492" y="28.5" width="80" height="54"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5D7-SR-6aQ">
-                                                    <rect key="frame" x="67" y="19.5" width="13" height="15"/>
+                                                    <rect key="frame" x="64" y="31" width="16" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="13" id="7zw-Ls-Owm"/>
-                                                        <constraint firstAttribute="height" constant="15" id="o7j-Ib-EgQ"/>
+                                                        <constraint firstAttribute="width" constant="16" id="7zw-Ls-Owm"/>
+                                                        <constraint firstAttribute="height" constant="16" id="o7j-Ib-EgQ"/>
                                                     </constraints>
                                                     <connections>
                                                         <action selector="saveButtonTapped:" destination="kBl-nY-J6a" eventType="touchUpInside" id="XH1-yJ-2Ok"/>
@@ -292,7 +285,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="5D7-SR-6aQ" firstAttribute="centerY" secondItem="agM-pp-bwm" secondAttribute="centerY" constant="1" id="2iS-rb-SAu"/>
+                                                <constraint firstItem="5D7-SR-6aQ" firstAttribute="centerY" secondItem="agM-pp-bwm" secondAttribute="centerY" constant="12" id="2iS-rb-SAu"/>
                                                 <constraint firstAttribute="trailing" secondItem="5D7-SR-6aQ" secondAttribute="trailing" id="JAy-ui-g8y"/>
                                                 <constraint firstAttribute="height" constant="40" id="OQ1-qv-HhF"/>
                                                 <constraint firstAttribute="width" constant="80" id="Tbl-x2-nXs"/>
@@ -329,20 +322,18 @@
                                     <constraints>
                                         <constraint firstItem="3yi-Ij-cZi" firstAttribute="height" secondItem="Ee1-P5-4rW" secondAttribute="height" id="1OT-am-Hjf"/>
                                         <constraint firstItem="agM-pp-bwm" firstAttribute="leading" secondItem="3yi-Ij-cZi" secondAttribute="trailing" id="3DD-pe-u7h"/>
+                                        <constraint firstItem="PrU-v4-T2S" firstAttribute="leading" secondItem="Ee1-P5-4rW" secondAttribute="leadingMargin" constant="120" id="5LG-IC-FmO"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="PrU-v4-T2S" secondAttribute="trailing" constant="25" id="6rS-fa-BKn"/>
-                                        <constraint firstItem="PrU-v4-T2S" firstAttribute="leading" secondItem="QTC-gc-VuB" secondAttribute="trailing" constant="8" id="7Gr-vy-OhU"/>
-                                        <constraint firstItem="QTC-gc-VuB" firstAttribute="leading" secondItem="Ee1-P5-4rW" secondAttribute="leadingMargin" constant="12" id="8nc-ws-bqX"/>
                                         <constraint firstAttribute="topMargin" secondItem="psz-rV-6ah" secondAttribute="top" id="A5Q-jp-pEI"/>
                                         <constraint firstItem="3yi-Ij-cZi" firstAttribute="leading" secondItem="Ee1-P5-4rW" secondAttribute="leadingMargin" id="Bnc-zx-PQb"/>
                                         <constraint firstItem="PrU-v4-T2S" firstAttribute="top" secondItem="Ee1-P5-4rW" secondAttribute="topMargin" id="Dwb-QV-lmy"/>
                                         <constraint firstItem="Exc-0y-Fh5" firstAttribute="height" secondItem="Ee1-P5-4rW" secondAttribute="height" id="Jwm-XS-c5i"/>
                                         <constraint firstItem="Exc-0y-Fh5" firstAttribute="top" secondItem="Ee1-P5-4rW" secondAttribute="topMargin" id="Mb5-Jb-CbN"/>
+                                        <constraint firstItem="psz-rV-6ah" firstAttribute="leading" secondItem="Ee1-P5-4rW" secondAttribute="leadingMargin" constant="120" id="MlA-bd-SRX"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Exc-0y-Fh5" secondAttribute="trailing" id="Qlx-a5-58Y"/>
                                         <constraint firstItem="agM-pp-bwm" firstAttribute="height" secondItem="psz-rV-6ah" secondAttribute="height" id="TPC-y5-b14"/>
                                         <constraint firstItem="agM-pp-bwm" firstAttribute="centerY" secondItem="Ee1-P5-4rW" secondAttribute="centerY" constant="8.25" id="gLP-Yf-7zA"/>
                                         <constraint firstItem="psz-rV-6ah" firstAttribute="top" secondItem="PrU-v4-T2S" secondAttribute="bottom" id="hGE-Fv-WdA"/>
-                                        <constraint firstItem="QTC-gc-VuB" firstAttribute="centerY" secondItem="Ee1-P5-4rW" secondAttribute="centerY" id="nYo-e7-2rF"/>
-                                        <constraint firstItem="psz-rV-6ah" firstAttribute="leading" secondItem="QTC-gc-VuB" secondAttribute="trailing" constant="8" id="nbl-O1-w6M"/>
                                         <constraint firstItem="agM-pp-bwm" firstAttribute="top" secondItem="PrU-v4-T2S" secondAttribute="bottom" id="rFO-Kx-GHz"/>
                                         <constraint firstItem="agM-pp-bwm" firstAttribute="leading" secondItem="psz-rV-6ah" secondAttribute="trailing" id="vdH-Ju-TMJ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="agM-pp-bwm" secondAttribute="trailing" constant="20" id="wR5-Nc-YgZ"/>
@@ -357,7 +348,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="jobCompany" destination="sHo-iH-I8u" id="Vtv-RG-QLb"/>
-                                    <outlet property="jobCompanyLogo" destination="QTC-gc-VuB" id="aas-lF-3Zd"/>
                                     <outlet property="jobLocation" destination="4nj-qk-9fP" id="Gfl-ga-7Co"/>
                                     <outlet property="jobPostDate" destination="x8W-2l-ZMN" id="sHh-kU-kM5"/>
                                     <outlet property="jobTitle" destination="PrU-v4-T2S" id="sM4-ee-EIA"/>
@@ -575,7 +565,7 @@ following Job Boards:</string>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LUA-f0-Y8S">
                                             <rect key="frame" x="15" y="0.0" width="570" height="46.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -728,55 +718,55 @@ following Job Boards:</string>
         <scene sceneID="ZPR-TW-qd1">
             <objects>
                 <tableViewController storyboardIdentifier="favoriteVCId" id="jtH-Cf-75a" customClass="FavoriteTableViewController" customModule="H1BJobs" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="yfw-EI-iJv">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="98" sectionHeaderHeight="28" sectionFooterHeight="28" id="yfw-EI-iJv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="favoriteCell" rowHeight="90" id="GBN-ua-vDc" customClass="ResultsTableViewCell" customModule="H1BJobs" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="favoriteCell" rowHeight="98" id="GBN-ua-vDc" customClass="ResultsTableViewCell" customModule="H1BJobs" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="98"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GBN-ua-vDc" id="Fyc-y4-mlc">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="97.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Application Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5l-Zh-0UW">
-                                            <rect key="frame" x="123" y="8" width="444" height="20"/>
-                                            <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="14"/>
+                                            <rect key="frame" x="128" y="8" width="439" height="20.5"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="b8a-66-TUy">
-                                            <rect key="frame" x="123" y="28.5" width="412" height="52.5"/>
+                                            <rect key="frame" x="128" y="30" width="407" height="54"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verizon Co." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oF-ES-E36">
-                                                    <rect key="frame" x="0.0" y="0.0" width="69" height="18.5"/>
-                                                    <fontDescription key="fontDescription" name="PingFangHK-Light" family="PingFang HK" pointSize="13"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="66.5" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tysons, VA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEh-P0-lsa">
-                                                    <rect key="frame" x="0.0" y="18.5" width="65" height="18.5"/>
-                                                    <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="13"/>
+                                                    <rect key="frame" x="0.0" y="18" width="62" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted: 2 weeks ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcR-sm-oXy">
-                                                    <rect key="frame" x="0.0" y="37" width="104.5" height="15.5"/>
-                                                    <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="11"/>
+                                                    <rect key="frame" x="0.0" y="36" width="120" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1i-Tk-KHp">
-                                            <rect key="frame" x="535" y="27.5" width="37" height="52.5"/>
+                                            <rect key="frame" x="535" y="28" width="37" height="54"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3S-kl-w1F">
-                                                    <rect key="frame" x="24" y="19" width="13" height="15"/>
+                                                    <rect key="frame" x="21" y="31" width="16" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="13" id="EDa-sv-kq9"/>
-                                                        <constraint firstAttribute="height" constant="15" id="t9N-lQ-IMc"/>
+                                                        <constraint firstAttribute="width" constant="16" id="EDa-sv-kq9"/>
+                                                        <constraint firstAttribute="height" constant="16" id="t9N-lQ-IMc"/>
                                                     </constraints>
                                                     <connections>
                                                         <action selector="saveButtonTapped:" destination="GBN-ua-vDc" eventType="touchUpInside" id="SMJ-fN-VQY"/>
@@ -787,7 +777,7 @@ following Job Boards:</string>
                                                 <constraint firstAttribute="bottom" secondItem="B3S-kl-w1F" secondAttribute="bottom" constant="10" id="Gld-nO-Mbx"/>
                                                 <constraint firstItem="B3S-kl-w1F" firstAttribute="centerY" secondItem="m1i-Tk-KHp" secondAttribute="centerY" id="JTY-1L-wAt"/>
                                                 <constraint firstAttribute="height" constant="40" id="MlS-eT-hoV"/>
-                                                <constraint firstItem="B3S-kl-w1F" firstAttribute="centerY" secondItem="m1i-Tk-KHp" secondAttribute="centerY" id="Ul1-K0-JFp"/>
+                                                <constraint firstItem="B3S-kl-w1F" firstAttribute="centerY" secondItem="m1i-Tk-KHp" secondAttribute="centerY" constant="12" id="Ul1-K0-JFp"/>
                                                 <constraint firstAttribute="bottom" secondItem="B3S-kl-w1F" secondAttribute="bottom" id="fHX-Kz-oig"/>
                                                 <constraint firstAttribute="trailing" secondItem="B3S-kl-w1F" secondAttribute="trailing" id="iP8-jr-aCr"/>
                                                 <constraint firstAttribute="width" constant="37" id="z4b-1q-ftw"/>
@@ -802,14 +792,14 @@ following Job Boards:</string>
                                             </variation>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrh-pq-LgZ" userLabel="Table Row Selected">
-                                            <rect key="frame" x="8" y="8" width="464" height="89.5"/>
+                                            <rect key="frame" x="8" y="8" width="464" height="97.5"/>
                                             <connections>
                                                 <action selector="tableRowButtonTapped:" destination="GBN-ua-vDc" eventType="touchUpInside" id="Yof-i4-2jS"/>
                                                 <segue destination="bIg-Bn-MqV" kind="show" identifier="favJobHyperLink" id="fL0-st-1jL"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ou-w6-sBt" userLabel="Save Button">
-                                            <rect key="frame" x="472" y="8" width="120" height="89.5"/>
+                                            <rect key="frame" x="472" y="8" width="120" height="97.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="120" id="VdE-0U-ix2"/>
                                             </constraints>
@@ -821,14 +811,14 @@ following Job Boards:</string>
                                     <constraints>
                                         <constraint firstItem="5Ou-w6-sBt" firstAttribute="height" secondItem="Fyc-y4-mlc" secondAttribute="height" id="0FS-kc-Xmh"/>
                                         <constraint firstItem="5Ou-w6-sBt" firstAttribute="top" secondItem="Fyc-y4-mlc" secondAttribute="topMargin" id="0RC-fW-Ge8"/>
-                                        <constraint firstItem="S5l-Zh-0UW" firstAttribute="leading" secondItem="Fyc-y4-mlc" secondAttribute="leadingMargin" constant="115" id="0gQ-Wv-9XI"/>
+                                        <constraint firstItem="S5l-Zh-0UW" firstAttribute="leading" secondItem="Fyc-y4-mlc" secondAttribute="leadingMargin" constant="120" id="0gQ-Wv-9XI"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="5Ou-w6-sBt" secondAttribute="trailing" id="9iL-Tv-IUb"/>
                                         <constraint firstAttribute="topMargin" secondItem="b8a-66-TUy" secondAttribute="top" id="HV1-Of-RyR"/>
                                         <constraint firstItem="b8a-66-TUy" firstAttribute="top" secondItem="S5l-Zh-0UW" secondAttribute="bottom" constant="1" id="LuW-bt-d5c"/>
                                         <constraint firstItem="m1i-Tk-KHp" firstAttribute="leading" secondItem="b8a-66-TUy" secondAttribute="trailing" id="Q7C-rM-nvT"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="m1i-Tk-KHp" secondAttribute="trailing" constant="20" id="V44-6E-shd"/>
                                         <constraint firstItem="S5l-Zh-0UW" firstAttribute="top" secondItem="Fyc-y4-mlc" secondAttribute="topMargin" id="VPe-Jv-ag6"/>
-                                        <constraint firstItem="b8a-66-TUy" firstAttribute="leading" secondItem="Fyc-y4-mlc" secondAttribute="leadingMargin" constant="115" id="VRL-rT-m8u"/>
+                                        <constraint firstItem="b8a-66-TUy" firstAttribute="leading" secondItem="Fyc-y4-mlc" secondAttribute="leadingMargin" constant="120" id="VRL-rT-m8u"/>
                                         <constraint firstItem="vrh-pq-LgZ" firstAttribute="top" secondItem="Fyc-y4-mlc" secondAttribute="topMargin" id="cUd-oo-ozw"/>
                                         <constraint firstItem="m1i-Tk-KHp" firstAttribute="top" secondItem="S5l-Zh-0UW" secondAttribute="bottom" id="hdg-sq-KHd"/>
                                         <constraint firstItem="5Ou-w6-sBt" firstAttribute="leading" secondItem="vrh-pq-LgZ" secondAttribute="trailing" id="iS1-0f-9Li"/>
@@ -914,6 +904,13 @@ following Job Boards:</string>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="baH-X2-eDs">
                                 <rect key="frame" x="273" y="498" width="55" height="37"/>
                             </pageControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EUg-u7-L7B">
+                                <rect key="frame" x="282" y="169" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="0BQ-20-jmW"/>
+                                    <constraint firstAttribute="height" constant="35" id="8Cu-vx-aCr"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personalize" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IG7-rB-arH">
                                 <rect key="frame" x="175" y="214" width="250" height="34.5"/>
                                 <constraints>
@@ -924,7 +921,7 @@ following Job Boards:</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pin your favorite restaurants and create your own food guide" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4s4-1T-OtE">
-                                <rect key="frame" x="159" y="275" width="282" height="46.5"/>
+                                <rect key="frame" x="159" y="263.5" width="282" height="46.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="2YJ-pH-TZb"/>
                                     <constraint firstAttribute="width" constant="282" id="duI-h2-aPY"/>
@@ -948,14 +945,14 @@ following Job Boards:</string>
                                             <constraint firstAttribute="height" constant="1" id="HGV-iD-q4G"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaq-aA-izA">
-                                        <rect key="frame" x="228" y="13" width="104" height="29"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GET STARTED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaq-aA-izA">
+                                        <rect key="frame" x="230" y="13" width="100.5" height="29"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6i-hG-9Df">
-                                        <rect key="frame" x="228" y="13" width="104" height="29"/>
+                                        <rect key="frame" x="230" y="13" width="100.5" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -996,7 +993,8 @@ following Job Boards:</string>
                             <constraint firstItem="rk5-lj-BUe" firstAttribute="top" secondItem="015-R8-zxm" secondAttribute="bottom" id="PU1-kL-HZG"/>
                             <constraint firstItem="rk5-lj-BUe" firstAttribute="top" secondItem="3Yc-s9-Bwv" secondAttribute="bottom" id="PkJ-5L-LNz"/>
                             <constraint firstItem="IG7-rB-arH" firstAttribute="centerY" secondItem="khW-qr-bBR" secondAttribute="centerY" constant="-69" id="Puo-HT-43l"/>
-                            <constraint firstItem="4s4-1T-OtE" firstAttribute="top" secondItem="IG7-rB-arH" secondAttribute="bottom" constant="27" id="Shk-ea-CBy"/>
+                            <constraint firstItem="EUg-u7-L7B" firstAttribute="centerY" secondItem="khW-qr-bBR" secondAttribute="centerY" id="SAi-F0-Q9T"/>
+                            <constraint firstItem="4s4-1T-OtE" firstAttribute="top" secondItem="IG7-rB-arH" secondAttribute="bottom" constant="15" id="Shk-ea-CBy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hSn-QK-ZHP" secondAttribute="trailing" constant="-20" id="TKE-Dj-fvg"/>
                             <constraint firstItem="3Yc-s9-Bwv" firstAttribute="centerX" secondItem="khW-qr-bBR" secondAttribute="centerX" id="TxX-lJ-N8N"/>
                             <constraint firstItem="hSn-QK-ZHP" firstAttribute="top" secondItem="cXt-cX-sNl" secondAttribute="bottom" id="aSd-sr-YHU"/>
@@ -1007,6 +1005,8 @@ following Job Boards:</string>
                             <constraint firstAttribute="trailingMargin" secondItem="3Yc-s9-Bwv" secondAttribute="trailing" constant="-25" id="fFx-z7-KRX"/>
                             <constraint firstItem="rk5-lj-BUe" firstAttribute="top" secondItem="hSn-QK-ZHP" secondAttribute="bottom" id="mV2-F0-K5P"/>
                             <constraint firstItem="3Yc-s9-Bwv" firstAttribute="centerY" secondItem="khW-qr-bBR" secondAttribute="centerY" id="mdx-Et-8P2"/>
+                            <constraint firstItem="IG7-rB-arH" firstAttribute="top" secondItem="EUg-u7-L7B" secondAttribute="bottom" constant="10" id="npo-Q8-hj4"/>
+                            <constraint firstItem="EUg-u7-L7B" firstAttribute="centerX" secondItem="khW-qr-bBR" secondAttribute="centerX" id="obO-h1-uSF"/>
                             <constraint firstItem="015-R8-zxm" firstAttribute="top" secondItem="baH-X2-eDs" secondAttribute="bottom" constant="10" id="rVM-wu-QK4"/>
                             <constraint firstItem="baH-X2-eDs" firstAttribute="top" secondItem="3Yc-s9-Bwv" secondAttribute="bottom" id="uNU-l7-V8n"/>
                             <constraint firstItem="015-R8-zxm" firstAttribute="centerX" secondItem="khW-qr-bBR" secondAttribute="centerX" id="wcT-lJ-2Ar"/>
@@ -1020,6 +1020,7 @@ following Job Boards:</string>
                                 <exclude reference="Oxr-4W-Hpi"/>
                                 <exclude reference="byC-7P-lRC"/>
                                 <exclude reference="EB8-c0-AFu"/>
+                                <exclude reference="SAi-F0-Q9T"/>
                                 <exclude reference="7Os-91-ei3"/>
                                 <exclude reference="emr-46-GHO"/>
                                 <exclude reference="uNU-l7-V8n"/>
@@ -1034,6 +1035,7 @@ following Job Boards:</string>
                         <outlet property="forwardButton" destination="q6i-hG-9Df" id="Kn8-3J-EGJ"/>
                         <outlet property="getStartedLabel" destination="xaq-aA-izA" id="t2N-Og-c7E"/>
                         <outlet property="headingLabel" destination="IG7-rB-arH" id="moE-mP-28m"/>
+                        <outlet property="iconImageView" destination="EUg-u7-L7B" id="HSI-Pk-VuK"/>
                         <outlet property="pageControl" destination="baH-X2-eDs" id="1bu-Mb-1S9"/>
                     </connections>
                 </viewController>
@@ -1051,7 +1053,6 @@ following Job Boards:</string>
         </scene>
     </scenes>
     <resources>
-        <image name="cbLogo" width="92" height="10"/>
         <image name="cb_logo" width="100" height="100"/>
         <image name="city_skyline_ny" width="853" height="533"/>
         <image name="dice_logo" width="256" height="256"/>
@@ -1066,7 +1067,7 @@ following Job Boards:</string>
         <image name="tab_icon_search_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="mNs-kM-191"/>
         <segue reference="DrK-C6-4Dg"/>
-        <segue reference="fqV-z6-C4Z"/>
     </inferredMetricsTieBreakers>
 </document>

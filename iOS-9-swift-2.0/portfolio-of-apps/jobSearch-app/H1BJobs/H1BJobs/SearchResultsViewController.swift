@@ -215,10 +215,8 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         cell.jobTitle.text = h1bjob.title.capitalizedString
         cell.jobCompany.text = h1bjob.company
         cell.jobLocation.text = h1bjob.location
-        cell.jobPostDate.text = "Posted: \(h1bjob.postdate.wordFullMonthDayYearString())"
+        cell.jobPostDate.text = "Posted: \(h1bjob.postdate.wordMonthDayString())"
         cell.imageView?.image = companyLogo
-        
-        cell.jobCompanyLogo.image = UIImage()
         
         cell.jobWebUrl = h1bjob.jobUrl
         cell.delegate = self
