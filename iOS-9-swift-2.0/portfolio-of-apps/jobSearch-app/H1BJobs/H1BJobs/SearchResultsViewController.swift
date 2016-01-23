@@ -265,7 +265,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             let row = indexPath.row
             let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
             webView?.jobUrl = h1bjob.jobUrl
-            webView?.job = h1bjob
+            webView?.job = Favorite(favoriteId: 0, jobTitle: h1bjob.title, company: h1bjob.company, jobUrl: h1bjob.jobUrl, savedTimestamp: h1bjob.postdate.wordMonthDayString(), image: UIImagePNGRepresentation(h1bjob.companyLogo)!)
         }
     }
 

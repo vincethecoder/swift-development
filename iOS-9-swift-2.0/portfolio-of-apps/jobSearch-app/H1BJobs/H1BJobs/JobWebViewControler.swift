@@ -11,7 +11,7 @@ import UIKit
 class JobWebViewControler: UIViewController, UIWebViewDelegate {
 
     var jobUrl: String?
-    var job: H1BJob?
+    var job: Favorite!
     var tracker: GAITracker {
         return GAI.sharedInstance().defaultTracker
     }
@@ -55,9 +55,7 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         var status = String()
         var saveImage = UIImage(named: "save_error")!
         
-        let companyLogo = UIImagePNGRepresentation((job?.companyLogo)!)
-        let jobRecord = Favorite(favoriteId: 0, jobTitle: (job?.title)!, company: (job?.company)!, jobUrl: (job?.jobUrl)!, savedTimestamp: NSDate.init().wordMonthDayYearString(), image: companyLogo!)
-        
+        let jobRecord = job
         if let record = FavoriteHelper.find(jobRecord) {
             let success: Bool = FavoriteHelper.delete(record)
             if success == true {

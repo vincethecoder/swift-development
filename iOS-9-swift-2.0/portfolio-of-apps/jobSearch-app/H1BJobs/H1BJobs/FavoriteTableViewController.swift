@@ -167,6 +167,7 @@ class FavoriteTableViewController: UITableViewController {
             let row = indexPath.row
             let h1bjob = favoriteList[row]
             webView?.jobUrl = h1bjob.jobUrl
+            webView?.job = h1bjob
         }
         
     }
