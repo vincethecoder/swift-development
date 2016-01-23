@@ -11,6 +11,7 @@ import UIKit
 // Dice API Documentation: http://www.dice.com/common/content/util/apidoc/jobsearch.html
 // Linkup API Documentation: http://www.linkup.com/developers/modify-direct-access.php
 // Indeed API Documentation: https://ads.indeed.com/jobroll/xmlfeed
+// CareerBuilder API Documentation: http://developer.careerbuilder.com/endpoints
 
 enum JobCategory: String {
     case Dice = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=h1b,h1-b,h-1b"

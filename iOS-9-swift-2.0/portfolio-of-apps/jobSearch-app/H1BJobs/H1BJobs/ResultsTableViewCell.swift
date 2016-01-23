@@ -37,6 +37,16 @@ class ResultsTableViewCell: BaseTableViewCell {
         }
         
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.imageView?.frame = CGRectMake(15, 0, 80, 80)
+        let cellImageLayer = self.imageView?.layer
+        cellImageLayer?.borderWidth = 2
+        cellImageLayer?.borderColor = UIColor.clearColor().CGColor
+        cellImageLayer?.cornerRadius = 40
+        cellImageLayer?.masksToBounds = true
+    }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -105,9 +105,9 @@ class FavoriteTableViewController: UITableViewController {
             cell.jobTitle.text = favoriteData.jobTitle?.capitalizedString
             cell.jobCompany.text = favoriteData.company
             cell.jobPostDate.text = "Saved: \(favoriteData.savedTimestamp!)"
-            let image = UIImage.imageScaledToSize(UIImage(data: favoriteData.image)!, size: CGSizeMake(72, 25))
+            
+            cell.imageView?.image = UIImage(data: favoriteData.image)!
             cell.imageView?.hidden = false
-            cell.imageView?.image = image
             cell.textLabel?.text = ""
             cell.saveButton.tintColor = .redColor()
             cell.jobWebUrl = favoriteData.jobUrl

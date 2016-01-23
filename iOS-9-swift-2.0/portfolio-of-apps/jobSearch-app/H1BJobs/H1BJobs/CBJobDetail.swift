@@ -89,5 +89,18 @@ class CBJobDetail: NSObject {
         jobLevel = dict["JobLevel"] as? String
         jobTitle = dict["JobTitle"] as? String
     }
+    
+    func h1BEligible() -> Bool {
+        let h1bFlag = "H1B"
+        if DID?.rangeOfString(h1bFlag) != nil && descriptionTeaser?.rangeOfString(h1bFlag) != nil {
+            return true
+        } else if descriptionTeaser?.rangeOfString(h1bFlag) != nil {
+            return true
+        } else if jobTitle?.rangeOfString(h1bFlag) != nil {
+            return true
+        } else {
+            return false
+        }
+    }
 
 }

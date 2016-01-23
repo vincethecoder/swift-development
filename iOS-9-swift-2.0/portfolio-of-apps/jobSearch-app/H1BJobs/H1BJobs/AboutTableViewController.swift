@@ -13,6 +13,12 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
 
     @IBOutlet weak var bannerContainer: UIView!
     @IBOutlet weak var logoImageView: UIImageView!
+    
+    @IBOutlet weak var diceImageView: UIImageView!
+    @IBOutlet weak var cbImageView: UIImageView!
+    @IBOutlet weak var indeedImageView: UIImageView!
+    @IBOutlet weak var linkUpImageView: UIImageView!
+
     var sectionContent = [ ["Write a Review", "Give a feedback"],
                            ["LinkedIn", "Github", "Twitter", "Google+"] ]
 
@@ -51,7 +57,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         blurEffectView.frame = CGRectMake(0, 0, view.bounds.width * 2, view.bounds.height * 2)
         tableView.backgroundView!.addSubview(blurEffectView)
         
-        formatLogoImageView()
+        //formatLogoImageView()
         
         let translate = CGAffineTransformMakeTranslation(250, 0)
         logoImageView.transform = translate
@@ -72,6 +78,12 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         let rightBarButton = UIBarButtonItem()
         rightBarButton.customView = btnName
         navigationItem.rightBarButtonItem = rightBarButton
+        
+        formatImageView(diceImageView)
+        formatImageView(cbImageView)
+        formatImageView(indeedImageView)
+        formatImageView(linkUpImageView)
+        formatImageView(logoImageView)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -83,13 +95,13 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
     }
-    
-    func formatLogoImageView() {
-        logoImageView.layer.borderWidth = 1.0
-        logoImageView.layer.masksToBounds = false
-        logoImageView.layer.borderColor = UIColor.H1BBorderColor().CGColor
-        logoImageView.layer.cornerRadius = logoImageView.frame.width / 2
-        logoImageView.clipsToBounds = true
+
+    func formatImageView(imageView: UIImageView) {
+        imageView.layer.borderWidth = 2.0
+        imageView.layer.masksToBounds = false
+        imageView.layer.borderColor = imageView == logoImageView ? UIColor.H1BBorderColor().CGColor : UIColor.clearColor().CGColor
+        imageView.layer.cornerRadius = imageView.frame.width / (imageView != logoImageView ? 2 : 5)
+        imageView.clipsToBounds = true
     }
 
     override func viewDidAppear(animated: Bool) {

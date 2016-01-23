@@ -32,7 +32,7 @@ class Job: NSObject {
                             // Jobs in CareerBuilder Listings
                             let company = nil != cbJob.company ? cbJob.company! : ""
                             let h1bjob = H1BJob(title: cbJob.jobTitle!, company: company, location: cbJob.location!, date: cbJob.postedDate!, detail: cbJob)
-                            if let _ = cbJob.descriptionTeaser where cbJob.descriptionTeaser?.isValidSponsoredJob() == true {
+                            if let _ = cbJob.descriptionTeaser where cbJob.descriptionTeaser?.isValidSponsoredJob() == true && cbJob.h1BEligible() == true {
                                 self.jobListings.append(h1bjob)
                             }
                         } else if job.isKindOfClass(LinkupJobDetail), let linkupJob = job as? LinkupJobDetail {
@@ -132,7 +132,7 @@ class Job: NSObject {
                     completion(success: true, result: self.results, joblistings: self.jobListings, error: nil)
                 }
             } catch let error as NSError {
-                print(error.localizedDescription)
+                print("\(jobCategory.rawValue): \(error.localizedDescription)")
                 // completion(success: false, result: nil, joblistings: nil, error: error)
             }
         }

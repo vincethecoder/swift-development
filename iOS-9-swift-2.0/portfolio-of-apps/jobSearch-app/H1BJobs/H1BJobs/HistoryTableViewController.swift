@@ -88,28 +88,25 @@ class HistoryTableViewController: UITableViewController {
         cell.backgroundColor = .clearColor()
         
         if let _ = inlineMessage where inlineMessage?.characters.count > 0 {
-            cell.jobKeyword.text = String()
-            cell.jobSearchDateDay.text = String()
-            cell.jobSearchDateMonth.text = String()
-            cell.calendarContainer.hidden = true
             cell.historyLocation.hidden = true
             cell.historyLocationIcon.hidden = true
             cell.historySearchIcon.hidden = true
+            cell.imageView?.hidden = true
+            cell.jobKeyword.text = ""
             return cell.noListingsCell(inlineMessage!)
         } else {
             let row = indexPath.row
             let historyData = historyList[row]
-            let historyDate = historyData.timestamp!
             let keyword = historyData.keyword?.characters.count > 0 ? historyData.keyword?.capitalizedString : "All H1B Jobs"
 
-            cell.calendarContainer.hidden = false
             cell.historyLocationIcon.hidden = false
             cell.historySearchIcon.hidden = false
             cell.historyLocation.hidden = false
+            cell.imageView?.hidden = false
             cell.jobKeyword.text = "\(keyword!)"
-            cell.jobSearchDateDay.text = historyDate.wordDayString()
-            cell.jobSearchDateMonth.text = historyDate.wordMonthString().uppercaseString
             cell.textLabel?.text = ""
+            cell.imageView?.image = UIImage(named: "calendar_full")
+            cell.accessoryType = .DisclosureIndicator
             
             return cell
         }

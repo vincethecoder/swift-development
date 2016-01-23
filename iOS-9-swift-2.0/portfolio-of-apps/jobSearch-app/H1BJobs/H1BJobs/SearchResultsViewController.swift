@@ -142,7 +142,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (searchController.active) ? searchResults.count : jobListings.count
     }
@@ -156,36 +156,24 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         } else {
             let row = indexPath.row
             let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
-            var imageUrl = ""
+            var companyLogo = UIImage()
 
             if h1bjob.jobdetail.isKindOfClass(DiceJobDetail) {
-                imageUrl = "http://seeker.dice.com/assets/images/DiceLogo_V.gif"
+                companyLogo = UIImage(named: "dice_logo")!
             } else if h1bjob.jobdetail.isKindOfClass(CBJobDetail) {
-                if let cbJobDetail = h1bjob.jobdetail as? CBJobDetail {
-                    if let _ = cbJobDetail.companyImageURL {
-                        imageUrl = cbJobDetail.companyImageURL!
-                    }
-                }
+                companyLogo =  UIImage(named: "cb_logo")!
             } else if h1bjob.jobdetail.isKindOfClass(LinkupJobDetail) {
-                imageUrl = "http://www.linkup.com/images/opengraph/LinkUpLogo180x110.png"
+                companyLogo =  UIImage(named: "linkup_logo")!
             } else if h1bjob.jobdetail.isKindOfClass(IndeedJobDetail) {
-                imageUrl = "http://p2.zdassets.com/hc/settings_assets/499832/200031240/Cw6ZzmMTxxN4ArRyhXrdqQ-indeed.png"
+                companyLogo = UIImage(named: "indeed_logo")!
             }
-
             cell.jobTitle.text = h1bjob.title.capitalizedString
             cell.jobCompany.text = h1bjob.company
             cell.jobLocation.text = h1bjob.location
             cell.jobPostDate.text = "Posted: \(h1bjob.postdate.wordFullMonthDayYearString())"
+            cell.imageView?.image = companyLogo
             
-            if imageUrl.characters.count > 0 {
-                ImageLoader.sharedLoader.imageForUrl(imageUrl, completionHandler:{(image: UIImage?, url: String) in
-                    if image != nil {
-                        cell.jobCompanyLogo.image = image
-                    }
-                })
-            } else {
-                cell.jobCompanyLogo.image = UIImage(named: "cbLogo")
-            }
+            cell.jobCompanyLogo.image = UIImage()
             
             cell.jobWebUrl = h1bjob.jobUrl
             cell.delegate = self
@@ -199,7 +187,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     
     func saveButtonTapped(cell: ResultsTableViewCell) {
         
-        let companyLogo = UIImagePNGRepresentation((cell.jobCompanyLogo?.image)!)
+        let companyLogo = UIImagePNGRepresentation((cell.imageView?.image)!)
         let jobRecord = Favorite(favoriteId: 0, jobTitle: cell.jobTitle.text!, company: cell.jobCompany.text!, jobUrl: cell.jobWebUrl, savedTimestamp: NSDate.init().wordMonthDayYearString(), image: companyLogo!)
 
         

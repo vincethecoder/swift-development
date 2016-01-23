@@ -11,18 +11,20 @@ import UIKit
 class HistoryTableViewCell: BaseTableViewCell {
     
     @IBOutlet weak var jobKeyword: UILabel!
-    @IBOutlet weak var jobSearchDateMonth: UILabel!
-    @IBOutlet weak var jobSearchDateDay: UILabel!
-    @IBOutlet weak var calendarContainer: UIView!
-    
     @IBOutlet weak var historySearchIcon: UIImageView!
     @IBOutlet weak var historyLocationIcon: UIImageView!
     @IBOutlet weak var historyLocation: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        calendarContainer.layer.borderColor = UIColor.lightGrayColor().CGColor
-        calendarContainer.layer.borderWidth = 2.0
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.imageView?.frame = CGRectMake(20, 3, 50, 50)
+        let cellImageLayer = self.imageView?.layer
+        cellImageLayer?.borderWidth = 2
+        cellImageLayer?.masksToBounds = true
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
