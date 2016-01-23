@@ -27,6 +27,8 @@
 		18428C251C39569500C4CAF1 /* JobWebViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C241C39569500C4CAF1 /* JobWebViewControler.swift */; };
 		186A60051C537B5E005A2E07 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A60031C537B5E005A2E07 /* ErrorView.swift */; };
 		186A60061C537B5E005A2E07 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186A60041C537B5E005A2E07 /* ErrorView.xib */; };
+		186A60081C53F46E005A2E07 /* SaveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186A60071C53F46E005A2E07 /* SaveView.xib */; };
+		186A600A1C53F75C005A2E07 /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A60091C53F75C005A2E07 /* SaveView.swift */; };
 		187E6B341C42FEFB00241486 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E6B331C42FEFB00241486 /* AboutTableViewController.swift */; };
 		187E72181C430DE700D458AB /* JobSocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E72171C430DE700D458AB /* JobSocialMedia.swift */; };
 		1886EB601C25F92A00134016 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886EB5F1C25F92A00134016 /* Database.swift */; };
@@ -90,6 +92,8 @@
 		18428C241C39569500C4CAF1 /* JobWebViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobWebViewControler.swift; sourceTree = "<group>"; };
 		186A60031C537B5E005A2E07 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		186A60041C537B5E005A2E07 /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
+		186A60071C53F46E005A2E07 /* SaveView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SaveView.xib; sourceTree = "<group>"; };
+		186A60091C53F75C005A2E07 /* SaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 		187E6B331C42FEFB00241486 /* AboutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
 		187E72171C430DE700D458AB /* JobSocialMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobSocialMedia.swift; sourceTree = "<group>"; };
 		1886EB5F1C25F92A00134016 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Database.swift; path = Utilities/Database.swift; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 				1894FFB71C1FD628000EBE18 /* HistoryTableViewCell.swift */,
 				186A60031C537B5E005A2E07 /* ErrorView.swift */,
 				186A60041C537B5E005A2E07 /* ErrorView.xib */,
+				186A60091C53F75C005A2E07 /* SaveView.swift */,
+				186A60071C53F46E005A2E07 /* SaveView.xib */,
 				18AB2EDE1C040746002C3484 /* JobSearchViewController.swift */,
 				18AB2EF81C09B05C002C3484 /* SearchResultsViewController.swift */,
 				18428C241C39569500C4CAF1 /* JobWebViewControler.swift */,
@@ -382,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18AB2ED51C040701002C3484 /* LaunchScreen.storyboard in Resources */,
+				186A60081C53F46E005A2E07 /* SaveView.xib in Resources */,
 				18E100B51C48A67D00C2D582 /* GoogleService-Info.plist in Resources */,
 				18AB2ED21C040701002C3484 /* Assets.xcassets in Resources */,
 				18AB2ED01C040701002C3484 /* Main.storyboard in Resources */,
@@ -472,6 +479,7 @@
 				18428C151C2E082100C4CAF1 /* FavoriteHelper.swift in Sources */,
 				1886EB6D1C27096700134016 /* History.swift in Sources */,
 				18428C1D1C35CE7100C4CAF1 /* H1BCompany.swift in Sources */,
+				186A600A1C53F75C005A2E07 /* SaveView.swift in Sources */,
 				18428C131C2E073A00C4CAF1 /* FavoriteDetail.swift in Sources */,
 				18AB2EE71C063F4D002C3484 /* JobUtils.swift in Sources */,
 				18AB2EDF1C040746002C3484 /* JobSearchViewController.swift in Sources */,

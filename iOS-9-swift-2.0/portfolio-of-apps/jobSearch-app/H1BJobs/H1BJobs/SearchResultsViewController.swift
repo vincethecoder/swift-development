@@ -201,22 +201,12 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         
         let row = indexPath.row
         let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
-        var companyLogo = UIImage()
-        
-        if h1bjob.jobdetail.isKindOfClass(DiceJobDetail) {
-            companyLogo = UIImage(named: "dice_logo")!
-        } else if h1bjob.jobdetail.isKindOfClass(CBJobDetail) {
-            companyLogo =  UIImage(named: "cb_logo")!
-        } else if h1bjob.jobdetail.isKindOfClass(LinkupJobDetail) {
-            companyLogo =  UIImage(named: "linkup_logo")!
-        } else if h1bjob.jobdetail.isKindOfClass(IndeedJobDetail) {
-            companyLogo = UIImage(named: "indeed_logo")!
-        }
+
         cell.jobTitle.text = h1bjob.title.capitalizedString
         cell.jobCompany.text = h1bjob.company
         cell.jobLocation.text = h1bjob.location
         cell.jobPostDate.text = "Posted: \(h1bjob.postdate.wordMonthDayString())"
-        cell.imageView?.image = companyLogo
+        cell.imageView?.image = h1bjob.companyLogo
         
         cell.jobWebUrl = h1bjob.jobUrl
         cell.delegate = self
@@ -275,6 +265,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             let row = indexPath.row
             let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
             webView?.jobUrl = h1bjob.jobUrl
+            webView?.job = h1bjob
         }
     }
 

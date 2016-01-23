@@ -1,5 +1,5 @@
 //
-//  ErrorView.swift
+//  SaveView.swift
 //  H1BJobs
 //
 //  Created by Kobe Sam on 1/23/16.
@@ -7,23 +7,20 @@
 //
 
 import UIKit
-import Foundation
 
-class ErrorView: UIView {
+class SaveView: UIView {
 
-    @IBOutlet weak var errorImageView: UIImageView!
-    @IBOutlet weak var errorTitle: UILabel!
-    @IBOutlet weak var errorText: UILabel!
-
+    @IBOutlet weak var saveImageView: UIImageView!
+    @IBOutlet weak var saveStatusLabel: UILabel!
     
     override func awakeFromNib() {
-        super.awakeFromNib()  
+        super.awakeFromNib()
     }
     
-    init(frame: CGRect, title: String, text: String, image: UIImage) {
+    init(frame: CGRect, status: String, image: UIImage) {
         super.init(frame: frame)
         
-        let newView = NSBundle.mainBundle().loadNibNamed("ErrorView", owner: self, options: nil).first as! ErrorView
+        let newView = NSBundle.mainBundle().loadNibNamed("SaveView", owner: self, options: nil).first as! SaveView
         newView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(newView)
         
@@ -33,19 +30,21 @@ class ErrorView: UIView {
         let heightConstraint = newView.heightAnchor.constraintEqualToAnchor(nil, constant: frame.height)
         NSLayoutConstraint.activateConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
         
-        newView.errorText.text = text
-        newView.errorTitle.text = title
-        newView.errorImageView.image = image
-        
-        newView.backgroundColor = .clearColor()
+        newView.saveImageView.image = image
+        newView.saveStatusLabel.text = status
+        newView.layer.cornerRadius = 15
+
+        newView.backgroundColor = .blackColor()
+        newView.alpha = 0.95
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
 
 }

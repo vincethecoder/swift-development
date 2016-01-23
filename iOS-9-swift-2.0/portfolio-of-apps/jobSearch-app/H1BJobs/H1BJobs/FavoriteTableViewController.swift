@@ -80,9 +80,10 @@ class FavoriteTableViewController: UITableViewController {
             }
         }
         
+        tableView.reloadData()
+
         if self.favoriteList.count > 0 {
             favoriteDefaultView.hidden = true
-            tableView.reloadData()
         } else {
             favoriteDefaultView.hidden = false
         }

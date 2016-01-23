@@ -11,6 +11,7 @@ import UIKit
 class JobWebViewControler: UIViewController, UIWebViewDelegate {
 
     var jobUrl: String?
+    var job: H1BJob?
     var tracker: GAITracker {
         return GAI.sharedInstance().defaultTracker
     }
@@ -20,12 +21,11 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
 
     var saveButton: UIButton {
         let button = UIButton()
-        button.setImage(UIImage(named: "red_like_filled"), forState: .Normal)
+        button.setImage(UIImage(named: "add_job_action"), forState: .Normal)
         button.frame = CGRectMake(0, 0, 25, 25)
         button.addTarget(self, action: Selector("userDidTapSave"), forControlEvents: .TouchUpInside)
         return button
     }
-    
     
     override func viewDidLoad() {
         
@@ -47,17 +47,77 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
             let rightBarButton = UIBarButtonItem()
             rightBarButton.customView = saveButton
             navigationItem.rightBarButtonItem = rightBarButton
-            
         }
     }
     
-    
     func userDidTapSave() {
         //Implementation goes here ...
+        var status = String()
+        var saveImage = UIImage(named: "save_error")!
+        
+        let companyLogo = UIImagePNGRepresentation((job?.companyLogo)!)
+        let jobRecord = Favorite(favoriteId: 0, jobTitle: (job?.title)!, company: (job?.company)!, jobUrl: (job?.jobUrl)!, savedTimestamp: NSDate.init().wordMonthDayYearString(), image: companyLogo!)
+        
+        if let record = FavoriteHelper.find(jobRecord) {
+            let success: Bool = FavoriteHelper.delete(record)
+            if success == true {
+                // Removed ... now animate delete icon
+                status = "Removed from \nSaved List"
+                saveImage = UIImage(named: "delete_job")!
+            } else {
+                status = "Ooops. Delete Failed."
+            }
+        } else {
+            // Add new record
+            let favoriteId = FavoriteHelper.insert(jobRecord)
+            print("favorite id \(favoriteId)")
+            
+            if favoriteId != -1 {
+                // Hurrray... now animate added icon
+                status = "Added Job to \nSaved List"
+                saveImage = UIImage(named: "save_job")!
+            } else {
+                status = "Ooops. Save Failed."
+            }
+        }
+        
+        displaySaveView(status, image: saveImage)
         
         // Google Analytics
         tracker.send(GAIDictionaryBuilder.createEventWithCategory("Category: Job WebView", action: "Save Job Pressed", label: "Save Job", value: nil).build() as [NSObject : AnyObject])
     }
+    
+    func displaySaveView(status: String, image: UIImage) {
+        let viewHeight: CGFloat = 158
+        let viewWidth: CGFloat = 163
+        let frame = CGRectMake(0, 0, viewWidth, viewHeight)
+        
+        let saveView = SaveView(frame: frame, status: status, image: image)
+        saveView.translatesAutoresizingMaskIntoConstraints = false
+        
+        webView.addSubview(saveView)
+        webView.bringSubviewToFront(saveView)
+        let widthConstraint = NSLayoutConstraint(item: saveView, attribute: .Width, relatedBy: .Equal,
+            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: viewWidth)
+        saveView.addConstraint(widthConstraint)
+        
+        let heightConstraint = NSLayoutConstraint(item: saveView, attribute: .Height, relatedBy: .Equal,
+            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: viewHeight)
+        saveView.addConstraint(heightConstraint)
+        
+        let xCenterConstraint = NSLayoutConstraint(item: saveView, attribute: .CenterX, relatedBy: .Equal, toItem: webView, attribute: .CenterX, multiplier: 1, constant: 0)
+        webView.addConstraint(xCenterConstraint)
+        
+        let yCenterConstraint = NSLayoutConstraint(item: saveView, attribute: .CenterY, relatedBy: .Equal, toItem: webView, attribute: .CenterY, multiplier: 1, constant: -35)
+        webView.addConstraint(yCenterConstraint)
+        
+        UIView.animateWithDuration(1, animations: { () -> Void in
+            saveView.alpha = 0
+            }) { (finished: Bool) -> Void in
+                saveView.hidden = finished
+        }
+    }
+    
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

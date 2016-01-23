@@ -33,6 +33,20 @@ class H1BJob: NSObject {
             return "" // default url
         }
     }
+    var companyLogo: UIImage {
+        get {
+            if jobdetail.isKindOfClass(DiceJobDetail) {
+                return UIImage(named: "dice_logo")!
+            } else if jobdetail.isKindOfClass(CBJobDetail) {
+                return UIImage(named: "cb_logo")!
+            } else if jobdetail.isKindOfClass(IndeedJobDetail) {
+                return UIImage(named: "indeed_logo")!
+            } else if jobdetail.isKindOfClass(LinkupJobDetail) {
+                return UIImage(named: "linkup_logo")!
+            }
+            return UIImage()
+        }
+    }
 
     init(title: String, company: String, location: String, date: NSDate, detail: NSObject) {
         self.title = title
