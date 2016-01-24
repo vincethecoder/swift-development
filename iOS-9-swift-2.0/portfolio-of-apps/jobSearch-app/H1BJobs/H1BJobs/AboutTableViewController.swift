@@ -188,7 +188,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
             
             var category = String()
             if indexPath.row == 0 { // Rate App
-                let url = NSURL(string: "http://www.apple.com/itunes/charts/paid-apps/")
+                let url  = NSURL(string: "itms-apps://itunes.apple.com/app/id1078044924")
                 UIApplication.sharedApplication().openURL(url!)
                 category = "Rate App"
             } else { // Contact Developer
