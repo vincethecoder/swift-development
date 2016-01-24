@@ -360,7 +360,7 @@
 				TargetAttributes = {
 					18AB2EC41C040701002C3484 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = ZA9VLG9627;
+						DevelopmentTeam = XM8TQP767X;
 					};
 				};
 			};
@@ -617,7 +617,7 @@
 				INFOPLIST_FILE = H1BJobs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vincethecoder.H1BJobs;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vincethecoder.H-1BJobs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "H1BJobs/H1BJobs-Bridging-Header.h";
 			};
@@ -634,7 +634,7 @@
 				INFOPLIST_FILE = H1BJobs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vincethecoder.H1BJobs;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vincethecoder.H-1BJobs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "H1BJobs/H1BJobs-Bridging-Header.h";
 			};

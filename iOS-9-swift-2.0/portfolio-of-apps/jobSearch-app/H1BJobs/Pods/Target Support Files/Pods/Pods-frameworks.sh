@@ -84,12 +84,8 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods/SQLCipher.framework"
   install_framework "Pods/SQLite.framework"
-  install_framework "Pods/SQLiteCipher.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods/SQLCipher.framework"
   install_framework "Pods/SQLite.framework"
-  install_framework "Pods/SQLiteCipher.framework"
 fi
