@@ -43,6 +43,10 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tap)
         
         keywordsTextField.delegate = self
+        
+        view.backgroundColor = UIColor.H1BHeaderColor()
+        view.alpha = 0.98
+        
     }
     
     override func viewDidAppear(animated: Bool) {

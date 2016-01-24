@@ -67,8 +67,6 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         // This will remove extra separators from tableview
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
-//        self.tableView.tableHeaderView = searchController.searchBar
-        
         // Initiate Job Search Request
         let job: Job = Job()
         job.keywords = keywords
@@ -238,7 +236,6 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             let favoriteId = FavoriteHelper.insert(jobRecord)
             print("favorite id \(favoriteId)")
         }
-
     }
     
     override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
