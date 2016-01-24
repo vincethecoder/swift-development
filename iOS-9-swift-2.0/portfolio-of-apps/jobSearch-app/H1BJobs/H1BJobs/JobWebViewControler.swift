@@ -42,11 +42,6 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
 
             webView.loadRequest(requestUrl)
             webView.delegate = self
-            
-            // Set Right Bar Button item
-            let rightBarButton = UIBarButtonItem()
-            rightBarButton.customView = saveButton
-            navigationItem.rightBarButtonItem = rightBarButton
         }
     }
     
@@ -130,6 +125,11 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
     
     func webViewDidFinishLoad(webView: UIWebView) {
         GMDCircleLoader.hideFromView(self.view, animated: true)
+        
+        // Set Right Bar Button item
+        let rightBarButton = UIBarButtonItem()
+        rightBarButton.customView = saveButton
+        navigationItem.rightBarButtonItem = rightBarButton
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
