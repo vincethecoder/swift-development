@@ -19,7 +19,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
     @IBOutlet weak var indeedImageView: UIImageView!
     @IBOutlet weak var linkUpImageView: UIImageView!
 
-    var sectionContent = [ ["Write a Review", "Give a feedback"],
+    var sectionContent = [ ["Write a Review", "Report an Issue"],
                            ["LinkedIn", "Github", "Twitter", "Google+"] ]
 
     let webViewSegueIdentifier = "showWebView"
@@ -150,7 +150,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
             if indexPath.row == 0 {
                 cell.imageView?.image = UIImage(named: "star-25")
             } else if indexPath.row == 1 {
-                cell.imageView?.image = UIImage(named: "message-25")
+                cell.imageView?.image = UIImage(named: "report_issue_icon")
             }
             cell.accessoryType = .None
         }
@@ -213,7 +213,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         mailComposerVC.mailComposeDelegate = self
         
         mailComposerVC.setToRecipients(["vincent.k.sam@gmail.com"])
-        mailComposerVC.setSubject("H1B Jobs Feedback")
+        mailComposerVC.setSubject("H1B Jobs Issue")
         mailComposerVC.setMessageBody("Hi Sam, \n", isHTML: false)
         
         return mailComposerVC
