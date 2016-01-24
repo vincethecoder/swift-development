@@ -16,22 +16,14 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     var searchController: UISearchController!
     let cellIdentifier = "jobCell"
     let webViewSegueIdentifier = "jobHyperLink"
-    var dbFavJobs: [Favorite] = []
     var searchDefaultView: ErrorView!
     var searchDefaultViewTitle: String!
     var searchDefaultViewText: String!
     var searchDefaultViewImage: UIImage!
     var favoriteJobs: [Favorite] {
         get {
-            if let favoriteJobs = FavoriteHelper.findAll() {
-                if dbFavJobs.count > 0 {
-                    dbFavJobs.removeAll()
-                    for job in favoriteJobs {
-                        dbFavJobs.append(job)
-                    }
-                }
-            }
-            return dbFavJobs
+            let jobs = FavoriteHelper.findAll()!
+            return jobs
         }
     }
 
@@ -156,6 +148,10 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         navigationController?.hidesBarsOnSwipe = true
         navigationController?.setNavigationBarHidden(false, animated: true)
         
+        if jobListings.count > 0 {
+            tableView.reloadData()
+        }
+        
         // Google Analytics
         let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "/searchresutlsview")
@@ -181,6 +177,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         
         // Prevents undefined behavior in app lifecyle
         searchController.loadViewIfNeeded()
+
     }
     
     // MARK: - Table view data source
@@ -200,6 +197,8 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         let row = indexPath.row
         let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
 
+        cell.backgroundColor = .clearColor()
+
         cell.jobTitle.text = h1bjob.title.capitalizedString
         cell.jobCompany.text = h1bjob.company
         cell.jobLocation.text = h1bjob.location
@@ -209,7 +208,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         cell.jobWebUrl = h1bjob.jobUrl
         cell.delegate = self
         
-        let record = favoriteJobs.filter { $0.jobTitle == h1bjob.title && $0.company == h1bjob.company }
+        let record = favoriteJobs.filter { $0.jobTitle.lowercaseString == h1bjob.title.lowercaseString && $0.company.lowercaseString == h1bjob.company.lowercaseString }
         cell.saveButton.tintColor = record.isEmpty == false ? UIColor.redColor() : UIColor.lightGrayColor()
         
         return cell
@@ -236,6 +235,15 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             let favoriteId = FavoriteHelper.insert(jobRecord)
             print("favorite id \(favoriteId)")
         }
+        
+        updateFavoriteTabBadge()
+    }
+    
+    func updateFavoriteTabBadge() {
+        let tabArray = self.tabBarController?.tabBar.items as NSArray!
+        let favoriteTab = tabArray.objectAtIndex(1) as! UITabBarItem
+        let favoriteCount = FavoriteHelper.count()
+        favoriteTab.badgeValue = favoriteCount > 0 ? "\(favoriteCount)" : nil
     }
     
     override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {

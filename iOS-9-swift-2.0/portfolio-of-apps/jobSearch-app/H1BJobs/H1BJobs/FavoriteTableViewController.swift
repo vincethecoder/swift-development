@@ -39,6 +39,7 @@ class FavoriteTableViewController: UITableViewController {
         
         // Add "No Favorite Transcript Available" View
         addDefaultView()
+
     }
     
     func addDefaultView() {
@@ -87,6 +88,8 @@ class FavoriteTableViewController: UITableViewController {
         } else {
             favoriteDefaultView.hidden = false
         }
+        
+        updateFavoriteTabBadge()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -148,7 +151,16 @@ class FavoriteTableViewController: UITableViewController {
             } else {
                 favoriteDefaultView.hidden = true
             }
+            
+            updateFavoriteTabBadge()
         }
+    }
+    
+    func updateFavoriteTabBadge() {
+        let tabArray = self.tabBarController?.tabBar.items as NSArray!
+        let favoriteTab = tabArray.objectAtIndex(1) as! UITabBarItem
+        let favoriteCount = FavoriteHelper.count()
+        favoriteTab.badgeValue = favoriteCount > 0 ? "\(favoriteCount)" : nil
     }
 
     // MARK: - Navigation

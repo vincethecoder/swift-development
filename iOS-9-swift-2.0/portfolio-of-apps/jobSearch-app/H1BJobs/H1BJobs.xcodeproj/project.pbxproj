@@ -229,10 +229,10 @@
 				18F6B9C31C4988980033E2FB /* WalkthroughContentViewController.swift */,
 				18F6B9C51C498BFC0033E2FB /* WalkthroughPageViewController.swift */,
 				18AB2ECE1C040701002C3484 /* Main.storyboard */,
+				18AB2ED31C040701002C3484 /* LaunchScreen.storyboard */,
 				18AB2EE11C060C75002C3484 /* Job Search Engines */,
 				18AB2EE01C060C69002C3484 /* Utilities */,
 				18AB2ED11C040701002C3484 /* Assets.xcassets */,
-				18AB2ED31C040701002C3484 /* LaunchScreen.storyboard */,
 				18AB2ED61C040701002C3484 /* Info.plist */,
 				18DD3F2D1C48A15600FBC68B /* H1BJobs-Bridging-Header.h */,
 				18E100B41C48A67D00C2D582 /* GoogleService-Info.plist */,
@@ -360,7 +360,7 @@
 				TargetAttributes = {
 					18AB2EC41C040701002C3484 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = XM8TQP767X;
+						DevelopmentTeam = ZA9VLG9627;
 					};
 				};
 			};

@@ -243,7 +243,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Application Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PrU-v4-T2S">
                                             <rect key="frame" x="128" y="8" width="439" height="20.5"/>
                                             <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="psz-rV-6ah">
@@ -252,19 +252,19 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verizon Co." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHo-iH-I8u">
                                                     <rect key="frame" x="0.0" y="0.0" width="66.5" height="18"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tysons, VA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nj-qk-9fP">
                                                     <rect key="frame" x="0.0" y="18" width="62" height="18"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted: 2 weeks ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8W-2l-ZMN">
                                                     <rect key="frame" x="0.0" y="36" width="120" height="18"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -283,7 +283,6 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="5D7-SR-6aQ" firstAttribute="centerY" secondItem="agM-pp-bwm" secondAttribute="centerY" constant="12" id="2iS-rb-SAu"/>
                                                 <constraint firstAttribute="trailing" secondItem="5D7-SR-6aQ" secondAttribute="trailing" id="JAy-ui-g8y"/>
@@ -1020,8 +1019,8 @@ following Job Boards:</string>
                                 <exclude reference="Oxr-4W-Hpi"/>
                                 <exclude reference="byC-7P-lRC"/>
                                 <exclude reference="EB8-c0-AFu"/>
-                                <exclude reference="SAi-F0-Q9T"/>
                                 <exclude reference="7Os-91-ei3"/>
+                                <exclude reference="SAi-F0-Q9T"/>
                                 <exclude reference="emr-46-GHO"/>
                                 <exclude reference="uNU-l7-V8n"/>
                                 <exclude reference="BLP-7P-k7d"/>
@@ -1067,7 +1066,7 @@ following Job Boards:</string>
         <image name="tab_icon_search_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mNs-kM-191"/>
         <segue reference="DrK-C6-4Dg"/>
+        <segue reference="fqV-z6-C4Z"/>
     </inferredMetricsTieBreakers>
 </document>

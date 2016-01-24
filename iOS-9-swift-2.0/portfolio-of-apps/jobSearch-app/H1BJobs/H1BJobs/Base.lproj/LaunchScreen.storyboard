@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,10 +14,29 @@
                         <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" alpha="0.94999999999999996" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="h1bjobs_launch_page" translatesAutoresizingMaskIntoConstraints="NO" id="ouX-gN-xyA">
+                                <rect key="frame" x="-5" y="0.0" width="610" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0039215686274509803" green="0.31764705882352939" blue="0.49019607843137253" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ouX-gN-xyA" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="2D7-WX-GeM"/>
+                            <constraint firstItem="ouX-gN-xyA" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-25" id="KV0-JM-XxE"/>
+                            <constraint firstItem="ouX-gN-xyA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Taq-Vh-C80"/>
+                            <constraint firstItem="ouX-gN-xyA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="TzI-le-F3x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ouX-gN-xyA" secondAttribute="trailing" constant="-25" id="VG1-wm-Ag0"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ouX-gN-xyA" secondAttribute="bottom" id="hWw-p4-Ra2"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Taq-Vh-C80"/>
+                                <exclude reference="TzI-le-F3x"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +44,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="h1bjobs_launch_page" width="190" height="328"/>
+    </resources>
 </document>

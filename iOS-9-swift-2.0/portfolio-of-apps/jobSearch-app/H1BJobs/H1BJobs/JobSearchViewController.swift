@@ -68,11 +68,20 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         
+        updateFavoriteTabBadge()
+        
         // Google Analytics
         tracker.set(kGAIScreenName, value: "/searchview")
         let builder = GAIDictionaryBuilder.createScreenView()
         build = builder.build() as [NSObject: AnyObject]
         tracker.send(build)
+    }
+    
+    func updateFavoriteTabBadge() {
+        let tabArray = self.tabBarController?.tabBar.items as NSArray!
+        let favoriteTab = tabArray.objectAtIndex(1) as! UITabBarItem
+        let favoriteCount = FavoriteHelper.count()
+        favoriteTab.badgeValue = favoriteCount > 0 ? "\(favoriteCount)" : nil
     }
     
     func formatLogoImageView() {
