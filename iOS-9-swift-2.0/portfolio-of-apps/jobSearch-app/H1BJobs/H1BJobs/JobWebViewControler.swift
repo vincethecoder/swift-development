@@ -153,15 +153,6 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         navigationController?.hidesBarsOnSwipe = false
         navigationController?.setNavigationBarHidden(false, animated: true)
         
-        // Set Right Bar Button item
-        let rightBarButton = UIBarButtonItem()
-        if let _ = FavoriteHelper.find(job) {
-            rightBarButton.customView = savedButton
-        } else {
-            rightBarButton.customView = addButton
-        }
-        navigationItem.rightBarButtonItem = rightBarButton
-        
         // Google Analytics
         tracker.set(kGAIScreenName, value: "/jobwebview")
         let builder = GAIDictionaryBuilder.createScreenView()

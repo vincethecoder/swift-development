@@ -160,6 +160,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
 
     func userDidTapShare() {
         //Implementation goes here ...
+        // @TODO: Link maker: https://linkmaker.itunes.apple.com/en-us/?
         let message = "I just found tons of visa-sponsored jobs on the FREE \"H1B Jobs\" mobile app. Hurry, download your copy now!!"
         let screencapture = UIImage(named: "share_h1b_jobs")
         let dataToShare: [AnyObject] = [message, screencapture!]
