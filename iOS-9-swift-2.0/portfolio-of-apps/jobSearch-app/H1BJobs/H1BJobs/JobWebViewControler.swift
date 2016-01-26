@@ -86,8 +86,7 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         } else {
             // Add new record
             let favoriteId = FavoriteHelper.insert(jobRecord)
-            print("favorite id \(favoriteId)")
-            
+
             if favoriteId != -1 {
                 // Hurrray... now animate added icon
                 status = "Added Job to \nSaved Jobs"

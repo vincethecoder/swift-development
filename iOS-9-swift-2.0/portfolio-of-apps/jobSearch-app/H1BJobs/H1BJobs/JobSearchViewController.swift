@@ -134,7 +134,6 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func searchButtonTapped(sender: UIButton) {
         let keywords = keywordsTextField.text!
-        print("keywords \(keywords)")
         let historyRecord = History(searchId: 0, keyword: keywords, location: "", state: "", timestamp: NSDate())
         let historyId = HistoryHelper.insert(historyRecord)
         print("history id \(historyId)")
