@@ -25,6 +25,7 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         var frameHeight: CGFloat = 22
         var frameWidth: CGFloat = 22
         if let _ = FavoriteHelper.find(job) {
+        if let _ = job, _ = FavoriteHelper.find(job) {
             frameWidth = 25
             frameHeight = 25
             image = "saved_job_icon"
@@ -64,7 +65,6 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
     }
     
     func userDidTapSave() {
-        //Implementation goes here ...
         var status = String()
         var saveImage = UIImage(named: "save_error")!
 
