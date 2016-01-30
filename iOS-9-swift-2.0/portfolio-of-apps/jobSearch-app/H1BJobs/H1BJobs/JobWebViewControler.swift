@@ -48,7 +48,7 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         
         if title == nil {
-            self.title = "H1B Job - Apply"
+            self.title = "Job Description"
         }
         
         webView.scalesPageToFit = true
