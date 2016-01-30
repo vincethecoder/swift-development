@@ -59,7 +59,6 @@
 		18AB2EFD1C0A31C9002C3484 /* NSDate+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EFC1C0A31C9002C3484 /* NSDate+Formatter.swift */; };
 		18AB2F021C0A5C82002C3484 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2F011C0A5C82002C3484 /* ResultsTableViewCell.swift */; };
 		18BFBA141C4372A700EBB2F9 /* ImageViewWithGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFBA131C4372A700EBB2F9 /* ImageViewWithGradient.swift */; };
-		18E100B51C48A67D00C2D582 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18E100B41C48A67D00C2D582 /* GoogleService-Info.plist */; };
 		18F6B9C41C4988980033E2FB /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6B9C31C4988980033E2FB /* WalkthroughContentViewController.swift */; };
 		18F6B9C61C498BFC0033E2FB /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6B9C51C498BFC0033E2FB /* WalkthroughPageViewController.swift */; };
 		18F6B9C81C498E330033E2FB /* WalkthroughPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6B9C71C498E330033E2FB /* WalkthroughPage.swift */; };
@@ -67,6 +66,7 @@
 		18F6B9DC1C4C84E70033E2FB /* LinkupJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6B9DB1C4C84E70033E2FB /* LinkupJob.swift */; };
 		18F6B9DF1C4C86EF0033E2FB /* LinkupJobDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6B9DE1C4C86EF0033E2FB /* LinkupJobDetail.swift */; };
 		7E0828DAE2CDF0ED3CD0A816 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B48F45D284830D6B91B1A87 /* Pods.framework */; };
+		A865021B1C5D7D420002CC13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A865021A1C5D7D420002CC13 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,7 +127,6 @@
 		18AB2F011C0A5C82002C3484 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
 		18BFBA131C4372A700EBB2F9 /* ImageViewWithGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewWithGradient.swift; path = Utilities/ImageViewWithGradient.swift; sourceTree = "<group>"; };
 		18DD3F2D1C48A15600FBC68B /* H1BJobs-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "H1BJobs-Bridging-Header.h"; sourceTree = "<group>"; };
-		18E100B41C48A67D00C2D582 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18F6B9C31C4988980033E2FB /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		18F6B9C51C498BFC0033E2FB /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
 		18F6B9C71C498E330033E2FB /* WalkthroughPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WalkthroughPage.swift; path = Utilities/WalkthroughPage.swift; sourceTree = "<group>"; };
@@ -137,6 +136,7 @@
 		18F6B9DE1C4C86EF0033E2FB /* LinkupJobDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkupJobDetail.swift; sourceTree = "<group>"; };
 		1FF70E88760F2F5F91381D20 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6B48F45D284830D6B91B1A87 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A865021A1C5D7D420002CC13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,7 +235,7 @@
 				18AB2ED11C040701002C3484 /* Assets.xcassets */,
 				18AB2ED61C040701002C3484 /* Info.plist */,
 				18DD3F2D1C48A15600FBC68B /* H1BJobs-Bridging-Header.h */,
-				18E100B41C48A67D00C2D582 /* GoogleService-Info.plist */,
+				A865021A1C5D7D420002CC13 /* GoogleService-Info.plist */,
 				1800A6E11C4DF33900D6BCE2 /* GMDCircleLoader */,
 			);
 			path = H1BJobs;
@@ -388,10 +388,10 @@
 			files = (
 				18AB2ED51C040701002C3484 /* LaunchScreen.storyboard in Resources */,
 				186A60081C53F46E005A2E07 /* SaveView.xib in Resources */,
-				18E100B51C48A67D00C2D582 /* GoogleService-Info.plist in Resources */,
 				18AB2ED21C040701002C3484 /* Assets.xcassets in Resources */,
 				18AB2ED01C040701002C3484 /* Main.storyboard in Resources */,
 				186A60061C537B5E005A2E07 /* ErrorView.xib in Resources */,
+				A865021B1C5D7D420002CC13 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +619,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vincethecoder.H-1BJobs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "H1BJobs/H1BJobs-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -636,6 +637,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vincethecoder.H-1BJobs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "H1BJobs/H1BJobs-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

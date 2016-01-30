@@ -7,7 +7,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.vincethecoder.H1BJobs</string>
+	<string>com.vincethecoder.H-1BJobs</string>
 	<key>IS_ADS_ENABLED</key>
 	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -19,6 +19,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<false/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:896299310754:ios:ef9c101ad981e54a</string>
+	<string>1:896299310754:ios:989dbf2a127b308e</string>
 </dict>
 </plist>
