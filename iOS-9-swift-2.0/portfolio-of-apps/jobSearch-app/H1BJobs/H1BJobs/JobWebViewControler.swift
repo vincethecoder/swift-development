@@ -24,7 +24,6 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         var image = "add_to_saved_icon"
         var frameHeight: CGFloat = 22
         var frameWidth: CGFloat = 22
-        if let _ = FavoriteHelper.find(job) {
         if let _ = job, _ = FavoriteHelper.find(job) {
             frameWidth = 25
             frameHeight = 25
@@ -110,10 +109,12 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
     }
     
     func updateFavoriteTabBadge() {
-        let tabArray = self.tabBarController?.tabBar.items as NSArray!
-        let favoriteTab = tabArray.objectAtIndex(1) as! UITabBarItem
-        let favoriteCount = FavoriteHelper.count()
-        favoriteTab.badgeValue = favoriteCount > 0 ? "\(favoriteCount)" : nil
+        if let _ = self.tabBarController {
+            let tabArray = self.tabBarController?.tabBar.items as NSArray!
+            let favoriteTab = tabArray.objectAtIndex(1) as! UITabBarItem
+            let favoriteCount = FavoriteHelper.count()
+            favoriteTab.badgeValue = favoriteCount > 0 ? "\(favoriteCount)" : nil
+        }
     }
     
     func displaySaveView(status: String, image: UIImage) {
