@@ -51,19 +51,19 @@ class WalkthroughContentViewController: UIViewController {
 
         switch(index) {
             case 0:
-                imageName = "revamp-search"
+                imageName = "1-revamp-passport"
                 iconName = "microscope_image"
                 getStartedLabel.text = "GET STARTED"
             case 1:
-                imageName = "realtime-job-search"
+                imageName = "2-real-time"
                 iconName = "real_time_image"
                 getStartedLabel.text = "GET STARTED"
             case 2:
-                imageName = "filtered-job-search"
+                imageName = "3-filtered-job-search"
                 iconName = "filter_filled_image"
                 getStartedLabel.text = "GET STARTED"
             case 3:
-                imageName = "begin-job-search"
+                imageName = "4-begin-search"
                 iconName = "begin_search_image"
                 getStartedLabel.text = "I'M READY"
             default:

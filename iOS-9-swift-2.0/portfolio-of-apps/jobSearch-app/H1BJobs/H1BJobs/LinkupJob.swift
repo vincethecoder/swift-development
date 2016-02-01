@@ -10,6 +10,7 @@ import Foundation
 
 class LinkupJob: NSObject {
     
+    var warnings: [NSObject]?
     var criteria: NSObject?
     var result_info: NSObject?
     var title: String?

@@ -29,8 +29,8 @@
                                     <constraint firstAttribute="height" constant="65" id="OOM-5r-Xsa"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7hb-4C-m6L">
-                                <rect key="frame" x="161" y="241" width="280" height="120"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7hb-4C-m6L">
+                                <rect key="frame" x="160" y="241" width="280" height="117"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex. Engineer or Software Developer" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ABh-eo-CQG">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="45"/>
@@ -42,11 +42,11 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCr-Pj-gG4">
-                                        <rect key="frame" x="0.0" y="65" width="280" height="55"/>
+                                        <rect key="frame" x="0.0" y="65" width="280" height="52"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="KEC-2V-sFL"/>
-                                            <constraint firstAttribute="height" constant="55" id="gWe-Po-ghN"/>
+                                            <constraint firstAttribute="height" constant="52" id="gWe-Po-ghN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                         <state key="normal" title="Search">
@@ -62,7 +62,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7hb-4C-m6L" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" constant="1" id="57P-K2-yGT"/>
+                            <constraint firstItem="7hb-4C-m6L" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="57P-K2-yGT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="V6g-BQ-5vA" secondAttribute="trailing" constant="-20" id="Ffa-e8-EKo"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="V6g-BQ-5vA" secondAttribute="bottom" id="MCM-FB-GfI"/>
                             <constraint firstItem="V6g-BQ-5vA" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="-54" id="MdL-cd-PB8"/>
