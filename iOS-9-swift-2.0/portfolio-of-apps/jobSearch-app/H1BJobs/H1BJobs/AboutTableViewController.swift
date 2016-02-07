@@ -72,7 +72,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         let btnName = UIButton()
         btnName.setImage(UIImage(named: "upload-50"), forState: .Normal)
         btnName.frame = CGRectMake(0, 0, 30, 30)
-        btnName.addTarget(self, action: Selector("userDidTapShare"), forControlEvents: .TouchUpInside)
+        btnName.addTarget(self, action: Selector("userDidTapShare:"), forControlEvents: .TouchUpInside)
         
         // Set Right Bar Button item
         let rightBarButton = UIBarButtonItem()
@@ -158,13 +158,16 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         return cell
     }
 
-    func userDidTapShare() {
+    func userDidTapShare(button: UIButton) {
         //Implementation goes here ...
         // @TODO: Link maker: https://linkmaker.itunes.apple.com/en-us/?
         let message = "Just found tons of visa-sponsored jobs on the FREE \"H1B Jobs\" mobile app. Hurry, download your copy now!! http://apple.co/1Ki9z7C"
         let screencapture = UIImage(named: "share_h1b_jobs")
         let dataToShare: [AnyObject] = [message, screencapture!]
         let activityViewController = UIActivityViewController(activityItems: dataToShare, applicationActivities: nil)
+        if activityViewController.respondsToSelector(Selector("popoverPresentationController")) {
+            activityViewController.popoverPresentationController?.sourceView = button;
+        }
         self.presentViewController(activityViewController, animated: true, completion: nil)
         
         // Google Analytics
