@@ -11,7 +11,7 @@ import UIKit
 class DiceJobDetail: NSObject {
 
     var detailUrl: String?
-    var jobTitle: String?
+    var jobTitle: String!
     var company: String?
     var location: String?
     var postdate: NSDate?

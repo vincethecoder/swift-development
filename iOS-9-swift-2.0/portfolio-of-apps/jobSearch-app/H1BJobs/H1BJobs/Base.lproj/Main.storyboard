@@ -23,14 +23,14 @@
                                 <rect key="frame" x="0.0" y="10" width="600" height="570"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_h1bjobs_HQ" translatesAutoresizingMaskIntoConstraints="NO" id="q9q-8x-OkE">
-                                <rect key="frame" x="514" y="98" width="65" height="65"/>
+                                <rect key="frame" x="514" y="105" width="65" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="4zq-if-qVx"/>
-                                    <constraint firstAttribute="height" constant="65" id="OOM-5r-Xsa"/>
+                                    <constraint firstAttribute="height" constant="58" id="OOM-5r-Xsa"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7hb-4C-m6L">
-                                <rect key="frame" x="160" y="241" width="280" height="117"/>
+                                <rect key="frame" x="160" y="244" width="280" height="113"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex. Engineer or Software Developer" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ABh-eo-CQG">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="45"/>
@@ -42,11 +42,11 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCr-Pj-gG4">
-                                        <rect key="frame" x="0.0" y="65" width="280" height="52"/>
+                                        <rect key="frame" x="0.0" y="65" width="280" height="48"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="KEC-2V-sFL"/>
-                                            <constraint firstAttribute="height" constant="52" id="gWe-Po-ghN"/>
+                                            <constraint firstAttribute="height" constant="48" id="gWe-Po-ghN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                         <state key="normal" title="Search">
@@ -1066,7 +1066,7 @@ following Job Boards:</string>
         <image name="tab_icon_search_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fL0-st-1jL"/>
         <segue reference="lkJ-8a-hUQ"/>
+        <segue reference="fqV-z6-C4Z"/>
     </inferredMetricsTieBreakers>
 </document>

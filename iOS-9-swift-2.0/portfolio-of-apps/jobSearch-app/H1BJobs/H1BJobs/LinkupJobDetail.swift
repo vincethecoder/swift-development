@@ -10,7 +10,7 @@ import Foundation
 
 class LinkupJobDetail: NSObject {
     
-    var job_title: String?
+    var job_title: String!
     var job_title_link: String?
     var job_company: String?
     var job_tag: String?

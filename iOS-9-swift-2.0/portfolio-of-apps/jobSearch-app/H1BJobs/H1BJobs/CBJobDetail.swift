@@ -44,7 +44,7 @@ class CBJobDetail: NSObject {
     }
     var pay: String?
     var similarJobsURL: String?
-    var jobTitle: String?
+    var jobTitle: String!
     var companyImageURL: String?
     var jobBrandingIcons: String?
     var applyRequirements: String?

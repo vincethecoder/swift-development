@@ -10,7 +10,7 @@ import Foundation
 
 class IndeedJobDetail: NSObject {
     
-    var jobtitle: String?
+    var jobtitle: String!
     var company: String?
     var city: String?
     var state: String?
@@ -39,5 +39,6 @@ class IndeedJobDetail: NSObject {
         super.init()
         self.setValuesForKeysWithDictionary(dict)
     }
+    
 
 }

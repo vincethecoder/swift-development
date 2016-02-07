@@ -10,7 +10,7 @@ import UIKit
 
 class SearchResultsViewController: UITableViewController, UISearchResultsUpdating, ResultsTableViewCellDelegate {
     
-    var keywords: String?
+    var keywords: String!
     var jobListings: [H1BJob] = []
     var searchResults: [H1BJob] = []
     var searchController: UISearchController!
@@ -82,8 +82,8 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
                         self.addDefaultView(String(), viewText: String(), viewImage: UIImage())
                         self.tableView.reloadData()
                     } else {
-                        self.searchDefaultViewTitle = "No Job Match"
-                        self.searchDefaultViewText = "Sorry! There are no H1B Jobs that \nmatch those search keywords."
+                        self.searchDefaultViewTitle = "Sorry we couldn't find any \(self.keywords.capitalizedString) jobs"
+                        self.searchDefaultViewText = "Perhaps change your keyword(s) as we continue to work diligently on expanding our search database."
                         self.searchDefaultViewImage = UIImage(named: "search_filled_gray")
                         self.addDefaultView(self.searchDefaultViewTitle, viewText: self.searchDefaultViewText, viewImage: self.searchDefaultViewImage)
                         self.searchDefaultView.hidden = false

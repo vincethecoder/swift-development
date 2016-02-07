@@ -49,15 +49,33 @@ extension String {
     }
     
     func isValidSponsoredJob() -> Bool {
-        if  self.lowercaseString.rangeOfString("unable") == nil &&
-            self.lowercaseString.rangeOfString("not") == nil &&
-            self.lowercaseString.rangeOfString("no") == nil &&
-            self.lowercaseString.rangeOfString("won't") == nil &&
-            self.lowercaseString.rangeOfString("unwilling") == nil &&
-            self.lowercaseString.rangeOfString("cannot") == nil {
+        if self.lowercaseString.rangeOfString("unable") == nil &&
+           self.lowercaseString.rangeOfString("not") == nil &&
+           self.lowercaseString.rangeOfString("no") == nil &&
+           self.lowercaseString.rangeOfString("won't") == nil &&
+           self.lowercaseString.rangeOfString("unwilling") == nil &&
+           self.lowercaseString.rangeOfString("cannot") == nil {
+                return contatinsH1B()
+        }
+        return false
+    }
+
+    func contatinsH1B() -> Bool {
+        if self.lowercaseString.rangeOfString("h1b") != nil ||
+           self.lowercaseString.rangeOfString("h-1b") != nil ||
+            self.lowercaseString.rangeOfString("h1-b") != nil {
                 return true
         }
         return false
     }
+    
+    func matchedKeyword(keyword: String) -> Bool {
+        if keyword.characters.count == 0 {
+            return true;
+        } else {
+            return self.lowercaseString.rangeOfString(keyword.lowercaseString) != nil
+        }
+    }
+
 }
 
