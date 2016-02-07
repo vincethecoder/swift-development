@@ -23,10 +23,10 @@
                                 <rect key="frame" x="0.0" y="10" width="600" height="570"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_h1bjobs_HQ" translatesAutoresizingMaskIntoConstraints="NO" id="q9q-8x-OkE">
-                                <rect key="frame" x="514" y="105" width="65" height="58"/>
+                                <rect key="frame" x="514" y="102" width="65" height="61"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="4zq-if-qVx"/>
-                                    <constraint firstAttribute="height" constant="58" id="OOM-5r-Xsa"/>
+                                    <constraint firstAttribute="height" constant="61" id="OOM-5r-Xsa"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7hb-4C-m6L">
