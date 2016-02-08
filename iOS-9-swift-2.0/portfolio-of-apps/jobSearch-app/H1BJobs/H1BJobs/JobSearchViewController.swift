@@ -156,8 +156,14 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == resultsSegueIdentifier {
-            let searchResults = segue.destinationViewController as? SearchResultsViewController
-            searchResults?.keywords = keywordsTextField.text
+            
+            if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+                let searchResults = segue.destinationViewController as! SearchResultsCollectionViewController
+                searchResults.keywords = keywordsTextField.text
+            } else {
+                let searchResults = segue.destinationViewController as! SearchResultsViewController
+                searchResults.keywords = keywordsTextField.text
+            }
         }
     }
 

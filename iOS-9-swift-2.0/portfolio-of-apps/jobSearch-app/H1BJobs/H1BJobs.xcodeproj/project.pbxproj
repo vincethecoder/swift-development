@@ -29,6 +29,9 @@
 		186A60061C537B5E005A2E07 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186A60041C537B5E005A2E07 /* ErrorView.xib */; };
 		186A60081C53F46E005A2E07 /* SaveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186A60071C53F46E005A2E07 /* SaveView.xib */; };
 		186A600A1C53F75C005A2E07 /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A60091C53F75C005A2E07 /* SaveView.swift */; };
+		187839B51C6835AE00194996 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187839B41C6835AE00194996 /* iPad.storyboard */; };
+		187839B71C683A0600194996 /* SearchResultsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187839B61C683A0600194996 /* SearchResultsCollectionViewController.swift */; };
+		187839B91C68522E00194996 /* ResultsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187839B81C68522E00194996 /* ResultsCollectionViewCell.swift */; };
 		187E6B341C42FEFB00241486 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E6B331C42FEFB00241486 /* AboutTableViewController.swift */; };
 		187E72181C430DE700D458AB /* JobSocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E72171C430DE700D458AB /* JobSocialMedia.swift */; };
 		1886EB601C25F92A00134016 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886EB5F1C25F92A00134016 /* Database.swift */; };
@@ -94,6 +97,9 @@
 		186A60041C537B5E005A2E07 /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		186A60071C53F46E005A2E07 /* SaveView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SaveView.xib; sourceTree = "<group>"; };
 		186A60091C53F75C005A2E07 /* SaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
+		187839B41C6835AE00194996 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		187839B61C683A0600194996 /* SearchResultsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsCollectionViewController.swift; sourceTree = "<group>"; };
+		187839B81C68522E00194996 /* ResultsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsCollectionViewCell.swift; sourceTree = "<group>"; };
 		187E6B331C42FEFB00241486 /* AboutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
 		187E72171C430DE700D458AB /* JobSocialMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobSocialMedia.swift; sourceTree = "<group>"; };
 		1886EB5F1C25F92A00134016 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Database.swift; path = Utilities/Database.swift; sourceTree = "<group>"; };
@@ -215,6 +221,7 @@
 				18AB2EC81C040701002C3484 /* AppDelegate.swift */,
 				18428C1A1C2F2C9200C4CAF1 /* BaseTableViewCell.swift */,
 				18AB2F011C0A5C82002C3484 /* ResultsTableViewCell.swift */,
+				187839B81C68522E00194996 /* ResultsCollectionViewCell.swift */,
 				1894FFB71C1FD628000EBE18 /* HistoryTableViewCell.swift */,
 				186A60031C537B5E005A2E07 /* ErrorView.swift */,
 				186A60041C537B5E005A2E07 /* ErrorView.xib */,
@@ -222,6 +229,7 @@
 				186A60071C53F46E005A2E07 /* SaveView.xib */,
 				18AB2EDE1C040746002C3484 /* JobSearchViewController.swift */,
 				18AB2EF81C09B05C002C3484 /* SearchResultsViewController.swift */,
+				187839B61C683A0600194996 /* SearchResultsCollectionViewController.swift */,
 				18428C241C39569500C4CAF1 /* JobWebViewControler.swift */,
 				18428C181C2ED27C00C4CAF1 /* FavoriteTableViewController.swift */,
 				1894FFB51C1FD4AF000EBE18 /* HistoryTableViewController.swift */,
@@ -229,6 +237,7 @@
 				18F6B9C31C4988980033E2FB /* WalkthroughContentViewController.swift */,
 				18F6B9C51C498BFC0033E2FB /* WalkthroughPageViewController.swift */,
 				18AB2ECE1C040701002C3484 /* Main.storyboard */,
+				187839B41C6835AE00194996 /* iPad.storyboard */,
 				18AB2ED31C040701002C3484 /* LaunchScreen.storyboard */,
 				18AB2EE11C060C75002C3484 /* Job Search Engines */,
 				18AB2EE01C060C69002C3484 /* Utilities */,
@@ -360,7 +369,7 @@
 				TargetAttributes = {
 					18AB2EC41C040701002C3484 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = XM8TQP767X;
+						DevelopmentTeam = ZA9VLG9627;
 					};
 				};
 			};
@@ -389,6 +398,7 @@
 			files = (
 				18AB2ED51C040701002C3484 /* LaunchScreen.storyboard in Resources */,
 				186A60081C53F46E005A2E07 /* SaveView.xib in Resources */,
+				187839B51C6835AE00194996 /* iPad.storyboard in Resources */,
 				18AB2ED21C040701002C3484 /* Assets.xcassets in Resources */,
 				18AB2ED01C040701002C3484 /* Main.storyboard in Resources */,
 				186A60061C537B5E005A2E07 /* ErrorView.xib in Resources */,
@@ -461,6 +471,7 @@
 				18428C191C2ED27C00C4CAF1 /* FavoriteTableViewController.swift in Sources */,
 				18AB2EE91C06651C002C3484 /* DiceJobDetail.swift in Sources */,
 				18AB2EC91C040701002C3484 /* AppDelegate.swift in Sources */,
+				187839B91C68522E00194996 /* ResultsCollectionViewCell.swift in Sources */,
 				18AB2EDD1C04072A002C3484 /* DiceJob.swift in Sources */,
 				18428C171C2E206A00C4CAF1 /* FavoriteDetailHelper.swift in Sources */,
 				1886EB691C27075C00134016 /* HistoryHelper.swift in Sources */,
@@ -492,6 +503,7 @@
 				18428C111C2DFFDB00C4CAF1 /* Favorite.swift in Sources */,
 				18428C231C38C24400C4CAF1 /* ImageLoader.swift in Sources */,
 				1894FFB81C1FD628000EBE18 /* HistoryTableViewCell.swift in Sources */,
+				187839B71C683A0600194996 /* SearchResultsCollectionViewController.swift in Sources */,
 				18AB2EF71C093100002C3484 /* UIColor+Utils.swift in Sources */,
 				18AB2EF91C09B05C002C3484 /* SearchResultsViewController.swift in Sources */,
 				18428C1B1C2F2C9200C4CAF1 /* BaseTableViewCell.swift in Sources */,
