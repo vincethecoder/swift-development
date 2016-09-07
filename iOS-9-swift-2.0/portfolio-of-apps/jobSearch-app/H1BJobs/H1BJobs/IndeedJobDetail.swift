@@ -18,11 +18,13 @@ class IndeedJobDetail: NSObject {
     var formattedLocation: String?
     var source: String?
     var date: String?
-    var datePosted: NSDate {
+    var datePosted: NSDate? {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "EEE, d MMM yyyy HH:mm:ss zzz"
-        let formattedDate: NSDate = dateFormatter.dateFromString(date!)!
-        return formattedDate
+        if let date = date, formattedDate = dateFormatter.dateFromString(date) {
+            return formattedDate
+        }
+        return nil
     }
     var snippet: String?
     var url: String?

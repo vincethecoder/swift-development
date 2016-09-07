@@ -126,7 +126,11 @@ class HistoryTableViewController: UITableViewController {
         cell.historySearchIcon.hidden = false
         cell.historyLocation.hidden = false
         cell.imageView?.hidden = false
-        cell.jobKeyword.text = "\(keyword!)"
+        if let keyword = keyword {
+            cell.jobKeyword.text = "\(keyword)"
+        } else {
+            cell.jobKeyword.text = nil
+        }
         cell.textLabel?.text = ""
         cell.imageView?.image = UIImage(named: "calendar_full")
         cell.accessoryType = .DisclosureIndicator

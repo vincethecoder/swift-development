@@ -85,12 +85,16 @@ class HistoryHelper: DataHelperProtocol {
     static func findAll() -> [T]? {
         var records: [T] = []
         if tableCreated {
-            for h in db.prepare(table.order(searchId.desc)) {
-                let historyRecord = History(searchId: h.get(searchId), keyword: h.get(keyword)!, location: h.get(location)!, state: h.get(state)!, timestamp: h.get(timestamp)!)
-                records.append(historyRecord)
+            do {
+                let dbTable = try db.prepare(table.order(searchId.desc))
+                for h in dbTable {
+                    let historyRecord = History(searchId: h.get(searchId), keyword: h.get(keyword)!, location: h.get(location)!, state: h.get(state)!, timestamp: h.get(timestamp)!)
+                    records.append(historyRecord)
+                }
+            } catch let error as NSError {
+                print("\(error.localizedDescription)")
             }
         }
-        
         return records
     }
     

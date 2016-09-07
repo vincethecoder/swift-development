@@ -31,7 +31,7 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         }
         button.setImage(UIImage(named: image), forState: .Normal)
         button.frame = CGRectMake(0, 0, frameWidth, frameHeight)
-        button.addTarget(self, action: Selector("userDidTapSave"), forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(JobWebViewControler.userDidTapSave), forControlEvents: .TouchUpInside)
         return button
     }
     
@@ -40,7 +40,7 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         button.setImage(UIImage(named: "saved_job_icon"), forState: .Normal)
         button.tintColor = UIColor.darkGrayColor()
         button.frame = CGRectMake(0, 0, 25, 25)
-        button.addTarget(self, action: Selector("userDidTapSave"), forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(JobWebViewControler.userDidTapSave), forControlEvents: .TouchUpInside)
         return button
     }
     

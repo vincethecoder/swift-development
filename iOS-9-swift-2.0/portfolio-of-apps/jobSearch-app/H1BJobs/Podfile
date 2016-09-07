@@ -3,7 +3,9 @@ use_frameworks!
 # ignore all warnings from all pods
 inhibit_all_warnings!
 
-pod 'Google/Analytics'
-
-pod 'SQLite.swift',
-  git: 'https://github.com/stephencelis/SQLite.swift.git'
+target "H1BJobs" do
+    pod 'Google/Analytics'
+	pod "SQLite.swift",
+  		git: "https://github.com/stephencelis/SQLite.swift",
+  		branch: "cocoapods-xcode-7-3"
+end

@@ -10,11 +10,11 @@ import UIKit
 
 class JobSocialMedia {
     
-    var name: String!
-    var url: String!
-    var image: UIImage!
+    var name: String?
+    var url: String?
+    var image: UIImage?
     
-    init(name: String, url: String, image: UIImage) {
+    init(name: String?, url: String?, image: UIImage?) {
         self.name = name
         self.url = url
         self.image = image

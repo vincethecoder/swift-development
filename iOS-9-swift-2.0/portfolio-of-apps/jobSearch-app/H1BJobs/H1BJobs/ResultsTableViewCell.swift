@@ -29,7 +29,7 @@ class ResultsTableViewCell: BaseTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         if let _ = saveButton {
-            let tap = UITapGestureRecognizer(target: self, action: Selector("saveButtonTapped:"))
+            let tap = UITapGestureRecognizer(target: self, action: #selector(ResultsTableViewCell.saveButtonTapped(_:)))
             tap.cancelsTouchesInView = false
             saveButton.setImage(likeImage, forState: .Normal)
             saveButtonView.addGestureRecognizer(tap)

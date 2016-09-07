@@ -10,7 +10,11 @@ import UIKit
 
 class SearchResultsViewController: UITableViewController, UISearchResultsUpdating, ResultsTableViewCellDelegate {
     
-    var keywords: String!
+    var keywords: String! {
+        didSet {
+            keywords = keywords.removeBadChars
+        }
+    }
     var jobListings: [H1BJob] = []
     var searchResults: [H1BJob] = []
     var searchController: UISearchController!
@@ -65,45 +69,51 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         job.getJobs { (success, result, joblistings, error) -> () in
             
             // Stop Activity Indicator Animation
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                
-                GMDCircleLoader.hideFromView(self.tableView, animated: true)
-                self.tableView.separatorStyle = .SingleLine
-                self.tableView.layer.shadowRadius = 10
+            dispatch_async(dispatch_get_main_queue(), { [weak self] () -> Void in
+                guard let strongSelf = self else { return }
+                GMDCircleLoader.hideFromView(strongSelf.view, animated: true)
+                strongSelf.tableView.separatorStyle = .SingleLine
+                strongSelf.tableView.layer.shadowRadius = 10
             })
 
-            if success, let _ = joblistings {
-                self.jobListings = joblistings!
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    let jobcount = self.jobListings.count > 0 ? "\(self.jobListings.count)" : "No"
-                    self.title = "\(jobcount) Jobs Found"
+            if success, let joblistings = joblistings {
+                self.jobListings = joblistings
+                dispatch_async(dispatch_get_main_queue(), { [weak self] () -> Void in
+                    guard let strongSelf = self else { return }
+                    let jobcount = strongSelf.jobListings.count > 0 ? "\(strongSelf.jobListings.count)" : "No"
+                    strongSelf.title = "\(jobcount) Jobs Found"
                     
-                    if self.jobListings.count > 0 {
-                        self.addDefaultView(String(), viewText: String(), viewImage: UIImage())
-                        self.tableView.reloadData()
+                    if strongSelf.jobListings.count > 0 {
+                        strongSelf.addDefaultView(String(), viewText: String(), viewImage: UIImage())
+                        strongSelf.tableView.reloadData()
                     } else {
-                        self.searchDefaultViewTitle = "Sorry we couldn't find any \(self.keywords.capitalizedString) jobs"
-                        self.searchDefaultViewText = "Perhaps change your keyword(s) as we continue to work diligently on expanding our search database."
-                        self.searchDefaultViewImage = UIImage(named: "search_filled_gray")
-                        self.addDefaultView(self.searchDefaultViewTitle, viewText: self.searchDefaultViewText, viewImage: self.searchDefaultViewImage)
-                        self.searchDefaultView.hidden = false
+                        strongSelf.searchDefaultViewTitle = "Sorry we couldn't find any \(strongSelf.keywords.capitalizedString) jobs"
+                        strongSelf.searchDefaultViewText = "Perhaps change your keyword(s) as we continue to work diligently on expanding our search database."
+                        strongSelf.searchDefaultViewImage = UIImage(named: "search_filled_gray")
+                        if let searchTitle = strongSelf.searchDefaultViewTitle, searchViewText = strongSelf.searchDefaultViewText, searchImage = strongSelf.searchDefaultViewImage {
+                            strongSelf.addDefaultView(searchTitle, viewText: searchViewText, viewImage: searchImage)
+                            strongSelf.searchDefaultView.hidden = false
+                        }
                     }
                 })
             } else {
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.title = "H1B Jobs"
+                dispatch_async(dispatch_get_main_queue(), { [weak self] () -> Void in
+                    guard let strongSelf = self else { return }
+                    strongSelf.title = "H1B Jobs"
                     
                     if error?.code == 3840 {
-                        self.searchDefaultViewText = "Ooops. Looks like you're on a restricted \nnetwork. Switch your wi-fi connection."
+                        strongSelf.searchDefaultViewText = "Ooops. Looks like you're on a restricted \nnetwork. Switch your wi-fi connection."
                     } else {
-                        self.searchDefaultViewText = "\(error!.localizedDescription)"
+                        strongSelf.searchDefaultViewText = "\(error!.localizedDescription)"
                     }
                     
-                    self.searchDefaultViewTitle = "Wi-Fi Connection Error"
-                    self.searchDefaultViewImage = UIImage(named: "offline_filled_gray")
-
-                    self.addDefaultView(self.searchDefaultViewTitle, viewText: self.searchDefaultViewText, viewImage: self.searchDefaultViewImage)
-                    self.searchDefaultView.hidden = false
+                    strongSelf.searchDefaultViewTitle = "Wi-Fi Connection Error"
+                    strongSelf.searchDefaultViewImage = UIImage(named: "offline_filled_gray")
+                    
+                    if let searchTitle = strongSelf.searchDefaultViewTitle, searchViewText = strongSelf.searchDefaultViewText, searchImage = strongSelf.searchDefaultViewImage {
+                        strongSelf.addDefaultView(searchTitle, viewText: searchViewText, viewImage: searchImage)
+                        strongSelf.searchDefaultView.hidden = false
+                    }
                 })
             }
         }
@@ -199,16 +209,25 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
 
         cell.backgroundColor = .clearColor()
 
-        cell.jobTitle.text = h1bjob.title.capitalizedString
+        if let jobTitle = h1bjob.title {
+            cell.jobTitle.text = jobTitle.capitalizedString
+        } else  {
+            cell.jobTitle.text = nil
+        }
         cell.jobCompany.text = h1bjob.company
         cell.jobLocation.text = h1bjob.location
-        cell.jobPostDate.text = "Posted: \(h1bjob.postdate.wordMonthDayString())"
+        if let jobPostDate = h1bjob.postdate {
+            cell.jobPostDate.text = "Posted: \(jobPostDate.wordMonthDayString())"
+        } else {
+            cell.jobPostDate.text = nil
+        }
         cell.imageView?.image = h1bjob.companyLogo
         
         cell.jobWebUrl = h1bjob.jobUrl
         cell.delegate = self
         
-        let record = favoriteJobs.filter { $0.jobTitle.lowercaseString == h1bjob.title.lowercaseString && $0.company.lowercaseString == h1bjob.company.lowercaseString }
+        let record = favoriteJobs.filter {
+            $0.jobTitle!.lowercaseString == h1bjob.title!.lowercaseString && $0.company!.lowercaseString == h1bjob.company!.lowercaseString }
         cell.saveButton.tintColor = record.isEmpty == false ? UIColor.redColor() : UIColor.lightGrayColor()
         
         return cell
@@ -217,7 +236,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     func saveButtonTapped(cell: ResultsTableViewCell) {
         
         let companyLogo = UIImagePNGRepresentation((cell.imageView?.image)!)
-        let jobRecord = Favorite(favoriteId: 0, jobTitle: cell.jobTitle.text!, company: cell.jobCompany.text!, jobUrl: cell.jobWebUrl, savedTimestamp: NSDate.init().wordMonthDayYearString(), image: companyLogo!)
+        let jobRecord = Favorite(favoriteId: 0, jobTitle: cell.jobTitle.text, company: cell.jobCompany.text, jobUrl: cell.jobWebUrl, savedTimestamp: NSDate().wordMonthDayYearString(), image: companyLogo)
 
         
         if let record = FavoriteHelper.find(jobRecord) {
@@ -251,7 +270,6 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         if toInterfaceOrientation == .LandscapeLeft || toInterfaceOrientation == .LandscapeRight {
             tracker.send(GAIDictionaryBuilder.createEventWithCategory("Orientation Change", action: "Device in Landscape", label: "Landscape Orientation", value: nil).build() as [NSObject : AnyObject])
         }
-        
         tableView.reloadData()
     }
 
@@ -265,12 +283,15 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         let center = (sender?.center)!
         let rootViewPoint = sender?.superview!!.convertPoint(center, toView: tableView)
 
-        if let indexPath = tableView.indexPathForRowAtPoint(rootViewPoint!) {
+        if let rootViewPoint = rootViewPoint, indexPath = tableView.indexPathForRowAtPoint(rootViewPoint) {
             let webView = segue.destinationViewController as? JobWebViewControler
             let row = indexPath.row
             let h1bjob = (searchController.active) ? searchResults[row] : jobListings[row]
             webView?.jobUrl = h1bjob.jobUrl
-            webView?.job = Favorite(favoriteId: 0, jobTitle: h1bjob.title, company: h1bjob.company, jobUrl: h1bjob.jobUrl, savedTimestamp: h1bjob.postdate.wordMonthDayString(), image: UIImagePNGRepresentation(h1bjob.companyLogo)!)
+            
+            if let jobPostDate = h1bjob.postdate, companyLogo = h1bjob.companyLogo {
+                webView?.job = Favorite(favoriteId: 0, jobTitle: h1bjob.title, company: h1bjob.company, jobUrl: h1bjob.jobUrl, savedTimestamp: jobPostDate.wordMonthDayString(), image: UIImagePNGRepresentation(companyLogo))
+            }
         }
     }
 
@@ -285,8 +306,8 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     
     func filterContentForSearchText(searchText: String) {
         searchResults = jobListings.filter({ (job:H1BJob) -> Bool in
-            let titleMatch = job.title.rangeOfString(searchText, options:.CaseInsensitiveSearch)
-            let locationMatch = job.location.rangeOfString(searchText, options:.CaseInsensitiveSearch)
+            let titleMatch = job.title!.rangeOfString(searchText, options:.CaseInsensitiveSearch)
+            let locationMatch = job.location!.rangeOfString(searchText, options:.CaseInsensitiveSearch)
             return titleMatch != nil || locationMatch != nil
         })
     }

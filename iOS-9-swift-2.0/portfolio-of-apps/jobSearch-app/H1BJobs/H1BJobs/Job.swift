@@ -25,33 +25,33 @@ class Job: NSObject {
                             
                             // Jobs in DiceJob Listings
                             if diceJob.jobTitle.matchedKeyword(keywords) {
-                                let h1bjob = H1BJob(title: diceJob.jobTitle, company: diceJob.company!, location: diceJob.location!, date: diceJob.postdate!, detail: diceJob)
+                                let h1bjob = H1BJob(title: diceJob.jobTitle, company: diceJob.company, location: diceJob.location, date: diceJob.postdate!, detail: diceJob)
                                 self.jobListings.append(h1bjob)
                             }
-                        } else if job.isKindOfClass(CBJobDetail), let cbJob = job as? CBJobDetail {
+                        } else if let cbJob = job as? CBJobDetail {
                             
                             // Jobs in CareerBuilder Listings
                             if cbJob.jobTitle.matchedKeyword(keywords) {
                                 let company = nil != cbJob.company ? cbJob.company! : ""
-                                let h1bjob = H1BJob(title: cbJob.jobTitle, company: company, location: cbJob.location!, date: cbJob.postedDate!, detail: cbJob)
+                                let h1bjob = H1BJob(title: cbJob.jobTitle, company: company, location: cbJob.location, date: cbJob.postedDate, detail: cbJob)
                                 if let _ = cbJob.descriptionTeaser where cbJob.descriptionTeaser?.isValidSponsoredJob() == true && cbJob.h1BEligible() == true {
                                     self.jobListings.append(h1bjob)
                                 }
                             }
-                        } else if job.isKindOfClass(LinkupJobDetail), let linkupJob = job as? LinkupJobDetail {
+                        } else if let linkupJob = job as? LinkupJobDetail {
                             
                             // Jobs in Linkup Listings
                             if linkupJob.job_title.matchedKeyword(keywords) {
-                                let h1bjob = H1BJob(title: linkupJob.job_title, company: linkupJob.job_company!, location: linkupJob.job_location!, date: linkupJob.job_date_posted, detail: linkupJob)
+                                let h1bjob = H1BJob(title: linkupJob.job_title, company: linkupJob.job_company, location: linkupJob.job_location, date: linkupJob.job_date_posted, detail: linkupJob)
                                 if linkupJob.description.isValidSponsoredJob() {
                                     self.jobListings.append(h1bjob)
                                 }
                             }
-                        } else if job.isKindOfClass(IndeedJobDetail), let indeedJob = job as? IndeedJobDetail {
+                        } else if let indeedJob = job as? IndeedJobDetail {
                             
                             // Jobs in Indeed Listings
                             if indeedJob.jobtitle.matchedKeyword(keywords) {
-                                let h1bjob = H1BJob(title: indeedJob.jobtitle!, company: indeedJob.company!, location: indeedJob.formattedLocation!, date: indeedJob.datePosted, detail: indeedJob)
+                                let h1bjob = H1BJob(title: indeedJob.jobtitle, company: indeedJob.company, location: indeedJob.formattedLocation!, date: indeedJob.datePosted, detail: indeedJob)
                                 if indeedJob.expired?.boolValue == false && indeedJob.snippet?.isValidSponsoredJob() == true {
                                     self.jobListings.append(h1bjob)
                                 }
@@ -61,7 +61,10 @@ class Job: NSObject {
                 }
             }
              self.jobListings.sortInPlace {
-                $0.postdate.compare($1.postdate) == .OrderedDescending
+                if let obj1 = $0.postdate, obj2 = $1.postdate {
+                    return obj1.compare(obj2) == .OrderedDescending
+                }
+                return false
             }
         }
     }
@@ -69,10 +72,7 @@ class Job: NSObject {
     func getJobs(completion: (success: Bool, result: NSArray?, joblistings: [H1BJob]?, error: NSError?) -> ()) {
         
         // Job Search: Dice, CareerBuilder, Linkup, Indeed Search Boards
-        var searchKeywords = ""
-        if let _ = keywords {
-            searchKeywords = keywords
-        }
+        let searchKeywords = keywords ?? ""
         let dice = JobUtils(category: .Dice, search: searchKeywords)
         let diceURL = NSURL(string: dice.requestURL)
         getJobsForUrl(diceURL!, jobCategory: .Dice) { (status, result, joblistings, error) -> () in
@@ -112,42 +112,44 @@ class Job: NSObject {
         let task = session.dataTaskWithURL(url) {
             (data, response, error) -> Void in
 
-            if let _ = data {
-                do {
-                    if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
-                        
-                        if jobCategory == .Dice {
-                            // Dice Job Search
-                            let diceJobs = DiceJob()
-                            diceJobs.jobData = jsonResult as! [String : AnyObject]
-                            self.results.append(diceJobs.jobListings)
-                        } else if jobCategory == .CareerBuilder {
-                            // CareerBuilder Job Search
-                            let cbJobs = CBJob()
-                            cbJobs.jobData = jsonResult as! [String : AnyObject]
-                            self.results.append(cbJobs.jobListings)
-                        } else if jobCategory == JobCategory.LinkUp {
-                            // Linkup Job Search
-                            let linkupJobs = LinkupJob()
-                            linkupJobs.jobData = jsonResult as! [String : AnyObject]
-                            self.results.append(linkupJobs.jobListings)
-                        } else if jobCategory == JobCategory.Indeed {
-                            // Indeed Job Search
-                            let indeedJobs = IndeedJob()
-                            indeedJobs.jobData = jsonResult as! [String : AnyObject]
-                            self.results.append(indeedJobs.jobListings)
-                        }
-                        completion(success: true, result: self.results, joblistings: self.jobListings, error: nil)
-                    }
-                } catch let error as NSError {
-                    print("\(jobCategory.rawValue): \(error.localizedDescription)")
-                    if error.code == 3840 { // Restricted Network - Need to change wi-fi connection
-                        completion(success: false, result: nil, joblistings: nil, error: error)
-                    }
-                }
-            } else {
+            guard data != nil else {
                 completion(success: false, result: nil, joblistings: nil, error: error)
+                return
             }
+            
+            do {
+                if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                    
+                    if jobCategory == .Dice {
+                        // Dice Job Search
+                        let diceJobs = DiceJob()
+                        diceJobs.jobData = jsonResult as! [String : AnyObject]
+                        self.results.append(diceJobs.jobListings)
+                    } else if jobCategory == .CareerBuilder {
+                        // CareerBuilder Job Search
+                        let cbJobs = CBJob()
+                        cbJobs.jobData = jsonResult as! [String : AnyObject]
+                        self.results.append(cbJobs.jobListings)
+                    } else if jobCategory == JobCategory.LinkUp {
+                        // Linkup Job Search
+                        let linkupJobs = LinkupJob()
+                        linkupJobs.jobData = jsonResult as! [String : AnyObject]
+                        self.results.append(linkupJobs.jobListings)
+                    } else if jobCategory == JobCategory.Indeed {
+                        // Indeed Job Search
+                        let indeedJobs = IndeedJob()
+                        indeedJobs.jobData = jsonResult as! [String : AnyObject]
+                        self.results.append(indeedJobs.jobListings)
+                    }
+                    completion(success: true, result: self.results, joblistings: self.jobListings, error: nil)
+                }
+            } catch let error as NSError {
+                print("\(jobCategory.rawValue): \(error.localizedDescription)")
+                if error.code == 3840 { // Restricted Network - Need to change wi-fi connection
+                    completion(success: false, result: nil, joblistings: nil, error: error)
+                }
+            }
+
         }
         task.resume()
     }

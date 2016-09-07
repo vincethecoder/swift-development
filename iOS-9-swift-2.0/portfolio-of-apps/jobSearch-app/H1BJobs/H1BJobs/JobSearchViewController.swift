@@ -39,7 +39,7 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
         logoImageView.transform = CGAffineTransformConcat(scale, translate)
         
         //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(JobSearchViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
         keywordsTextField.delegate = self

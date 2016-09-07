@@ -29,9 +29,9 @@ public final class Statement {
 
     private let connection: Connection
 
-    init(_ connection: Connection, _ SQL: String) {
+    init(_ connection: Connection, _ SQL: String) throws {
         self.connection = connection
-        try! connection.check(sqlite3_prepare_v2(connection.handle, SQL, -1, &handle, nil))
+        try connection.check(sqlite3_prepare_v2(connection.handle, SQL, -1, &handle, nil))
     }
 
     deinit {
@@ -271,8 +271,13 @@ extension Cursor : SequenceType {
 
     public func generate() -> AnyGenerator<Binding?> {
         var idx = 0
-        return anyGenerator {
-            idx >= self.columnCount ? Optional<Binding?>.None : self[idx++]
+        return AnyGenerator {
+            if idx >= self.columnCount {
+                return Optional<Binding?>.None
+            } else {
+                idx += 1
+                return self[idx - 1]
+            }
         }
     }
 

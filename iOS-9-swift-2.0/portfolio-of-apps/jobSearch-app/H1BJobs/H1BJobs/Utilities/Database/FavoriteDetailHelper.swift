@@ -90,9 +90,14 @@ class FavoriteDetailHelper: DataHelperProtocol {
     
     static func findAll() -> [T]? {
         var records: [T] = []
-        for f in db.prepare(table) {
-            let favoriteDetailRecord = FavoriteDetail(favoriteId: f.get(favoriteId), jobId: f.get(jobId)!, jobLocation: f.get(jobLocation)!, locationLat: f.get(locationLat)!, locationLng: f.get(locationLng)!, descTeaser: f.get(descTeaser)!, pay: f.get(pay)!, postDate: f.get(postDate)!, imageUrl: f.get(imageUrl)!)
-            records.append(favoriteDetailRecord)
+        do {
+            let dbTable = try db.prepare(table)
+            for f in dbTable {
+                let favoriteDetailRecord = FavoriteDetail(favoriteId: f.get(favoriteId), jobId: f.get(jobId)!, jobLocation: f.get(jobLocation)!, locationLat: f.get(locationLat)!, locationLng: f.get(locationLng)!, descTeaser: f.get(descTeaser)!, pay: f.get(pay)!, postDate: f.get(postDate)!, imageUrl: f.get(imageUrl)!)
+                records.append(favoriteDetailRecord)
+            }
+        } catch let error as NSError {
+            print("\(error.localizedDescription)")
         }
         return records
     }

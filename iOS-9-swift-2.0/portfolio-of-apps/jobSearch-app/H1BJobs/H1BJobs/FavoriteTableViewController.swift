@@ -80,7 +80,6 @@ class FavoriteTableViewController: UITableViewController {
                 self.favoriteList.append(favorite)
             }
         }
-        
         tableView.reloadData()
 
         if self.favoriteList.count > 0 {
@@ -125,9 +124,18 @@ class FavoriteTableViewController: UITableViewController {
         
         cell.jobTitle.text = favoriteData.jobTitle?.capitalizedString
         cell.jobCompany.text = favoriteData.company
-        cell.jobPostDate.text = "Saved: \(favoriteData.savedTimestamp!)"
-        
-        cell.imageView?.image = UIImage(data: favoriteData.image)!
+        if let favoriteDate = favoriteData.savedTimestamp {
+            cell.jobPostDate.text = "Saved: \(favoriteDate)"
+        } else {
+            cell.jobPostDate.text = nil
+        }
+
+        if let favoriteImage = favoriteData.image {
+            cell.imageView?.image = UIImage(data: favoriteImage)
+        } else {
+            cell.imageView?.image = nil
+        }
+
         cell.imageView?.hidden = false
         cell.textLabel?.text = ""
         cell.saveButton.tintColor = .redColor()
@@ -174,7 +182,7 @@ class FavoriteTableViewController: UITableViewController {
         let center = (sender?.center)!
         let rootViewPoint = sender?.superview!!.convertPoint(center, toView: tableView)
         
-        if let indexPath = tableView.indexPathForRowAtPoint(rootViewPoint!){
+        if let rootViewPoint = rootViewPoint, indexPath = tableView.indexPathForRowAtPoint(rootViewPoint){
             let webView = segue.destinationViewController as? JobWebViewControler
             let row = indexPath.row
             let h1bjob = favoriteList[row]

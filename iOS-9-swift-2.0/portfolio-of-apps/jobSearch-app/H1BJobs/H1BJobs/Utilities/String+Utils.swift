@@ -13,6 +13,11 @@ extension String {
     var escapedString: String {
         return self.stringByReplacingOccurrencesOfString(" ", withString: "+")
     }
+    
+    var removeBadChars: String {
+        let badchar: NSCharacterSet = NSCharacterSet(charactersInString: "\"\\\t\n\r\'")
+        return (self.componentsSeparatedByCharactersInSet(badchar) as NSArray).componentsJoinedByString("")
+    }
 
     var parseJSONString: AnyObject? {
 

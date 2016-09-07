@@ -50,8 +50,8 @@ extension SchemaType {
     /// - Parameter all: A list of expressions to select.
     ///
     /// - Returns: A query with the given `SELECT` clause applied.
-    public func select(column1: Expressible, _ column2: Expressible, _ more: Expressible...) -> Self {
-        return select(false, [column1, column2] + more)
+    public func select(column1: Expressible, _ more: Expressible...) -> Self {
+        return select(false, [column1] + more)
     }
 
     /// Builds a copy of the query with the `SELECT DISTINCT` clause applied.
@@ -65,8 +65,8 @@ extension SchemaType {
     /// - Parameter columns: A list of expressions to select.
     ///
     /// - Returns: A query with the given `SELECT DISTINCT` clause applied.
-    public func select(distinct column1: Expressible, _ column2: Expressible, _ more: Expressible...) -> Self {
-        return select(true, [column1, column2] + more)
+    public func select(distinct column1: Expressible, _ more: Expressible...) -> Self {
+        return select(true, [column1] + more)
     }
 
     /// Builds a copy of the query with the `SELECT` clause applied.
@@ -390,7 +390,7 @@ extension QueryType {
     ///
     ///     let users = Table("users")
     ///     let email = Expression<String>("email")
-    ///     let email = Expression<String?>("name")
+    ///     let name = Expression<String?>("name")
     ///
     ///     users.order(email.desc, name.asc)
     ///     // SELECT * FROM "users" ORDER BY "email" DESC, "name" ASC
@@ -399,6 +399,22 @@ extension QueryType {
     ///
     /// - Returns: A query with the given `ORDER BY` clause applied.
     public func order(by: Expressible...) -> Self {
+        return order(by)
+    }
+    
+    /// Sets an `ORDER BY` clause on the query.
+    ///
+    ///     let users = Table("users")
+    ///     let email = Expression<String>("email")
+    ///     let name = Expression<String?>("name")
+    ///
+    ///     users.order([email.desc, name.asc])
+    ///     // SELECT * FROM "users" ORDER BY "email" DESC, "name" ASC
+    ///
+    /// - Parameter by: An ordered list of columns and directions to sort by.
+    ///
+    /// - Returns: A query with the given `ORDER BY` clause applied.
+    public func order(by: [Expressible]) -> Self {
         var query = self
         query.clauses.order = by
         return query
@@ -857,25 +873,25 @@ public struct Delete : ExpressionType {
 
 extension Connection {
 
-    public func prepare(query: QueryType) -> AnySequence<Row> {
+    public func prepare(query: QueryType) throws -> AnySequence<Row> {
         let expression = query.expression
-        let statement = prepare(expression.template, expression.bindings)
+        let statement = try prepare(expression.template, expression.bindings)
 
-        let columnNames: [String: Int] = {
+        let columnNames: [String: Int] = try {
             var (columnNames, idx) = ([String: Int](), 0)
             column: for each in query.clauses.select.columns ?? [Expression<Void>(literal: "*")] {
                 var names = each.expression.template.characters.split { $0 == "." }.map(String.init)
                 let column = names.removeLast()
                 let namespace = names.joinWithSeparator(".")
 
-                func expandGlob(namespace: Bool) -> QueryType -> Void {
-                    return { query in
+                func expandGlob(namespace: Bool) -> (QueryType throws -> Void) {
+                    return { (query: QueryType) throws -> (Void) in
                         var q = query.dynamicType.init(query.clauses.from.name, database: query.clauses.from.database)
                         q.clauses.select = query.clauses.select
                         let e = q.expression
-                        var names = self.prepare(e.template, e.bindings).columnNames.map { $0.quote() }
+                        var names = try self.prepare(e.template, e.bindings).columnNames.map { $0.quote() }
                         if namespace { names = names.map { "\(query.tableName().expression.template).\($0)" } }
-                        for name in names { columnNames[name] = idx++ }
+                        for name in names { columnNames[name] = idx; idx += 1 }
                     }
                 }
 
@@ -886,25 +902,26 @@ extension Connection {
                     if !namespace.isEmpty {
                         for q in queries {
                             if q.tableName().expression.template == namespace {
-                                expandGlob(true)(q)
+                                try expandGlob(true)(q)
                                 continue column
                             }
                         }
                         fatalError("no such table: \(namespace)")
                     }
                     for q in queries {
-                        expandGlob(query.clauses.join.count > 0)(q)
+                        try expandGlob(query.clauses.join.count > 0)(q)
                     }
                     continue
                 }
 
-                columnNames[each.expression.template] = idx++
+                columnNames[each.expression.template] = idx
+                idx += 1
             }
             return columnNames
         }()
 
         return AnySequence {
-            anyGenerator { statement.next().map { Row(columnNames, $0) } }
+            AnyGenerator { statement.next().map { Row(columnNames, $0) } }
         }
     }
 
@@ -931,7 +948,7 @@ extension Connection {
     }
 
     public func pluck(query: QueryType) -> Row? {
-        return prepare(query.limit(1, query.clauses.limit?.offset)).generate().next()
+        return try! prepare(query.limit(1, query.clauses.limit?.offset)).generate().next()
     }
 
     /// Runs an `Insert` query.

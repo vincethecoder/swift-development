@@ -67,12 +67,11 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         let builder = GAIDictionaryBuilder.createScreenView()
         build = builder.build() as [NSObject: AnyObject]
         tracker.send(build)
-        
-        
+
         let btnName = UIButton()
         btnName.setImage(UIImage(named: "upload-50"), forState: .Normal)
         btnName.frame = CGRectMake(0, 0, 30, 30)
-        btnName.addTarget(self, action: Selector("userDidTapShare:"), forControlEvents: .TouchUpInside)
+        btnName.addTarget(self, action: #selector(AboutTableViewController.userDidTapShare(_:)), forControlEvents: .TouchUpInside)
         
         // Set Right Bar Button item
         let rightBarButton = UIBarButtonItem()

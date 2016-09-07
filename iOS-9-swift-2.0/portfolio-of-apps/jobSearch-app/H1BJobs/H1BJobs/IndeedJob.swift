@@ -21,6 +21,7 @@ class IndeedJob: NSObject {
     var totalResults: NSNumber?
     var pageNumber: NSNumber?
     var dupefilter: NSNumber?
+    var paginationPayload: String?
     
     var results:[AnyObject] = [AnyObject]() {
         didSet {
