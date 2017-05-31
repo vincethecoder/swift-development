@@ -8,11 +8,11 @@
 
 import UIKit
 
-extension NSDate {
+extension Date {
     
-    private func baseDateFormatter(dateFormat:String) -> NSDateFormatter {
-        let formatter = NSDateFormatter.init()
-        formatter.timeZone = NSTimeZone(name: "America/New_York")
+    fileprivate func baseDateFormatter(_ dateFormat:String) -> DateFormatter {
+        let formatter = DateFormatter.init()
+        formatter.timeZone = TimeZone(identifier: "America/New_York")
         formatter.dateFormat = dateFormat
         return formatter
     }
@@ -22,7 +22,7 @@ extension NSDate {
     */
     func wordMonthString() -> String {
         let formatter = baseDateFormatter("MMM")
-        return formatter.stringFromDate(self)
+        return formatter.string(from: self)
     }
     
     /*
@@ -30,7 +30,7 @@ extension NSDate {
     */
     func wordDayString() -> String {
         let formatter = baseDateFormatter("d")
-        return formatter.stringFromDate(self)
+        return formatter.string(from: self)
     }
     
     /* 
@@ -38,7 +38,7 @@ extension NSDate {
     */
     func wordMonthDayString() -> String {
         let formatter = baseDateFormatter("MMM d")
-        return formatter.stringFromDate(self)
+        return formatter.string(from: self)
     }
     
     /* 
@@ -46,7 +46,7 @@ extension NSDate {
     */
     func wordFullMonthDayString() -> String {
         let formatter = baseDateFormatter("MMMM d")
-        return formatter.stringFromDate(self)
+        return formatter.string(from: self)
     }
     
     /* 
@@ -54,7 +54,7 @@ extension NSDate {
     */
     func wordMonthDayYearString() -> String {
         let formatter = baseDateFormatter("MMM d, yyyy")
-        return formatter.stringFromDate(self)
+        return formatter.string(from: self)
     }
     
     /* 
@@ -62,7 +62,7 @@ extension NSDate {
     */
     func wordFullMonthDayYearString() -> String {
         let formatter = baseDateFormatter("MMMM d, yyyy")
-        return formatter.stringFromDate(self)
+        return formatter.string(from: self)
     }
 
 }

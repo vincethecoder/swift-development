@@ -35,7 +35,7 @@ class IndeedJob: NSObject {
 
     var jobData = [String: AnyObject]() {
         didSet {
-            self.setValuesForKeysWithDictionary(jobData)
+            self.setValuesForKeys(jobData)
         }
     }
 

@@ -15,7 +15,7 @@ class HistoryHelper: DataHelperProtocol {
     static let keyword = Expression<String?>("keyword")
     static let location = Expression<String?>("location")
     static let state = Expression<String?>("state")
-    static let timestamp = Expression<NSDate?>("timestamp")
+    static let timestamp = Expression<Date?>("timestamp")
 
     typealias T = History
     static let table = Table("history")
@@ -27,7 +27,7 @@ class HistoryHelper: DataHelperProtocol {
 
     static var db: Connection {
         get {
-            let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
+            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
             
             // if you don't want to handle error you can force it with try! keyword.
             // As with other keywords that ends ! this is a risky operation.
@@ -54,7 +54,7 @@ class HistoryHelper: DataHelperProtocol {
         return true
     }
     
-    static func insert(item: T) -> Int64 {
+    static func insert(_ item: T) -> Int64 {
         if tableCreated {
             let insert = table.insert(keyword <- item.keyword, location <- item.location, state <- item.state, timestamp <- item.timestamp)
             do {
@@ -67,7 +67,7 @@ class HistoryHelper: DataHelperProtocol {
         return -1
     }
     
-    static func delete(item: T) -> Bool {
+    static func delete(_ item: T) -> Bool {
         if tableCreated {
             do {
                 if let searchKeyword = item.keyword {
@@ -98,12 +98,12 @@ class HistoryHelper: DataHelperProtocol {
         return records
     }
     
-    static func find(item: T) -> T? {
+    static func find(_ item: T) -> T? {
         let query = table.filter(keyword == item.keyword)
         var result: T?
         if tableCreated {
-            if let item = db.pluck(query) {
-                result = History(searchId: item[searchId], keyword: item[keyword]!, location: item[location]!, state: item[state]!, timestamp: item[timestamp]!)
+            if let item = try? db.pluck(query), let record = item {
+                result = History(searchId: record[searchId], keyword: record[keyword]!, location: record[location]!, state: record[state]!, timestamp: record[timestamp]!)
             }
         }
         return result

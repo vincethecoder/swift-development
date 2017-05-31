@@ -16,14 +16,14 @@ class FavoriteHelper: DataHelperProtocol {
     static let company = Expression<String?>("company")
     static let jobUrl = Expression<String?>("joburl")
     static let savedTimestamp = Expression<String?>("timestamp")
-    static let image = Expression<NSData?>("image")
+    static let image = Expression<Data?>("image")
     
     typealias T = Favorite
     static let table = Table("favorite")
 
     static var db: Connection {
         get {
-            let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
+            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
             
             // if you don't want to handle error you can force it with try! keyword.
             // As with other keywords that ends ! this is a risky operation.
@@ -57,7 +57,7 @@ class FavoriteHelper: DataHelperProtocol {
         return true
     }
     
-    static func insert(item: T) -> Int64 {
+    static func insert(_ item: T) -> Int64 {
         if tableCreated {
             let insert = table.insert(jobTitle <- item.jobTitle, company <- item.company, jobUrl <- item.jobUrl,  savedTimestamp <- item.savedTimestamp, image <- item.image)
             do {
@@ -71,7 +71,7 @@ class FavoriteHelper: DataHelperProtocol {
         return -1
     }
 
-    static func delete(item: T) -> Bool {
+    static func delete(_ item: T) -> Bool {
         do {
             if tableCreated, let title = item.jobTitle {
                 let record = table.filter(jobTitle == title && company == item.company)
@@ -100,12 +100,12 @@ class FavoriteHelper: DataHelperProtocol {
         return records
     }
     
-    static func find(item: T) -> T? {
+    static func find(_ item: T) -> T? {
         let query = table.filter(jobTitle == item.jobTitle && company == item.company)
         var result: T?
         if tableCreated {
-            if let item = db.pluck(query) {
-                result = Favorite(favoriteId: item[favoriteId], jobTitle: item[jobTitle]!, company: item[company]!, jobUrl: item[jobUrl]!, savedTimestamp: item[savedTimestamp]!, image: item[image]!)
+            if let item = try? db.pluck(query), let record = item {
+                result = Favorite(favoriteId: record[favoriteId], jobTitle: record[jobTitle]!, company: record[company]!, jobUrl: record[jobUrl]!, savedTimestamp: record[savedTimestamp]!, image: record[image]!)
             }
         }
         return result
@@ -113,8 +113,8 @@ class FavoriteHelper: DataHelperProtocol {
     
     static func count() -> Int {
         if tableCreated {
-            let count = db.scalar(table.count)
-            return count
+            let count = try? db.scalar(table.count)
+            return count ?? -1
         }
         return -1
     }

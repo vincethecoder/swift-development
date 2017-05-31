@@ -21,13 +21,13 @@ class HistoryTableViewCell: BaseTableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.imageView?.frame = CGRectMake(20, 3, 60, 60)
+        self.imageView?.frame = CGRect(x: 20, y: 3, width: 60, height: 60)
         let cellImageLayer = self.imageView?.layer
         cellImageLayer?.borderWidth = 2
         cellImageLayer?.masksToBounds = true
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
 

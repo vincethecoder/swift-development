@@ -45,7 +45,7 @@ class WalkthroughContentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         var imageName = String()
         var iconName = String()
 
@@ -80,16 +80,16 @@ class WalkthroughContentViewController: UIViewController {
         
     }
 
-    @IBAction func nextButtonTapped(sender: UIButton) {
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
         
         switch index {
         case 0...2:
-            let pageViewController = parentViewController as! WalkthroughPageViewController
+            let pageViewController = parent as! WalkthroughPageViewController
             pageViewController.forward(index)
         case 3:
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(true, forKey: "hasViewedWalkthrough")
-            dismissViewControllerAnimated(true, completion: nil)
+            let defaults = UserDefaults.standard
+            defaults.set(true, forKey: "hasViewedWalkthrough")
+            dismiss(animated: true, completion: nil)
         default:
             break
         }

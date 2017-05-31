@@ -34,6 +34,6 @@ class CBJobResponse: NSObject {
 
     init(dict: [String: AnyObject]) {
         super.init()
-        self.setValuesForKeysWithDictionary(dict)
+        self.setValuesForKeys(dict)
     }
 }

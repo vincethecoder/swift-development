@@ -13,7 +13,7 @@ class H1BJob: NSObject {
     var title: String?
     var company: String?
     var location: String?
-    var postdate: NSDate?
+    var postdate: Date?
     var jobdetail: NSObject?
     var jobUrl: String? {
         get {
@@ -44,7 +44,7 @@ class H1BJob: NSObject {
         }
     }
 
-    init(title: String?, company: String?, location: String?, date: NSDate?, detail: NSObject?) {
+    init(title: String?, company: String?, location: String?, date: Date?, detail: NSObject?) {
         self.title = title
         self.company = company
         self.location = location
@@ -56,7 +56,7 @@ class H1BJob: NSObject {
         self.title = String()
         self.company = String()
         self.location = String()
-        self.postdate = NSDate()
+        self.postdate = Date()
         self.jobdetail = NSObject()
     }
 }

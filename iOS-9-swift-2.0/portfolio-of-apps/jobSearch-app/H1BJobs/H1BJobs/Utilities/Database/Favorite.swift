@@ -16,9 +16,9 @@ class Favorite: NSObject {
     let company: String?
     let jobUrl: String?
     let savedTimestamp: String?
-    let image: NSData?
+    let image: Data?
     
-    init (favoriteId: Int64, jobTitle: String?, company: String?, jobUrl: String?,  savedTimestamp: String?, image: NSData?) {
+    init (favoriteId: Int64, jobTitle: String?, company: String?, jobUrl: String?,  savedTimestamp: String?, image: Data?) {
         self.favoriteId = favoriteId
         self.jobTitle = jobTitle
         self.company = company
@@ -33,6 +33,6 @@ class Favorite: NSObject {
         self.company = String()
         self.jobUrl = String()
         self.savedTimestamp = String()
-        self.image = NSData()
+        self.image = Data()
     }
 }

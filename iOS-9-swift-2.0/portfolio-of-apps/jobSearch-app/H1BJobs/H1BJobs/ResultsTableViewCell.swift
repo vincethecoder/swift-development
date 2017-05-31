@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ResultsTableViewCellDelegate {
-    func saveButtonTapped(cell: ResultsTableViewCell)
+    func saveButtonTapped(_ cell: ResultsTableViewCell)
 }
 
 class ResultsTableViewCell: BaseTableViewCell {
@@ -24,14 +24,14 @@ class ResultsTableViewCell: BaseTableViewCell {
     var jobWebUrl: String!
     var delegate: ResultsTableViewCellDelegate?
 
-    let likeImage = UIImage(named: "like")?.imageWithRenderingMode(.AlwaysTemplate)
+    let likeImage = UIImage(named: "like")?.withRenderingMode(.alwaysTemplate)
 
     override func awakeFromNib() {
         super.awakeFromNib()
         if let _ = saveButton {
             let tap = UITapGestureRecognizer(target: self, action: #selector(ResultsTableViewCell.saveButtonTapped(_:)))
             tap.cancelsTouchesInView = false
-            saveButton.setImage(likeImage, forState: .Normal)
+            saveButton.setImage(likeImage, for: UIControlState())
             saveButtonView.addGestureRecognizer(tap)
         }
         
@@ -39,23 +39,23 @@ class ResultsTableViewCell: BaseTableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.imageView?.frame = CGRectMake(15, 0, 80, 80)
+        self.imageView?.frame = CGRect(x: 15, y: 0, width: 80, height: 80)
         let cellImageLayer = self.imageView?.layer
         cellImageLayer?.borderWidth = 2
-        cellImageLayer?.borderColor = UIColor.clearColor().CGColor
+        cellImageLayer?.borderColor = UIColor.clear.cgColor
         cellImageLayer?.cornerRadius = 40
         cellImageLayer?.masksToBounds = true
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    @IBAction func saveButtonTapped(sender: AnyObject) {
+    @IBAction func saveButtonTapped(_ sender: AnyObject) {
         delegate?.saveButtonTapped(self)
     }
     
-    @IBAction func tableRowButtonTapped(sender: AnyObject) {
+    @IBAction func tableRowButtonTapped(_ sender: AnyObject) {
 
     }
     

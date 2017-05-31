@@ -31,7 +31,7 @@ class FavoriteDetailHelper: DataHelperProtocol {
     
     static var db: Connection {
         get {
-            let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
+            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
             
             // if you don't want to handle error you can force it with try! keyword.
             // As with other keywords that ends ! this is a risky operation.
@@ -62,7 +62,7 @@ class FavoriteDetailHelper: DataHelperProtocol {
         return true
     }
 
-    static func insert(item: T) -> Int64 {
+    static func insert(_ item: T) -> Int64 {
         if tableCreated {
             let insert = table.insert(jobId <- item.jobId, jobLocation <- item.jobLocation, locationLat <- item.locationLat, locationLng <- item.locationLng, descTeaser <- item.descTeaser, pay <- item.pay, postDate <- item.postDate, imageUrl <- item.imageUrl)
             do {
@@ -75,7 +75,7 @@ class FavoriteDetailHelper: DataHelperProtocol {
         return -1
     }
     
-    static func delete(item: T) -> Bool {
+    static func delete(_ item: T) -> Bool {
         do {
             if let id = item.favoriteId {
                 let record = table.filter(favoriteId == id)
@@ -102,11 +102,11 @@ class FavoriteDetailHelper: DataHelperProtocol {
         return records
     }
     
-    static func find(id: Int64) -> T? {
+    static func find(_ id: Int64) -> T? {
         let query = table.filter(favoriteId == id)
         var result: T?
-        if let item = db.pluck(query) {
-            result = FavoriteDetail(favoriteId: item[favoriteId], jobId: item[jobId]!, jobLocation: item[jobLocation]!, locationLat: item[locationLat]!, locationLng: item[locationLng]!, descTeaser: item[descTeaser]!, pay: item[pay]!, postDate: item[postDate]!, imageUrl: item[imageUrl]!)
+        if let item = try? db.pluck(query), let record = item {
+            result = FavoriteDetail(favoriteId: record[favoriteId], jobId: record[jobId]!, jobLocation: record[jobLocation]!, locationLat: record[locationLat]!, locationLng: record[locationLng]!, descTeaser: record[descTeaser]!, pay: record[pay]!, postDate: record[postDate]!, imageUrl: record[imageUrl]!)
         }
         return result
     }

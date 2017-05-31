@@ -16,10 +16,10 @@ class SQLiteDataStore {
     static let sharedInstance = SQLiteDataStore()
     let JobDB: Database
     
-    private init() {
+    fileprivate init() {
         
         var path = "hbjob.sqlite"
-        let dir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
+        let dir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         path = "\(dir)/\(path)"
         print(path)
         

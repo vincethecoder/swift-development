@@ -18,10 +18,10 @@ class IndeedJobDetail: NSObject {
     var formattedLocation: String?
     var source: String?
     var date: String?
-    var datePosted: NSDate? {
-        let dateFormatter = NSDateFormatter()
+    var datePosted: Date? {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, d MMM yyyy HH:mm:ss zzz"
-        if let date = date, formattedDate = dateFormatter.dateFromString(date) {
+        if let date = date, let formattedDate = dateFormatter.date(from: date) {
             return formattedDate
         }
         return nil
@@ -35,12 +35,13 @@ class IndeedJobDetail: NSObject {
     var indeedApply: NSNumber?
     var formattedRelativeTime: String?
     var noUniqueUrl: NSNumber?
+    var stations: NSNumber?
+    var language: String?
     var onmousedown: String?
     
     init(dict: [String: AnyObject]) {
         super.init()
-        self.setValuesForKeysWithDictionary(dict)
+        self.setValuesForKeys(dict)
     }
-    
 
 }

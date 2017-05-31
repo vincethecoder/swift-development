@@ -11,7 +11,7 @@ import Foundation
 protocol DataHelperProtocol {
     associatedtype T
     static func createTable() -> Bool
-    static func insert(item: T) -> Int64
-    static func delete(item: T) -> Bool
+    static func insert(_ item: T) -> Int64
+    static func delete(_ item: T) -> Bool
     static func findAll() -> [T]?
 }

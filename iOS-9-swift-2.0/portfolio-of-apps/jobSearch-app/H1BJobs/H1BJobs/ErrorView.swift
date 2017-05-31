@@ -23,21 +23,21 @@ class ErrorView: UIView {
     init(frame: CGRect, title: String, text: String, image: UIImage) {
         super.init(frame: frame)
         
-        let newView = NSBundle.mainBundle().loadNibNamed("ErrorView", owner: self, options: nil).first as! ErrorView
+        let newView = Bundle.main.loadNibNamed("ErrorView", owner: self, options: nil)?.first as! ErrorView
         newView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(newView)
         
-        let horizontalConstraint = newView.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor)
-        let verticalConstraint = newView.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor)
-        let widthConstraint = newView.widthAnchor.constraintEqualToAnchor(nil, constant: frame.width)
-        let heightConstraint = newView.heightAnchor.constraintEqualToAnchor(nil, constant: frame.height)
-        NSLayoutConstraint.activateConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
+        let horizontalConstraint = newView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        let verticalConstraint = newView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        let widthConstraint = newView.widthAnchor.constraint(equalToConstant: frame.width)
+        let heightConstraint = newView.heightAnchor.constraint(equalToConstant: frame.height)
+        NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
         
         newView.errorText.text = text
         newView.errorTitle.text = title
         newView.errorImageView.image = image
         
-        newView.backgroundColor = .clearColor()
+        newView.backgroundColor = .clear
     }
     
     override init(frame: CGRect) {

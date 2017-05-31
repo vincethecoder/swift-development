@@ -11,74 +11,74 @@ import UIKit
 extension String {
     
     var escapedString: String {
-        return self.stringByReplacingOccurrencesOfString(" ", withString: "+")
+        return self.replacingOccurrences(of: " ", with: "+")
     }
     
     var removeBadChars: String {
-        let badchar: NSCharacterSet = NSCharacterSet(charactersInString: "\"\\\t\n\r\'")
-        return (self.componentsSeparatedByCharactersInSet(badchar) as NSArray).componentsJoinedByString("")
+        let badchar: CharacterSet = CharacterSet(charactersIn: "\"\\\t\n\r\'")
+        return (self.components(separatedBy: badchar) as NSArray).componentsJoined(by: "")
     }
 
     var parseJSONString: AnyObject? {
 
         do {
-            let jsonData = self.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+            let jsonData = self.data(using: String.Encoding.utf8, allowLossyConversion: false)
             if let _ = jsonData,
-                JSON = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .MutableContainers) as? NSDictionary {
+                let JSON = try JSONSerialization.jsonObject(with: jsonData!, options: .mutableContainers) as? NSDictionary {
                 return JSON
             }
             // No JSON Data returned
-            return jsonData
+            return jsonData as AnyObject
         } catch let error as NSError {
             return error
         }
     }
     
-    func urlForJobBoard(jobBoard: JobCategory, keywords: String) -> String {
+    func urlForJobBoard(_ jobBoard: JobCategory, keywords: String) -> String {
         return JobUtils.init(category:jobBoard, search:keywords).requestURL
     }
     
-    func cbJobPostDateDayMonthYear() -> NSDate {
+    func cbJobPostDateDayMonthYear() -> Date {
         let postDateTimeArr =  self.characters.split{$0 == " "}.map(String.init) // 11/18/2015 11:59:48 AM
         let postDate = postDateTimeArr[0]
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
-        return dateFormatter.dateFromString(postDate)!
+        return dateFormatter.date(from: postDate)!
     }
     
-    func diceJobPostDateDayMonthYear() -> NSDate {
+    func diceJobPostDateDayMonthYear() -> Date {
         let postDate = self
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.dateFromString(postDate)!
+        return dateFormatter.date(from: postDate)!
     }
     
     func isValidSponsoredJob() -> Bool {
-        if self.lowercaseString.rangeOfString("unable") == nil &&
-           self.lowercaseString.rangeOfString("not") == nil &&
-           self.lowercaseString.rangeOfString("no") == nil &&
-           self.lowercaseString.rangeOfString("won't") == nil &&
-           self.lowercaseString.rangeOfString("unwilling") == nil &&
-           self.lowercaseString.rangeOfString("cannot") == nil {
+        if self.lowercased().range(of: "unable") == nil &&
+           self.lowercased().range(of: "not") == nil &&
+           self.lowercased().range(of: "no") == nil &&
+           self.lowercased().range(of: "won't") == nil &&
+           self.lowercased().range(of: "unwilling") == nil &&
+           self.lowercased().range(of: "cannot") == nil {
                 return contatinsH1B()
         }
         return false
     }
 
     func contatinsH1B() -> Bool {
-        if self.lowercaseString.rangeOfString("h1b") != nil ||
-           self.lowercaseString.rangeOfString("h-1b") != nil ||
-            self.lowercaseString.rangeOfString("h1-b") != nil {
+        if self.lowercased().range(of: "h1b") != nil ||
+           self.lowercased().range(of: "h-1b") != nil ||
+            self.lowercased().range(of: "h1-b") != nil {
                 return true
         }
         return false
     }
     
-    func matchedKeyword(keyword: String) -> Bool {
+    func matchedKeyword(_ keyword: String) -> Bool {
         if keyword.characters.count == 0 {
             return true;
         } else {
-            return self.lowercaseString.rangeOfString(keyword.lowercaseString) != nil
+            return self.lowercased().range(of: keyword.lowercased()) != nil
         }
     }
 

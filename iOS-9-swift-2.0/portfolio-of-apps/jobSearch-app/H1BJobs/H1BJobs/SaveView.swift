@@ -20,21 +20,21 @@ class SaveView: UIView {
     init(frame: CGRect, status: String, image: UIImage) {
         super.init(frame: frame)
         
-        let newView = NSBundle.mainBundle().loadNibNamed("SaveView", owner: self, options: nil).first as! SaveView
+        let newView = Bundle.main.loadNibNamed("SaveView", owner: self, options: nil)?.first as! SaveView
         newView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(newView)
         
-        let horizontalConstraint = newView.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor)
-        let verticalConstraint = newView.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor)
-        let widthConstraint = newView.widthAnchor.constraintEqualToAnchor(nil, constant: frame.width)
-        let heightConstraint = newView.heightAnchor.constraintEqualToAnchor(nil, constant: frame.height)
-        NSLayoutConstraint.activateConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
+        let horizontalConstraint = newView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        let verticalConstraint = newView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        let widthConstraint = newView.widthAnchor.constraint(equalToConstant: frame.width)
+        let heightConstraint = newView.heightAnchor.constraint(equalToConstant: frame.height)
+        NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
         
         newView.saveImageView.image = image
         newView.saveStatusLabel.text = status
         newView.layer.cornerRadius = 15
 
-        newView.backgroundColor = .blackColor()
+        newView.backgroundColor = .black
         newView.alpha = 0.95
     }
     
