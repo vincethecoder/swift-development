@@ -18,11 +18,13 @@ class IndeedJobDetail: NSObject {
     var formattedLocation: String?
     var source: String?
     var date: String?
-    var datePosted: NSDate {
-        let dateFormatter = NSDateFormatter()
+    var datePosted: Date? {
+        guard let currentDate = date else {
+            return nil
+        }
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, d MMM yyyy HH:mm:ss zzz"
-        let formattedDate: NSDate = dateFormatter.dateFromString(date!)!
-        return formattedDate
+        return dateFormatter.date(from: currentDate)
     }
     var snippet: String?
     var url: String?
@@ -35,9 +37,9 @@ class IndeedJobDetail: NSObject {
     var noUniqueUrl: NSNumber?
     var onmousedown: String?
     
-    init(dict: [String: AnyObject]) {
+    init(dict: [String: Any]) {
         super.init()
-        self.setValuesForKeysWithDictionary(dict)
+        self.setValuesForKeys(dict)
     }
 
 }

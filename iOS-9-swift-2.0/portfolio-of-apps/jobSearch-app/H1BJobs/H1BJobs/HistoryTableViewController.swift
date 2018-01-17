@@ -25,16 +25,16 @@ class HistoryTableViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = false
         
         // This will remove extra separators from tableview
-        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         let inset = UIEdgeInsetsMake(5, 0, 0, 0)
         tableView.contentInset = inset
         
         // Apply a blurring effect to the background image view
         tableView.backgroundView = UIImageView(image: UIImage(named: "city_skyline_ny"))
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = CGRectMake(0, 0, view.bounds.width * 2, view.bounds.height * 2)
+        blurEffectView.frame = CGRect(x: 0, y: 0, width: view.bounds.width * 2, height: view.bounds.height * 2)
         tableView.backgroundView!.addSubview(blurEffectView)
         
         // Add "No History Transcript Available" View
@@ -45,7 +45,7 @@ class HistoryTableViewController: UITableViewController {
     func addDefaultView() {
         let viewHeight: CGFloat = 175
         let viewWidth: CGFloat = 350
-        let frame = CGRectMake(0, 0, viewWidth, viewHeight)
+        let frame = CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight)
 
         historyDefaultView = ErrorView(frame: frame, title: "It's pretty quiet around here",
                                         text: "You'll begin to see a search history transcript \nwhen you search for jobs",
@@ -53,25 +53,25 @@ class HistoryTableViewController: UITableViewController {
         historyDefaultView.translatesAutoresizingMaskIntoConstraints = false
         
         tableView.addSubview(historyDefaultView)
-        tableView.bringSubviewToFront(historyDefaultView)
-        let widthConstraint = NSLayoutConstraint(item: historyDefaultView, attribute: .Width, relatedBy: .Equal,
-            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: viewWidth)
+        tableView.bringSubview(toFront: historyDefaultView)
+        let widthConstraint = NSLayoutConstraint(item: historyDefaultView, attribute: .width, relatedBy: .equal,
+            toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: viewWidth)
         historyDefaultView.addConstraint(widthConstraint)
         
-        let heightConstraint = NSLayoutConstraint(item: historyDefaultView, attribute: .Height, relatedBy: .Equal,
-            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: viewHeight)
+        let heightConstraint = NSLayoutConstraint(item: historyDefaultView, attribute: .height, relatedBy: .equal,
+            toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: viewHeight)
         historyDefaultView.addConstraint(heightConstraint)
         
-        let xCenterConstraint = NSLayoutConstraint(item: historyDefaultView, attribute: .CenterX, relatedBy: .Equal, toItem: tableView, attribute: .CenterX, multiplier: 1, constant: 0)
+        let xCenterConstraint = NSLayoutConstraint(item: historyDefaultView, attribute: .centerX, relatedBy: .equal, toItem: tableView, attribute: .centerX, multiplier: 1, constant: 0)
         tableView.addConstraint(xCenterConstraint)
         
-        let yCenterConstraint = NSLayoutConstraint(item: historyDefaultView, attribute: .CenterY, relatedBy: .Equal, toItem: tableView, attribute: .CenterY, multiplier: 1, constant: -35)
+        let yCenterConstraint = NSLayoutConstraint(item: historyDefaultView, attribute: .centerY, relatedBy: .equal, toItem: tableView, attribute: .centerY, multiplier: 1, constant: -35)
         tableView.addConstraint(yCenterConstraint)
         
-        historyDefaultView.hidden = true
+        historyDefaultView.isHidden = true
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if let historyList = HistoryHelper.findAll() {
@@ -82,81 +82,78 @@ class HistoryTableViewController: UITableViewController {
         }
         
         if self.historyList.count > 0 {
-            historyDefaultView.hidden = true
+            historyDefaultView.isHidden = true
             tableView.reloadData()
         } else {
-            historyDefaultView.hidden = false
+            historyDefaultView.isHidden = false
         }
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnSwipe = true
         navigationController?.setNavigationBarHidden(false, animated: true)
-        
-        // Google Analytics
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker.set(kGAIScreenName, value: "/historyview")
-        let builder = GAIDictionaryBuilder.createScreenView()
-        tracker.send(builder.build() as [NSObject : AnyObject])
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return historyList.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! HistoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HistoryTableViewCell
 
-        cell.backgroundColor = .clearColor()
+        cell.backgroundColor = .clear
         
         let row = indexPath.row
         let historyData = historyList[row]
-        let keyword = historyData.keyword?.characters.count > 0 ? historyData.keyword?.capitalizedString : "All H1B Jobs"
+        var keyword  = "All H1B Jobs"
+        if let histKeyword = historyData.keyword, histKeyword.count > 0 {
+            keyword = histKeyword.capitalized
+        }
         
-        cell.historyLocationIcon.hidden = false
-        cell.historySearchIcon.hidden = false
-        cell.historyLocation.hidden = false
-        cell.imageView?.hidden = false
-        cell.jobKeyword.text = "\(keyword!)"
+        cell.historyLocationIcon.isHidden = false
+        cell.historySearchIcon.isHidden = false
+        cell.historyLocation.isHidden = false
+        cell.imageView?.isHidden = false
+        cell.jobKeyword.text = "\(keyword)"
         cell.textLabel?.text = ""
         cell.imageView?.image = UIImage(named: "calendar_full")
-        cell.accessoryType = .DisclosureIndicator
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)  {
+        if editingStyle == .delete {
             // Delete the row from the data source
             let row = indexPath.row
-            HistoryHelper.delete(historyList[row])
+            _ = HistoryHelper.delete(item: historyList[row])
             guard historyList.count > row else { return }
-            historyList.removeAtIndex(row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+            historyList.remove(at: row)
+            tableView.deleteRows(at: [indexPath], with: .none)
             
             if historyList.count == 0 {
-                historyDefaultView.hidden = false
+                historyDefaultView.isHidden = false
             } else {
-                historyDefaultView.hidden = true
+                historyDefaultView.isHidden = true
             }
         }
     }
 
     // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == resultsSegueIdentifier,
         let indexPath = tableView.indexPathForSelectedRow {
-            let searchResults = segue.destinationViewController as? SearchResultsViewController
+            let searchResults = segue.destination as? SearchResultsViewController
             let row = indexPath.row
             let historyData = historyList[row]
             searchResults?.keywords = historyData.keyword
@@ -166,5 +163,5 @@ class HistoryTableViewController: UITableViewController {
             navigationItem.backBarButtonItem = backItem
         }
     }
-
+    
 }

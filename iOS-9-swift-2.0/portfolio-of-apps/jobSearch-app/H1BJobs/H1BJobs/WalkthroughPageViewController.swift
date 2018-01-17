@@ -25,12 +25,12 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
         
         // Create the first walkthrough screen
         if let startingViewController = viewControllerAtIndex(0) {
-            setViewControllers([startingViewController], direction: .Forward, animated: true, completion: nil)
+            setViewControllers([startingViewController], direction: .forward, animated: true, completion: nil)
         }
 
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden: Bool {
         return true
     }
 
@@ -40,30 +40,30 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
     }
 
     // MARK: - UIPageViewControllerDataSource
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         var index = (viewController as! WalkthroughContentViewController).index
-        index++
+        index += 1
         
         return viewControllerAtIndex(index)
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         var index = (viewController as! WalkthroughContentViewController).index
-        index--
+        index -= 1
         
         return viewControllerAtIndex(index)
     }
     
-    func viewControllerAtIndex(index: Int) -> WalkthroughContentViewController? {
+    func viewControllerAtIndex(_ index: Int) -> WalkthroughContentViewController? {
         
         if index == NSNotFound || index < 0 || index >= pages.count {
             return nil
         }
         
         // Create a new view controller and pass suitable data.
-        if let pageContentViewController = storyboard?.instantiateViewControllerWithIdentifier("WalkthroughContentViewController") as? WalkthroughContentViewController {
+        if let pageContentViewController = storyboard?.instantiateViewController(withIdentifier: "WalkthroughContentViewController") as? WalkthroughContentViewController {
             pageContentViewController.heading = pages[index].heading
             pageContentViewController.content = pages[index].content
             pageContentViewController.index = index
@@ -76,8 +76,8 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
     
     func forward(index:Int) {
         if let nextViewController = viewControllerAtIndex(index + 1) {
-            setViewControllers([nextViewController], direction: .Forward, animated: true, completion: nil)
+            setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
         }
     }
-    
+
 }

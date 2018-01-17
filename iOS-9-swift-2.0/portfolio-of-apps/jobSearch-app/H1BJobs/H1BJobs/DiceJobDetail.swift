@@ -14,15 +14,15 @@ class DiceJobDetail: NSObject {
     var jobTitle: String?
     var company: String?
     var location: String?
-    var postdate: NSDate?
+    var postdate: Date?
     var date: String? {
         didSet {
-            postdate = date!.diceJobPostDateDayMonthYear()
+            postdate = date?.diceJobPostDateDayMonthYear()
         }
     }
     
-    init(dict: [String: AnyObject]) {
+    init(dict: [String: Any]) {
         super.init()
-        self.setValuesForKeysWithDictionary(dict)
+        self.setValuesForKeys(dict)
     }
 }

@@ -11,15 +11,15 @@ import UIKit
 extension String {
     
     var escapedString: String {
-        return self.stringByReplacingOccurrencesOfString(" ", withString: "+")
+        return self.replacingOccurrences(of: " ", with: "+")
     }
 
-    var parseJSONString: AnyObject? {
+    var parseJSONString: Any? {
 
         do {
-            let jsonData = self.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+            let jsonData = self.data(using: String.Encoding.utf8, allowLossyConversion: false)
             if let _ = jsonData,
-                JSON = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .MutableContainers) as? NSDictionary {
+                let JSON = try JSONSerialization.jsonObject(with: jsonData!, options: .mutableContainers) as? NSDictionary {
                 return JSON
             }
             // No JSON Data returned
@@ -33,28 +33,28 @@ extension String {
         return JobUtils.init(category:jobBoard, search:keywords).requestURL
     }
     
-    func cbJobPostDateDayMonthYear() -> NSDate {
-        let postDateTimeArr =  self.characters.split{$0 == " "}.map(String.init) // 11/18/2015 11:59:48 AM
+    func cbJobPostDateDayMonthYear() -> Date {
+        let postDateTimeArr =  self.split{$0 == " "}.map(String.init) // 11/18/2015 11:59:48 AM
         let postDate = postDateTimeArr[0]
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
-        return dateFormatter.dateFromString(postDate)!
+        return dateFormatter.date(from: postDate)! as Date
     }
     
-    func diceJobPostDateDayMonthYear() -> NSDate {
+    func diceJobPostDateDayMonthYear() -> Date {
         let postDate = self
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.dateFromString(postDate)!
+        return dateFormatter.date(from: postDate)! as Date
     }
     
     func isValidSponsoredJob() -> Bool {
-        if  self.lowercaseString.rangeOfString("unable") == nil &&
-            self.lowercaseString.rangeOfString("not") == nil &&
-            self.lowercaseString.rangeOfString("no") == nil &&
-            self.lowercaseString.rangeOfString("won't") == nil &&
-            self.lowercaseString.rangeOfString("unwilling") == nil &&
-            self.lowercaseString.rangeOfString("cannot") == nil {
+        if  self.lowercased().range(of:"unable") == nil &&
+            self.lowercased().range(of:"not") == nil &&
+            self.lowercased().range(of:"no") == nil &&
+            self.lowercased().range(of:"won't") == nil &&
+            self.lowercased().range(of:"unwilling") == nil &&
+            self.lowercased().range(of:"cannot") == nil {
                 return true
         }
         return false

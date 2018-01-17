@@ -22,19 +22,20 @@ class IndeedJob: NSObject {
     var pageNumber: NSNumber?
     var dupefilter: NSNumber?
     
-    var results:[AnyObject] = [AnyObject]() {
+    var results = [Any]() {
         didSet {
             for items in results {
-                let item = items as! [String : AnyObject]
-                let jobItem: IndeedJobDetail = IndeedJobDetail(dict: item)
-                jobListings.append(jobItem)
+                if let item = items as? [String : Any] {
+                    let jobItem: IndeedJobDetail = IndeedJobDetail(dict: item)
+                    jobListings.append(jobItem)
+                }
             }
         }
     }
 
     var jobData = [String: AnyObject]() {
         didSet {
-            self.setValuesForKeysWithDictionary(jobData)
+            self.setValuesForKeys(jobData)
         }
     }
 

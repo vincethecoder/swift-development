@@ -24,7 +24,7 @@
 		18428C1F1C35DC0800C4CAF1 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C1E1C35DC0800C4CAF1 /* UIImage+Utils.swift */; };
 		18428C211C37B3E500C4CAF1 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C201C37B3E500C4CAF1 /* UIImageView+Utils.swift */; };
 		18428C231C38C24400C4CAF1 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C221C38C24400C4CAF1 /* ImageLoader.swift */; };
-		18428C251C39569500C4CAF1 /* JobWebViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C241C39569500C4CAF1 /* JobWebViewControler.swift */; };
+		18428C251C39569500C4CAF1 /* JobWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18428C241C39569500C4CAF1 /* JobWebViewController.swift */; };
 		186A60051C537B5E005A2E07 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A60031C537B5E005A2E07 /* ErrorView.swift */; };
 		186A60061C537B5E005A2E07 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186A60041C537B5E005A2E07 /* ErrorView.xib */; };
 		186A60081C53F46E005A2E07 /* SaveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186A60071C53F46E005A2E07 /* SaveView.xib */; };
@@ -56,7 +56,7 @@
 		18AB2EF71C093100002C3484 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EF61C093100002C3484 /* UIColor+Utils.swift */; };
 		18AB2EF91C09B05C002C3484 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EF81C09B05C002C3484 /* SearchResultsViewController.swift */; };
 		18AB2EFB1C09CF9B002C3484 /* H1BJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EFA1C09CF9B002C3484 /* H1BJob.swift */; };
-		18AB2EFD1C0A31C9002C3484 /* NSDate+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EFC1C0A31C9002C3484 /* NSDate+Formatter.swift */; };
+		18AB2EFD1C0A31C9002C3484 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2EFC1C0A31C9002C3484 /* Date+Formatter.swift */; };
 		18AB2F021C0A5C82002C3484 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB2F011C0A5C82002C3484 /* ResultsTableViewCell.swift */; };
 		18BFBA141C4372A700EBB2F9 /* ImageViewWithGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFBA131C4372A700EBB2F9 /* ImageViewWithGradient.swift */; };
 		18F6B9C41C4988980033E2FB /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6B9C31C4988980033E2FB /* WalkthroughContentViewController.swift */; };
@@ -65,12 +65,11 @@
 		18F6B9D91C4AADBA0033E2FB /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6B9D81C4AADBA0033E2FB /* UIImage+animatedGIF.m */; };
 		18F6B9DC1C4C84E70033E2FB /* LinkupJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6B9DB1C4C84E70033E2FB /* LinkupJob.swift */; };
 		18F6B9DF1C4C86EF0033E2FB /* LinkupJobDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6B9DE1C4C86EF0033E2FB /* LinkupJobDetail.swift */; };
-		7E0828DAE2CDF0ED3CD0A816 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B48F45D284830D6B91B1A87 /* Pods.framework */; };
-		A865021B1C5D7D420002CC13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A865021A1C5D7D420002CC13 /* GoogleService-Info.plist */; };
+		A839BA47200EC00000ADDA28 /* JSONCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A839BA46200EC00000ADDA28 /* JSONCodingKeys.swift */; };
+		B67B44BCBAC709AB0298508A /* Pods_H1BJobs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C28C8DF1B7F8E834F98003 /* Pods_H1BJobs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02B0BA33CFC6A136B3B97865 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1800A6DE1C4DF33100D6BCE2 /* GMDCircleLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMDCircleLoader.h; sourceTree = "<group>"; };
 		1800A6DF1C4DF33100D6BCE2 /* GMDCircleLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMDCircleLoader.m; sourceTree = "<group>"; };
 		1800A6E21C4DF37F00D6BCE2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -89,7 +88,7 @@
 		18428C1E1C35DC0800C4CAF1 /* UIImage+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Utils.swift"; path = "Utilities/UIImage+Utils.swift"; sourceTree = "<group>"; };
 		18428C201C37B3E500C4CAF1 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+Utils.swift"; path = "Utilities/UIImageView+Utils.swift"; sourceTree = "<group>"; };
 		18428C221C38C24400C4CAF1 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageLoader.swift; path = Utilities/ImageLoader.swift; sourceTree = "<group>"; };
-		18428C241C39569500C4CAF1 /* JobWebViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobWebViewControler.swift; sourceTree = "<group>"; };
+		18428C241C39569500C4CAF1 /* JobWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobWebViewController.swift; sourceTree = "<group>"; };
 		186A60031C537B5E005A2E07 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		186A60041C537B5E005A2E07 /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		186A60071C53F46E005A2E07 /* SaveView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SaveView.xib; sourceTree = "<group>"; };
@@ -123,7 +122,7 @@
 		18AB2EF61C093100002C3484 /* UIColor+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 		18AB2EF81C09B05C002C3484 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		18AB2EFA1C09CF9B002C3484 /* H1BJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H1BJob.swift; sourceTree = "<group>"; };
-		18AB2EFC1C0A31C9002C3484 /* NSDate+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Formatter.swift"; sourceTree = "<group>"; };
+		18AB2EFC1C0A31C9002C3484 /* Date+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
 		18AB2F011C0A5C82002C3484 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
 		18BFBA131C4372A700EBB2F9 /* ImageViewWithGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewWithGradient.swift; path = Utilities/ImageViewWithGradient.swift; sourceTree = "<group>"; };
 		18DD3F2D1C48A15600FBC68B /* H1BJobs-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "H1BJobs-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -134,9 +133,11 @@
 		18F6B9D81C4AADBA0033E2FB /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		18F6B9DB1C4C84E70033E2FB /* LinkupJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkupJob.swift; sourceTree = "<group>"; };
 		18F6B9DE1C4C86EF0033E2FB /* LinkupJobDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkupJobDetail.swift; sourceTree = "<group>"; };
-		1FF70E88760F2F5F91381D20 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4B7C2AACDE1D7165D4740C62 /* Pods-H1BJobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-H1BJobs.release.xcconfig"; path = "Pods/Target Support Files/Pods-H1BJobs/Pods-H1BJobs.release.xcconfig"; sourceTree = "<group>"; };
 		6B48F45D284830D6B91B1A87 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A865021A1C5D7D420002CC13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		89C28C8DF1B7F8E834F98003 /* Pods_H1BJobs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_H1BJobs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96F03A83350D0A67A4A4FF3F /* Pods-H1BJobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-H1BJobs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-H1BJobs/Pods-H1BJobs.debug.xcconfig"; sourceTree = "<group>"; };
+		A839BA46200EC00000ADDA28 /* JSONCodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSONCodingKeys.swift; path = Utilities/JSONCodingKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +151,7 @@
 				1800A6E31C4DF37F00D6BCE2 /* CoreGraphics.framework in Frameworks */,
 				1886EB641C25FB4100134016 /* libsqlite3.tbd in Frameworks */,
 				1886EB621C25FB3000134016 /* SQLite.framework in Frameworks */,
-				7E0828DAE2CDF0ED3CD0A816 /* Pods.framework in Frameworks */,
+				B67B44BCBAC709AB0298508A /* Pods_H1BJobs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,8 +197,8 @@
 			children = (
 				18AB2EC71C040701002C3484 /* H1BJobs */,
 				18AB2EC61C040701002C3484 /* Products */,
-				45F1338896A846EA22FB623E /* Pods */,
 				510EBF51A6AD3E38FEB12EBF /* Frameworks */,
+				28B1C1E58CF2FA9DCBE2CF69 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -222,7 +223,7 @@
 				186A60071C53F46E005A2E07 /* SaveView.xib */,
 				18AB2EDE1C040746002C3484 /* JobSearchViewController.swift */,
 				18AB2EF81C09B05C002C3484 /* SearchResultsViewController.swift */,
-				18428C241C39569500C4CAF1 /* JobWebViewControler.swift */,
+				18428C241C39569500C4CAF1 /* JobWebViewController.swift */,
 				18428C181C2ED27C00C4CAF1 /* FavoriteTableViewController.swift */,
 				1894FFB51C1FD4AF000EBE18 /* HistoryTableViewController.swift */,
 				187E6B331C42FEFB00241486 /* AboutTableViewController.swift */,
@@ -235,7 +236,6 @@
 				18AB2ED11C040701002C3484 /* Assets.xcassets */,
 				18AB2ED61C040701002C3484 /* Info.plist */,
 				18DD3F2D1C48A15600FBC68B /* H1BJobs-Bridging-Header.h */,
-				A865021A1C5D7D420002CC13 /* GoogleService-Info.plist */,
 				1800A6E11C4DF33900D6BCE2 /* GMDCircleLoader */,
 			);
 			path = H1BJobs;
@@ -253,9 +253,10 @@
 				18428C201C37B3E500C4CAF1 /* UIImageView+Utils.swift */,
 				18428C1E1C35DC0800C4CAF1 /* UIImage+Utils.swift */,
 				18AB2EF61C093100002C3484 /* UIColor+Utils.swift */,
-				18AB2EFC1C0A31C9002C3484 /* NSDate+Formatter.swift */,
+				18AB2EFC1C0A31C9002C3484 /* Date+Formatter.swift */,
 				18F6B9D71C4AADBA0033E2FB /* UIImage+animatedGIF.h */,
 				18F6B9D81C4AADBA0033E2FB /* UIImage+animatedGIF.m */,
+				A839BA46200EC00000ADDA28 /* JSONCodingKeys.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -303,11 +304,11 @@
 			name = Linkup;
 			sourceTree = "<group>";
 		};
-		45F1338896A846EA22FB623E /* Pods */ = {
+		28B1C1E58CF2FA9DCBE2CF69 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				02B0BA33CFC6A136B3B97865 /* Pods.debug.xcconfig */,
-				1FF70E88760F2F5F91381D20 /* Pods.release.xcconfig */,
+				96F03A83350D0A67A4A4FF3F /* Pods-H1BJobs.debug.xcconfig */,
+				4B7C2AACDE1D7165D4740C62 /* Pods-H1BJobs.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -322,6 +323,7 @@
 				1886EB631C25FB4100134016 /* libsqlite3.tbd */,
 				1886EB611C25FB3000134016 /* SQLite.framework */,
 				6B48F45D284830D6B91B1A87 /* Pods.framework */,
+				89C28C8DF1B7F8E834F98003 /* Pods_H1BJobs.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -333,12 +335,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18AB2ED91C040701002C3484 /* Build configuration list for PBXNativeTarget "H1BJobs" */;
 			buildPhases = (
-				0D2117DF187680149D0E9373 /* Check Pods Manifest.lock */,
+				0C8C1CFDC3A27D2E05AC001F /* [CP] Check Pods Manifest.lock */,
 				18AB2EC11C040701002C3484 /* Sources */,
 				18AB2EC21C040701002C3484 /* Frameworks */,
 				18AB2EC31C040701002C3484 /* Resources */,
-				5C076DECD2027F778BEB7469 /* Embed Pods Frameworks */,
-				7A0BB4F5A87D212CB4A73E45 /* Copy Pods Resources */,
+				7A1A446C812E31B47467A40E /* [CP] Embed Pods Frameworks */,
+				DC463CAACD71745C68E94754 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -392,56 +394,61 @@
 				18AB2ED21C040701002C3484 /* Assets.xcassets in Resources */,
 				18AB2ED01C040701002C3484 /* Main.storyboard in Resources */,
 				186A60061C537B5E005A2E07 /* ErrorView.xib in Resources */,
-				A865021B1C5D7D420002CC13 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0D2117DF187680149D0E9373 /* Check Pods Manifest.lock */ = {
+		0C8C1CFDC3A27D2E05AC001F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-H1BJobs-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5C076DECD2027F778BEB7469 /* Embed Pods Frameworks */ = {
+		7A1A446C812E31B47467A40E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-H1BJobs/Pods-H1BJobs-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-H1BJobs/Pods-H1BJobs-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7A0BB4F5A87D212CB4A73E45 /* Copy Pods Resources */ = {
+		DC463CAACD71745C68E94754 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-H1BJobs/Pods-H1BJobs-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -465,7 +472,7 @@
 				18428C171C2E206A00C4CAF1 /* FavoriteDetailHelper.swift in Sources */,
 				1886EB691C27075C00134016 /* HistoryHelper.swift in Sources */,
 				18F6B9D91C4AADBA0033E2FB /* UIImage+animatedGIF.m in Sources */,
-				18428C251C39569500C4CAF1 /* JobWebViewControler.swift in Sources */,
+				18428C251C39569500C4CAF1 /* JobWebViewController.swift in Sources */,
 				18428C1F1C35DC0800C4CAF1 /* UIImage+Utils.swift in Sources */,
 				18F6B9DF1C4C86EF0033E2FB /* LinkupJobDetail.swift in Sources */,
 				18AB2EFB1C09CF9B002C3484 /* H1BJob.swift in Sources */,
@@ -476,6 +483,7 @@
 				18AB2EED1C07B5AA002C3484 /* CBJob.swift in Sources */,
 				18F6B9C61C498BFC0033E2FB /* WalkthroughPageViewController.swift in Sources */,
 				187E72181C430DE700D458AB /* JobSocialMedia.swift in Sources */,
+				A839BA47200EC00000ADDA28 /* JSONCodingKeys.swift in Sources */,
 				18428C151C2E082100C4CAF1 /* FavoriteHelper.swift in Sources */,
 				1886EB6D1C27096700134016 /* History.swift in Sources */,
 				18428C1D1C35CE7100C4CAF1 /* H1BCompany.swift in Sources */,
@@ -487,7 +495,7 @@
 				180F32AD1C4CD42B00929F53 /* IndeedJob.swift in Sources */,
 				1886EB6B1C27089100134016 /* DataHelperProtocol.swift in Sources */,
 				18AB2EE31C061FD5002C3484 /* String+Utils.swift in Sources */,
-				18AB2EFD1C0A31C9002C3484 /* NSDate+Formatter.swift in Sources */,
+				18AB2EFD1C0A31C9002C3484 /* Date+Formatter.swift in Sources */,
 				1894FFB61C1FD4AF000EBE18 /* HistoryTableViewController.swift in Sources */,
 				18428C111C2DFFDB00C4CAF1 /* Favorite.swift in Sources */,
 				18428C231C38C24400C4CAF1 /* ImageLoader.swift in Sources */,
@@ -608,36 +616,38 @@
 		};
 		18AB2EDA1C040701002C3484 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02B0BA33CFC6A136B3B97865 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 96F03A83350D0A67A4A4FF3F /* Pods-H1BJobs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = H1BJobs/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vincethecoder.H-1BJobs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "H1BJobs/H1BJobs-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		18AB2EDB1C040701002C3484 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1FF70E88760F2F5F91381D20 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 4B7C2AACDE1D7165D4740C62 /* Pods-H1BJobs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = H1BJobs/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vincethecoder.H-1BJobs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "H1BJobs/H1BJobs-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

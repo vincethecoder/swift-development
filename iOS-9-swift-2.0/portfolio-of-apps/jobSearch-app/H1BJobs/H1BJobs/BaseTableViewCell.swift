@@ -14,18 +14,18 @@ class BaseTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
     func noListingsCell(inlineMessage: String) -> UITableViewCell {
         self.textLabel?.attributedText = NSMutableAttributedString(
             string: NSLocalizedString(inlineMessage, comment: ""),
-            attributes:[NSFontAttributeName: UIFont.systemFontOfSize(17),
-                NSForegroundColorAttributeName: UIColor.H1BTextColor()])
+            attributes:[NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17),
+                        NSAttributedStringKey.foregroundColor: UIColor.H1BTextColor()])
         self.textLabel?.numberOfLines = 0
-        self.selectionStyle = .None
-        self.accessoryType = .None
+        self.selectionStyle = .none
+        self.accessoryType = .none
         return self
     }
 

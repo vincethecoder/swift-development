@@ -31,7 +31,7 @@ class FavoriteDetailHelper: DataHelperProtocol {
     
     static var db: Connection {
         get {
-            let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
+            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
             
             // if you don't want to handle error you can force it with try! keyword.
             // As with other keywords that ends ! this is a risky operation.
@@ -89,19 +89,32 @@ class FavoriteDetailHelper: DataHelperProtocol {
     }
     
     static func findAll() -> [T]? {
-        var records: [T] = []
-        for f in db.prepare(table) {
-            let favoriteDetailRecord = FavoriteDetail(favoriteId: f.get(favoriteId), jobId: f.get(jobId)!, jobLocation: f.get(jobLocation)!, locationLat: f.get(locationLat)!, locationLng: f.get(locationLng)!, descTeaser: f.get(descTeaser)!, pay: f.get(pay)!, postDate: f.get(postDate)!, imageUrl: f.get(imageUrl)!)
-            records.append(favoriteDetailRecord)
+        var records = [T]()
+        do {
+            guard let jobDB = try? db.prepare(table) else {
+                return records
+            }
+            for f in jobDB {
+                let favoriteDetailRecord = FavoriteDetail(favoriteId: try f.get(favoriteId), jobId: try f.get(jobId)!, jobLocation: try f.get(jobLocation)!, locationLat: try f.get(locationLat)!, locationLng: try f.get(locationLng)!, descTeaser: try f.get(descTeaser)!, pay: try f.get(pay)!, postDate: try f.get(postDate)!, imageUrl: try f.get(imageUrl)!)
+                records.append(favoriteDetailRecord)
+            }
+        } catch {
+            assertionFailure(error.localizedDescription)
         }
+
         return records
     }
     
     static func find(id: Int64) -> T? {
         let query = table.filter(favoriteId == id)
         var result: T?
-        if let item = db.pluck(query) {
+        do {
+            guard let item = try db.pluck(query) else {
+                return result
+            }
             result = FavoriteDetail(favoriteId: item[favoriteId], jobId: item[jobId]!, jobLocation: item[jobLocation]!, locationLat: item[locationLat]!, locationLng: item[locationLng]!, descTeaser: item[descTeaser]!, pay: item[pay]!, postDate: item[postDate]!, imageUrl: item[imageUrl]!)
+        } catch {
+            assertionFailure(error.localizedDescription)
         }
         return result
     }

@@ -27,17 +27,17 @@ class JobUtils: NSObject {
     var requestURL: String {
         get {
             let baseURL = jobCategory.rawValue
-            if searchTerm.characters.count > 0 {
+            if searchTerm.count > 0 {
                 searchTerm = searchTerm.escapedString
                 if jobCategory == .Indeed {
                     return "\(baseURL)+\(searchTerm)"
                 } else if jobCategory == .LinkUp {
-                    return baseURL.stringByReplacingOccurrencesOfString("<keyword_placeholder>", withString: "+\(searchTerm)")
+                    return baseURL.replacingOccurrences(of: "<keyword_placeholder>", with: "+\(searchTerm)")
                 }
                 return "\(baseURL),\(searchTerm)"
             } else {
                 if jobCategory == .LinkUp {
-                    return baseURL.stringByReplacingOccurrencesOfString("<keyword_placeholder>", withString: "")
+                    return baseURL.replacingOccurrences(of: "<keyword_placeholder>", with: "")
                 }
                 return baseURL
             }

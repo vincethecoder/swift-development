@@ -8,25 +8,41 @@
 
 import UIKit
 
-class CBJob: NSObject {
+struct CBJob {
     
-    var jobListings:[CBJobDetail] = []
-    var searchResponse:CBJobResponse?
-    var ResponseJobSearch = [String: AnyObject]() {
-        didSet {
-            let response = CBJobResponse.init(dict: ResponseJobSearch)
-            searchResponse = response
-            jobListings = (searchResponse?.jobListings)!
-        }
-    }
-    
+    var jobListings = [CBJobDetail]()
+    var searchResponse: CBJobResponse?
+    var responseJobSearch: [String: Any]?
     var hasResults: Bool {
         return jobListings.count > 0
     }
+
+    enum CodingKeys: String, CodingKey {
+        case responseJobSearch = "ResponseJobSearch"
+    }
+}
+
+extension CBJob: Encodable {
     
-    var jobData = [String: AnyObject]() {
-        didSet {
-            self.setValuesForKeysWithDictionary(jobData)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        do {
+            try container.encode(responseJobSearch, forKey: .responseJobSearch)
+        } catch {
+            assertionFailure(error.localizedDescription)
         }
     }
 }
+
+extension CBJob: Decodable {
+    
+    public init(from decoder: Decoder) throws {
+        do {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            responseJobSearch = try values.decode([String: Any].self, forKey: .responseJobSearch)
+        } catch {
+            assertionFailure(error.localizedDescription)
+        }
+    }
+}
+

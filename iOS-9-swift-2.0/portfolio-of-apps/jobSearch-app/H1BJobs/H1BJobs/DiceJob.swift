@@ -10,18 +10,19 @@ import UIKit
 
 class DiceJob: NSObject {
 
-    var nextUrl: String = ""
-    var count: Int = 0
-    var firstDocument: Int = 0
-    var lastDocument: Int = 0
-    var jobListings: [DiceJobDetail] = []
+    var nextUrl = ""
+    var count = 0
+    var firstDocument = 0
+    var lastDocument = 0
+    var jobListings = [DiceJobDetail]()
     
     var resultItemList:[AnyObject] = [AnyObject]() {
         didSet {
             for items in resultItemList {
-                let item = items as! [String : AnyObject]
-                let jobItem: DiceJobDetail = DiceJobDetail.init(dict: item)
-                jobListings.append(jobItem)
+                if let item = items as? [String : Any] {
+                    let jobItem: DiceJobDetail = DiceJobDetail(dict: item)
+                    jobListings.append(jobItem)
+                }
             }
         }
     }
@@ -31,12 +32,12 @@ class DiceJob: NSObject {
     }
     
     var hasNextPage: Bool {
-        return nextUrl.characters.count > 0
+        return nextUrl.count > 0
     }
     
     var jobData = [String: AnyObject]() {
         didSet {
-           self.setValuesForKeysWithDictionary(jobData)
+            self.setValuesForKeys(jobData)
         }
     }
 

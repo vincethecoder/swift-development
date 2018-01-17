@@ -9,7 +9,6 @@
 #ifndef H1BJobs_Bridging_Header_h
 #define H1BJobs_Bridging_Header_h
 
-#import <Google/Analytics.h>
 #import "UIImage+animatedGIF.h"
 #import "GMDCircleLoader.h"
 

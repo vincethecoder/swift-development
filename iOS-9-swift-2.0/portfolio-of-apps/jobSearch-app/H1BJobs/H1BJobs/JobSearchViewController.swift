@@ -16,9 +16,6 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var logoImageView: UIImageView!
     
     let resultsSegueIdentifier = "showResults"
-    var tracker: GAITracker {
-        return GAI.sharedInstance().defaultTracker
-    }
     
     var build: [NSObject: AnyObject]!
 
@@ -26,20 +23,22 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         let keywordPlaceholder = "Job title or keywords"
-        formatTextField(keywordsTextField, text: keywordPlaceholder)
-        formatButton(searchButton, text: "Search")
+        formatTextField(textField: keywordsTextField, text: keywordPlaceholder)
+        formatButton(button: searchButton, text: "Search")
         formatLogoImageView()
 
         let font = UIFont(name: "Avenir", size: 18)!
-        let attributes = [NSForegroundColorAttributeName: UIColor.lightGrayColor(), NSFontAttributeName: font]
+        let attributes = [NSAttributedStringKey.foregroundColor: UIColor.lightGray, NSAttributedStringKey.font: font]
         keywordsTextField.attributedPlaceholder = NSAttributedString(string: keywordPlaceholder, attributes:attributes)
         
-        let scale = CGAffineTransformMakeScale(0.0, 0.0)
-        let translate = CGAffineTransformMakeTranslation(0, 500)
-        logoImageView.transform = CGAffineTransformConcat(scale, translate)
+        let scale = CGAffineTransform(scaleX: 0.0, y: 0.0)
+        let translate = CGAffineTransform(translationX: 0, y: 500)
+        logoImageView.transform = scale.concatenating(translate)
         
         //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        //let tap = UITapGestureRecognizer(target: self, action: #selector(self.saveButtonTapped(_:)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        // UITapGestureRecognizer(target: self, action: #selecter(self.dismissKeyboard()))
         view.addGestureRecognizer(tap)
         
         keywordsTextField.delegate = self
@@ -49,37 +48,31 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
-        UIView.animateWithDuration(0.5, delay: 0.2, options: [], animations: {
-            self.logoImageView.transform = CGAffineTransformIdentity
+        UIView.animate(withDuration: 0.5, delay: 0.2, options: [], animations: {
+            self.logoImageView.transform = CGAffineTransform.identity
             }, completion: nil)
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let hasViewedWalkthrough = defaults.boolForKey("hasViewedWalkthrough")
+        let defaults = UserDefaults.standard
+        let hasViewedWalkthrough = defaults.bool(forKey: "hasViewedWalkthrough")
         guard hasViewedWalkthrough == false else { return }
         
-        if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("WalkthroughController") as? WalkthroughPageViewController {
-            presentViewController(pageViewController, animated: true, completion: nil)
+        if let pageViewController = storyboard?.instantiateViewController(withIdentifier: "WalkthroughController") as? WalkthroughPageViewController {
+            present(pageViewController, animated: true, completion: nil)
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         updateFavoriteTabBadge()
-        
-        // Google Analytics
-        tracker.set(kGAIScreenName, value: "/searchview")
-        let builder = GAIDictionaryBuilder.createScreenView()
-        build = builder.build() as [NSObject: AnyObject]
-        tracker.send(build)
     }
     
     func updateFavoriteTabBadge() {
         let tabArray = self.tabBarController?.tabBar.items as NSArray!
-        let favoriteTab = tabArray.objectAtIndex(1) as! UITabBarItem
+        let favoriteTab = tabArray?.object(at: 1) as! UITabBarItem
         let favoriteCount = FavoriteHelper.count()
         favoriteTab.badgeValue = favoriteCount > 0 ? "\(favoriteCount)" : nil
     }
@@ -87,14 +80,14 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
     func formatLogoImageView() {
         logoImageView.layer.borderWidth = 1.0
         logoImageView.layer.masksToBounds = false
-        logoImageView.layer.borderColor = UIColor.H1BBorderColor().CGColor
+        logoImageView.layer.borderColor = UIColor.H1BBorderColor().cgColor
         logoImageView.layer.cornerRadius = logoImageView.frame.width / 2
         logoImageView.clipsToBounds = true
     }
 
     func blurBackgroundEffect() {
         // Apply a blurring effect to the background image view
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         backgroundImageView.addSubview(blurEffectView)
@@ -102,61 +95,50 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
     
     func formatTextField(textField: UITextField, text: String) {
         textField.attributedPlaceholder = NSAttributedString(string:text,
-            attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+                                                             attributes:[NSAttributedStringKey.foregroundColor: UIColor.gray])
         
-        textField.borderStyle = .RoundedRect
-        textField.backgroundColor = UIColor.whiteColor()
+        textField.borderStyle = .roundedRect
+        textField.backgroundColor = UIColor.white
 
-        textField.leftViewMode = .Always
+        textField.leftViewMode = .always
         textField.leftView = UIImageView(image: UIImage(named: "action_search"))
         
-        textField.autocorrectionType = .Yes
+        textField.autocorrectionType = .yes
     }
     
     func formatButton(button: UIButton, text: String) {
-        button.setTitle(text, forState: .Normal)
+        button.setTitle(text, for: .normal)
 
         button.layer.cornerRadius = 8.0
-        button.layer.borderColor = UIColor.H1BBorderColor().CGColor
+        button.layer.borderColor = UIColor.H1BBorderColor().cgColor
         button.layer.borderWidth = 1.0
 
-        button.layer.backgroundColor = UIColor.H1BHeaderColor().CGColor
+        button.layer.backgroundColor = UIColor.H1BHeaderColor().cgColor
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         return false
     }
 
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func dismissVisibleKeyboard() {
         view.endEditing(true)
     }
     
     @IBAction func searchButtonTapped(sender: UIButton) {
         let keywords = keywordsTextField.text!
-        let historyRecord = History(searchId: 0, keyword: keywords, location: "", state: "", timestamp: NSDate())
-        let historyId = HistoryHelper.insert(historyRecord)
+        let historyRecord = History(searchId: 0, keyword: keywords, location: "", state: "", timestamp: Date())
+        let historyId = HistoryHelper.insert(item: historyRecord)
         print("history id \(historyId)")
-        
-
-        var keywordProcessed = String()
-        var keywordCategory = String()
-
-        if keywords.characters.count > 0 {
-            keywordProcessed = "\(keywords)"
-            keywordCategory = "custom search"
-        } else {
-            keywordProcessed = "Any H1B Job"
-            keywordCategory = "default search"
-        }
-        
-        // Google Analytics
-        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Keyword: \(keywordProcessed)", action: "Search Pressed", label: keywordCategory, value: nil).build() as [NSObject : AnyObject])
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == resultsSegueIdentifier {
-            let searchResults = segue.destinationViewController as? SearchResultsViewController
+            let searchResults = segue.destination as? SearchResultsViewController
             searchResults?.keywords = keywordsTextField.text
         }
     }

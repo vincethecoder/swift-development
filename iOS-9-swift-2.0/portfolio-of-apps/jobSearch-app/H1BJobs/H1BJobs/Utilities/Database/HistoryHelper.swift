@@ -15,7 +15,7 @@ class HistoryHelper: DataHelperProtocol {
     static let keyword = Expression<String?>("keyword")
     static let location = Expression<String?>("location")
     static let state = Expression<String?>("state")
-    static let timestamp = Expression<NSDate?>("timestamp")
+    static let timestamp = Expression<Date?>("timestamp")
 
     typealias T = History
     static let table = Table("history")
@@ -27,7 +27,7 @@ class HistoryHelper: DataHelperProtocol {
 
     static var db: Connection {
         get {
-            let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
+            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
             
             // if you don't want to handle error you can force it with try! keyword.
             // As with other keywords that ends ! this is a risky operation.
@@ -83,12 +83,17 @@ class HistoryHelper: DataHelperProtocol {
     }
     
     static func findAll() -> [T]? {
-        var records: [T] = []
-        if tableCreated {
-            for h in db.prepare(table.order(searchId.desc)) {
-                let historyRecord = History(searchId: h.get(searchId), keyword: h.get(keyword)!, location: h.get(location)!, state: h.get(state)!, timestamp: h.get(timestamp)!)
+        var records =  [T]()
+        guard tableCreated == true, let jobDB = try? db.prepare(table.order(searchId.desc)) else {
+            return records
+        }
+        do {
+            for h in jobDB {
+                let historyRecord = History(searchId: try h.get(searchId), keyword: try h.get(keyword)!, location: try h.get(location)!, state: try h.get(state)!, timestamp: try h.get(timestamp)!)
                 records.append(historyRecord)
             }
+        } catch {
+            assertionFailure(error.localizedDescription)
         }
         
         return records
@@ -97,10 +102,14 @@ class HistoryHelper: DataHelperProtocol {
     static func find(item: T) -> T? {
         let query = table.filter(keyword == item.keyword)
         var result: T?
-        if tableCreated {
-            if let item = db.pluck(query) {
-                result = History(searchId: item[searchId], keyword: item[keyword]!, location: item[location]!, state: item[state]!, timestamp: item[timestamp]!)
-            }
+        guard tableCreated == true , let item = try? db.pluck(query) else {
+            return result
+        }
+        do {
+            let record = History(searchId: try item![searchId], keyword: try item![keyword]!, location: try item![location]!, state: try item![state]!, timestamp: try item![timestamp]!)
+            result = record
+        } catch {
+            assertionFailure(error.localizedDescription)
         }
         return result
     }

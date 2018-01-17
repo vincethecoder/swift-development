@@ -1,11 +1,25 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Black</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Heavy</string>
+        </array>
+        <array key="LaoSangamMN.ttf">
+            <string>LaoSangamMN</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Job Search View Controller-->
         <scene sceneID="hNz-n2-bh7">
@@ -16,21 +30,21 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="city_skyline_ny" translatesAutoresizingMaskIntoConstraints="NO" id="V6g-BQ-5vA">
-                                <rect key="frame" x="0.0" y="10" width="600" height="570"/>
+                                <rect key="frame" x="-4" y="10" width="383" height="637"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_h1bjobs_HQ" translatesAutoresizingMaskIntoConstraints="NO" id="q9q-8x-OkE">
-                                <rect key="frame" x="514" y="98" width="65" height="65"/>
+                                <rect key="frame" x="293" y="98" width="65" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="4zq-if-qVx"/>
                                     <constraint firstAttribute="height" constant="65" id="OOM-5r-Xsa"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7hb-4C-m6L">
-                                <rect key="frame" x="160" y="241" width="280" height="117"/>
+                                <rect key="frame" x="47.5" y="275" width="280" height="117"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex. Engineer or Software Developer" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ABh-eo-CQG">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="45"/>
@@ -43,24 +57,24 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCr-Pj-gG4">
                                         <rect key="frame" x="0.0" y="65" width="280" height="52"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="KEC-2V-sFL"/>
                                             <constraint firstAttribute="height" constant="52" id="gWe-Po-ghN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                         <state key="normal" title="Search">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="searchButtonTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="5AD-hJ-Lv5"/>
+                                            <action selector="searchButtonTappedWithSender:" destination="9pv-A4-QxB" eventType="touchUpInside" id="q6X-23-2qj"/>
                                             <segue destination="JTo-c2-1h4" kind="show" identifier="showResults" id="lkJ-8a-hUQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7hb-4C-m6L" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="57P-K2-yGT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="V6g-BQ-5vA" secondAttribute="trailing" constant="-20" id="Ffa-e8-EKo"/>
@@ -98,22 +112,22 @@
             <objects>
                 <tableViewController id="z4B-Nw-7Yn" customClass="HistoryTableViewController" customModule="H1BJobs" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fvy-9U-Xr7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="70" id="6S8-dV-w0Q" customClass="HistoryTableViewCell" customModule="H1BJobs" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="70"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6S8-dV-w0Q" id="FD3-Z4-maa">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iWL-Np-vOF">
-                                            <rect key="frame" x="98" y="8" width="186" height="50"/>
+                                            <rect key="frame" x="106" y="11" width="185.5" height="50"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="y5j-AV-xmm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="186" height="25"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="185.5" height="25"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="zfD-1D-AiP">
                                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
@@ -129,12 +143,12 @@
                                                             </variation>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keyword: Enginner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOI-ln-r8s">
-                                                            <rect key="frame" x="30" y="0.0" width="156" height="25"/>
+                                                            <rect key="frame" x="30" y="0.0" width="155.5" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="V9t-X7-fSx"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="16"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <variation key="default">
                                                                 <mask key="constraints">
@@ -153,7 +167,7 @@
                                                     </variation>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BjN-a5-T5G">
-                                                    <rect key="frame" x="0.0" y="25" width="186" height="25"/>
+                                                    <rect key="frame" x="0.0" y="25" width="185.5" height="25"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_location_on" translatesAutoresizingMaskIntoConstraints="NO" id="9yp-eV-qEi">
                                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
@@ -169,12 +183,12 @@
                                                             </variation>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="United States of America" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVv-iV-BDT">
-                                                            <rect key="frame" x="30" y="0.0" width="156" height="25"/>
+                                                            <rect key="frame" x="30" y="0.0" width="155.5" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="Aaj-va-jOT"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -229,48 +243,48 @@
             <objects>
                 <tableViewController storyboardIdentifier="searchVCId" extendedLayoutIncludesOpaqueBars="YES" id="JTo-c2-1h4" customClass="SearchResultsViewController" customModule="H1BJobs" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="WOu-if-ip3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="jobCell" rowHeight="90" id="kBl-nY-J6a" customClass="ResultsTableViewCell" customModule="H1BJobs" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kBl-nY-J6a" id="Ee1-P5-4rW">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Application Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PrU-v4-T2S">
-                                            <rect key="frame" x="128" y="8" width="439" height="21"/>
+                                            <rect key="frame" x="136" y="11" width="198" height="20.5"/>
                                             <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="psz-rV-6ah">
-                                            <rect key="frame" x="128" y="29" width="364" height="54"/>
+                                            <rect key="frame" x="136" y="31.5" width="123" height="54"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verizon Co." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHo-iH-I8u">
-                                                    <rect key="frame" x="0.0" y="0.0" width="67" height="18"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="66.5" height="18"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tysons, VA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nj-qk-9fP">
                                                     <rect key="frame" x="0.0" y="18" width="62" height="18"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted: 2 weeks ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8W-2l-ZMN">
                                                     <rect key="frame" x="0.0" y="36" width="120" height="18"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agM-pp-bwm">
-                                            <rect key="frame" x="492" y="29" width="80" height="54"/>
+                                            <rect key="frame" x="259" y="31.5" width="80" height="54"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5D7-SR-6aQ">
                                                     <rect key="frame" x="64" y="31" width="16" height="16"/>
@@ -302,14 +316,14 @@
                                             </variation>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yi-Ij-cZi" userLabel="Table Row Selected">
-                                            <rect key="frame" x="8" y="8" width="484" height="89"/>
+                                            <rect key="frame" x="16" y="11" width="243" height="89"/>
                                             <connections>
                                                 <action selector="tableRowButtonTapped:" destination="kBl-nY-J6a" eventType="touchUpInside" id="7hA-zY-B0U"/>
                                                 <segue destination="bIg-Bn-MqV" kind="show" id="fqV-z6-C4Z"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Exc-0y-Fh5" userLabel="Save Button">
-                                            <rect key="frame" x="472" y="8" width="120" height="89"/>
+                                            <rect key="frame" x="239" y="11" width="120" height="89"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="120" id="GGb-Nq-maR"/>
                                             </constraints>
@@ -375,45 +389,45 @@
             <objects>
                 <tableViewController id="pW9-Mb-DBS" customClass="AboutTableViewController" customModule="H1BJobs" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="28" sectionFooterHeight="28" id="zFp-RC-18a">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="xyx-sK-qTg">
-                            <rect key="frame" x="0.0" y="64" width="600" height="382"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="382"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ws-C1-2pu">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="356"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="356"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_h1bjobs_HQ" translatesAutoresizingMaskIntoConstraints="NO" id="21o-Vg-19w">
-                                            <rect key="frame" x="251" y="44" width="97" height="91"/>
+                                            <rect key="frame" x="138.5" y="44" width="97" height="91"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="97" id="54M-f0-cd4"/>
                                                 <constraint firstAttribute="height" constant="91" id="HJn-Ak-ObA"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Gateway to Sponsored Jobs." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hq1-3v-Fn3">
-                                            <rect key="frame" x="136" y="147" width="327" height="31"/>
+                                            <rect key="frame" x="24" y="147" width="326.5" height="30.5"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vf6-1x-Sqf" userLabel="Summary Container">
-                                            <rect key="frame" x="0.0" y="203" width="600" height="153"/>
+                                            <rect key="frame" x="0.0" y="202.5" width="375" height="153.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcb-vu-DSM">
-                                                    <rect key="frame" x="180" y="0.0" width="240" height="39"/>
+                                                    <rect key="frame" x="67.5" y="0.0" width="240" height="38.5"/>
                                                     <string key="text">H1B Jobs retrieves openings from the 
 following Job Boards:</string>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgY-FE-cKa">
-                                                    <rect key="frame" x="0.0" y="39" width="600" height="97"/>
+                                                    <rect key="frame" x="0.0" y="38.5" width="375" height="97"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="vmJ-97-6B5">
-                                                            <rect key="frame" x="155" y="24" width="290" height="50"/>
+                                                            <rect key="frame" x="65" y="24" width="245" height="50"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice_logo" translatesAutoresizingMaskIntoConstraints="NO" id="JOw-he-M58" userLabel="dice image">
                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -433,7 +447,7 @@ following Job Boards:</string>
                                                                     </variation>
                                                                 </imageView>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cb_logo" translatesAutoresizingMaskIntoConstraints="NO" id="V0a-R1-fdc" userLabel="careerbuilder image">
-                                                                    <rect key="frame" x="80" y="0.0" width="50" height="50"/>
+                                                                    <rect key="frame" x="65" y="0.0" width="50" height="50"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="86" id="Ehw-q0-oFB"/>
                                                                         <constraint firstAttribute="width" constant="125" id="niU-Ej-4be"/>
@@ -448,7 +462,7 @@ following Job Boards:</string>
                                                                     </variation>
                                                                 </imageView>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indeed_logo" translatesAutoresizingMaskIntoConstraints="NO" id="1ux-Kq-K0v" userLabel="indeed image">
-                                                                    <rect key="frame" x="160" y="0.0" width="50" height="50"/>
+                                                                    <rect key="frame" x="130" y="0.0" width="50" height="50"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="35" id="JBf-Fd-fay"/>
                                                                         <constraint firstAttribute="width" constant="90" id="gIm-Wm-JAF"/>
@@ -465,7 +479,7 @@ following Job Boards:</string>
                                                                     </variation>
                                                                 </imageView>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkup_logo" translatesAutoresizingMaskIntoConstraints="NO" id="aBy-i1-Ttd" userLabel="linkup image">
-                                                                    <rect key="frame" x="240" y="0.0" width="50" height="50"/>
+                                                                    <rect key="frame" x="195" y="0.0" width="50" height="50"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="90" id="RAD-Xp-Gp2"/>
                                                                         <constraint firstAttribute="height" constant="35" id="vT2-Ed-2uK"/>
@@ -555,17 +569,17 @@ following Job Boards:</string>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="LUA-f0-Y8S" rowHeight="47" style="IBUITableViewCellStyleDefault" id="DT8-Fg-xQg">
-                                <rect key="frame" x="0.0" y="474" width="600" height="47"/>
+                                <rect key="frame" x="0.0" y="410" width="375" height="47"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DT8-Fg-xQg" id="n0R-qb-Tnd">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="46"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="46.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LUA-f0-Y8S">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="46"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="46.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -602,7 +616,7 @@ following Job Boards:</string>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="lM2-gu-dSY" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
@@ -622,7 +636,6 @@ following Job Boards:</string>
                     <tabBarItem key="tabBarItem" title="Search" image="tab_icon_search_filled" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RVs-wh-BIt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -641,7 +654,6 @@ following Job Boards:</string>
                     <tabBarItem key="tabBarItem" title="Search History" image="tab_icon_clock_filled" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7to-pf-iLb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -653,30 +665,30 @@ following Job Boards:</string>
             </objects>
             <point key="canvasLocation" x="837" y="-646"/>
         </scene>
-        <!--Job Web View Controler-->
+        <!--Job Web View Controller-->
         <scene sceneID="Ooi-BZ-hzr">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="bIg-Bn-MqV" customClass="JobWebViewControler" customModule="H1BJobs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="bIg-Bn-MqV" customClass="JobWebViewController" customModule="H1BJobs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ao0-Sg-IHc"/>
                         <viewControllerLayoutGuide type="bottom" id="NTc-Si-Ajm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="17T-n0-kFa">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ndY-Gg-Oer">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y05-Bm-spa">
-                                <rect key="frame" x="0.0" y="60" width="600" height="540"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="11" width="375" height="705"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="17T-n0-kFa" id="jR3-PD-JrM"/>
                                 </connections>
                             </webView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="y05-Bm-spa" firstAttribute="centerX" secondItem="17T-n0-kFa" secondAttribute="centerX" id="5VG-zm-I8G"/>
                             <constraint firstItem="ndY-Gg-Oer" firstAttribute="centerX" secondItem="17T-n0-kFa" secondAttribute="centerX" id="L7b-Nv-8Lz"/>
@@ -701,7 +713,6 @@ following Job Boards:</string>
                     <tabBarItem key="tabBarItem" title="Saved Jobs" image="tab_icon_like_filled" id="qk1-6n-Av8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="taF-UB-Pd9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -718,48 +729,48 @@ following Job Boards:</string>
             <objects>
                 <tableViewController storyboardIdentifier="favoriteVCId" id="jtH-Cf-75a" customClass="FavoriteTableViewController" customModule="H1BJobs" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="98" sectionHeaderHeight="28" sectionFooterHeight="28" id="yfw-EI-iJv">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="favoriteCell" rowHeight="98" id="GBN-ua-vDc" customClass="ResultsTableViewCell" customModule="H1BJobs" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="98"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="98"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GBN-ua-vDc" id="Fyc-y4-mlc">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="97"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="97.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Application Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5l-Zh-0UW">
-                                            <rect key="frame" x="128" y="8" width="439" height="21"/>
+                                            <rect key="frame" x="136" y="11" width="198" height="20.5"/>
                                             <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="b8a-66-TUy">
-                                            <rect key="frame" x="128" y="30" width="407" height="54"/>
+                                            <rect key="frame" x="136" y="32.5" width="166" height="54"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verizon Co." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oF-ES-E36">
-                                                    <rect key="frame" x="0.0" y="0.0" width="67" height="18"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="66.5" height="18"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tysons, VA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEh-P0-lsa">
                                                     <rect key="frame" x="0.0" y="18" width="62" height="18"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted: 2 weeks ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcR-sm-oXy">
                                                     <rect key="frame" x="0.0" y="36" width="120" height="18"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1i-Tk-KHp">
-                                            <rect key="frame" x="535" y="29" width="37" height="54"/>
+                                            <rect key="frame" x="302" y="31.5" width="37" height="54"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3S-kl-w1F">
                                                     <rect key="frame" x="21" y="31" width="16" height="16"/>
@@ -791,14 +802,14 @@ following Job Boards:</string>
                                             </variation>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrh-pq-LgZ" userLabel="Table Row Selected">
-                                            <rect key="frame" x="8" y="8" width="464" height="97"/>
+                                            <rect key="frame" x="16" y="11" width="223" height="97"/>
                                             <connections>
                                                 <action selector="tableRowButtonTapped:" destination="GBN-ua-vDc" eventType="touchUpInside" id="Yof-i4-2jS"/>
                                                 <segue destination="bIg-Bn-MqV" kind="show" identifier="favJobHyperLink" id="fL0-st-1jL"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ou-w6-sBt" userLabel="Save Button">
-                                            <rect key="frame" x="472" y="8" width="120" height="97"/>
+                                            <rect key="frame" x="239" y="11" width="120" height="97"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="120" id="VdE-0U-ix2"/>
                                             </constraints>
@@ -850,9 +861,6 @@ following Job Boards:</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="jGo-3Q-xt9"/>
-                    <connections>
-                        <outlet property="spinner" destination="QlR-pN-z52" id="n4s-Ut-2BR"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cqe-XT-FQ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="b9B-uF-5fj">
@@ -869,7 +877,6 @@ following Job Boards:</string>
                     <tabBarItem key="tabBarItem" title="About" image="tab_icon_info_filled" id="G01-f1-MF7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YmF-3w-8Zu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -890,43 +897,43 @@ following Job Boards:</string>
                         <viewControllerLayoutGuide type="bottom" id="rk5-lj-BUe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="khW-qr-bBR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hSn-QK-ZHP" userLabel="Background Image">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="-4" y="20" width="383" height="647"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Yc-s9-Bwv" userLabel="Filter View">
-                                <rect key="frame" x="-5" y="0.0" width="610" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="-9" y="0.0" width="393" height="667"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="baH-X2-eDs">
-                                <rect key="frame" x="273" y="498" width="55" height="37"/>
+                                <rect key="frame" x="160" y="565" width="55" height="37"/>
                             </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EUg-u7-L7B">
-                                <rect key="frame" x="282" y="169" width="35" height="35"/>
+                                <rect key="frame" x="170" y="202" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="0BQ-20-jmW"/>
                                     <constraint firstAttribute="height" constant="35" id="8Cu-vx-aCr"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personalize" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IG7-rB-arH">
-                                <rect key="frame" x="175" y="214" width="250" height="35"/>
+                                <rect key="frame" x="62.5" y="247" width="250" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="dfr-nZ-AVk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pin your favorite restaurants and create your own food guide" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4s4-1T-OtE">
-                                <rect key="frame" x="159" y="264" width="282" height="47"/>
+                                <rect key="frame" x="46.5" y="297" width="282" height="46.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="2YJ-pH-TZb"/>
                                     <constraint firstAttribute="width" constant="282" id="duI-h2-aPY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -935,29 +942,29 @@ following Job Boards:</string>
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="015-R8-zxm" userLabel="Get Started View">
-                                <rect key="frame" x="20" y="545" width="560" height="55"/>
+                                <rect key="frame" x="16" y="612" width="343" height="55"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Omq-Fy-gx1" userLabel="border">
-                                        <rect key="frame" x="15" y="0.0" width="530" height="1"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <rect key="frame" x="15" y="0.0" width="313" height="1"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="HGV-iD-q4G"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GET STARTED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaq-aA-izA">
-                                        <rect key="frame" x="230" y="13" width="101" height="29"/>
+                                        <rect key="frame" x="121.5" y="13" width="101" height="29"/>
                                         <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6i-hG-9Df">
-                                        <rect key="frame" x="230" y="13" width="101" height="29"/>
+                                        <rect key="frame" x="121.5" y="13" width="101" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="nextButtonTapped:" destination="5Q3-A0-SZ1" eventType="touchUpInside" id="yjh-u2-mDU"/>
+                                            <action selector="nextButtonTappedWithSender:" destination="5Q3-A0-SZ1" eventType="touchUpInside" id="Qgc-lm-uzk"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1055,8 +1062,8 @@ following Job Boards:</string>
         <image name="cb_logo" width="100" height="100"/>
         <image name="city_skyline_ny" width="853" height="533"/>
         <image name="dice_logo" width="256" height="256"/>
-        <image name="ic_location_on" width="160" height="160"/>
-        <image name="ic_search" width="160" height="160"/>
+        <image name="ic_location_on" width="80" height="80"/>
+        <image name="ic_search" width="80" height="80"/>
         <image name="icon_h1bjobs_HQ" width="72" height="72"/>
         <image name="indeed_logo" width="218" height="218"/>
         <image name="linkup_logo" width="200" height="200"/>

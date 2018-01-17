@@ -13,42 +13,40 @@ class H1BJob: NSObject {
     var title: String
     var company: String
     var location: String
-    var postdate: NSDate
+    var postdate: Date
     var jobdetail: NSObject
     var jobUrl: String {
         get {
-            if jobdetail.isKindOfClass(DiceJobDetail) {
-                let dicejob = jobdetail as? DiceJobDetail
-                return (dicejob?.detailUrl)!
-            } else if jobdetail.isKindOfClass(CBJobDetail) {
-                let cbJobDetail = jobdetail as? CBJobDetail
-                return (cbJobDetail?.detailUrl)!
-            } else if jobdetail.isKindOfClass(LinkupJobDetail) {
-                let linkupJob = jobdetail as? LinkupJobDetail
-                return (linkupJob?.job_title_link)!
-            } else if jobdetail.isKindOfClass(IndeedJobDetail) {
-                let indeedJob = jobdetail as? IndeedJobDetail
-                return (indeedJob?.url)!
+            if let dicejob = jobdetail as? DiceJobDetail {
+                return dicejob.detailUrl ?? ""
+            }
+//            else if let cbJobDetail = jobdetail as? CBJobDetail {
+//                return cbJobDetail.detailUrl ?? ""
+//            }
+            else if let linkupJob = jobdetail as? LinkupJobDetail {
+                return linkupJob.job_title_link ?? ""
+            } else if let indeedJob = jobdetail as? IndeedJobDetail {
+                return indeedJob.url ?? ""
             }
             return "" // default url
         }
     }
     var companyLogo: UIImage {
         get {
-            if jobdetail.isKindOfClass(DiceJobDetail) {
-                return UIImage(named: "dice_logo")!
-            } else if jobdetail.isKindOfClass(CBJobDetail) {
-                return UIImage(named: "cb_logo")!
-            } else if jobdetail.isKindOfClass(IndeedJobDetail) {
-                return UIImage(named: "indeed_logo")!
-            } else if jobdetail.isKindOfClass(LinkupJobDetail) {
-                return UIImage(named: "linkup_logo")!
+            if jobdetail is DiceJobDetail, let diceLogo =  UIImage(named: "dice_logo") {
+                return diceLogo
+            } else if jobdetail is CBJobDetail, let cbLogo = UIImage(named: "cb_logo") {
+                return cbLogo
+            } else if jobdetail is IndeedJobDetail, let indeedLogo = UIImage(named: "indeed_logo") {
+                return indeedLogo
+            } else if jobdetail is LinkupJobDetail, let linkupLogo = UIImage(named: "linkup_logo") {
+                return linkupLogo
             }
             return UIImage()
         }
     }
 
-    init(title: String, company: String, location: String, date: NSDate, detail: NSObject) {
+    init(title: String, company: String, location: String, date: Date, detail: NSObject) {
         self.title = title
         self.company = company
         self.location = location
@@ -60,7 +58,7 @@ class H1BJob: NSObject {
         self.title = String()
         self.company = String()
         self.location = String()
-        self.postdate = NSDate()
+        self.postdate = Date()
         self.jobdetail = NSObject()
     }
 }

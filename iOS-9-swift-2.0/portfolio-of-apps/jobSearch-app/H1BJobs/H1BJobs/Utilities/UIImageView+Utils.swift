@@ -9,19 +9,20 @@
 import UIKit
 
 extension UIImageView {
-    func downloadedFrom(link link:String, contentMode mode: UIViewContentMode) {
+    func downloadedFrom(_ link:String, contentMode mode: UIViewContentMode) {
         guard
             let url = NSURL(string: link)
             else {return}
         contentMode = mode
-        NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: { (data, _, error) -> Void in
+        URLSession.shared.dataTask(with: url as URL, completionHandler: { (data, _, error) in
             guard
-                let data = data where error == nil,
+                let data = data, error == nil,
                 let image = UIImage(data: data)
                 else { return }
-            dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                self.image = image
+            DispatchQueue.main.async { [weak self] in
+                self?.image = image
             }
+            
         }).resume()
     }
 }
