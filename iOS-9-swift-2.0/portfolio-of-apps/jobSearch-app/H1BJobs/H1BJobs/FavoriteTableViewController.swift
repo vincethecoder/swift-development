@@ -165,19 +165,17 @@ class FavoriteTableViewController: UITableViewController {
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
+
+        let senderView = (sender as! UIView)
+        let center = senderView.center
+        let rootViewPoint = senderView.superview?.convert(center, to: tableView)
         
-        
-        if let senderView = sender as? UITableViewCell {
-            let center = senderView.center
-            let rootViewPoint = senderView.superview?.convert(center, to: tableView)
-            
-            if let indexPath = tableView.indexPathForRow(at: rootViewPoint!) {
-                let webView = segue.destination as? JobWebViewController
-                let row = indexPath.row
-                let h1bjob = favoriteList[row]
-                webView?.jobUrl = h1bjob.jobUrl
-                webView?.job = h1bjob
-            }
+        if let indexPath = tableView.indexPathForRow(at: rootViewPoint!) {
+            let webView = segue.destination as? JobWebViewController
+            let row = indexPath.row
+            let h1bjob = favoriteList[row]
+            webView?.jobUrl = h1bjob.jobUrl
+            webView?.job = h1bjob
         }
         
     }

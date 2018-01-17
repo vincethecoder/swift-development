@@ -18,7 +18,6 @@ struct CBJobDetail {
     var location: String?
     var jobServiceURL: String?
     var jobDetailsURL: String?
-    var postedTime: String?
     var educationRequired: String?
     var locationLongitude: String?
     var similarJobsURL: String?
@@ -36,22 +35,24 @@ struct CBJobDetail {
     var jobID: String?
     var jobLevel: String?
 
-//    var postedDate: Date?
-//    var postedTime: String? {
-//        set {
-//            if let date = newValue {
-//                postedDate = date.cbJobPostDateDayMonthYear()
-//            }
-//        }
-//        get {
-//            return "\(String(describing: postedDate))"
-//        }
-//    }
-//    var detailUrl: String? {
-//        get {
-//            return "http://mobile.careerbuilder.com/seeker/job/\(DID!)"
-//        }
-//    }
+    var postedTime: String? {
+        set {
+            if let date = newValue {
+                postedDate = "\(date.cbJobPostDateDayMonthYear())"
+            }
+        }
+        get {
+            return "\(String(describing: postedDate))"
+        }
+    }
+    var detailUrl: String? {
+        get {
+            if let id = jobID {
+                return "http://mobile.careerbuilder.com/seeker/job/\(id)"
+            }
+            return ""
+        }
+    }
     
     enum CodingKeys: String, CodingKey {
         case onet17Title = "ONet17FriendlyTitle"
@@ -109,17 +110,7 @@ struct CBJobDetail {
     }
     
     func h1BEligible() -> Bool {
-        let h1bFlag = "H1B"
-//        if DID?.range(of: h1bFlag) != nil && descriptionTeaser?.range(of: h1bFlag) != nil {
-//            return true
-//        } else if descriptionTeaser?.range(of: h1bFlag) != nil {
-//            return true
-//        } else if jobTitle?.range(of: h1bFlag) != nil {
-//            return true
-//        } else {
-//            return false
-//        }
-        return jobTitle?.range(of: h1bFlag) != nil // TODO
+        return jobTitle?.range(of: "H1B") != nil
     }
 }
 

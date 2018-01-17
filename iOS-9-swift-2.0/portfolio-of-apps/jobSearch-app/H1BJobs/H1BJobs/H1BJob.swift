@@ -14,16 +14,14 @@ class H1BJob: NSObject {
     var company: String
     var location: String
     var postdate: Date
-    var jobdetail: NSObject
+    var jobdetail: Any?
     var jobUrl: String {
         get {
             if let dicejob = jobdetail as? DiceJobDetail {
                 return dicejob.detailUrl ?? ""
-            }
-//            else if let cbJobDetail = jobdetail as? CBJobDetail {
-//                return cbJobDetail.detailUrl ?? ""
-//            }
-            else if let linkupJob = jobdetail as? LinkupJobDetail {
+            } else if let cbJobDetail = jobdetail as? CBJobDetail {
+                return cbJobDetail.detailUrl ?? ""
+            } else if let linkupJob = jobdetail as? LinkupJobDetail {
                 return linkupJob.job_title_link ?? ""
             } else if let indeedJob = jobdetail as? IndeedJobDetail {
                 return indeedJob.url ?? ""
@@ -46,7 +44,7 @@ class H1BJob: NSObject {
         }
     }
 
-    init(title: String, company: String, location: String, date: Date, detail: NSObject) {
+    init(title: String, company: String, location: String, date: Date, detail: Any? = nil) {
         self.title = title
         self.company = company
         self.location = location
@@ -59,6 +57,5 @@ class H1BJob: NSObject {
         self.company = String()
         self.location = String()
         self.postdate = Date()
-        self.jobdetail = NSObject()
     }
 }

@@ -316,9 +316,9 @@
                                             </variation>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yi-Ij-cZi" userLabel="Table Row Selected">
-                                            <rect key="frame" x="16" y="11" width="243" height="89"/>
+                                            <rect key="frame" x="16" y="31" width="243" height="89"/>
                                             <connections>
-                                                <action selector="tableRowButtonTapped:" destination="kBl-nY-J6a" eventType="touchUpInside" id="7hA-zY-B0U"/>
+                                                <action selector="tableRowButtonTappedWithSender:" destination="kBl-nY-J6a" eventType="touchUpInside" id="SKc-hj-w10"/>
                                                 <segue destination="bIg-Bn-MqV" kind="show" id="fqV-z6-C4Z"/>
                                             </connections>
                                         </button>
@@ -350,7 +350,7 @@
                                         <constraint firstItem="agM-pp-bwm" firstAttribute="top" secondItem="PrU-v4-T2S" secondAttribute="bottom" id="rFO-Kx-GHz"/>
                                         <constraint firstItem="agM-pp-bwm" firstAttribute="leading" secondItem="psz-rV-6ah" secondAttribute="trailing" id="vdH-Ju-TMJ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="agM-pp-bwm" secondAttribute="trailing" constant="20" id="wR5-Nc-YgZ"/>
-                                        <constraint firstItem="3yi-Ij-cZi" firstAttribute="top" secondItem="Ee1-P5-4rW" secondAttribute="topMargin" id="yBv-lR-qyz"/>
+                                        <constraint firstItem="3yi-Ij-cZi" firstAttribute="top" secondItem="Ee1-P5-4rW" secondAttribute="topMargin" constant="20" id="yBv-lR-qyz"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">

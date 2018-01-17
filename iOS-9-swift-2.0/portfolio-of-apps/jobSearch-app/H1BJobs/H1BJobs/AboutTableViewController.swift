@@ -150,29 +150,28 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
 
-        if let senderView = sender as? UITableViewCell {
-            let center = senderView.center
-            let rootViewPoint = senderView.superview?.convert(center, to: tableView)
-            
-            if let indexPath = tableView.indexPathForRow(at: rootViewPoint!), indexPath.section == AboutTableSection.ImageSection.rawValue {
-                // var category = String()
-                if indexPath.row == 0, let url = URL.init(string: "itms-apps://itunes.apple.com/app/id1078044924" ) { // Rate App
-                    UIApplication.shared.open(url, options: [:]) { status in
-                        // Code goes here ...
-                    }
-                    // category = "Rate App"
-                } else { // Contact Developer
-                    // category = "Contact Developer"
-                    let mailComposeViewController = configuredMailComposeViewController()
-                    if MFMailComposeViewController.canSendMail() {
-                        self.present(mailComposeViewController, animated: true, completion: nil)
-                    } else {
-                        self.showSendMailErrorAlert()
-                    }
+        let senderView = (sender as! UIView)
+        let center = senderView.center
+        let rootViewPoint = senderView.superview?.convert(center, to: tableView)
+        
+        if let indexPath = tableView.indexPathForRow(at: rootViewPoint!), indexPath.section == AboutTableSection.ImageSection.rawValue {
+            // var category = String()
+            if indexPath.row == 0, let url = URL.init(string: "itms-apps://itunes.apple.com/app/id1078044924" ) { // Rate App
+                UIApplication.shared.open(url, options: [:]) { status in
+                    // Code goes here ...
                 }
-                
-                return false
+                // category = "Rate App"
+            } else { // Contact Developer
+                // category = "Contact Developer"
+                let mailComposeViewController = configuredMailComposeViewController()
+                if MFMailComposeViewController.canSendMail() {
+                    self.present(mailComposeViewController, animated: true, completion: nil)
+                } else {
+                    self.showSendMailErrorAlert()
+                }
             }
+            
+            return false
         }
 
         return true

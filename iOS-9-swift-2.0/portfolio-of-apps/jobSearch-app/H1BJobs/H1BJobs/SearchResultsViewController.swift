@@ -262,17 +262,16 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
 
-        if let senderView = sender as? UITableViewCell {
-            let center = senderView.center
-            let rootViewPoint = senderView.superview?.convert(center, to: tableView)
-            
-            if let indexPath = tableView.indexPathForRow(at: rootViewPoint!) {
-                let webView = segue.destination as? JobWebViewController
-                let row = indexPath.row
-                let h1bjob = (searchController.isActive) ? searchResults[row] : jobListings[row]
-                webView?.jobUrl = h1bjob.jobUrl
-                webView?.job = Favorite(favoriteId: 0, jobTitle: h1bjob.title, company: h1bjob.company, jobUrl: h1bjob.jobUrl, savedTimestamp: h1bjob.postdate.wordMonthDayString(), image: UIImagePNGRepresentation(h1bjob.companyLogo)!)
-            }
+        let senderView = (sender as! UIView)
+        let center = senderView.center
+        let rootViewPoint = senderView.superview?.convert(center, to: tableView)
+        
+        if let indexPath = tableView.indexPathForRow(at: rootViewPoint!) {
+            let webView = segue.destination as? JobWebViewController
+            let row = indexPath.row
+            let h1bjob = (searchController.isActive) ? searchResults[row] : jobListings[row]
+            webView?.jobUrl = h1bjob.jobUrl
+            webView?.job = Favorite(favoriteId: 0, jobTitle: h1bjob.title, company: h1bjob.company, jobUrl: h1bjob.jobUrl, savedTimestamp: h1bjob.postdate.wordMonthDayString(), image: UIImagePNGRepresentation(h1bjob.companyLogo)!)
         }
        
     }
