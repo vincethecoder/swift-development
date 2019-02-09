@@ -15,28 +15,23 @@ PODS:
   - GoogleSymbolUtilities (1.0.3)
   - GoogleUtilities (1.1.0):
     - GoogleSymbolUtilities (~> 1.0.0)
-  - SQLite.swift (1.0.0)
+  - SQLite.swift (0.11.5):
+    - SQLite.swift/standard (= 0.11.5)
+  - SQLite.swift/standard (0.11.5)
 
 DEPENDENCIES:
   - Google/Analytics
-  - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
-
-EXTERNAL SOURCES:
-  SQLite.swift:
-    :git: https://github.com/stephencelis/SQLite.swift.git
-
-CHECKOUT OPTIONS:
-  SQLite.swift:
-    :commit: da2d43422a72ae0e91356fccfde1959d43b97385
-    :git: https://github.com/stephencelis/SQLite.swift.git
+  - SQLite.swift (~> 0.11.5)
 
 SPEC CHECKSUMS:
-  Google: fd33b5fa40fa3aaee5176de49c873a74e3d11dce
+  Google: 28b52094b7910b6e2fbe571196c4590f1d7a95f6
   GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
   GoogleInterchangeUtilities: d7f7174176fbcf9710f696f1acebad4dbd98ac03
   GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
   GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
   GoogleUtilities: 8ed9134debe11719097881711464752900668f10
-  SQLite.swift: 3bb75f5a650f08673276bc6d3fb1de1b542b8f4d
+  SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 3dd522829cd49e8363e83a2254d57e516daf5960
+
+COCOAPODS: 1.4.0

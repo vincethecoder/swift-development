@@ -17,10 +17,10 @@ class LinkupJobDetail: NSObject {
     var job_location: String?
     var job_zip: NSNumber?
     var job_date_added: String?
-    var job_date_posted: NSDate {
-        let dateFormatter = NSDateFormatter()
+    var job_date_posted: Date {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM d, yyyy"
-        let date: NSDate = dateFormatter.dateFromString(job_date_added!)!
+        let date: Date = dateFormatter.date(from: job_date_added!)! as Date
         return date
     }
     var job_description: String?
@@ -28,6 +28,6 @@ class LinkupJobDetail: NSObject {
     
     init(dict: [String: AnyObject]) {
         super.init()
-        self.setValuesForKeysWithDictionary(dict)
+        self.setValuesForKeys(dict)
     }
 }

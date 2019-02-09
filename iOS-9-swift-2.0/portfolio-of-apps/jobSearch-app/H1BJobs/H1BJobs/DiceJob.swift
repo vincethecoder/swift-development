@@ -31,12 +31,12 @@ class DiceJob: NSObject {
     }
     
     var hasNextPage: Bool {
-        return nextUrl.characters.count > 0
+        return nextUrl.count > 0
     }
     
     var jobData = [String: AnyObject]() {
         didSet {
-           self.setValuesForKeysWithDictionary(jobData)
+            self.setValuesForKeys(jobData)
         }
     }
 

@@ -31,7 +31,7 @@ class CBJobDetail: NSObject {
     var state: String?
     var locationLatitude: Int?
     var locationLongitude: Int?
-    var postedDate: NSDate?
+    var postedDate: Date?
     var postedTime: String? {
         set {
             if let date = newValue {
@@ -39,7 +39,10 @@ class CBJobDetail: NSObject {
             }
         }
         get {
-            return "\(postedDate)"
+            if let value = postedDate {
+                return "\(value)"
+            }
+            return nil
         }
     }
     var pay: String?
@@ -78,7 +81,7 @@ class CBJobDetail: NSObject {
         state = dict["State"] as? String
         locationLatitude = dict["LocationLatitude"] as? Int
         locationLongitude = dict["LocationLongitude"] as? Int
-        postedDate = dict["PostedDate"] as? NSDate
+        postedDate = dict["PostedDate"] as? Date
         postedTime = dict["PostedTime"] as? String
         pay = dict["Pay"] as? String
         similarJobsURL = dict["SimilarJobsURL"] as? String
@@ -92,11 +95,11 @@ class CBJobDetail: NSObject {
     
     func h1BEligible() -> Bool {
         let h1bFlag = "H1B"
-        if DID?.rangeOfString(h1bFlag) != nil && descriptionTeaser?.rangeOfString(h1bFlag) != nil {
+        if DID?.range(of: h1bFlag) != nil && descriptionTeaser?.range(of: h1bFlag) != nil {
             return true
-        } else if descriptionTeaser?.rangeOfString(h1bFlag) != nil {
+        } else if descriptionTeaser?.range(of: h1bFlag) != nil {
             return true
-        } else if jobTitle?.rangeOfString(h1bFlag) != nil {
+        } else if jobTitle?.range(of: h1bFlag) != nil {
             return true
         } else {
             return false

@@ -24,23 +24,23 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         var image = "add_to_saved_icon"
         var frameHeight: CGFloat = 22
         var frameWidth: CGFloat = 22
-        if let _ = job, _ = FavoriteHelper.find(job) {
+        if let _ = job, let _ = FavoriteHelper.find(item: job) {
             frameWidth = 25
             frameHeight = 25
             image = "saved_job_icon"
         }
-        button.setImage(UIImage(named: image), forState: .Normal)
-        button.frame = CGRectMake(0, 0, frameWidth, frameHeight)
-        button.addTarget(self, action: Selector("userDidTapSave"), forControlEvents: .TouchUpInside)
+        button.setImage(UIImage(named: image), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: frameWidth, height: frameHeight)
+        button.addTarget(self, action: #selector(self.userDidTapSave), for: .touchUpInside)
         return button
     }
     
     var savedButton: UIButton {
         let button = UIButton()
-        button.setImage(UIImage(named: "saved_job_icon"), forState: .Normal)
-        button.tintColor = UIColor.darkGrayColor()
-        button.frame = CGRectMake(0, 0, 25, 25)
-        button.addTarget(self, action: Selector("userDidTapSave"), forControlEvents: .TouchUpInside)
+        button.setImage(UIImage(named: "saved_job_icon"), for: .normal)
+        button.tintColor = UIColor.darkGray
+        button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        button.addTarget(self, action: #selector(self.userDidTapSave), for: .touchUpInside)
         return button
     }
     
@@ -54,22 +54,22 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         webView.scalesPageToFit = true
         
         if let url = jobUrl {
-            let requestUrl = NSURLRequest(URL: NSURL(string: url)!)
+            let requestUrl = URLRequest(url: NSURL(string: url)! as URL)
             // Start Activity Indicator Animation
-            GMDCircleLoader.setOnView(self.view, withTitle: "Loading...", animated: true)
+            GMDCircleLoader.setOn(self.view, withTitle: "Loading...", animated: true)
 
             webView.loadRequest(requestUrl)
             webView.delegate = self
         }
     }
     
-    func userDidTapSave() {
+   @objc func userDidTapSave() {
         var status = String()
         var saveImage = UIImage(named: "save_error")!
 
         let jobRecord = job
-        if let record = FavoriteHelper.find(jobRecord) {
-            let success: Bool = FavoriteHelper.delete(record)
+    if let record = FavoriteHelper.find(item: jobRecord!) {
+        let success: Bool = FavoriteHelper.delete(item: record)
             if success == true {
                 // Removed ... now animate delete icon
                 status = "Removed from \nSaved Jobs"
@@ -84,7 +84,7 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
             }
         } else {
             // Add new record
-            let favoriteId = FavoriteHelper.insert(jobRecord)
+        let favoriteId = FavoriteHelper.insert(item: jobRecord!)
 
             if favoriteId != -1 {
                 // Hurrray... now animate added icon
@@ -102,16 +102,15 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         
         updateFavoriteTabBadge()
         
-        displaySaveView(status, image: saveImage)
+    displaySaveView(status: status, image: saveImage)
         
         // Google Analytics
-        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Category: Job WebView", action: "Save Job Pressed", label: "Save Job", value: nil).build() as [NSObject : AnyObject])
+    tracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Category: Job WebView", action: "Save Job Pressed", label: "Save Job", value: nil).build() as [NSObject : AnyObject])
     }
     
     func updateFavoriteTabBadge() {
-        if let _ = self.tabBarController {
-            let tabArray = self.tabBarController?.tabBar.items as NSArray!
-            let favoriteTab = tabArray.objectAtIndex(1) as! UITabBarItem
+        if let _ = self.tabBarController, let tabBarItems = self.tabBarController?.tabBar.items {
+            let favoriteTab = tabBarItems[1]
             let favoriteCount = FavoriteHelper.count()
             favoriteTab.badgeValue = favoriteCount > 0 ? "\(favoriteCount)" : nil
         }
@@ -120,47 +119,48 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
     func displaySaveView(status: String, image: UIImage) {
         let viewHeight: CGFloat = 158
         let viewWidth: CGFloat = 163
-        let frame = CGRectMake(0, 0, viewWidth, viewHeight)
+        let frame = CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight)
         
         let saveView = SaveView(frame: frame, status: status, image: image)
         saveView.translatesAutoresizingMaskIntoConstraints = false
         
         webView.addSubview(saveView)
-        webView.bringSubviewToFront(saveView)
-        let widthConstraint = NSLayoutConstraint(item: saveView, attribute: .Width, relatedBy: .Equal,
-            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: viewWidth)
+        webView.bringSubview(toFront: saveView)
+        let widthConstraint = NSLayoutConstraint(item: saveView, attribute: .width, relatedBy: .equal,
+            toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: viewWidth)
         saveView.addConstraint(widthConstraint)
         
-        let heightConstraint = NSLayoutConstraint(item: saveView, attribute: .Height, relatedBy: .Equal,
-            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: viewHeight)
+        let heightConstraint = NSLayoutConstraint(item: saveView, attribute: .height, relatedBy: .equal,
+            toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: viewHeight)
         saveView.addConstraint(heightConstraint)
         
-        let xCenterConstraint = NSLayoutConstraint(item: saveView, attribute: .CenterX, relatedBy: .Equal, toItem: webView, attribute: .CenterX, multiplier: 1, constant: 0)
+        let xCenterConstraint = NSLayoutConstraint(item: saveView, attribute: .centerX, relatedBy: .equal, toItem: webView, attribute: .centerX, multiplier: 1, constant: 0)
         webView.addConstraint(xCenterConstraint)
         
-        let yCenterConstraint = NSLayoutConstraint(item: saveView, attribute: .CenterY, relatedBy: .Equal, toItem: webView, attribute: .CenterY, multiplier: 1, constant: -35)
+        let yCenterConstraint = NSLayoutConstraint(item: saveView, attribute: .centerY, relatedBy: .equal, toItem: webView, attribute: .centerY, multiplier: 1, constant: -35)
         webView.addConstraint(yCenterConstraint)
         
-        UIView.animateWithDuration(1, animations: { () -> Void in
+        UIView.animate(withDuration: 1, animations: { () -> Void in
             saveView.alpha = 0
             }) { (finished: Bool) -> Void in
-                saveView.hidden = finished
+                saveView.isHidden = finished
         }
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnSwipe = false
         navigationController?.setNavigationBarHidden(false, animated: true)
         
         // Google Analytics
         tracker.set(kGAIScreenName, value: "/jobwebview")
-        let builder = GAIDictionaryBuilder.createScreenView()
-        tracker.send(builder.build() as [NSObject : AnyObject])
+        if let builder = GAIDictionaryBuilder.createScreenView(), let dictData = builder.build() {
+            tracker.send(dictData as! [AnyHashable : Any])
+        }
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
-        GMDCircleLoader.hideFromView(self.view, animated: true)
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        GMDCircleLoader.hide(from: self.view, animated: true)
         
         // Set Right Bar Button item
         let rightBarButton = UIBarButtonItem()
@@ -168,7 +168,7 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         navigationItem.rightBarButtonItem = rightBarButton
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        GMDCircleLoader.hideFromView(self.view, animated: true)
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        GMDCircleLoader.hide(from: self.view, animated: true)
     }
 }

@@ -25,16 +25,16 @@ class FavoriteTableViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = false
         
         // This will remove extra separators from tableview
-        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.tableFooterView = UIView(frame: .zero)
         
         let inset = UIEdgeInsetsMake(5, 0, 0, 0)
         tableView.contentInset = inset
         
         // Apply a blurring effect to the background image view
         tableView.backgroundView = UIImageView(image: UIImage(named: "city_skyline_ny"))
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = CGRectMake(0, 0, view.bounds.width * 2, view.bounds.height * 2)
+        blurEffectView.frame = CGRect(x: 0, y: 0, width: view.bounds.width * 2, height: view.bounds.height * 2)
         tableView.backgroundView!.addSubview(blurEffectView)
         
         // Add "No Favorite Transcript Available" View
@@ -45,7 +45,7 @@ class FavoriteTableViewController: UITableViewController {
     func addDefaultView() {
         let viewHeight: CGFloat = 175
         let viewWidth: CGFloat = 350
-        let frame = CGRectMake(0, 0, viewWidth, viewHeight)
+        let frame = CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight)
         
         favoriteDefaultView = ErrorView(frame: frame, title: "It's pretty quiet around here",
             text: "You'll see a list of favorite jobs \nwhen you start a search and save the jobs",
@@ -53,25 +53,25 @@ class FavoriteTableViewController: UITableViewController {
         favoriteDefaultView.translatesAutoresizingMaskIntoConstraints = false
         
         tableView.addSubview(favoriteDefaultView)
-        tableView.bringSubviewToFront(favoriteDefaultView)
-        let widthConstraint = NSLayoutConstraint(item: favoriteDefaultView, attribute: .Width, relatedBy: .Equal,
-            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: viewWidth)
+        tableView.bringSubview(toFront: favoriteDefaultView)
+        let widthConstraint = NSLayoutConstraint(item: favoriteDefaultView, attribute: .width, relatedBy: .equal,
+                                                 toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: viewWidth)
         favoriteDefaultView.addConstraint(widthConstraint)
         
-        let heightConstraint = NSLayoutConstraint(item: favoriteDefaultView, attribute: .Height, relatedBy: .Equal,
-            toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: viewHeight)
+        let heightConstraint = NSLayoutConstraint(item: favoriteDefaultView, attribute: .height, relatedBy: .equal,
+                                                  toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: viewHeight)
         favoriteDefaultView.addConstraint(heightConstraint)
         
-        let xCenterConstraint = NSLayoutConstraint(item: favoriteDefaultView, attribute: .CenterX, relatedBy: .Equal, toItem: tableView, attribute: .CenterX, multiplier: 1, constant: 0)
+        let xCenterConstraint = NSLayoutConstraint(item: favoriteDefaultView, attribute: .centerX, relatedBy: .equal, toItem: tableView, attribute: .centerX, multiplier: 1, constant: 0)
         tableView.addConstraint(xCenterConstraint)
         
-        let yCenterConstraint = NSLayoutConstraint(item: favoriteDefaultView, attribute: .CenterY, relatedBy: .Equal, toItem: tableView, attribute: .CenterY, multiplier: 1, constant: -35)
+        let yCenterConstraint = NSLayoutConstraint(item: favoriteDefaultView, attribute: .centerY, relatedBy: .equal, toItem: tableView, attribute: .centerY, multiplier: 1, constant: -35)
         tableView.addConstraint(yCenterConstraint)
         
-        favoriteDefaultView.hidden = true
+        favoriteDefaultView.isHidden = true
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if let favoriteList = FavoriteHelper.findAll() {
@@ -84,72 +84,77 @@ class FavoriteTableViewController: UITableViewController {
         tableView.reloadData()
 
         if self.favoriteList.count > 0 {
-            favoriteDefaultView.hidden = true
+            favoriteDefaultView.isHidden = true
         } else {
-            favoriteDefaultView.hidden = false
+            favoriteDefaultView.isHidden = false
         }
         
         updateFavoriteTabBadge()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnSwipe = true
         navigationController?.setNavigationBarHidden(false, animated: true)
         
         // Google Analytics
         let tracker = GAI.sharedInstance().defaultTracker
-        tracker.set(kGAIScreenName, value: "/savedview")
+        tracker?.set(kGAIScreenName, value: "/savedview")
         let builder = GAIDictionaryBuilder.createScreenView()
-        tracker.send(builder.build() as [NSObject : AnyObject])
+        if let dictData = builder?.build() {
+            tracker?.send(dictData as! [AnyHashable : Any])
+        }
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        super.numberOfSections(in: tableView)
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favoriteList.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        super.tableView(tableView, cellForRowAt: indexPath)
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ResultsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ResultsTableViewCell
 
-        cell.backgroundColor = .clearColor()
+        cell.backgroundColor = .clear
         
         let row = indexPath.row
         let favoriteData = favoriteList[row]
         
-        cell.jobTitle.text = favoriteData.jobTitle?.capitalizedString
+        cell.jobTitle.text = favoriteData.jobTitle?.capitalized
         cell.jobCompany.text = favoriteData.company
         cell.jobPostDate.text = "Saved: \(favoriteData.savedTimestamp!)"
         
-        cell.imageView?.image = UIImage(data: favoriteData.image)!
-        cell.imageView?.hidden = false
+        cell.imageView?.image = UIImage(named: favoriteData.image)
+        cell.imageView?.isHidden = false
         cell.textLabel?.text = ""
-        cell.saveButton.tintColor = .redColor()
+        cell.saveButton.tintColor = .red
         cell.jobWebUrl = favoriteData.jobUrl
-        cell.saveButton.hidden = false
+        cell.saveButton.isHidden = false
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        super.tableView(tableView, commit: editingStyle, forRowAt: indexPath)
+        if editingStyle == .delete {
             // Delete the row from the data source
             let row = indexPath.row
-            FavoriteHelper.delete(favoriteList[row])
+            _ = FavoriteHelper.delete(item: favoriteList[row])
             guard favoriteList.count > row else { return }
-            favoriteList.removeAtIndex(row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            favoriteList.remove(at: row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
             
             if favoriteList.count == 0 {
-                favoriteDefaultView.hidden = false
+                favoriteDefaultView.isHidden = false
             } else {
-                favoriteDefaultView.hidden = true
+                favoriteDefaultView.isHidden = true
             }
             
             updateFavoriteTabBadge()
@@ -157,8 +162,10 @@ class FavoriteTableViewController: UITableViewController {
     }
     
     func updateFavoriteTabBadge() {
-        let tabArray = self.tabBarController?.tabBar.items as NSArray!
-        let favoriteTab = tabArray.objectAtIndex(1) as! UITabBarItem
+        guard let tabBarItems = self.tabBarController?.tabBar.items else {
+            return
+        }
+        let favoriteTab = tabBarItems[1]
         let favoriteCount = FavoriteHelper.count()
         favoriteTab.badgeValue = favoriteCount > 0 ? "\(favoriteCount)" : nil
     }
@@ -166,22 +173,30 @@ class FavoriteTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
         
-        let center = (sender?.center)!
-        let rootViewPoint = sender?.superview!!.convertPoint(center, toView: tableView)
+//        let center =  //(sender?.center)!
+//        let rootViewPoint = sender?.superview!!.convertPoint(center, toView: tableView)
+//
+//        if let indexPath = tableView.indexPathForRowAtPoint(rootViewPoint!) {
+//            let webView = segue.destination as? JobWebViewControler
+//            let row = indexPath.row
+//            let h1bjob = favoriteList[row]
+//            webView?.jobUrl = h1bjob.jobUrl
+//            webView?.job = h1bjob
+//        }
         
-        if let indexPath = tableView.indexPathForRowAtPoint(rootViewPoint!){
-            let webView = segue.destinationViewController as? JobWebViewControler
-            let row = indexPath.row
-            let h1bjob = favoriteList[row]
-            webView?.jobUrl = h1bjob.jobUrl
-            webView?.job = h1bjob
+        if let webView = segue.destination as? JobWebViewControler, let indexPath = tableView.indexPathForSelectedRow {
+            let selectedRow = indexPath.row
+            let h1bjob = favoriteList[selectedRow]
+            webView.jobUrl = h1bjob.jobUrl
+            webView.job = h1bjob
         }
-        
     }
 
 }
