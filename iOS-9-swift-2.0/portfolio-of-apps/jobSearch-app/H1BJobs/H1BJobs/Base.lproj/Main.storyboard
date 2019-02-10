@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -306,14 +304,14 @@
                                             </variation>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yi-Ij-cZi" userLabel="Table Row Selected">
-                                            <rect key="frame" x="16" y="11" width="243" height="89"/>
+                                            <rect key="frame" x="16" y="11" width="243" height="89.5"/>
                                             <connections>
                                                 <action selector="tableRowButtonTapped:" destination="kBl-nY-J6a" eventType="touchUpInside" id="7hA-zY-B0U"/>
-                                                <segue destination="bIg-Bn-MqV" kind="show" id="fqV-z6-C4Z"/>
+                                                <segue destination="bIg-Bn-MqV" kind="show" identifier="" id="fqV-z6-C4Z"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Exc-0y-Fh5" userLabel="Save Button">
-                                            <rect key="frame" x="239" y="11" width="120" height="89"/>
+                                            <rect key="frame" x="239" y="11" width="120" height="89.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="120" id="GGb-Nq-maR"/>
                                             </constraints>
@@ -382,28 +380,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="xyx-sK-qTg">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="xyx-sK-qTg">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="382"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ws-C1-2pu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="423"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="356"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_h1bjobs_HQ" translatesAutoresizingMaskIntoConstraints="NO" id="21o-Vg-19w">
-                                            <rect key="frame" x="138.5" y="77.5" width="97" height="91"/>
+                                            <rect key="frame" x="139" y="44" width="97" height="91"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="97" id="54M-f0-cd4"/>
                                                 <constraint firstAttribute="height" constant="91" id="HJn-Ak-ObA"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Gateway to Sponsored Jobs." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hq1-3v-Fn3">
-                                            <rect key="frame" x="24" y="180.5" width="326.5" height="30.5"/>
+                                            <rect key="frame" x="24.5" y="147" width="326.5" height="30.5"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vf6-1x-Sqf" userLabel="Summary Container">
-                                            <rect key="frame" x="0.0" y="236" width="375" height="187"/>
+                                            <rect key="frame" x="0.0" y="202.5" width="375" height="153.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcb-vu-DSM">
                                                     <rect key="frame" x="67.5" y="0.0" width="240" height="38.5"/>
@@ -414,7 +412,7 @@ following Job Boards:</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgY-FE-cKa">
-                                                    <rect key="frame" x="0.0" y="38.5" width="375" height="97"/>
+                                                    <rect key="frame" x="0.0" y="38.5" width="375" height="97.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="vmJ-97-6B5">
                                                             <rect key="frame" x="65" y="24" width="245" height="50"/>
@@ -795,14 +793,14 @@ following Job Boards:</string>
                                             </variation>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrh-pq-LgZ" userLabel="Table Row Selected">
-                                            <rect key="frame" x="16" y="11" width="223" height="97"/>
+                                            <rect key="frame" x="16" y="11" width="223" height="97.5"/>
                                             <connections>
                                                 <action selector="tableRowButtonTapped:" destination="GBN-ua-vDc" eventType="touchUpInside" id="Yof-i4-2jS"/>
                                                 <segue destination="bIg-Bn-MqV" kind="show" identifier="favJobHyperLink" id="fL0-st-1jL"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ou-w6-sBt" userLabel="Save Button">
-                                            <rect key="frame" x="239" y="11" width="120" height="97"/>
+                                            <rect key="frame" x="239" y="11" width="120" height="97.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="120" id="VdE-0U-ix2"/>
                                             </constraints>
@@ -949,13 +947,13 @@ following Job Boards:</string>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GET STARTED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaq-aA-izA">
-                                        <rect key="frame" x="121.5" y="13" width="101" height="29"/>
+                                        <rect key="frame" x="121" y="13" width="101" height="29"/>
                                         <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6i-hG-9Df">
-                                        <rect key="frame" x="121.5" y="13" width="101" height="29"/>
+                                        <rect key="frame" x="121" y="13" width="101" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1023,8 +1021,8 @@ following Job Boards:</string>
                                 <exclude reference="Oxr-4W-Hpi"/>
                                 <exclude reference="byC-7P-lRC"/>
                                 <exclude reference="EB8-c0-AFu"/>
-                                <exclude reference="7Os-91-ei3"/>
                                 <exclude reference="SAi-F0-Q9T"/>
+                                <exclude reference="7Os-91-ei3"/>
                                 <exclude reference="emr-46-GHO"/>
                                 <exclude reference="uNU-l7-V8n"/>
                                 <exclude reference="BLP-7P-k7d"/>
@@ -1057,7 +1055,7 @@ following Job Boards:</string>
     </scenes>
     <resources>
         <image name="cb_logo" width="100" height="100"/>
-        <image name="city_skyline_ny" width="853" height="533"/>
+        <image name="city_skyline_ny" width="409.44000244140625" height="255.83999633789062"/>
         <image name="dice_logo" width="256" height="256"/>
         <image name="ic_location_on" width="80" height="80"/>
         <image name="ic_search" width="80" height="80"/>
@@ -1070,7 +1068,7 @@ following Job Boards:</string>
         <image name="tab_icon_search_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fL0-st-1jL"/>
+        <segue reference="fqV-z6-C4Z"/>
         <segue reference="lkJ-8a-hUQ"/>
     </inferredMetricsTieBreakers>
 </document>

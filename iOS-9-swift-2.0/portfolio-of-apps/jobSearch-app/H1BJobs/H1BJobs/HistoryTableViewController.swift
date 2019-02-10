@@ -15,6 +15,10 @@ class HistoryTableViewController: UITableViewController {
     let resultsSegueIdentifier = "historyResults"
     var historyDefaultView: ErrorView!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,12 +31,12 @@ class HistoryTableViewController: UITableViewController {
         // This will remove extra separators from tableview
         tableView.tableFooterView = UIView(frame: .zero)
         
-        let inset = UIEdgeInsetsMake(5, 0, 0, 0)
+        let inset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         tableView.contentInset = inset
         
         // Apply a blurring effect to the background image view
         tableView.backgroundView = UIImageView(image: UIImage(named: "city_skyline_ny"))
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = CGRect(x: 0, y: 0, width: view.bounds.width * 2, height: view.bounds.height * 2)
         tableView.backgroundView!.addSubview(blurEffectView)
@@ -53,7 +57,7 @@ class HistoryTableViewController: UITableViewController {
         historyDefaultView.translatesAutoresizingMaskIntoConstraints = false
         
         tableView.addSubview(historyDefaultView)
-        tableView.bringSubview(toFront: historyDefaultView)
+        tableView.bringSubviewToFront(historyDefaultView)
         let widthConstraint = NSLayoutConstraint(item: historyDefaultView, attribute: .width, relatedBy: .equal,
             toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: viewWidth)
         historyDefaultView.addConstraint(widthConstraint)
@@ -135,7 +139,7 @@ class HistoryTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             let row = indexPath.row

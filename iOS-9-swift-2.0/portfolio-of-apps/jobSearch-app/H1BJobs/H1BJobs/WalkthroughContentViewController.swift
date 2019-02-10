@@ -36,7 +36,7 @@ class WalkthroughContentViewController: UIViewController {
         // Set the current page index
         pageControl.currentPage = index
 
-        filterView.backgroundColor = UIColor.H1BHeaderColor()
+        filterView.backgroundColor = UIColor.H1BHeaderColor
         filterView.alpha = 0.65
     }
 

@@ -21,6 +21,10 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     var build: [NSObject: AnyObject]!
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +35,7 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
         formatLogoImageView()
 
         let font = UIFont(name: "Avenir", size: 18)!
-        let attributes = [NSForegroundColorAttributeName: UIColor.lightGray, NSFontAttributeName: font]
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.lightGray, NSAttributedString.Key.font: font]
         keywordsTextField.attributedPlaceholder = NSAttributedString(string: keywordPlaceholder, attributes:attributes)
         
         let scale = CGAffineTransform(scaleX: 0.0, y: 0.0)
@@ -44,7 +48,7 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
         
         keywordsTextField.delegate = self
         
-        view.backgroundColor = UIColor.H1BHeaderColor()
+        view.backgroundColor = UIColor.H1BHeaderColor
         view.alpha = 0.98
         
     }
@@ -89,14 +93,14 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
     func formatLogoImageView() {
         logoImageView.layer.borderWidth = 1.0
         logoImageView.layer.masksToBounds = false
-        logoImageView.layer.borderColor = UIColor.H1BBorderColor().cgColor
+        logoImageView.layer.borderColor = UIColor.H1BBorderColor.cgColor
         logoImageView.layer.cornerRadius = logoImageView.frame.width / 2
         logoImageView.clipsToBounds = true
     }
 
     func blurBackgroundEffect() {
         // Apply a blurring effect to the background image view
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         backgroundImageView.addSubview(blurEffectView)
@@ -104,7 +108,7 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
     
     func formatTextField(textField: UITextField, text: String) {
         textField.attributedPlaceholder = NSAttributedString(string:text,
-            attributes:[NSForegroundColorAttributeName: UIColor.gray])
+                                                             attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
         
         textField.borderStyle = .roundedRect
         textField.backgroundColor = UIColor.white
@@ -119,10 +123,10 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
         button.setTitle(text, for: .normal)
 
         button.layer.cornerRadius = 8.0
-        button.layer.borderColor = UIColor.H1BBorderColor().cgColor
+        button.layer.borderColor = UIColor.H1BBorderColor.cgColor
         button.layer.borderWidth = 1.0
 
-        button.layer.backgroundColor = UIColor.H1BHeaderColor().cgColor
+        button.layer.backgroundColor = UIColor.H1BHeaderColor.cgColor
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -130,7 +134,7 @@ class JobSearchViewController: UIViewController, UITextFieldDelegate {
         return false
     }
 
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     

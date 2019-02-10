@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CBJobDetail: NSObject {
+struct CBJobDetail {
 
     var company: String?
     var companyDID: String?
@@ -35,7 +35,7 @@ class CBJobDetail: NSObject {
     var postedTime: String? {
         set {
             if let date = newValue {
-                postedDate = date.cbJobPostDateDayMonthYear()
+                postedDate = date.cbJobPostDateDayMonthYear
             }
         }
         get {
@@ -60,40 +60,128 @@ class CBJobDetail: NSObject {
     }
     
     init(dict: [String: AnyObject]) {
-        super.init()
-        company = dict["Company"] as? String
-        companyDID = dict["CompanyDID"] as? String
-        companyDetailsURL = dict["CompanyDetailsURL"] as? String
-        DID = dict["DID"] as? String
-        onetCode = dict["OnetCode"] as? String
-        oNetFriendlyTitle = dict["ONetFriendlyTitle"] as? String
-        descriptionTeaser = dict["DescriptionTeaser"] as? String
-        distance = dict["Distance"] as? String
-        employmentType = dict["EmploymentType"] as? String
-        educationRequired = dict["EducationRequired"] as? String
-        experienceRequired = dict["ExperienceRequired"] as? String
-        jobDetailsURL = dict["JobDetailsURL"] as? String
-        jobServiceURL = dict["JobServiceURL"] as? String
-        location = dict["Location"] as? String
-        displayCity = dict["DisplayCity"] as? String
-        streetAddress1 = dict["StreetAddress1"] as? String
-        city = dict["City"] as? String
-        state = dict["State"] as? String
-        locationLatitude = dict["LocationLatitude"] as? Int
-        locationLongitude = dict["LocationLongitude"] as? Int
-        postedDate = dict["PostedDate"] as? Date
-        postedTime = dict["PostedTime"] as? String
-        pay = dict["Pay"] as? String
-        similarJobsURL = dict["SimilarJobsURL"] as? String
-        companyImageURL = dict["CompanyImageURL"] as? String
-        jobBrandingIcons = dict["JobBrandingIcons"] as? String
-        applyRequirements = dict["ApplyRequirements"] as? String
-        skills = dict["Skills"] as? [String : AnyObject]
-        jobLevel = dict["JobLevel"] as? String
-        jobTitle = dict["JobTitle"] as? String
+        if let _company = dict["Company"] as? String {
+            company = _company
+        }
+        
+        if let _companyDID = dict["CompanyDID"] as? String {
+            companyDID = _companyDID
+        }
+        
+        if let _companyDetailsURL = dict["CompanyDetailsURL"] as? String {
+            companyDetailsURL = _companyDetailsURL
+        }
+        
+        if let _DID = dict["DID"] as? String {
+            DID = _DID
+        }
+        
+        if let _onetCode = dict["OnetCode"] as? String {
+            onetCode = _onetCode
+        }
+        
+        if let _oNetFriendlyTitle = dict["ONetFriendlyTitle"] as? String {
+            oNetFriendlyTitle = _oNetFriendlyTitle
+        }
+        
+        if let _descriptionTeaser = dict["DescriptionTeaser"] as? String {
+            descriptionTeaser = _descriptionTeaser
+        }
+        
+        if let _distance = dict["Distance"] as? String {
+            distance = _distance
+        }
+        
+        if let _employmentType = dict["EmploymentType"] as? String {
+            employmentType = _employmentType
+        }
+
+        if let _educationRequired = dict["EducationRequired"] as? String {
+            educationRequired = _educationRequired
+        }
+        
+        if let _experienceRequired = dict["ExperienceRequired"] as? String {
+            experienceRequired = _experienceRequired
+        }
+  
+        if let _jobDetailsURL = dict["JobDetailsURL"] as? String {
+            jobDetailsURL = _jobDetailsURL
+        }
+        
+        if let _jobServiceURL = dict["JobServiceURL"] as? String {
+            jobServiceURL = _jobServiceURL
+        }
+
+        if let _location = dict["Location"] as? String {
+            location = _location
+        }
+        
+        if let _displayCity = dict["DisplayCity"] as? String {
+            displayCity = _displayCity
+        }
+        
+        if let _streetAddress1 = dict["StreetAddress1"] as? String {
+            streetAddress1 = _streetAddress1
+        }
+        
+        if let _city = dict["City"] as? String {
+            city = _city
+        }
+        
+        if let _state = dict["State"] as? String {
+            state = _state
+        }
+        
+        if let _locationLatitude = dict["LocationLatitude"] as? Int {
+            locationLatitude = _locationLatitude
+        }
+        
+        if let _locationLongitude = dict["LocationLongitude"] as? Int {
+            locationLongitude = _locationLongitude
+        }
+        
+        if let _postedDate = dict["PostedDate"] as? Date {
+            postedDate = _postedDate
+        }
+        
+        if let _postedTime = dict["PostedTime"] as? String {
+            postedTime = _postedTime
+        }
+        
+        if let _pay = dict["Pay"] as? String {
+            pay = _pay
+        }
+        
+        if let _similarJobsURL = dict["SimilarJobsURL"] as? String {
+            similarJobsURL = _similarJobsURL
+        }
+        
+        if let _companyImageURL = dict["CompanyImageURL"] as? String {
+            companyImageURL = _companyImageURL
+        }
+        
+        if let _jobBrandingIcons = dict["JobBrandingIcons"] as? String {
+            jobBrandingIcons = _jobBrandingIcons
+        }
+        
+        if let _applyRequirements = dict["ApplyRequirements"] as? String {
+            applyRequirements = _applyRequirements
+        }
+
+        if let _skills = dict["Skills"] as? [String : AnyObject] {
+            skills = _skills
+        }
+        
+        if let _jobLevel = dict["JobLevel"] as? String {
+            jobLevel = _jobLevel
+        }
+        
+        if let _jobTitle = dict["JobTitle"] as? String {
+            jobTitle = _jobTitle
+        }
     }
     
-    func h1BEligible() -> Bool {
+    var h1BEligible: Bool {
         let h1bFlag = "H1B"
         if DID?.range(of: h1bFlag) != nil && descriptionTeaser?.range(of: h1bFlag) != nil {
             return true

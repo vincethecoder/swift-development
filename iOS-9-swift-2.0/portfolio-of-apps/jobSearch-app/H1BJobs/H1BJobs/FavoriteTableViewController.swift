@@ -10,10 +10,14 @@ import UIKit
 
 class FavoriteTableViewController: UITableViewController {
     
-    var favoriteList: [Favorite] = []
+    var favoriteList = [Favorite]()
     let cellIdentifier = "favoriteCell"
     let webViewSegueIdentifier = "favJobHyperLink"
     var favoriteDefaultView: ErrorView!
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +31,12 @@ class FavoriteTableViewController: UITableViewController {
         // This will remove extra separators from tableview
         tableView.tableFooterView = UIView(frame: .zero)
         
-        let inset = UIEdgeInsetsMake(5, 0, 0, 0)
+        let inset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         tableView.contentInset = inset
         
         // Apply a blurring effect to the background image view
         tableView.backgroundView = UIImageView(image: UIImage(named: "city_skyline_ny"))
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = CGRect(x: 0, y: 0, width: view.bounds.width * 2, height: view.bounds.height * 2)
         tableView.backgroundView!.addSubview(blurEffectView)
@@ -53,7 +57,7 @@ class FavoriteTableViewController: UITableViewController {
         favoriteDefaultView.translatesAutoresizingMaskIntoConstraints = false
         
         tableView.addSubview(favoriteDefaultView)
-        tableView.bringSubview(toFront: favoriteDefaultView)
+        tableView.bringSubviewToFront(favoriteDefaultView)
         let widthConstraint = NSLayoutConstraint(item: favoriteDefaultView, attribute: .width, relatedBy: .equal,
                                                  toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: viewWidth)
         favoriteDefaultView.addConstraint(widthConstraint)
@@ -101,8 +105,8 @@ class FavoriteTableViewController: UITableViewController {
         let tracker = GAI.sharedInstance().defaultTracker
         tracker?.set(kGAIScreenName, value: "/savedview")
         let builder = GAIDictionaryBuilder.createScreenView()
-        if let dictData = builder?.build() {
-            tracker?.send(dictData as! [AnyHashable : Any])
+        if let dictData = builder?.build() as? [AnyHashable : Any] {
+            tracker?.send(dictData)
         }
     }
 
@@ -141,7 +145,7 @@ class FavoriteTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         super.tableView(tableView, commit: editingStyle, forRowAt: indexPath)
         if editingStyle == .delete {
             // Delete the row from the data source
@@ -180,18 +184,11 @@ class FavoriteTableViewController: UITableViewController {
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
         
-//        let center =  //(sender?.center)!
-//        let rootViewPoint = sender?.superview!!.convertPoint(center, toView: tableView)
-//
-//        if let indexPath = tableView.indexPathForRowAtPoint(rootViewPoint!) {
-//            let webView = segue.destination as? JobWebViewControler
-//            let row = indexPath.row
-//            let h1bjob = favoriteList[row]
-//            webView?.jobUrl = h1bjob.jobUrl
-//            webView?.job = h1bjob
-//        }
-        
-        if let webView = segue.destination as? JobWebViewControler, let indexPath = tableView.indexPathForSelectedRow {
+        let senderObject = (sender as AnyObject)
+        if let center = senderObject.center,
+            let rootViewPoint = senderObject.superview?.convert(center, to: tableView),
+            let indexPath = tableView.indexPathForRow(at: rootViewPoint),
+            let webView = segue.destination as? JobWebViewControler {
             let selectedRow = indexPath.row
             let h1bjob = favoriteList[selectedRow]
             webView.jobUrl = h1bjob.jobUrl

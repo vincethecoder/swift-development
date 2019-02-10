@@ -9,7 +9,8 @@
 import UIKit
 
 protocol ResultsTableViewCellDelegate {
-    func saveButtonTapped(cell: ResultsTableViewCell)
+    func saveButtonTapped(_ cell: ResultsTableViewCell)
+    func tableRowButtonTapped(_ sender: Any)
 }
 
 class ResultsTableViewCell: BaseTableViewCell {
@@ -53,11 +54,11 @@ class ResultsTableViewCell: BaseTableViewCell {
     
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        delegate?.saveButtonTapped(cell: self)
+        delegate?.saveButtonTapped(self)
     }
     
     @IBAction func tableRowButtonTapped(_ sender: Any) {
-
+        delegate?.tableRowButtonTapped(sender)
     }
     
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIImageView {
-    func downloadedFrom(link:String, contentMode mode: UIViewContentMode) {
+    func downloadedFrom(link:String, contentMode mode: UIView.ContentMode) {
         guard let url = URL(string: link)
             else {return}
         contentMode = mode

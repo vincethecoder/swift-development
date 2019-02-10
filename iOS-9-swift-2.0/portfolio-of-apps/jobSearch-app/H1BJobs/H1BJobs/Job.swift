@@ -12,7 +12,7 @@ class Job: NSObject {
     
     var keywords: String!
     var jobListings: [H1BJob] = []
-    var results: [AnyObject] = [] {
+    var results: [Any] = [] {
         didSet {
             guard results.count > 0 else { return }
 
@@ -32,21 +32,21 @@ class Job: NSObject {
                             // Jobs in CareerBuilder Listings
                             let company = nil != cbJob.company ? cbJob.company! : ""
                             let h1bjob = H1BJob(title: cbJob.jobTitle!, company: company, location: cbJob.location!, date: cbJob.postedDate!, detail: cbJob)
-                            if let _ = cbJob.descriptionTeaser, cbJob.descriptionTeaser?.isValidSponsoredJob() == true && cbJob.h1BEligible() == true {
+                            if let _ = cbJob.descriptionTeaser, cbJob.descriptionTeaser?.isValidSponsoredJob == true && cbJob.h1BEligible == true {
                                 self.jobListings.append(h1bjob)
                             }
                         } else if let linkupJob = job as? LinkupJobDetail {
                             
                             // Jobs in Linkup Listings
                             let h1bjob = H1BJob(title: linkupJob.job_title!, company: linkupJob.job_company!, location: linkupJob.job_location!, date: linkupJob.job_date_posted, detail: linkupJob)
-                            if linkupJob.description.isValidSponsoredJob() {
+                            if let description = linkupJob.job_description, description.isValidSponsoredJob {
                                 self.jobListings.append(h1bjob)
                             }
                         } else if let indeedJob = job as? IndeedJobDetail {
                             
                             // Jobs in Indeed Listings
                             let h1bjob = H1BJob(title: indeedJob.jobtitle!, company: indeedJob.company!, location: indeedJob.formattedLocation!, date: indeedJob.datePosted, detail: indeedJob)
-                            if indeedJob.expired?.boolValue == false && indeedJob.snippet?.isValidSponsoredJob() == true {
+                            if indeedJob.expired?.boolValue == false && indeedJob.snippet?.isValidSponsoredJob == true {
                                 self.jobListings.append(h1bjob)
                             }
                         }
@@ -108,28 +108,28 @@ class Job: NSObject {
 
             if let _ = data {
                 do {
-                    if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
+                    if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? [String : AnyObject] {
                         
                         if jobCategory == .Dice {
                             // Dice Job Search
                             let diceJobs = DiceJob()
-                            diceJobs.jobData = jsonResult as! [String : AnyObject]
-                            self.results.append(diceJobs.jobListings as AnyObject)
+                            diceJobs.jobData = jsonResult
+                            self.results.append(diceJobs.jobListings)
                         } else if jobCategory == .CareerBuilder {
                             // CareerBuilder Job Search
-                            let cbJobs = CBJob()
-                            cbJobs.jobData = jsonResult as! [String : AnyObject]
-                            self.results.append(cbJobs.jobListings as AnyObject)
+                            var cbJobs = CBJob()
+                            cbJobs.jobData = jsonResult
+                            self.results.append(cbJobs.jobListings)
                         } else if jobCategory == JobCategory.LinkUp {
                             // Linkup Job Search
-                            let linkupJobs = LinkupJob()
-                            linkupJobs.jobData = jsonResult as! [String : AnyObject]
-                            self.results.append(linkupJobs.jobListings as AnyObject)
+                            var linkupJobs = LinkupJob()
+                            linkupJobs.jobData = jsonResult
+                            self.results.append(linkupJobs.jobListings)
                         } else if jobCategory == JobCategory.Indeed {
                             // Indeed Job Search
-                            let indeedJobs = IndeedJob()
-                            indeedJobs.jobData = jsonResult as! [String : AnyObject]
-                            self.results.append(indeedJobs.jobListings as AnyObject)
+                            var indeedJobs = IndeedJob()
+                            indeedJobs.jobData = jsonResult
+                            self.results.append(indeedJobs.jobListings)
                         }
                         completion(true, self.results as NSArray, self.jobListings, nil)
                     }

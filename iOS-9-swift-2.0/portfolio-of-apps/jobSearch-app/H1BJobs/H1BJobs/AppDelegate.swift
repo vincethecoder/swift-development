@@ -14,21 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
-        UINavigationBar.appearance().barTintColor = UIColor.H1BHeaderColor()
+        UINavigationBar.appearance().barTintColor = UIColor.H1BHeaderColor
         UINavigationBar.appearance().tintColor = UIColor.white
         
         if let barFont = UIFont(name: "Avenir-Heavy", size: 22.0) {
-            UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName:barFont]
+            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white, NSAttributedString.Key.font:barFont]
         }
-        
-        // Change the status bar's appearance
-        UIApplication.shared.statusBarStyle = .lightContent
 
         // Change the tab bar's appearance
         UITabBar.appearance().tintColor = .white
-        UITabBar.appearance().barTintColor = .H1BFooterColor()
+        UITabBar.appearance().barTintColor = .H1BFooterColor
         
         // Configure tracker from GoogleService-Info.plist.
         var configureError:NSError?
@@ -38,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Optional: configure GAI options.
         let gai = GAI.sharedInstance()
         gai?.trackUncaughtExceptions = true  // report uncaught exceptions
+        
+        gai?.dryRun = true // TODO: Turn off when about
         
         return true
     }

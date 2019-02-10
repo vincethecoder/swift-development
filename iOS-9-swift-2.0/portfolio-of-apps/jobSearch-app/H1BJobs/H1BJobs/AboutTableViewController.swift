@@ -9,6 +9,7 @@
 import UIKit
 import MessageUI
 
+@available(iOS 10.0, *)
 class AboutTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var bannerContainer: UIView!
@@ -37,6 +38,10 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
     
     var build: [NSObject: AnyObject]!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,7 +57,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         tableView.backgroundView = UIImageView(image: UIImage(named: "city_skyline_ny"))
         
         // Apply a blurring effect to the background image view
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = CGRect(x: 0, y: 0, width: view.bounds.width * 2, height: view.bounds.height * 2)
         tableView.backgroundView!.addSubview(blurEffectView)
@@ -102,7 +107,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
     func formatImageView(_ imageView: UIImageView) {
         imageView.layer.borderWidth = 2.0
         imageView.layer.masksToBounds = false
-        imageView.layer.borderColor = imageView == logoImageView ? UIColor.H1BBorderColor().cgColor : UIColor.clear.cgColor
+        imageView.layer.borderColor = imageView == logoImageView ? UIColor.H1BBorderColor.cgColor : UIColor.clear.cgColor
         imageView.layer.cornerRadius = imageView.frame.width / (imageView != logoImageView ? 2 : 5)
         imageView.clipsToBounds = true
     }
@@ -161,7 +166,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         return cell
     }
 
-    func userDidTapShare(_ button: UIButton) {
+    @objc func userDidTapShare(_ button: UIButton) {
         //Implementation goes here ...
         // @TODO: Link maker: https://linkmaker.itunes.apple.com/en-us/?
         let message = "Just found tons of visa-sponsored jobs on the FREE \"H1B Jobs\" mobile app. Hurry, download your copy now!! http://apple.co/1Ki9z7C"
@@ -190,11 +195,13 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         
         if let indexPath = tableView.indexPathForSelectedRow, indexPath.section == AboutTableSection.ImageSection.rawValue {
             
-            var category = String()
+            var category: String?
             if indexPath.row == 0 { // Rate App
-                let url  = URL(string: "itms-apps://itunes.apple.com/app/id1078044924")
-                UIApplication.shared.openURL(url!)
-                category = "Rate App"
+                if let url  = URL(string: "itms-apps://itunes.apple.com/app/id1078044924"), UIApplication.shared.canOpenURL(url) {
+                    category = "Rate App"
+                    UIApplication.shared.open(url, options: [:])
+                }
+                
             } else { // Contact Developer
                 category = "Contact Developer"
                 let mailComposeViewController = configuredMailComposeViewController()
@@ -203,8 +210,10 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
                 }
             }
             
-            // Google Analytics
-            tracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Category: \(category)", action: "\(category) cell tapped", label: category, value: nil).build() as [NSObject : AnyObject])
+            if let category = category {
+                // Google Analytics
+                tracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Category: \(category)", action: "\(category) cell tapped", label: category, value: nil).build() as [NSObject : AnyObject])
+            }
             return false
         }
         return true

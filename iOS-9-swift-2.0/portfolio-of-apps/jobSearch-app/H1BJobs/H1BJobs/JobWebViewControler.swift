@@ -17,9 +17,13 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
     }
     var build: [NSObject: AnyObject]!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     @IBOutlet weak var webView: UIWebView!
 
-    var addButton: UIButton {
+    lazy var addButton: UIButton = {
         let button = UIButton()
         var image = "add_to_saved_icon"
         var frameHeight: CGFloat = 22
@@ -33,17 +37,16 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         button.frame = CGRect(x: 0, y: 0, width: frameWidth, height: frameHeight)
         button.addTarget(self, action: #selector(self.userDidTapSave), for: .touchUpInside)
         return button
-    }
+    }()
     
-    var savedButton: UIButton {
+    lazy var savedButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "saved_job_icon"), for: .normal)
         button.tintColor = UIColor.darkGray
         button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         button.addTarget(self, action: #selector(self.userDidTapSave), for: .touchUpInside)
         return button
-    }
-    
+    }()
     
     override func viewDidLoad() {
         
@@ -53,8 +56,8 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         
         webView.scalesPageToFit = true
         
-        if let url = jobUrl {
-            let requestUrl = URLRequest(url: NSURL(string: url)! as URL)
+        if let jobUrl = jobUrl, let url = URL(string: jobUrl)  {
+            let requestUrl = URLRequest(url: url)
             // Start Activity Indicator Animation
             GMDCircleLoader.setOn(self.view, withTitle: "Loading...", animated: true)
 
@@ -125,7 +128,7 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         saveView.translatesAutoresizingMaskIntoConstraints = false
         
         webView.addSubview(saveView)
-        webView.bringSubview(toFront: saveView)
+        webView.bringSubviewToFront(saveView)
         let widthConstraint = NSLayoutConstraint(item: saveView, attribute: .width, relatedBy: .equal,
             toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: viewWidth)
         saveView.addConstraint(widthConstraint)
@@ -154,8 +157,8 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
         
         // Google Analytics
         tracker.set(kGAIScreenName, value: "/jobwebview")
-        if let builder = GAIDictionaryBuilder.createScreenView(), let dictData = builder.build() {
-            tracker.send(dictData as! [AnyHashable : Any])
+        if let builder = GAIDictionaryBuilder.createScreenView(), let dictData = builder.build() as? [AnyHashable : Any] {
+            tracker.send(dictData)
         }
     }
     

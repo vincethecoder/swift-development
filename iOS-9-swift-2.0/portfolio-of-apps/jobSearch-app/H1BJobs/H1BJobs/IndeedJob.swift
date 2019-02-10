@@ -8,34 +8,15 @@
 
 import Foundation
 
-class IndeedJob: NSObject {
+struct IndeedJob {
 
-    var jobListings: [IndeedJobDetail] = []
-    var version: NSNumber?
-    var query: String?
-    var location: String?
-    var highlight: NSNumber?
-    var radius: NSNumber?
-    var start: NSNumber?
-    var end: NSNumber?
-    var totalResults: NSNumber?
-    var pageNumber: NSNumber?
-    var dupefilter: NSNumber?
-    var paginationPayload: String?
-    
-    var results:[AnyObject] = [AnyObject]() {
-        didSet {
-            for items in results {
-                let item = items as! [String : AnyObject]
-                let jobItem: IndeedJobDetail = IndeedJobDetail(dict: item)
-                jobListings.append(jobItem)
-            }
-        }
-    }
+    var jobListings = [IndeedJobDetail]()
 
     var jobData = [String: AnyObject]() {
         didSet {
-            self.setValuesForKeys(jobData)
+            if let results = jobData["results"] as? [[String: AnyObject]] {
+                jobListings = results.map { IndeedJobDetail(dict: $0) }
+            }
         }
     }
 

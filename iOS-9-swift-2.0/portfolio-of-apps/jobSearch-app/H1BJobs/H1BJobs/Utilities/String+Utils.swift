@@ -33,7 +33,7 @@ extension String {
         return JobUtils.init(category:jobBoard, search:keywords).requestURL
     }
     
-    func cbJobPostDateDayMonthYear() -> Date {
+    var cbJobPostDateDayMonthYear: Date {
         let postDateTimeArr =  self.split{$0 == " "}.map(String.init) // 11/18/2015 11:59:48 AM
         let postDate = postDateTimeArr[0]
         let dateFormatter = DateFormatter()
@@ -41,23 +41,20 @@ extension String {
         return dateFormatter.date(from: postDate)! as Date
     }
     
-    func diceJobPostDateDayMonthYear() -> Date {
+    var diceJobPostDateDayMonthYear: Date {
         let postDate = self
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.date(from: postDate)! as Date
     }
     
-    func isValidSponsoredJob() -> Bool {
-        if  self.lowercased().range(of: "unable") == nil &&
-            self.lowercased().range(of: "not") == nil &&
-            self.lowercased().range(of: "no") == nil &&
-            self.lowercased().range(of: "won't") == nil &&
-            self.lowercased().range(of: "unwilling") == nil &&
-            self.lowercased().range(of: "cannot") == nil {
-                return true
-        }
-        return false
+    var isValidSponsoredJob: Bool {
+        return self.lowercased().range(of: "unable") == nil &&
+               self.lowercased().range(of: "not") == nil &&
+               self.lowercased().range(of: "no") == nil &&
+               self.lowercased().range(of: "won't") == nil &&
+               self.lowercased().range(of: "unwilling") == nil &&
+               self.lowercased().range(of: "cannot") == nil
     }
-}
 
+}

@@ -26,6 +26,10 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
             return jobs
         }
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var company: UILabel!
@@ -62,40 +66,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         // Initiate Job Search Request
         let job: Job = Job()
         job.keywords = keywords
-        job.getJobs { (success, result, joblistings, error) -> () in
-            
-            /**
-             
-             DispatchQueue.main.async( execute: {
-             let data: NSData? = self.cache.object(forKey: urlString as NSString)
-             
-             if let goodData = data {
-             let image = UIImage(data: goodData as Data)
-             DispatchQueue.main.async {
-             completionHandler(image, urlString)
-             }
-             return
-             }
-             
-             let downloadTask: URLSessionDataTask = URLSession.shared.dataTask(with: URL(string: urlString)!) { [weak self] data, response, error in
-             if (error != nil) {
-             completionHandler(nil, urlString)
-             return
-             }
-             
-             if data != nil {
-             let image = UIImage(data: data!)
-             self?.cache.setObject(data! as NSData, forKey: urlString as NSString)
-             DispatchQueue.main.async {
-             completionHandler(image, urlString)
-             }
-             return
-             }
-             
-             }
-             downloadTask.resume()
-             })
-             */
+        job.getJobs { (success, result, joblistings, error) in
             
             // Stop Activity Indicator Animation
             DispatchQueue.main.async {
@@ -146,7 +117,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         searchDefaultView.translatesAutoresizingMaskIntoConstraints = false
         
         tableView.addSubview(searchDefaultView)
-        tableView.bringSubview(toFront: searchDefaultView)
+        tableView.bringSubviewToFront(searchDefaultView)
         let widthConstraint = NSLayoutConstraint(item: searchDefaultView, attribute: .width, relatedBy: .equal,
             toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: viewWidth)
         searchDefaultView.addConstraint(widthConstraint)
@@ -165,7 +136,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         
         // Apply a blurring effect to the background image view
         tableView.backgroundView = UIImageView(image: UIImage(named: "city_skyline_ny"))
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = CGRect(x: 0, y: 0, width: view.bounds.width * 2, height: view.bounds.height * 2)
         tableView.backgroundView!.addSubview(blurEffectView)
@@ -203,7 +174,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         // Customize the appearance of the search bar
         searchController.searchBar.placeholder = "Filter Listings..."
         searchController.searchBar.tintColor = .white
-        searchController.searchBar.barTintColor = UIColor.H1BBorderColor()
+        searchController.searchBar.barTintColor = UIColor.H1BBorderColor
         
         // Prevents undefined behavior in app lifecyle
         searchController.loadViewIfNeeded()
@@ -231,7 +202,7 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         cell.jobTitle.text = h1bjob.title.capitalized
         cell.jobCompany.text = h1bjob.company
         cell.jobLocation.text = h1bjob.location
-        cell.jobPostDate.text = "Posted: \(h1bjob.postdate.wordMonthDayString())"
+        cell.jobPostDate.text = "Posted: \(h1bjob.postdate.wordMonthDayString)"
         cell.imageView?.image = h1bjob.companyLogo
         
         cell.jobWebUrl = h1bjob.jobUrl
@@ -243,9 +214,17 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         return cell
     }
     
-    func saveButtonTapped(cell: ResultsTableViewCell) {
+    func saveButtonTapped(_ cell: ResultsTableViewCell) {
         
-        let jobRecord = Favorite(favoriteId: 0, jobTitle: cell.jobTitle.text!, company: cell.jobCompany.text!, jobUrl: cell.jobWebUrl, savedTimestamp: Date().wordMonthDayYearString(), image: "{COMPANY_LOGO_NAME}")
+        let center = cell.center
+        guard let rootViewPoint = cell.superview?.convert(center, to: tableView),
+              let indexPath = tableView.indexPathForRow(at: rootViewPoint) else {
+            return
+        }
+        
+        let job = jobListings[indexPath.row]
+        
+        let jobRecord = Favorite(favoriteId: 0, jobTitle: cell.jobTitle.text!, company: cell.jobCompany.text!, jobUrl: cell.jobWebUrl, savedTimestamp: Date().wordMonthDayYearString, image: job.companyLogoName)
 
         
         if let record = FavoriteHelper.find(item: jobRecord) {
@@ -266,6 +245,12 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         updateFavoriteTabBadge()
     }
     
+    func tableRowButtonTapped(_ sender: Any) {
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
+    }
+    
     func updateFavoriteTabBadge() {
         if let tabArray = self.tabBarController?.tabBar.items {
             let favoriteTab = tabArray[1]
@@ -279,23 +264,22 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
         if toInterfaceOrientation == .landscapeLeft || toInterfaceOrientation == .landscapeRight {
             tracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Orientation Change", action: "Device in Landscape", label: "Landscape Orientation", value: nil).build() as [NSObject : AnyObject])
         }
-        
         tableView.reloadData()
     }
 
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let backItem = UIBarButtonItem()
-        backItem.title = ""
-        navigationItem.backBarButtonItem = backItem
-
-        if let indexPath = tableView.indexPathForSelectedRow {
-            let webView = segue.destination as? JobWebViewControler
-            let row = indexPath.row
-            let h1bjob = (searchController.isActive) ? searchResults[row] : jobListings[row]
-            webView?.jobUrl = h1bjob.jobUrl
-            webView?.job = Favorite(favoriteId: 0, jobTitle: h1bjob.title, company: h1bjob.company, jobUrl: h1bjob.jobUrl, savedTimestamp: h1bjob.postdate.wordMonthDayString(), image: "{COMPANY_LOGO}")
+        
+        let senderObject = (sender as AnyObject)
+        if let center = senderObject.center,
+           let rootViewPoint = senderObject.superview?.convert(center, to: tableView),
+           let indexPath = tableView.indexPathForRow(at: rootViewPoint),
+           let webView = segue.destination as? JobWebViewControler {
+           let row = indexPath.row
+            let job = searchController.isActive ? searchResults[row] : jobListings[row]
+            webView.jobUrl = job.jobUrl
+            webView.job = Favorite(favoriteId: 0, jobTitle: job.title, company: job.company, jobUrl: job.jobUrl, savedTimestamp: job.postdate.wordMonthDayString, image: job.companyLogoName)   
         }
     }
 
