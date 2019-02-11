@@ -8,28 +8,15 @@
 
 import Foundation
 
-class LinkupJob: NSObject {
+struct LinkupJob {
     
-    var warnings: [NSObject]?
-    var criteria: NSObject?
-    var result_info: NSObject?
-    var title: String?
-    var sponsored_listings: [NSObject]?
-    var jobListings: [LinkupJobDetail] = []
-    
-    var jobs:[AnyObject] = [AnyObject]() {
-        didSet {
-            for items in jobs {
-                let item = items as! [String : AnyObject]
-                let jobItem: LinkupJobDetail = LinkupJobDetail(dict: item)
-                jobListings.append(jobItem)
-            }
-        }
-    }
+    var jobListings = [LinkupJobDetail]()
 
     var jobData = [String: AnyObject]() {
         didSet {
-            self.setValuesForKeysWithDictionary(jobData)
+            if let jobs = jobData["jobs"] as? [[String: AnyObject]] {
+                jobListings = jobs.map { LinkupJobDetail(dict: $0) }
+            }
         }
     }
 }

@@ -58,5 +58,19 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>DICE_API_CLIENT_ID</key>
+	<string></string>
+	<key>CB_API_CLIENT_ID</key>
+	<string>WDTZ5LJ75JCSQBK1Z8ZX</string>
+	<key>LINKUP_API_CLIENT_ID</key>
+	<string>76C53BDC6854D5939505307A74337BC4</string>
+	<key>INDEED_API_CLIENT_ID</key>
+	<string>5572911862581719</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-1377094266355306~9419243533</string>
+	<key>ADMOB_AD_UNIT_ID</key>
+	<string>ca-app-pub-1377094266355306/4318836384</string>
+	<key>TEST_DEVICE_ID</key>
+	<string>d41a17ceba920dd3dec95b457e5ecaa4509554a5</string>
 </dict>
 </plist>

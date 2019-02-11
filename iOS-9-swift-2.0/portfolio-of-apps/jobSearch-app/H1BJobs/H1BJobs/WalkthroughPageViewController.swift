@@ -17,6 +17,10 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
         WalkthroughPage(heading: "Begin Search", content: "Several H1B, Green Card, OPT and CPT Jobs are just a tap away!")
     ]
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,14 +28,9 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
         dataSource = self
         
         // Create the first walkthrough screen
-        if let startingViewController = viewControllerAtIndex(0) {
-            setViewControllers([startingViewController], direction: .Forward, animated: true, completion: nil)
+        if let startingViewController = viewControllerAtIndex(index: 0) {
+            setViewControllers([startingViewController], direction: .forward, animated: true, completion: nil)
         }
-
-    }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return true
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,20 +39,20 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
     }
 
     // MARK: - UIPageViewControllerDataSource
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         var index = (viewController as! WalkthroughContentViewController).index
-        index++
+        index += 1
         
-        return viewControllerAtIndex(index)
+        return viewControllerAtIndex(index: index)
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         var index = (viewController as! WalkthroughContentViewController).index
-        index--
+        index -= 1
         
-        return viewControllerAtIndex(index)
+        return viewControllerAtIndex(index: index)
     }
     
     func viewControllerAtIndex(index: Int) -> WalkthroughContentViewController? {
@@ -63,7 +62,7 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
         }
         
         // Create a new view controller and pass suitable data.
-        if let pageContentViewController = storyboard?.instantiateViewControllerWithIdentifier("WalkthroughContentViewController") as? WalkthroughContentViewController {
+        if let pageContentViewController = storyboard?.instantiateViewController(withIdentifier: "WalkthroughContentViewController") as? WalkthroughContentViewController {
             pageContentViewController.heading = pages[index].heading
             pageContentViewController.content = pages[index].content
             pageContentViewController.index = index
@@ -75,8 +74,8 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
     }
     
     func forward(index:Int) {
-        if let nextViewController = viewControllerAtIndex(index + 1) {
-            setViewControllers([nextViewController], direction: .Forward, animated: true, completion: nil)
+        if let nextViewController = viewControllerAtIndex(index: index + 1) {
+            setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
         }
     }
     

@@ -8,32 +8,13 @@
 
 import UIKit
 
-class CBJobResponse: NSObject {
+struct CBJobResponse {
     
-    var Errors: NSError?
-    var TimeResponseSent: String?
-    var TimeElapsed: String?
-    var TotalPages: String?
-    var TotalCount: String?
-    var FirstItemIndex: String?
-    var LastItemIndex: String?
-    var SearchMetaData: [String: AnyObject]?
-    var jobListings:[CBJobDetail] = []
-    var RequestEvidenceID: String?
-    
-    var Results: [String : AnyObject] = [String : AnyObject]() {
-        didSet {
-            let searchReaults = Results["JobSearchResult"] as! NSArray
-            for searhResult in searchReaults {
-                let dict = searhResult as! [String : AnyObject]
-                let job = CBJobDetail.init(dict: dict)
-                jobListings.append(job)
-            }
-        }
-    }
+    var jobListings = [CBJobDetail]()
 
     init(dict: [String: AnyObject]) {
-        super.init()
-        self.setValuesForKeysWithDictionary(dict)
+        if let searchResults = dict["JobSearchResult"] as? [[String: AnyObject]] {
+            jobListings = searchResults.map { CBJobDetail(dict: $0) }
+        }
     }
 }

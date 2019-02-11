@@ -16,14 +16,14 @@ class FavoriteHelper: DataHelperProtocol {
     static let company = Expression<String?>("company")
     static let jobUrl = Expression<String?>("joburl")
     static let savedTimestamp = Expression<String?>("timestamp")
-    static let image = Expression<NSData?>("image")
+    static let image = Expression<String?>("image")
     
     typealias T = Favorite
     static let table = Table("favorite")
 
     static var db: Connection {
         get {
-            let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
+            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
             
             // if you don't want to handle error you can force it with try! keyword.
             // As with other keywords that ends ! this is a risky operation.
@@ -86,30 +86,51 @@ class FavoriteHelper: DataHelperProtocol {
     
     static func findAll() -> [T]? {
         var records: [T] = []
-        if tableCreated {
-            for f in db.prepare(table) {
-                let favoriteRecord = Favorite(favoriteId: f.get(favoriteId), jobTitle: f.get(jobTitle)!, company: f.get(company)!, jobUrl: f.get(jobUrl)!, savedTimestamp: f.get(savedTimestamp)!, image: f.get(image)!)
-                records.append(favoriteRecord)
+        do {
+            if tableCreated {
+                let dataRecord = try db.prepare(table)
+                for f in dataRecord {
+                    let jobId = try f.get(favoriteId)
+                    let title = try f.get(jobTitle) ?? ""
+                    let jobcompany = try f.get(company) ?? ""
+                    let url = try f.get(jobUrl) ?? ""
+                    let time = try f.get(savedTimestamp) ?? ""
+                    let _image = try f.get(image) ?? ""
+                    
+                    let favoriteRecord = Favorite(favoriteId: jobId, jobTitle: title, company: jobcompany, jobUrl: url, savedTimestamp: time, image: _image)
+                    records.append(favoriteRecord)
+                }
             }
+        } catch let error as NSError {
+            print("\(error.localizedDescription)")
         }
+        
         return records
     }
     
     static func find(item: T) -> T? {
         let query = table.filter(jobTitle == item.jobTitle && company == item.company)
         var result: T?
-        if tableCreated {
-            if let item = db.pluck(query) {
-                result = Favorite(favoriteId: item[favoriteId], jobTitle: item[jobTitle]!, company: item[company]!, jobUrl: item[jobUrl]!, savedTimestamp: item[savedTimestamp]!, image: item[image]!)
+        do {
+            if tableCreated {
+                if let item = try db.pluck(query) {
+                    result = Favorite(favoriteId: item[favoriteId], jobTitle: item[jobTitle]!, company: item[company]!, jobUrl: item[jobUrl]!, savedTimestamp: item[savedTimestamp]!, image: item[image]!)
+                }
             }
+        } catch let error as NSError {
+            print("\(error.localizedDescription)")
         }
         return result
     }
     
     static func count() -> Int {
-        if tableCreated {
-            let count = db.scalar(table.count)
-            return count
+        do {
+            if tableCreated {
+                let count = try db.scalar(table.count)
+                return count
+            }
+        } catch let error as NSError {
+            print("\(error.localizedDescription)")
         }
         return -1
     }

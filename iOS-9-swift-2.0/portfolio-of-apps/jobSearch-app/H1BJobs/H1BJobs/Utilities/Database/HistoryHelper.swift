@@ -15,7 +15,7 @@ class HistoryHelper: DataHelperProtocol {
     static let keyword = Expression<String?>("keyword")
     static let location = Expression<String?>("location")
     static let state = Expression<String?>("state")
-    static let timestamp = Expression<NSDate?>("timestamp")
+    static let timestamp = Expression<Date?>("timestamp")
 
     typealias T = History
     static let table = Table("history")
@@ -27,7 +27,7 @@ class HistoryHelper: DataHelperProtocol {
 
     static var db: Connection {
         get {
-            let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
+            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
             
             // if you don't want to handle error you can force it with try! keyword.
             // As with other keywords that ends ! this is a risky operation.
@@ -85,9 +85,14 @@ class HistoryHelper: DataHelperProtocol {
     static func findAll() -> [T]? {
         var records: [T] = []
         if tableCreated {
-            for h in db.prepare(table.order(searchId.desc)) {
-                let historyRecord = History(searchId: h.get(searchId), keyword: h.get(keyword)!, location: h.get(location)!, state: h.get(state)!, timestamp: h.get(timestamp)!)
-                records.append(historyRecord)
+            do {
+                let result = try db.prepare(table.order(searchId.desc))
+                for h in result {
+                    let historyRecord = History(searchId: try h.get(searchId), keyword: try h.get(keyword)!, location: try h.get(location)!, state: try h.get(state)!, timestamp: try h.get(timestamp)!)
+                    records.append(historyRecord)
+                }
+            } catch let error as NSError {
+                print("\(error.localizedDescription)")
             }
         }
         
@@ -98,8 +103,12 @@ class HistoryHelper: DataHelperProtocol {
         let query = table.filter(keyword == item.keyword)
         var result: T?
         if tableCreated {
-            if let item = db.pluck(query) {
-                result = History(searchId: item[searchId], keyword: item[keyword]!, location: item[location]!, state: item[state]!, timestamp: item[timestamp]!)
+            do {
+                if let item = try db.pluck(query) {
+                    result = History(searchId: item[searchId], keyword: item[keyword]!, location: item[location]!, state: item[state]!, timestamp: item[timestamp]!)
+                }
+            } catch let error as NSError {
+                print("\(error.localizedDescription)")
             }
         }
         return result

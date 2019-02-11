@@ -8,17 +8,9 @@
 
 import UIKit
 
-class CBJob: NSObject {
+struct CBJob {
     
-    var jobListings:[CBJobDetail] = []
-    var searchResponse:CBJobResponse?
-    var ResponseJobSearch = [String: AnyObject]() {
-        didSet {
-            let response = CBJobResponse.init(dict: ResponseJobSearch)
-            searchResponse = response
-            jobListings = (searchResponse?.jobListings)!
-        }
-    }
+    var jobListings: [CBJobDetail] = []
     
     var hasResults: Bool {
         return jobListings.count > 0
@@ -26,7 +18,12 @@ class CBJob: NSObject {
     
     var jobData = [String: AnyObject]() {
         didSet {
-            self.setValuesForKeysWithDictionary(jobData)
+            if let responseJobSearch = jobData["ResponseJobSearch"] as? [String: AnyObject],
+               let results = responseJobSearch["Results"] as? [String: AnyObject],
+               let searchResults = results["JobSearchResult"] as? [[String: AnyObject]] {
+                jobListings = searchResults.map { CBJobDetail(dict: $0) }
+            }
+            
         }
     }
 }

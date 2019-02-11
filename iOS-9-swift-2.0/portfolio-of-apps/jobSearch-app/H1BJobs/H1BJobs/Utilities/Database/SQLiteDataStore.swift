@@ -19,7 +19,7 @@ class SQLiteDataStore {
     private init() {
         
         var path = "hbjob.sqlite"
-        let dir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
+        let dir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         path = "\(dir)/\(path)"
         print(path)
         
@@ -36,7 +36,7 @@ class SQLiteDataStore {
     }
     
     func createTables() {
-        HistoryHelper.createTable()
+        _ = HistoryHelper.createTable()
     }
     
     
