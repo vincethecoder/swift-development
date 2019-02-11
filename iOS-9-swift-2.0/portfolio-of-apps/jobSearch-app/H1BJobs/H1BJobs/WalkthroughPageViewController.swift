@@ -31,7 +31,6 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
         if let startingViewController = viewControllerAtIndex(index: 0) {
             setViewControllers([startingViewController], direction: .forward, animated: true, completion: nil)
         }
-
     }
 
     override func didReceiveMemoryWarning() {

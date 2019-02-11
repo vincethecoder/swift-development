@@ -49,7 +49,6 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
     }()
     
     override func viewDidLoad() {
-        
         if title == nil {
             self.title = "Job Description"
         }
@@ -64,6 +63,12 @@ class JobWebViewControler: UIViewController, UIWebViewDelegate {
             webView.loadRequest(requestUrl)
             webView.delegate = self
         }
+    }
+    
+    deinit {
+        webView = nil
+        jobUrl = nil
+        job = nil
     }
     
    @objc func userDidTapSave() {

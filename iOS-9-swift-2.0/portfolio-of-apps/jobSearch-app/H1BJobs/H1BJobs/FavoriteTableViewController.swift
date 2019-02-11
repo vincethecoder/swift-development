@@ -43,7 +43,12 @@ class FavoriteTableViewController: UITableViewController {
         
         // Add "No Favorite Transcript Available" View
         addDefaultView()
-
+    }
+    
+    deinit {
+        favoriteList.removeAll()
+        favoriteDefaultView = nil
+        tableView = nil
     }
     
     func addDefaultView() {

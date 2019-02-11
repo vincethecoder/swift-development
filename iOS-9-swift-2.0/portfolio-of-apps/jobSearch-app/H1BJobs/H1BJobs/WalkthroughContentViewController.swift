@@ -26,7 +26,6 @@ class WalkthroughContentViewController: UIViewController {
     var image: UIImage!
     var content: String!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

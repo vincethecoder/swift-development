@@ -12,6 +12,7 @@ class Job: NSObject {
     
     var keywords: String!
     var jobListings: [H1BJob] = []
+    static let queue: OperationQueue = OperationQueue()
     var results: [Any] = [] {
         didSet {
             guard results.count > 0 else { return }
@@ -59,7 +60,7 @@ class Job: NSObject {
             }
         }
     }
-
+    
     func getJobs(completion: @escaping (_ success: Bool, _ result: NSArray?, _ joblistings: [H1BJob]?, _ error: Error?) -> ()) {
         
         // Job Search: Dice, CareerBuilder, Linkup, Indeed Search Boards
@@ -67,36 +68,65 @@ class Job: NSObject {
         if let _ = keywords {
             searchKeywords = keywords
         }
-        let dice = JobUtils(category: .Dice, search: searchKeywords)
-        let diceURL = NSURL(string: dice.requestURL)
-        getJobsForUrl(url: diceURL!, jobCategory: .Dice) { (status, result, joblistings, error) -> () in
+        
+        // Dice Job Search
+        Job.queue.addOperation {
+            let dice = JobUtils(category: .dice, search: searchKeywords)
+            let diceURL = NSURL(string: dice.requestURL)
             
-            // CareerBuilder Job Search
-            let cb = JobUtils(category: .CareerBuilder, search: searchKeywords)
-            let cbURL = NSURL(string: cb.requestURL)
-            self.getJobsForUrl(url: cbURL!, jobCategory: .CareerBuilder) { (status, result, joblistings, error) -> () in
-                
-                // Linkup Job Search
-                let linkup = JobUtils(category: .LinkUp, search: searchKeywords)
-                let linkupURL = NSURL(string: linkup.requestURL)
-                self.getJobsForUrl(url: linkupURL!, jobCategory: .LinkUp, completion: { (success, result, joblistings, error) -> () in
-                    
-                    // Indeed Job Search
-                    let indeed = JobUtils(category: .Indeed, search: searchKeywords)
-                    let indeedURL = NSURL(string: indeed.requestURL)
-                    self.getJobsForUrl(url: indeedURL!, jobCategory: .Indeed, completion: { (success, result, joblistings, error) -> () in
-                       
-                        // Indeed Completion Block
-                        completion(status, result, joblistings, error)
-                    })
-                    // Linkup Completion Block
-                    // completion(success: status, result: result, joblistings: joblistings, error: error)
-                })
-                // CareerBuilder Completion Block
-                // completion(success: status, result: result, joblistings: joblistings, error: error)
+            self.getJobsForUrl(url: diceURL!, jobCategory: .dice) { (success, result, joblistings, error) in
+                if success, let listings = joblistings {
+                    OperationQueue.main.addOperation {
+                        self.jobListings += listings
+                        completion(success, result, self.jobListings, error)
+                    }
+                }
             }
-            // Dice Completion Block
-            // completion(success: status, result: result, joblistings: joblistings, error: error)
+        }
+        
+        // CareerBuilder Job Search
+        Job.queue.addOperation {
+            let cb = JobUtils(category: .careerBuilder, search: searchKeywords)
+            let cbURL = NSURL(string: cb.requestURL)
+            
+            self.getJobsForUrl(url: cbURL!, jobCategory: .careerBuilder) { (success, result, joblistings, error) in
+                if success, let listings = joblistings {
+                    OperationQueue.main.addOperation {
+                        self.jobListings += listings
+                        completion(success, result, self.jobListings, error)
+                    }
+                }
+            }
+        }
+        
+        // Linkup Job Search
+        Job.queue.addOperation {
+            let linkup = JobUtils(category: .linkUp, search: searchKeywords)
+            let linkupURL = NSURL(string: linkup.requestURL)
+            
+            self.getJobsForUrl(url: linkupURL!, jobCategory: .linkUp) { (success, result, joblistings, error) in
+                if success, let listings = joblistings {
+                    OperationQueue.main.addOperation {
+                        self.jobListings += listings
+                        completion(success, result, self.jobListings, error)
+                    }
+                }
+            }
+        }
+        
+        // Indeed Job Search
+        Job.queue.addOperation {
+            let indeed = JobUtils(category: .indeed, search: searchKeywords)
+            let indeedURL = NSURL(string: indeed.requestURL)
+            
+            self.getJobsForUrl(url: indeedURL!, jobCategory: .indeed) { (success, result, joblistings, error) in
+                if success, let listings = joblistings {
+                    OperationQueue.main.addOperation {
+                        self.jobListings += listings
+                        completion(success, result, self.jobListings, error)
+                    }
+                }
+            }
         }
     }
     
@@ -110,22 +140,22 @@ class Job: NSObject {
                 do {
                     if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? [String : AnyObject] {
                         
-                        if jobCategory == .Dice {
+                        if jobCategory == .dice {
                             // Dice Job Search
                             let diceJobs = DiceJob()
                             diceJobs.jobData = jsonResult
                             self.results.append(diceJobs.jobListings)
-                        } else if jobCategory == .CareerBuilder {
+                        } else if jobCategory == .careerBuilder {
                             // CareerBuilder Job Search
                             var cbJobs = CBJob()
                             cbJobs.jobData = jsonResult
                             self.results.append(cbJobs.jobListings)
-                        } else if jobCategory == JobCategory.LinkUp {
+                        } else if jobCategory == JobCategory.linkUp {
                             // Linkup Job Search
                             var linkupJobs = LinkupJob()
                             linkupJobs.jobData = jsonResult
                             self.results.append(linkupJobs.jobListings)
-                        } else if jobCategory == JobCategory.Indeed {
+                        } else if jobCategory == JobCategory.indeed {
                             // Indeed Job Search
                             var indeedJobs = IndeedJob()
                             indeedJobs.jobData = jsonResult

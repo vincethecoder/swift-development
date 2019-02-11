@@ -21,10 +21,8 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
     var searchDefaultViewText: String!
     var searchDefaultViewImage: UIImage!
     var favoriteJobs: [Favorite] {
-        get {
-            let jobs = FavoriteHelper.findAll()!
-            return jobs
-        }
+        let jobs = FavoriteHelper.findAll()!
+        return jobs
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -75,13 +73,17 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
                 self.tableView.layer.shadowRadius = 10
             }
 
-            if success, let _ = joblistings {
-                self.jobListings = joblistings!
+            if success, let joblistings = joblistings {
+                self.jobListings = joblistings
                 DispatchQueue.main.async {
                     let jobcount = self.jobListings.count > 0 ? "\(self.jobListings.count)" : "No"
                     self.title = "\(jobcount) Jobs Found"
                     
                     if self.jobListings.count > 0 {
+                        self.searchDefaultViewTitle = nil
+                        self.searchDefaultViewText = nil
+                        self.searchDefaultViewImage = nil
+                        self.searchDefaultView.isHidden = true
                         self.addDefaultView(String(), viewText: String(), viewImage: UIImage())
                         self.tableView.reloadData()
                     } else {
@@ -106,6 +108,20 @@ class SearchResultsViewController: UITableViewController, UISearchResultsUpdatin
                 }
             }
         }
+    }
+    
+    deinit {
+        keywords = nil
+        tableView = nil
+        searchController = nil
+        searchDefaultView = nil
+        searchDefaultViewText = nil
+        searchDefaultViewTitle = nil
+        searchDefaultViewImage = nil
+
+        Job.queue.cancelAllOperations()
+        jobListings.removeAll()
+        searchResults.removeAll()
     }
     
     func addDefaultView(_ viewTitle: String, viewText: String, viewImage: UIImage) {

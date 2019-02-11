@@ -58,5 +58,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>DICE_API_CLIENT_ID</key>
+	<string></string>
+	<key>CB_API_CLIENT_ID</key>
+	<string>WDTZ5LJ75JCSQBK1Z8ZX</string>
+	<key>LINKUP_API_CLIENT_ID</key>
+	<string>76C53BDC6854D5939505307A74337BC4</string>
+	<key>INDEED_API_CLIENT_ID</key>
+	<string>5572911862581719</string>
 </dict>
 </plist>
