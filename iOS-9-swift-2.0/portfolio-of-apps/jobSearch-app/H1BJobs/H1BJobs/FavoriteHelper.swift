@@ -90,7 +90,14 @@ class FavoriteHelper: DataHelperProtocol {
             if tableCreated {
                 let dataRecord = try db.prepare(table)
                 for f in dataRecord {
-                    let favoriteRecord = Favorite(favoriteId: try f.get(favoriteId), jobTitle: try f.get(jobTitle)!, company: try f.get(company)!, jobUrl: try f.get(jobUrl)!, savedTimestamp: try f.get(savedTimestamp)!, image: try f.get(image)!)
+                    let jobId = try f.get(favoriteId)
+                    let title = try f.get(jobTitle) ?? ""
+                    let jobcompany = try f.get(company) ?? ""
+                    let url = try f.get(jobUrl) ?? ""
+                    let time = try f.get(savedTimestamp) ?? ""
+                    let _image = try f.get(image) ?? ""
+                    
+                    let favoriteRecord = Favorite(favoriteId: jobId, jobTitle: title, company: jobcompany, jobUrl: url, savedTimestamp: time, image: _image)
                     records.append(favoriteRecord)
                 }
             }

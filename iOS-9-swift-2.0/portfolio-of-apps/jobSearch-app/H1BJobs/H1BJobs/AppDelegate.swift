@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
@@ -37,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         gai?.trackUncaughtExceptions = true  // report uncaught exceptions
         
         gai?.dryRun = true // TODO: Turn off when about
+        
+        GADMobileAds.configure(withApplicationID: AppSecrets.admobAppID)
         
         return true
     }
