@@ -1,6 +1,10 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## Google-Mobile-Ads-SDK
+
+Copyright 2018 Google
+
 ## Google
 
 Copyright 2015 Google Inc.

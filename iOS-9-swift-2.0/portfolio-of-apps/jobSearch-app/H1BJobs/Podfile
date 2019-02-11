@@ -6,4 +6,5 @@ inhibit_all_warnings!
 target 'H1BJobs' do
 	pod 'Google/Analytics'
     pod 'SQLite.swift', '~> 0.11.5'
+    pod 'Google-Mobile-Ads-SDK'
 end

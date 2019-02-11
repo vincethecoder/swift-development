@@ -1,4 +1,5 @@
 PODS:
+  - Google-Mobile-Ads-SDK (7.35.0)
   - Google/Analytics (1.2.1):
     - Google/Core
     - GoogleAnalytics (~> 3.12)
@@ -20,11 +21,13 @@ PODS:
   - SQLite.swift/standard (0.11.5)
 
 DEPENDENCIES:
+  - Google-Mobile-Ads-SDK
   - Google/Analytics
   - SQLite.swift (~> 0.11.5)
 
 SPEC CHECKSUMS:
   Google: 28b52094b7910b6e2fbe571196c4590f1d7a95f6
+  Google-Mobile-Ads-SDK: bf5cc062e45dae8ee6a81cadfd3aa19d45cc6723
   GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
   GoogleInterchangeUtilities: d7f7174176fbcf9710f696f1acebad4dbd98ac03
   GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
@@ -32,6 +35,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 8ed9134debe11719097881711464752900668f10
   SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
 
-PODFILE CHECKSUM: 3dd522829cd49e8363e83a2254d57e516daf5960
+PODFILE CHECKSUM: 7c5a9c9f40cc1e5a64b478b5dece9e1ae767f4c3
 
 COCOAPODS: 1.4.0

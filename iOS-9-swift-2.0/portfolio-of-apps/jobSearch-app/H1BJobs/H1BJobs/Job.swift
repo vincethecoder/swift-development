@@ -100,19 +100,19 @@ class Job: NSObject {
         }
         
         // Linkup Job Search
-        Job.queue.addOperation {
-            let linkup = JobUtils(category: .linkUp, search: searchKeywords)
-            let linkupURL = NSURL(string: linkup.requestURL)
-            
-            self.getJobsForUrl(url: linkupURL!, jobCategory: .linkUp) { (success, result, joblistings, error) in
-                if success, let listings = joblistings {
-                    OperationQueue.main.addOperation {
-                        self.jobListings += listings
-                        completion(success, result, self.jobListings, error)
-                    }
-                }
-            }
-        }
+//        Job.queue.addOperation {
+//            let linkup = JobUtils(category: .linkUp, search: searchKeywords)
+//            let linkupURL = NSURL(string: linkup.requestURL)
+//            
+//            self.getJobsForUrl(url: linkupURL!, jobCategory: .linkUp) { (success, result, joblistings, error) in
+//                if success, let listings = joblistings {
+//                    OperationQueue.main.addOperation {
+//                        self.jobListings += listings
+//                        completion(success, result, self.jobListings, error)
+//                    }
+//                }
+//            }
+//        }
         
         // Indeed Job Search
         Job.queue.addOperation {
