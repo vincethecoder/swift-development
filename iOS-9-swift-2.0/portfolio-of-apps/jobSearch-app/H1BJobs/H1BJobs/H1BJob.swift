@@ -50,11 +50,11 @@ class H1BJob: NSObject {
         return UIImage()
     }
 
-    init(title: String, company: String, location: String, date: Date, detail: Any) {
-        self.title = title
-        self.company = company
-        self.location = location
-        self.postdate = date
+    init(title: String?, company: String?, location: String?, date: Date?, detail: Any) {
+        self.title = title ?? ""
+        self.company = company ?? ""
+        self.location = location ?? "USA"
+        self.postdate = date ?? Date()
         self.jobdetail = detail
     }
 }

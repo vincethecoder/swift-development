@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,16 +12,12 @@
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
-                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
-                    </layoutGuides>
                     <view key="view" alpha="0.94999999999999996" contentMode="scaleAspectFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_h1bjobs_bgimage" translatesAutoresizingMaskIntoConstraints="NO" id="ouX-gN-xyA">
-                                <rect key="frame" x="-9" y="24" width="393" height="754"/>
+                                <rect key="frame" x="-9" y="-6" width="393" height="834"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1wf-mV-d8J" userLabel="Get Started View">
                                 <rect key="frame" x="16" y="698" width="343" height="55"/>
@@ -41,16 +36,17 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="BJZ-4U-G8v"/>
                         <color key="backgroundColor" red="0.0039215686274509803" green="0.31764705882352939" blue="0.49019607843137253" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ouX-gN-xyA" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="2D7-WX-GeM"/>
+                            <constraint firstItem="ouX-gN-xyA" firstAttribute="top" secondItem="BJZ-4U-G8v" secondAttribute="top" constant="-50" id="2D7-WX-GeM"/>
                             <constraint firstAttribute="leadingMargin" secondItem="1wf-mV-d8J" secondAttribute="leading" id="Hkz-do-dBO"/>
                             <constraint firstItem="ouX-gN-xyA" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-25" id="KV0-JM-XxE"/>
                             <constraint firstItem="ouX-gN-xyA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Taq-Vh-C80"/>
-                            <constraint firstItem="ouX-gN-xyA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="TzI-le-F3x"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="1wf-mV-d8J" secondAttribute="bottom" constant="25" id="Ug0-Gn-7eL"/>
+                            <constraint firstItem="ouX-gN-xyA" firstAttribute="centerX" secondItem="BJZ-4U-G8v" secondAttribute="centerX" id="TzI-le-F3x"/>
+                            <constraint firstItem="BJZ-4U-G8v" firstAttribute="bottom" secondItem="1wf-mV-d8J" secondAttribute="bottom" constant="25" id="Ug0-Gn-7eL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ouX-gN-xyA" secondAttribute="trailing" constant="-25" id="VG1-wm-Ag0"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ouX-gN-xyA" secondAttribute="bottom" id="hWw-p4-Ra2"/>
+                            <constraint firstItem="BJZ-4U-G8v" firstAttribute="bottom" secondItem="ouX-gN-xyA" secondAttribute="bottom" constant="-50" id="hWw-p4-Ra2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1wf-mV-d8J" secondAttribute="trailing" id="tuR-hN-27l"/>
                         </constraints>
                         <variation key="default">

@@ -70,12 +70,12 @@ class WalkthroughContentViewController: UIViewController {
                 break
         }
         
-        if imageName.count > 0 {
-            bgImageView.image = UIImage(named: imageName)
+        if let bgImage = UIImage(named: imageName) {
+            bgImageView.image = bgImage
         }
         
-        if iconName.count > 0 {
-            iconImageView.image = UIImage(named: iconName)
+        if let iconImage = UIImage(named: iconName) {
+            iconImageView.image = iconImage
         }
         
     }

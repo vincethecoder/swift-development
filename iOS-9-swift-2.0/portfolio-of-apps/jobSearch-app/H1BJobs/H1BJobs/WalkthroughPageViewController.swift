@@ -42,7 +42,7 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         var index = (viewController as! WalkthroughContentViewController).index
-        index += 1
+        index -= 1
         
         return viewControllerAtIndex(index: index)
     }
@@ -50,7 +50,7 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         var index = (viewController as! WalkthroughContentViewController).index
-        index -= 1
+        index += 1
         
         return viewControllerAtIndex(index: index)
     }

@@ -25,28 +25,27 @@ class Job: NSObject {
                         if let diceJob = job as? DiceJobDetail {
                             
                             // Jobs in DiceJob Listings
-                            let h1bjob = H1BJob(title: diceJob.jobTitle!, company: diceJob.company!, location: diceJob.location!, date: diceJob.postdate!, detail: diceJob)
+                            let h1bjob = H1BJob(title: diceJob.jobTitle, company: diceJob.company, location: diceJob.location, date: diceJob.postdate, detail: diceJob)
                             self.jobListings.append(h1bjob)
                             
                         } else if let cbJob = job as? CBJobDetail {
                             
                             // Jobs in CareerBuilder Listings
-                            let company = nil != cbJob.company ? cbJob.company! : ""
-                            let h1bjob = H1BJob(title: cbJob.jobTitle!, company: company, location: cbJob.location!, date: cbJob.postedDate!, detail: cbJob)
+                            let h1bjob = H1BJob(title: cbJob.jobTitle!, company: cbJob.company, location: cbJob.location, date: cbJob.postedDate, detail: cbJob)
                             if let _ = cbJob.descriptionTeaser, cbJob.descriptionTeaser?.isValidSponsoredJob == true && cbJob.h1BEligible == true {
                                 self.jobListings.append(h1bjob)
                             }
                         } else if let linkupJob = job as? LinkupJobDetail {
                             
                             // Jobs in Linkup Listings
-                            let h1bjob = H1BJob(title: linkupJob.job_title!, company: linkupJob.job_company!, location: linkupJob.job_location!, date: linkupJob.job_date_posted, detail: linkupJob)
+                            let h1bjob = H1BJob(title: linkupJob.job_title, company: linkupJob.job_company, location: linkupJob.job_location, date: linkupJob.job_date_posted, detail: linkupJob)
                             if let description = linkupJob.job_description, description.isValidSponsoredJob {
                                 self.jobListings.append(h1bjob)
                             }
                         } else if let indeedJob = job as? IndeedJobDetail {
                             
                             // Jobs in Indeed Listings
-                            let h1bjob = H1BJob(title: indeedJob.jobtitle!, company: indeedJob.company!, location: indeedJob.formattedLocation!, date: indeedJob.datePosted, detail: indeedJob)
+                            let h1bjob = H1BJob(title: indeedJob.jobtitle, company: indeedJob.company, location: indeedJob.formattedLocation, date: indeedJob.datePosted, detail: indeedJob)
                             if indeedJob.expired?.boolValue == false && indeedJob.snippet?.isValidSponsoredJob == true {
                                 self.jobListings.append(h1bjob)
                             }
